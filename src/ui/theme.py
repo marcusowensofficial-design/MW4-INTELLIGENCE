@@ -143,6 +143,23 @@ section[data-testid="stSidebar"] a span {
     transition: all 0.18s ease-in-out !important;
 }
 
+/* Rename root App entry to SAIL6 RESEARCH HUB in Sidebar */
+[data-testid="stSidebarNavItems"] li:first-child a span,
+[data-testid="stSidebarNav"] li:first-child a span,
+section[data-testid="stSidebar"] ul li:first-child a span {
+    font-size: 0 !important;
+}
+
+[data-testid="stSidebarNavItems"] li:first-child a span::after,
+[data-testid="stSidebarNav"] li:first-child a span::after,
+section[data-testid="stSidebar"] ul li:first-child a span::after {
+    content: "🎯 SAIL6 RESEARCH HUB" !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #38bdf8 !important;
+    visibility: visible !important;
+}
+
 /* Hovered sidebar link - tactical glow */
 [data-testid="stSidebarNav"] a:hover,
 [data-testid="stSidebarNavItems"] a:hover,
