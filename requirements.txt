@@ -1,5 +1,5 @@
 # MW4 Weapon Intelligence Lab Dependencies
-streamlit>=1.35.0
+streamlit>=1.62.0
 duckdb>=1.0.0
 pydantic>=2.7.0
 plotly>=5.22.0
