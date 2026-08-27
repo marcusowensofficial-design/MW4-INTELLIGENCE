@@ -112,6 +112,11 @@ if update_all_clicked:
 
 st.markdown("---")
 
+from src.ui.plain_english import (
+    render_tactical_ballistics_codex,
+    get_weapon_plain_summary
+)
+
 # Overview metrics
 st.markdown("### 📊 Operational Intel Summary")
 
@@ -154,6 +159,9 @@ with col5:
         unsafe_allow_html=True
     )
 
+# Tactical Ballistics Codex & Jargon Translator
+render_tactical_ballistics_codex()
+
 st.markdown("---")
 
 # Quick Intelligence Nav Grid
@@ -163,31 +171,31 @@ c1, c2, c3 = st.columns(3)
 
 with c1:
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#38bdf8; margin:0 0 6px 0;">🔫 Weapon Lab</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Analyze continuous TTK curves, practical engagement latency breakdowns, and hit-location multipliers with full evidence provenance.</p><a href="/Weapon_Lab" target="_self" style="color:#38bdf8; font-size:12px; font-weight:600; text-decoration:none;">Launch Weapon Lab →</a></div>',
+        '<div class="stat-card"><h4 style="color:#38bdf8; margin:0 0 6px 0;">🎯 Tactical Arsenal Matchmaker</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Interactive 3-question advisor that matches your playstyle to the best gun and 5-slot tournament loadout.</p><a href="/Arsenal_Matchmaker" target="_self" style="color:#38bdf8; font-size:12px; font-weight:600; text-decoration:none;">Launch Matchmaker →</a></div>',
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#38bdf8; margin:0 0 6px 0;">💀 Hardcore Lab</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">High-lethality 30 HP breakdown. Inspect 1-shot kill distance breakpoints and compare Hardcore vs Core side-by-side.</p><a href="/Hardcore_Lab" target="_self" style="color:#38bdf8; font-size:12px; font-weight:600; text-decoration:none;">Launch Hardcore Lab →</a></div>',
+        '<div class="stat-card"><h4 style="color:#38bdf8; margin:0 0 6px 0;">⚡ Fastest TTK Leaderboard</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Rank weapons by pure kill speed (Time-To-Kill) and bullets needed to eliminate opponents at any distance.</p><a href="/Fastest_TTK" target="_self" style="color:#38bdf8; font-size:12px; font-weight:600; text-decoration:none;">Launch Fastest TTK →</a></div>',
         unsafe_allow_html=True
     )
 
 with c2:
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">🛠️ Build Optimizer & Gunsmith</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Equip 5-slot attachments and run the multi-objective Pareto-frontier optimizer to uncover non-dominated builds without opaque recommendations.</p><a href="/Build_Optimizer" target="_self" style="color:#4ade80; font-size:12px; font-weight:600; text-decoration:none;">Launch Optimizer →</a></div>',
+        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">🔫 Weapon Lab</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Compare continuous TTK curves, human reaction times, and physical gun stats with plain-English ratings.</p><a href="/Weapon_Lab" target="_self" style="color:#4ade80; font-size:12px; font-weight:600; text-decoration:none;">Launch Weapon Lab →</a></div>',
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">📜 Patch Tracker & Diff Engine</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Side-by-side patch changelog with visual green (Buff) and red (Nerf) delta callouts and stealth change detection.</p><a href="/Patch_Tracker" target="_self" style="color:#4ade80; font-size:12px; font-weight:600; text-decoration:none;">Launch Patch Tracker →</a></div>',
+        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">🛠️ Build Optimizer & Gunsmith</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Equip 5-slot attachments with plain-English effect tags and solve for mathematical Pareto-frontier builds.</p><a href="/Build_Optimizer" target="_self" style="color:#4ade80; font-size:12px; font-weight:600; text-decoration:none;">Launch Optimizer →</a></div>',
         unsafe_allow_html=True
     )
 
 with c3:
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🏆 META Board & Tier List</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Transparent S/A/B/C/D tier rankings computed from normalized metrics. Customize balance weight sliders in real time.</p><a href="/META_Board" target="_self" style="color:#fb923c; font-size:12px; font-weight:600; text-decoration:none;">Launch META Board →</a></div>',
+        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🎯 Verified META Builds Hub</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Browse CDL Pro setups, zero-recoil laser classes, and 1-click share codes for all 24 Modern Warfare 4 weapons.</p><a href="/META_Builds" target="_self" style="color:#fb923c; font-size:12px; font-weight:600; text-decoration:none;">Launch META Builds →</a></div>',
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🔍 Evidence Review & AI Queue</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Review immutable evidence ledger entries across Tiers 1-4. Triage and promote AI claims to verified database tables.</p><a href="/Evidence_Review" target="_self" style="color:#fb923c; font-size:12px; font-weight:600; text-decoration:none;">Launch Evidence Review →</a></div>',
+        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🏆 META Board & Tier List</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">S/A/B/C/D tournament tier classifications with ease-of-control ratings and customizable balance weights.</p><a href="/META_Board" target="_self" style="color:#fb923c; font-size:12px; font-weight:600; text-decoration:none;">Launch META Board →</a></div>',
         unsafe_allow_html=True
     )
 
@@ -204,19 +212,19 @@ for w in weapons:
         ev_list = repo.get_evidence_ledger(target_entity_id=w.weapon_id)
         conf = calculate_evidence_confidence(ev_list, selected_ver)
         score_res = calculate_balance_score(w, stats, profiles, active_ruleset, confidence_score=conf)
+        plain_dossier = get_weapon_plain_summary(w.weapon_id, w.name, w.weapon_class.value)
         roster_rows.append({
             "Weapon": w.name,
             "Class": w.weapon_class.value.replace("_", " ").title(),
-            "Firing Mode": w.firing_mode.value.replace("_", " ").title(),
-            "RPM": stats.rpm,
-            "Base ADS": f"{stats.base_ads_ms} ms",
-            "Sprint to Fire": f"{stats.sprint_to_fire_ms} ms",
-            "Velocity": f"{stats.bullet_velocity_mps} m/s",
-            "Mag Size": w.base_mag_size,
-            "Close TTK": f"{score_res.raw_close_ttk_ms} ms",
-            "Balance Score": f"{score_res.composite_balance_score}/100",
-            "Tier": score_res.tier_rating,
-            "Confidence": f"{int(conf * 100)}%"
+            "Ease of Aim (Recoil)": plain_dossier["ease_label"],
+            "Kill Speed (Close TTK)": f"{score_res.raw_close_ttk_ms} ms",
+            "Fire Rate (RPM)": f"{stats.rpm} RPM",
+            "Quick-Aim (ADS)": f"{stats.base_ads_ms} ms",
+            "Sprint-to-Shoot": f"{stats.sprint_to_fire_ms} ms",
+            "Bullet Velocity": f"{stats.bullet_velocity_mps} m/s",
+            "Mag Size": f"{w.base_mag_size} rds",
+            "Competitive Tier": score_res.tier_rating,
+            "Balance Score": f"{score_res.composite_balance_score}/100"
         })
 
 if roster_rows:
@@ -224,3 +232,4 @@ if roster_rows:
     st.dataframe(df_roster, use_container_width=True, hide_index=True)
 else:
     st.info(f"No weapon stats recorded yet for version '{selected_ver}' and ruleset '{selected_rs_id}'.")
+

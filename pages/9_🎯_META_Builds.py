@@ -18,6 +18,11 @@ from src.database.models import (
 )
 from src.engines.attachment_engine import calculate_modified_stats
 from src.ui.weapon_assets import render_weapon_meta_header
+from src.ui.plain_english import (
+    get_attachment_plain_effects,
+    render_field_intel_box,
+    get_weapon_plain_summary
+)
 
 
 st.set_page_config(page_title="META Builds - MW4 Intel", page_icon="🎯", layout="wide")
@@ -31,6 +36,16 @@ render_page_header(
     active_version=selected_ver,
     active_ruleset=selected_rs_id,
     tag="2026 MW4 BETA"
+)
+
+# Field Intel Explainer
+render_field_intel_box(
+    title="How Verified META Builds Work",
+    text="These weapon builds are verified and copied directly from top CDL tournament pros, analytics sites, and mathematical solvers.<br>"
+         "• <b>👑 CDL Pro Meta:</b> Tournament-legal, ultra-reliable all-round setups.<br>"
+         "• <b>🎯 Zero-Recoil Beamer:</b> Built specifically for the easiest possible gun control (virtually zero kick).<br>"
+         "• <b>⚡ Max Speed Rusher:</b> Maximum sprint speed and quick-aim reaction time for aggressive close-range play.",
+    tip="If you want the easiest experience in multiplayer, pick any 'Zero-Recoil Beamer' preset with a Slate Reflector red dot optic!"
 )
 
 # Fetch all weapons and available meta builds from database
@@ -169,15 +184,15 @@ for w in target_weapons:
 
                     col_m1, col_m2, col_m3, col_m4, col_m5 = st.columns(5)
                     with col_m1:
-                        st.metric("ADS Speed", f"{eval_stats.effective_ads_ms:.0f} ms", f"{ads_sign}{ads_diff:.0f} ms", delta_color=ads_color)
+                        st.metric("Quick-Aim (ADS)", f"{eval_stats.effective_ads_ms:.0f} ms", f"{ads_sign}{ads_diff:.0f} ms", delta_color=ads_color)
                     with col_m2:
-                        st.metric("Sprint-to-Fire", f"{eval_stats.effective_sprint_to_fire_ms:.0f} ms", f"{stf_sign}{stf_diff:.0f} ms", delta_color=ads_color)
+                        st.metric("Sprint Reaction", f"{eval_stats.effective_sprint_to_fire_ms:.0f} ms", f"{stf_sign}{stf_diff:.0f} ms", delta_color=ads_color)
                     with col_m3:
-                        st.metric("Recoil Damping", f"{recoil_pct:+.1f}%", "Vertical Stability")
+                        st.metric("Recoil Reduction", f"{recoil_pct:+.1f}%", "Vertical Kick Dampening")
                     with col_m4:
-                        st.metric("Close TTK (0-15m)", f"{eval_stats.close_ttk_ms:.0f} ms", f"{eval_stats.effective_mag_size} Rnd Mag")
+                        st.metric("Kill Speed (0-15m)", f"{eval_stats.close_ttk_ms:.0f} ms", f"{eval_stats.effective_mag_size} Rnd Mag")
                     with col_m5:
-                        st.metric("Muzzle Velocity", f"{eval_stats.effective_bullet_velocity_mps:.0f} m/s", f"{eval_stats.range_multiplier*100:.0f}% Range")
+                        st.metric("Bullet Velocity", f"{eval_stats.effective_bullet_velocity_mps:.0f} m/s", f"{eval_stats.range_multiplier*100:.0f}% Range")
 
                 # 2. 5-Attachment Breakdown Grid
                 st.markdown("##### 🎛️ Primary Gunsmith Setup (5 Attachments)")
@@ -185,11 +200,14 @@ for w in target_weapons:
                 for idx, att in enumerate(build_attachments):
                     with att_cols[idx % len(att_cols)]:
                         att_desc = att.description or 'Custom competitive attachment'
+                        effs = get_attachment_plain_effects(att.attachment_id, att.name)
+                        eff_html = f"<div style='margin-top:6px; padding-top:4px; border-top:1px dashed rgba(56,189,248,0.2); font-size:0.75rem; color:#4ade80;'>{'<br>'.join(effs[:2])}</div>"
                         st.markdown(
                             f'<div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 10px 12px; height: 100%;">'
                             f'<div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">{att.slot.value.upper()}</div>'
                             f'<div style="color: #f8fafc; font-weight: 600; font-size: 0.95rem; margin: 4px 0;">{att.name}</div>'
                             f'<div style="color: #94a3b8; font-size: 0.8rem;">{att_desc}</div>'
+                            f'{eff_html}'
                             f'</div>',
                             unsafe_allow_html=True
                         )

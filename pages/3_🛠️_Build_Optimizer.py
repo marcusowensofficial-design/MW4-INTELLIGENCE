@@ -15,6 +15,10 @@ from src.engines.recoil_engine import simulate_recoil_pattern
 from src.engines.duel_engine import simulate_1v1_duel, DuelCombatant
 from src.engines.share_code import encode_loadout_share_code, decode_loadout_share_code
 from src.ui.weapon_assets import get_weapon_img_tag
+from src.ui.plain_english import (
+    get_attachment_plain_effects,
+    render_field_intel_box
+)
 
 
 st.set_page_config(page_title="Build Optimizer - MW4 Intel", page_icon="🛠️", layout="wide")
@@ -67,7 +71,13 @@ all_mods = repo.get_attachment_modifiers(version_id=selected_ver)
 # ---------------------------------------------------------------------------
 with tab_gunsmith:
     st.markdown("### 🔧 5-Slot Gunsmith Loadout Customizer")
-    st.caption("Select up to 5 attachments. Stats dynamically update in real time with delta comparison against the naked weapon.")
+    render_field_intel_box(
+        title="How Attachments Work & How To Build Your Gun",
+        text="You can equip up to <b>5 attachments</b>. Attachments are strategic tradeoffs: heavy grips and long barrels stop your gun from kicking, but make you aim slightly slower.<br>"
+             "• <b>Green Delta Numbers:</b> Improvements to your weapon.<br>"
+             "• <b>Plain-English Tags:</b> Look below your equipped attachments for instant summaries of what each piece is doing for you.",
+        tip="If you struggle with recoil, equip a Bruen Heavy Support Grip. If you want faster reaction speed, equip a lightweight stock or handstop!"
+    )
 
     slots = [
         ("Muzzle", AttachmentSlot.MUZZLE),
@@ -144,6 +154,17 @@ with tab_gunsmith:
     else:
         st.success(f"Equipped: {len(selected_attachments)} / 5 Attachments")
 
+        # Plain-English Attachment Benefits Breakdown
+        if selected_attachments:
+            st.markdown("##### 💡 Active Attachment Benefits In Plain English")
+            benefit_pills = []
+            for a in selected_attachments:
+                effects = get_attachment_plain_effects(a.attachment_id, a.name)
+                for eff in effects:
+                    benefit_pills.append(f'<span style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 4px; padding: 3px 8px; font-size: 11.5px; margin: 2px 4px 2px 0; display: inline-block;"><b>{a.name}:</b> {eff}</span>')
+            
+            st.markdown(f'<div style="margin-bottom: 14px;">{" ".join(benefit_pills)}</div>', unsafe_allow_html=True)
+
         # Evaluate Build
         try:
             eval_build = calculate_modified_stats(
@@ -174,14 +195,14 @@ with tab_gunsmith:
             with m1:
                 ads_delta = eval_build.effective_ads_ms - baseline.effective_ads_ms
                 st.metric(
-                    "ADS Transition",
+                    "ADS Speed (Quick-Aim)",
                     f"{eval_build.effective_ads_ms:.0f} ms",
                     delta=f"{ads_delta:+.0f} ms",
                     delta_color="inverse"
                 )
                 stf_delta = eval_build.effective_sprint_to_fire_ms - baseline.effective_sprint_to_fire_ms
                 st.metric(
-                    "Sprint-to-Fire",
+                    "Sprint-to-Shoot Speed",
                     f"{eval_build.effective_sprint_to_fire_ms:.0f} ms",
                     delta=f"{stf_delta:+.0f} ms",
                     delta_color="inverse"
@@ -190,14 +211,14 @@ with tab_gunsmith:
             with m2:
                 recoil_delta = eval_build.recoil_index - baseline.recoil_index
                 st.metric(
-                    "Recoil Index",
+                    "Gun Kick (Recoil Index)",
                     f"{eval_build.recoil_index:.1f}",
                     delta=f"{recoil_delta:+.1f}",
                     delta_color="inverse"
                 )
                 range_delta = (eval_build.range_multiplier - 1.0) * 100.0
                 st.metric(
-                    "Effective Range",
+                    "Effective Damage Range",
                     f"{(eval_build.range_multiplier * 100):.0f}%",
                     delta=f"{range_delta:+.0f}%"
                 )
@@ -205,7 +226,7 @@ with tab_gunsmith:
             with m3:
                 vel_delta = eval_build.effective_bullet_velocity_mps - baseline.effective_bullet_velocity_mps
                 st.metric(
-                    "Muzzle Velocity",
+                    "Bullet Velocity (Speed)",
                     f"{eval_build.effective_bullet_velocity_mps:.0f} m/s",
                     delta=f"{vel_delta:+.0f} m/s"
                 )
@@ -219,14 +240,14 @@ with tab_gunsmith:
             with m4:
                 pet_delta = eval_build.close_pet_ms - baseline.close_pet_ms
                 st.metric(
-                    "Practical Time (15m)",
+                    "Practical Combat Time",
                     f"{eval_build.close_pet_ms:.0f} ms",
                     delta=f"{pet_delta:+.0f} ms",
                     delta_color="inverse"
                 )
                 bal_delta = eval_build.balance_score - baseline.balance_score
                 st.metric(
-                    "Balance Score",
+                    "Balance Rating",
                     f"{eval_build.balance_score:.1f}/100",
                     delta=f"{bal_delta:+.1f}"
                 )
@@ -328,7 +349,12 @@ with tab_gunsmith:
 # ---------------------------------------------------------------------------
 with tab_pareto:
     st.markdown("### 🏆 Multi-Objective Pareto-Frontier Build Optimizer")
-    st.caption("Evaluates hundreds of attachment combinations across Practical Engagement Time, Recoil Stability, Mobility, and Range to reveal mathematically non-dominated builds.")
+    render_field_intel_box(
+        title="What is a Pareto-Optimal Build?",
+        text="The <b>Pareto-Frontier Solver</b> tests hundreds of attachment combinations automatically. It uncovers the mathematically superior 'sweet spot' builds where you get the <b>lowest possible recoil with the fastest possible aim speed</b>.<br>"
+             "• If a build is on the green frontier curve, no other combination in the game can beat its speed without making its recoil worse.",
+        tip="If you want an objectively superior loadout without guessing, equip any build listed in the Non-Dominated Pareto Roster!"
+    )
 
     if st.button("🚀 Run Pareto-Frontier Optimizer", type="primary"):
         with st.spinner(f"Computing Pareto frontier for {weapon.name}..."):
@@ -362,9 +388,9 @@ with tab_pareto:
             pareto_rows.append({
                 "Rank": f"⭐ Front #{idx + 1}",
                 "Build Label": p.build_label,
-                "Practical Time": f"{p.practical_engagement_ms:.0f} ms",
-                "Recoil Index": f"{p.recoil_index:.1f}",
-                "ADS Speed": f"{p.effective_ads_ms:.0f} ms",
+                "Practical Combat Time": f"{p.practical_engagement_ms:.0f} ms",
+                "Gun Kick (Recoil)": f"{p.recoil_index:.1f}",
+                "Scope-In Speed (ADS)": f"{p.effective_ads_ms:.0f} ms",
                 "Range Bonus": f"+{((p.effective_range_multiplier - 1.0) * 100):.0f}%",
                 "Attachments Equipped": ", ".join(p.attachment_names) if p.attachment_names else "Naked (0 Attachments)"
             })
@@ -376,7 +402,11 @@ with tab_pareto:
 # ---------------------------------------------------------------------------
 with tab_duel:
     st.markdown("### ⚔️ 1v1 Gunsmith Duel Arena")
-    st.caption("Pits two customized weapon builds against each other in a millisecond-by-millisecond shootout simulation factoring in ADS latency, sprint recovery, projectile flight time, and human accuracy.")
+    render_field_intel_box(
+        title="How the 1v1 Shootout Arena Works",
+        text="This arena simulates two players seeing each other at the exact same millisecond. It calculates who aims first, who shoots first, bullet travel speed, and who lands the lethal shot.",
+        tip="Guns with fast ADS and Sprint-to-Fire often beat heavy rifles up close, even if the rifle deals more damage per bullet!"
+    )
 
     col_d1, col_d2 = st.columns(2)
     with col_d1:

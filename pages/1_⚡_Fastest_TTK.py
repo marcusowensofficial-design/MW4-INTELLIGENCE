@@ -17,6 +17,7 @@ from src.engines.ttk_engine import (
     calculate_headshots_for_stk_reduction
 )
 from src.database.models import WeaponClass
+from src.ui.plain_english import render_field_intel_box, get_weapon_plain_summary
 
 
 st.set_page_config(page_title="Fastest TTK - MW4 Intel", page_icon="⚡", layout="wide")
@@ -35,6 +36,15 @@ weapons = repo.get_weapons()
 if not weapons:
     st.warning("No weapons found in database.")
     st.stop()
+
+# Field Intel Explainer Box
+render_field_intel_box(
+    title="How Time-To-Kill (TTK) Works In A Real Gunfight",
+    text="<b>Time-to-Kill (TTK)</b> is the exact number of milliseconds it takes to eliminate an enemy from 100% health.<br>"
+         "• <b>Lower number = Faster Kill:</b> A weapon with <b>200ms TTK</b> deletes opponents much faster than a <b>280ms TTK</b> weapon.<br>"
+         "• <b>Shots-to-Kill (STK):</b> The exact number of bullets you must connect on target (e.g. 4 shots vs 5 shots).",
+    tip="If you miss shots due to recoil kick, a slightly slower firing gun with zero recoil (like the XM4 or Striker) will often win you more gunfights than a high-recoil gun!"
+)
 
 # 1. Controls & Distance Filter
 st.markdown("#### 🎯 Filter & Engagement Parameters")
@@ -256,14 +266,14 @@ with tab_dual:
                 delta_rows.append({
                     "Weapon": d15["weapon_name"],
                     "Class": d15["weapon_class"],
-                    "15m TTK": f"{d15['active_ttk_ms']:.0f} ms",
-                    "15m STK": f"{d15['stk']} shots",
-                    "25m TTK": f"{d25['active_ttk_ms']:.0f} ms",
-                    "25m STK": f"{d25['stk']} shots",
-                    "TTK Delta": f"+{delta_ms:.0f} ms" if delta_ms > 0 else "0 ms (No Dropoff)",
-                    "STK Delta": f"+{stk_diff} shot{'s' if stk_diff > 1 else ''}" if stk_diff > 0 else "0 (Consistent)",
-                    "RPM": f"{d15['rpm']:.0f}",
-                    "Velocity": f"{d15['bullet_velocity']:.0f} m/s",
+                    "15m TTK (Kill Speed)": f"{d15['active_ttk_ms']:.0f} ms",
+                    "15m STK (Bullets)": f"{d15['stk']} shots",
+                    "25m TTK (Mid-Range)": f"{d25['active_ttk_ms']:.0f} ms",
+                    "25m STK (Bullets)": f"{d25['stk']} shots",
+                    "TTK Slowdown": f"+{delta_ms:.0f} ms" if delta_ms > 0 else "0 ms (No Dropoff)",
+                    "Extra Bullets Needed": f"+{stk_diff} shot{'s' if stk_diff > 1 else ''}" if stk_diff > 0 else "0 (Consistent)",
+                    "Fire Rate": f"{d15['rpm']:.0f} RPM",
+                    "Bullet Velocity": f"{d15['bullet_velocity']:.0f} m/s",
                     "_delta_val": delta_ms,
                     "_ttk_25": d25["active_ttk_ms"]
                 })
@@ -334,11 +344,11 @@ with tab_single:
                 "Rank": f"#{idx + 1}",
                 "Weapon Platform": row["weapon_name"],
                 "Class": row["weapon_class"],
-                "Active TTK": f"{row['active_ttk_ms']} ms",
+                "Kill Speed (Active TTK)": f"{row['active_ttk_ms']} ms",
                 "Fire TTK (Zero Latency)": f"{row['fire_ttk_ms']} ms",
-                "Flight Time": f"+{row['flight_ms']} ms",
+                "Bullet Flight Delay": f"+{row['flight_ms']} ms",
                 "Headshot Ceiling TTK": f"{row['optimal_head_ttk_ms']} ms",
-                "Shots to Kill": f"{row['stk']} shots",
+                "Bullets to Kill (STK)": f"{row['stk']} shots",
                 "Damage per Shot": f"{row['damage_per_shot']} HP",
                 "Headshots for -1 STK": row["headshot_drop_text"],
                 "Fire Rate (RPM)": f"{row['rpm']} RPM",

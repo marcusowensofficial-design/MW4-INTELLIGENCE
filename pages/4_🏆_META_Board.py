@@ -10,6 +10,10 @@ from src.engines.balance_scorer import (
 )
 from src.engines.confidence_scorer import calculate_evidence_confidence
 from src.ui.weapon_assets import get_weapon_img_tag
+from src.ui.plain_english import (
+    get_weapon_plain_summary,
+    render_field_intel_box
+)
 
 
 st.set_page_config(page_title="META Board - MW4 Intel", page_icon="🏆", layout="wide")
@@ -28,6 +32,16 @@ weapons = repo.get_weapons()
 if not weapons:
     st.warning("No weapons found in database.")
     st.stop()
+
+# Field Intel Explainer
+render_field_intel_box(
+    title="How Tier Rankings Work In Competitive Call of Duty",
+    text="• <b>S-Tier (Absolute Meta):</b> The undisputed top weapons in the game. These have the fastest kill times and highest consistency.<br>"
+         "• <b>A-Tier (Top Tier):</b> Extremely competitive options that hold their own against any S-Tier weapon.<br>"
+         "• <b>B-Tier (Balanced):</b> Viable and fun for casual play, but may lose 1v1 gunfights to pure meta setups.<br>"
+         "• <b>C/D-Tier (Underperforming):</b> Guns with severe recoil or slow fire rates that are currently waiting for developer buffs.",
+    tip="If you want an easy time, look for weapons in S or A Tier that have low recoil (like the XM4 or Striker)!"
+)
 
 # Ranking Mode Selector
 st.markdown("#### 🎯 Competitive Ranking Engine Mode")
@@ -260,7 +274,15 @@ for tier_letter in ["S", "A", "B", "C", "D"]:
     pills_html = []
     for s in items:
         img_thumb = get_weapon_img_tag(s.weapon_id, max_height_px=22, max_width_px=48, extra_style="vertical-align: middle; margin-right: 6px;")
-        pill = f'<span style="display:inline-flex; align-items:center; background:rgba(15,23,42,0.85); border:1px solid {border_c}; border-radius:6px; padding:4px 10px; font-size:13px; font-weight:600; color:#f8fafc;">{img_thumb}{s.weapon_name} <span style="color:{text_c}; font-size:11px; font-weight:700; margin-left:6px;">({s.composite_balance_score}/100)</span></span>'
+        plain_doss = get_weapon_plain_summary(s.weapon_id, s.weapon_name, s.weapon_class.value)
+        pill = (
+            f'<span style="display:inline-flex; align-items:center; background:rgba(15,23,42,0.85); border:1px solid {border_c}; '
+            f'border-radius:6px; padding:5px 10px; font-size:12.5px; font-weight:600; color:#f8fafc; margin-bottom: 4px;">'
+            f'{img_thumb}<b>{s.weapon_name}</b> '
+            f'<span style="color:{text_c}; font-size:11px; font-weight:700; margin-left:6px;">({s.composite_balance_score}/100)</span>'
+            f'<span style="color:#7dd3fc; font-size:10px; margin-left:8px; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.25); padding:1px 6px; border-radius:3px;">{plain_doss["role_title"]}</span>'
+            f'</span>'
+        )
         pills_html.append(pill)
 
     pills_content = ' '.join(pills_html) if pills_html else '<span style="color:#64748b; font-size:12px; font-style:italic;">No weapons currently ranked in this tier</span>'

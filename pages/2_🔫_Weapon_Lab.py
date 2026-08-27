@@ -21,6 +21,11 @@ from src.engines.ttk_engine import (
 from src.engines.engagement_engine import calculate_practical_engagement_time
 from src.engines.balance_scorer import calculate_balance_score
 from src.engines.confidence_scorer import calculate_evidence_confidence
+from src.ui.plain_english import (
+    get_weapon_plain_summary,
+    get_weapon_star_ratings,
+    render_field_intel_box
+)
 
 
 st.set_page_config(page_title="Weapon Lab - MW4 Intel", page_icon="🔫", layout="wide")
@@ -39,6 +44,14 @@ weapons = repo.get_weapons()
 if not weapons:
     st.warning("No weapons found in database. Please seed or import data in Data Admin.")
     st.stop()
+
+# Field Intel Explainer
+render_field_intel_box(
+    title="How to Analyze Weapon Ballistics & Step Curves",
+    text="• <b>Continuous Step Curves:</b> The lower the colored line on the graph, the faster that weapon eliminates opponents at that distance.<br>"
+         "• <b>Damage Dropoffs:</b> When a line steps upwards, the weapon has reached its range limit and requires +1 extra bullet to kill.",
+    tip="Assault rifles maintain flat lines out to 30m+, while SMGs melt up close (0-15m) but drop off sharply at longer distances."
+)
 
 # Weapon selection & controls
 col_sel, col_hit, col_dist, col_mode = st.columns([2, 1, 1, 1])
@@ -157,7 +170,13 @@ st.markdown("---")
 
 # 2. Practical Engagement Time Breakdown & Controls
 st.markdown("### ⏱️ Practical Engagement Latency (Human Performance Engine)")
-st.caption("Practical Engagement Time = Human Reaction + ADS Speed + Sprint-to-Fire + Theoretical TTK + Accuracy Miss Penalty")
+render_field_intel_box(
+    title="Real-World Gunfight Speed (Practical Engagement Time)",
+    text="In real multiplayer matches, gunfights aren't just about theoretical bullet damage. You have to spot the enemy, aim down sights (ADS Speed), recover from running (Sprint-to-Fire), and land your shots.<br>"
+         "• <b>Stacked Latency:</b> This chart combines your human reaction time + weapon handling + bullet TTK.<br>"
+         "• <b>Miss Penalty:</b> If your accuracy is under 100%, each missed shot adds time based on how fast the weapon cycles.",
+    tip="If you get caught sprinting into rooms often, equip Sprint-to-Fire attachments (DR-6 Handstop / Lasers) to cut down your draw time!"
+)
 
 col_p1, col_p2, col_p3 = st.columns(3)
 with col_p1:
@@ -207,6 +226,28 @@ primary_stats = repo.get_weapon_stats(primary_weapon.weapon_id, selected_ver)
 primary_profiles = repo.get_damage_profiles(primary_weapon.weapon_id, selected_ver, selected_rs_id)
 
 if primary_stats and primary_profiles:
+    plain_doss = get_weapon_plain_summary(primary_weapon.weapon_id, primary_weapon.name, primary_weapon.weapon_class.value)
+    stars = get_weapon_star_ratings(primary_stats, primary_weapon.weapon_class)
+    
+    # Plain English Summary Card
+    st.markdown(
+        f'<div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(56, 189, 248, 0.3); border-left: 5px solid #38bdf8; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;">'
+        f'<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">'
+        f'<div>'
+        f'<span style="background: rgba(56, 189, 248, 0.15); color:#38bdf8; border:1px solid rgba(56, 189, 248, 0.4); border-radius:4px; padding:2px 8px; font-size:11px; font-weight:700;">{plain_doss["role_title"]}</span>'
+        f'<h3 style="color:#ffffff; margin:6px 0 2px 0; font-size:18px;">{primary_weapon.name}</h3>'
+        f'<p style="color:#cbd5e1; font-size:13px; margin:0 0 8px 0;">{plain_doss["summary"]}</p>'
+        f'<p style="color:#94a3b8; font-size:12px; margin:0;">🎯 <b>Best For:</b> {plain_doss["best_for"]}</p>'
+        f'</div>'
+        f'<div style="background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 6px; padding: 8px 14px; text-align: right;">'
+        f'<div style="font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 700;">Ease of Use</div>'
+        f'<div style="font-size: 14px; color: #4ade80; font-weight: 700;">{plain_doss["ease_label"]}</div>'
+        f'</div>'
+        f'</div>'
+        f'</div>',
+        unsafe_allow_html=True
+    )
+
     col_rad, col_stat = st.columns([1, 1])
 
     ev_list = repo.get_evidence_ledger(target_entity_id=primary_weapon.weapon_id)
@@ -218,16 +259,28 @@ if primary_stats and primary_profiles:
         st.plotly_chart(fig_radar, use_container_width=True)
 
     with col_stat:
-        st.markdown(f"#### 📊 Physical Stats ({primary_weapon.name})")
+        st.markdown(f"#### 📊 Physical Stats & Ratings ({primary_weapon.name})")
+        
+        # Star ratings summary row
+        st.markdown(
+            f'<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px;">'
+            f'<div style="background: rgba(30, 41, 59, 0.5); padding: 6px 10px; border-radius: 6px; font-size: 11.5px;"><span style="color:#94a3b8;">⚡ Kill Speed:</span> <b style="color:#ffffff;">{stars["kill_speed"][1]}</b></div>'
+            f'<div style="background: rgba(30, 41, 59, 0.5); padding: 6px 10px; border-radius: 6px; font-size: 11.5px;"><span style="color:#94a3b8;">🎯 Aim Ease (Recoil):</span> <b style="color:#4ade80;">{stars["ease_of_control"][1]}</b></div>'
+            f'<div style="background: rgba(30, 41, 59, 0.5); padding: 6px 10px; border-radius: 6px; font-size: 11.5px;"><span style="color:#94a3b8;">🏃 Scope-In Speed:</span> <b style="color:#ffffff;">{stars["quick_aim_speed"][1]}</b></div>'
+            f'<div style="background: rgba(30, 41, 59, 0.5); padding: 6px 10px; border-radius: 6px; font-size: 11.5px;"><span style="color:#94a3b8;">🔭 Long Range Power:</span> <b style="color:#ffffff;">{stars["long_range_power"][1]}</b></div>'
+            f'</div>',
+            unsafe_allow_html=True
+        )
+
         stat_items = [
-            {"Metric": "Fire Rate", "Value": f"{primary_stats.rpm} RPM"},
-            {"Metric": "Base ADS Speed", "Value": f"{primary_stats.base_ads_ms} ms"},
-            {"Metric": "Sprint to Fire", "Value": f"{primary_stats.sprint_to_fire_ms} ms"},
-            {"Metric": "Muzzle Velocity", "Value": f"{primary_stats.bullet_velocity_mps} m/s"},
+            {"Metric": "Fire Rate (RPM)", "Value": f"{primary_stats.rpm} RPM"},
+            {"Metric": "Quick-Aim Speed (ADS)", "Value": f"{primary_stats.base_ads_ms} ms"},
+            {"Metric": "Sprint-to-Shoot Time", "Value": f"{primary_stats.sprint_to_fire_ms} ms"},
+            {"Metric": "Bullet Velocity", "Value": f"{primary_stats.bullet_velocity_mps} m/s"},
             {"Metric": "Tactical Reload", "Value": f"{primary_stats.reload_tactical_s} s"},
             {"Metric": "Empty Reload", "Value": f"{primary_stats.reload_empty_s} s"},
-            {"Metric": "Recoil (H / V)", "Value": f"{primary_stats.recoil_horizontal} / {primary_stats.recoil_vertical}"},
-            {"Metric": "Magazine Size", "Value": f"{primary_weapon.base_mag_size} rounds"},
+            {"Metric": "Gun Kick / Recoil (H / V)", "Value": f"{primary_stats.recoil_horizontal} / {primary_stats.recoil_vertical}"},
+            {"Metric": "Magazine Capacity", "Value": f"{primary_weapon.base_mag_size} rounds"},
             {"Metric": "Strafe Move Speed", "Value": f"{primary_stats.ads_move_speed_mps} m/s"}
         ]
         st.dataframe(pd.DataFrame(stat_items), use_container_width=True, hide_index=True)
