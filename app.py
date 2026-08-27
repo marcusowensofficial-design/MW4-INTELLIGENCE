@@ -175,27 +175,27 @@ with c1:
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#38bdf8; margin:0 0 6px 0;">⚡ Fastest TTK Leaderboard</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Rank weapons by pure kill speed (Time-To-Kill) and bullets needed to eliminate opponents at any distance.</p><a href="/Fastest_TTK" target="_self" style="color:#38bdf8; font-size:12px; font-weight:600; text-decoration:none;">Launch Fastest TTK →</a></div>',
+        '<div class="stat-card"><h4 style="color:#38bdf8; margin:0 0 6px 0;">🏆 META Board & Tier List</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">S/A/B/C/D tournament tier classifications with ease-of-control ratings and customizable balance weights.</p><a href="/META_Board" target="_self" style="color:#38bdf8; font-size:12px; font-weight:600; text-decoration:none;">Launch META Board →</a></div>',
         unsafe_allow_html=True
     )
 
 with c2:
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">🔫 Weapon Lab</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Compare continuous TTK curves, human reaction times, and physical gun stats with plain-English ratings.</p><a href="/Weapon_Lab" target="_self" style="color:#4ade80; font-size:12px; font-weight:600; text-decoration:none;">Launch Weapon Lab →</a></div>',
+        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">🎯 Verified META Builds Hub</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Browse CDL Pro setups, zero-recoil laser classes, and 1-click share codes for all 24 Modern Warfare 4 weapons.</p><a href="/META_Builds" target="_self" style="color:#4ade80; font-size:12px; font-weight:600; text-decoration:none;">Launch META Builds →</a></div>',
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">🛠️ Build Optimizer & Gunsmith</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Equip 5-slot attachments with plain-English effect tags and solve for mathematical Pareto-frontier builds.</p><a href="/Build_Optimizer" target="_self" style="color:#4ade80; font-size:12px; font-weight:600; text-decoration:none;">Launch Optimizer →</a></div>',
+        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">⚡ Fastest TTK Leaderboard</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Rank weapons by pure kill speed (Time-To-Kill) and bullets needed to eliminate opponents at any distance.</p><a href="/Fastest_TTK" target="_self" style="color:#4ade80; font-size:12px; font-weight:600; text-decoration:none;">Launch Fastest TTK →</a></div>',
         unsafe_allow_html=True
     )
 
 with c3:
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🎯 Verified META Builds Hub</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Browse CDL Pro setups, zero-recoil laser classes, and 1-click share codes for all 24 Modern Warfare 4 weapons.</p><a href="/META_Builds" target="_self" style="color:#fb923c; font-size:12px; font-weight:600; text-decoration:none;">Launch META Builds →</a></div>',
+        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🔫 Weapon Lab</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Compare continuous TTK curves, human reaction times, and physical gun stats with plain-English ratings.</p><a href="/Weapon_Lab" target="_self" style="color:#fb923c; font-size:12px; font-weight:600; text-decoration:none;">Launch Weapon Lab →</a></div>',
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🏆 META Board & Tier List</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">S/A/B/C/D tournament tier classifications with ease-of-control ratings and customizable balance weights.</p><a href="/META_Board" target="_self" style="color:#fb923c; font-size:12px; font-weight:600; text-decoration:none;">Launch META Board →</a></div>',
+        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🛠️ Build Optimizer & Gunsmith</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Equip 5-slot attachments with plain-English effect tags and solve for mathematical Pareto-frontier builds.</p><a href="/Build_Optimizer" target="_self" style="color:#fb923c; font-size:12px; font-weight:600; text-decoration:none;">Launch Optimizer →</a></div>',
         unsafe_allow_html=True
     )
 
