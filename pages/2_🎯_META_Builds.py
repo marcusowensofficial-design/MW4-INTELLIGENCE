@@ -165,8 +165,7 @@ for w in target_weapons:
                         attachments=build_attachments,
                         all_modifiers=all_modifiers,
                         damage_profiles=profiles,
-                        ruleset=active_ruleset,
-                        target_health=100.0 if active_ruleset.ruleset_id == "core" else 30.0
+                        ruleset=active_ruleset
                     )
                 else:
                     eval_stats = None
