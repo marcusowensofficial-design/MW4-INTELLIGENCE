@@ -14,22 +14,46 @@ from src.database.models import WeaponClass, WeaponVersionStats
 
 
 def test_get_weapon_plain_summary_known_weapons():
-    """Verify curated dossiers are returned for key weapons."""
-    xm4_dossier = get_weapon_plain_summary("xm4")
+    """Verify curated dossiers are returned for key weapons and aliases."""
+    xm4_dossier = get_weapon_plain_summary("xm4_mw4")
     assert "Laser Beam" in xm4_dossier["role_title"]
-    assert xm4_dossier["ease_rating"] == 5
     assert len(xm4_dossier["summary"]) > 10
 
-    rival_dossier = get_weapon_plain_summary("rival_9")
+    rival_dossier = get_weapon_plain_summary("rival9_mw4")
     assert "SMG" in rival_dossier["role_title"]
     assert "close-quarters" in rival_dossier["summary"]
+
+
+def test_get_weapon_plain_summary_dynamic_stats():
+    """Verify dynamic physical recoil ease calculation from stats object."""
+    laser_stats = WeaponVersionStats(
+        stat_id="laser_v1", weapon_id="laser_gun", game_version_id="v1.0.0",
+        rpm=800.0, base_ads_ms=200.0, sprint_to_fire_ms=150.0, bullet_velocity_mps=800.0,
+        reload_tactical_s=2.0, reload_empty_s=2.5,
+        recoil_horizontal=8.0, recoil_vertical=12.0, # sum = 20 <= 28
+        hipfire_spread_deg=3.0, move_speed_mps=5.0, ads_move_speed_mps=3.0
+    )
+    doss_laser = get_weapon_plain_summary("custom_gun", stats=laser_stats)
+    assert doss_laser["ease_rating"] == 5
+    assert "Zero Kick" in doss_laser["ease_label"]
+
+    kick_stats = WeaponVersionStats(
+        stat_id="kick_v1", weapon_id="kick_gun", game_version_id="v1.0.0",
+        rpm=600.0, base_ads_ms=280.0, sprint_to_fire_ms=240.0, bullet_velocity_mps=700.0,
+        reload_tactical_s=2.5, reload_empty_s=3.0,
+        recoil_horizontal=30.0, recoil_vertical=50.0, # sum = 80 > 65
+        hipfire_spread_deg=4.5, move_speed_mps=4.5, ads_move_speed_mps=2.5
+    )
+    doss_kick = get_weapon_plain_summary("custom_heavy", stats=kick_stats)
+    assert doss_kick["ease_rating"] == 1
+    assert "Severe Kick" in doss_kick["ease_label"]
 
 
 def test_get_weapon_plain_summary_fallback():
     """Verify uncataloged weapons get a clean, valid fallback dossier."""
     fallback = get_weapon_plain_summary("custom_prototype_x", "Prototype X", "assault_rifle")
     assert "Prototype X" in fallback["summary"]
-    assert fallback["ease_rating"] == 4
+    assert fallback["ease_rating"] >= 3
     assert "role_title" in fallback
 
 

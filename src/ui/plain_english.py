@@ -236,29 +236,180 @@ WEAPON_PLAIN_DOSSIERS: Dict[str, Dict[str, Any]] = {
         "ease_label": "⭐⭐⭐⭐☆ Forgiving Semi-Auto",
         "recoil_profile": "Recoil resets quickly between semi-auto trigger pulls.",
         "pro_tip": "Double-tap the trigger to land a guaranteed 2-shot kill in half a second."
+    },
+    "han_86": {
+        "role_title": "🎯 Bullpup Laser Beamer",
+        "summary": "Ultra-tight bullpup recoil architecture. Virtually zero muzzle climb during sustained full-auto fire.",
+        "best_for": "Beaming enemies off power positions and head glitches across mid-range lanes.",
+        "ease_rating": 5,
+        "ease_label": "⭐⭐⭐⭐⭐ Very Easy (Zero Kick)",
+        "recoil_profile": "Dead straight line recoil pattern.",
+        "pro_tip": "Pair with a clean red dot for unmatched sightline lockdown."
+    },
+    "hyeon_burst": {
+        "role_title": "🎯 1-Burst Lethal Marksman AR",
+        "summary": "Fires hyper-compact 3-round bursts with pinpoint grouping.",
+        "best_for": "High-accuracy players seeking 1-burst eliminations.",
+        "ease_rating": 5,
+        "ease_label": "⭐⭐⭐⭐⭐ Very Easy (Tight Burst)",
+        "recoil_profile": "Minimal recoil inside each 3-round burst cluster.",
+        "pro_tip": "Aim at the neck/upper-torso; the 3rd bullet will headshot for an instant kill."
+    },
+    "kastov_74m": {
+        "role_title": "💥 Heavy 7.62 Punch Rifle",
+        "summary": "Hard-hitting assault rifle with high bullet damage, balanced by punchy vertical climb.",
+        "best_for": "Aggressive AR players who can pull down on recoil to melt targets fast.",
+        "ease_rating": 2,
+        "ease_label": "⭐⭐☆☆☆ Punchy (Heavy Kick)",
+        "recoil_profile": "Steep upward vertical climb on sustained automatic fire.",
+        "pro_tip": "Equip a heavy compensator and vertical underbarrel grip."
+    },
+    "signal_50": {
+        "role_title": "💀 .50 BMG Semi-Auto Sniper",
+        "summary": "Heavy anti-materiel rifle with rapid semi-automatic follow-up shots.",
+        "best_for": "Snipers holding long lines who want quick multi-target eliminations.",
+        "ease_rating": 3,
+        "ease_label": "⭐⭐⭐☆☆ Heavy .50 Cal Kick",
+        "recoil_profile": "High vertical jump with fast centering.",
+        "pro_tip": "Wait a fraction of a second for the reticle to settle before your second shot."
+    },
+    "kvd_enforcer": {
+        "role_title": "🎯 2-Shot Precision Marksman",
+        "summary": "Semi-automatic designated marksman rifle offering consistent 2-shot lethality.",
+        "best_for": "Mid-to-long range tap-firing.",
+        "ease_rating": 4,
+        "ease_label": "⭐⭐⭐⭐☆ Very Manageable",
+        "recoil_profile": "Predictable vertical jump on each trigger pull.",
+        "pro_tip": "Paces shots smoothly for guaranteed double-tap kills."
+    },
+    "lockwood_680": {
+        "role_title": "💥 1-Pump Lethal Breaching Shotgun",
+        "summary": "Devastating pump-action shotgun that deletes enemies in 1 point-blank blast.",
+        "best_for": "Room clearing, stairwell defense, and slide-in point blank encounters.",
+        "ease_rating": 4,
+        "ease_label": "⭐⭐⭐⭐☆ Simple Pump Reset",
+        "recoil_profile": "Heavy single-shot pump kick.",
+        "pro_tip": "Slide into enemies before firing to maximize pellet spread density."
+    },
+    "haymaker": {
+        "role_title": "💨 Semi-Auto Drum Spammer",
+        "summary": "Spam-fire shotgun with massive drum magazine for continuous room clearing.",
+        "best_for": "Close-quarters chaos and multi-enemy objective pushes.",
+        "ease_rating": 4,
+        "ease_label": "⭐⭐⭐⭐☆ Easy Hipfire",
+        "recoil_profile": "Continuous moderate rise.",
+        "pro_tip": "Use hipfire attachments and never stop moving."
+    },
+    "cor_45": {
+        "role_title": "⚡ Lightning Semi-Auto Sidearm",
+        "summary": "Snappy tactical pistol with fast swap speed and minimal recoil.",
+        "best_for": "Finishing off weak enemies when your primary runs dry.",
+        "ease_rating": 5,
+        "ease_label": "⭐⭐⭐⭐⭐ Very Easy (Instant Swap)",
+        "recoil_profile": "Light pistol muzzle pop.",
+        "pro_tip": "Switching to your pistol is always faster than reloading!"
+    },
+    "renetti": {
+        "role_title": "🎯 3-Round Burst Pocket Shredder",
+        "summary": "Burst fire handgun that melts enemies at point-blank range.",
+        "best_for": "CQB backup sidearm for sniper or LMG classes.",
+        "ease_rating": 5,
+        "ease_label": "⭐⭐⭐⭐⭐ Very Easy (Burst Control)",
+        "recoil_profile": "Tight, fast burst cluster.",
+        "pro_tip": "Aim at the chest for an instant burst elimination."
     }
 }
 
 
-# Fallback generator for uncataloged weapons
-def get_weapon_plain_summary(weapon_id: str, weapon_name: str = "", weapon_class_val: str = "") -> Dict[str, Any]:
-    """Returns curated plain-English summary or dynamically formats a friendly fallback."""
+# Fallback generator and dynamic stat calculator for all weapons
+def get_weapon_plain_summary(
+    weapon_id: str,
+    weapon_name: str = "",
+    weapon_class_val: str = "",
+    stats: Optional[Any] = None
+) -> Dict[str, Any]:
+    """Returns curated plain-English summary with true dynamic data-driven recoil ratings."""
     clean_id = weapon_id.lower().replace("-", "_").replace(" ", "_")
+    matched_dossier = None
+
     if clean_id in WEAPON_PLAIN_DOSSIERS:
-        return WEAPON_PLAIN_DOSSIERS[clean_id]
-    
-    # Generic fallback
-    cls_name = weapon_class_val.replace("_", " ").title() or "Weapon"
-    name = weapon_name or weapon_id.upper()
-    return {
-        "role_title": f"🎯 Standard {cls_name} Platform",
-        "summary": f"{name} is a balanced {cls_name.lower()} offering reliable combat performance in standard engagements.",
-        "best_for": "General combat scenarios across small to medium map sightlines.",
-        "ease_rating": 4,
-        "ease_label": "⭐⭐⭐⭐☆ Balanced Control",
-        "recoil_profile": "Standard class recoil curve.",
-        "pro_tip": "Test with recoil-reducing muzzle and underbarrel attachments in the Build Optimizer."
-    }
+        matched_dossier = dict(WEAPON_PLAIN_DOSSIERS[clean_id])
+    else:
+        # Fuzzy alias resolver
+        normalized_keys = {
+            "xm4": ["xm4"],
+            "mcw": ["mcw"],
+            "m4": ["m4_"],
+            "holger_556": ["holger", "holger556"],
+            "mtz_556": ["mtz556", "mtz_556"],
+            "kastov_74m": ["ak74m", "kastov"],
+            "hyeon_burst": ["hyeon"],
+            "han_86": ["han86", "han_86"],
+            "rival_9": ["rival9", "rival_9"],
+            "striker": ["striker45", "striker_45", "striker"],
+            "striker_9": ["striker9", "striker_9"],
+            "superi_46": ["superi"],
+            "amr9": ["amr9", "amr_9"],
+            "hrm_9": ["hrm9", "hrm_9"],
+            "wsp_9": ["wsp9", "wsp_9"],
+            "wsp_swallow": ["wsp_swarm", "wsp_swallow", "wsp"],
+            "bas_b": ["basb", "bas_b"],
+            "sidewinder": ["sidewinder"],
+            "mtz_762": ["mtz762", "mtz_762"],
+            "pulemyot_762": ["pulemyot", "pulemyot762"],
+            "bruen_mk9": ["bruen", "bruen_mk9"],
+            "dg_58_lsb": ["dg58", "dg_58"],
+            "katt_amr": ["katt", "katt_amr"],
+            "longbow": ["longbow"],
+            "signal_50": ["signal50", "signal_50", "dmr_signal50"],
+            "kvd_enforcer": ["kvd", "kvd_enforcer"],
+            "lockwood_680": ["lockwood", "lockwood680"],
+            "haymaker": ["haymaker"],
+            "cor_45": ["cor45", "cor_45"],
+            "renetti": ["renetti"]
+        }
+        for d_key, aliases in normalized_keys.items():
+            if any(alias in clean_id for alias in aliases):
+                if d_key in WEAPON_PLAIN_DOSSIERS:
+                    matched_dossier = dict(WEAPON_PLAIN_DOSSIERS[d_key])
+                    break
+
+    if not matched_dossier:
+        cls_name = weapon_class_val.replace("_", " ").title() or "Weapon"
+        name = weapon_name or weapon_id.upper()
+        matched_dossier = {
+            "role_title": f"🎯 Standard {cls_name} Platform",
+            "summary": f"{name} is a balanced {cls_name.lower()} offering reliable combat performance in standard engagements.",
+            "best_for": "General combat scenarios across small to medium map sightlines.",
+            "ease_rating": 3,
+            "ease_label": "⭐⭐⭐☆☆ Balanced Kick",
+            "recoil_profile": "Standard class recoil curve.",
+            "pro_tip": "Test with recoil-reducing muzzle and underbarrel attachments in the Build Optimizer."
+        }
+
+    # If physical stats are provided, compute TRUE physical recoil rating dynamically!
+    if stats is not None:
+        h_rec = getattr(stats, "recoil_horizontal", 16.0) or 16.0
+        v_rec = getattr(stats, "recoil_vertical", 24.0) or 24.0
+        rec_sum = float(h_rec) + float(v_rec)
+        
+        if rec_sum <= 28.0:
+            matched_dossier["ease_rating"] = 5
+            matched_dossier["ease_label"] = "⭐⭐⭐⭐⭐ Very Easy (Zero Kick)"
+        elif rec_sum <= 38.0:
+            matched_dossier["ease_rating"] = 4
+            matched_dossier["ease_label"] = "⭐⭐⭐⭐☆ Easy (Very Smooth)"
+        elif rec_sum <= 50.0:
+            matched_dossier["ease_rating"] = 3
+            matched_dossier["ease_label"] = "⭐⭐⭐☆☆ Moderate (Balanced Kick)"
+        elif rec_sum <= 65.0:
+            matched_dossier["ease_rating"] = 2
+            matched_dossier["ease_label"] = "⭐⭐☆☆☆ Punchy (Heavy Kick)"
+        else:
+            matched_dossier["ease_rating"] = 1
+            matched_dossier["ease_label"] = "⭐☆☆☆☆ High Skill (Severe Kick)"
+
+    return matched_dossier
 
 
 # ---------------------------------------------------------------------------

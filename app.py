@@ -212,7 +212,7 @@ for w in weapons:
         ev_list = repo.get_evidence_ledger(target_entity_id=w.weapon_id)
         conf = calculate_evidence_confidence(ev_list, selected_ver)
         score_res = calculate_balance_score(w, stats, profiles, active_ruleset, confidence_score=conf)
-        plain_dossier = get_weapon_plain_summary(w.weapon_id, w.name, w.weapon_class.value)
+        plain_dossier = get_weapon_plain_summary(w.weapon_id, w.name, w.weapon_class.value, stats=stats)
         roster_rows.append({
             "Weapon": w.name,
             "Class": w.weapon_class.value.replace("_", " ").title(),
