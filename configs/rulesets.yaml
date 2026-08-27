@@ -1,0 +1,62 @@
+# Modern Warfare 4 Rulesets Configuration
+# Core and Hardcore are treated as strictly independent rulesets.
+rulesets:
+  core:
+    ruleset_id: "core"
+    name: "Core 100 HP"
+    description: "Standard competitive ruleset with 100 HP, body hit-location multipliers, and passive health regeneration."
+    target_health: 100
+    regen_delay_ms: 5000
+    regen_rate_hp_per_sec: 25.0
+    friendly_fire: false
+    min_stk_cap: 1
+    body_multipliers:
+      head: 1.40
+      neck: 1.25
+      upper_torso: 1.10
+      lower_torso: 1.00
+      limbs: 0.90
+    assumptions:
+      - "Standard 100 HP pool"
+      - "Health regen starts after 5.0 seconds of no damage taken"
+      - "Body hit multipliers apply to base damage"
+
+  hardcore:
+    ruleset_id: "hardcore"
+    name: "Hardcore 30 HP"
+    description: "Hardcore tactical ruleset with 30 HP, flat lethal profiles, zero passive health regeneration, and friendly fire enabled."
+    target_health: 30
+    regen_delay_ms: 0
+    regen_rate_hp_per_sec: 0.0
+    friendly_fire: true
+    min_stk_cap: 1
+    body_multipliers:
+      head: 1.00
+      neck: 1.00
+      upper_torso: 1.00
+      lower_torso: 1.00
+      limbs: 1.00
+    assumptions:
+      - "Strict 30 HP maximum pool"
+      - "Zero passive health regeneration"
+      - "Hit location multipliers are unverified/flat until confirmed otherwise by frame test"
+      - "Friendly fire active"
+
+  custom_wz_armor:
+    ruleset_id: "custom_wz_armor"
+    name: "3-Plate Armor (300 HP)"
+    description: "Heavy armor ruleset simulating 150 base HP + 150 3-plate armor."
+    target_health: 300
+    regen_delay_ms: 6000
+    regen_rate_hp_per_sec: 20.0
+    friendly_fire: false
+    min_stk_cap: 1
+    body_multipliers:
+      head: 1.35
+      neck: 1.15
+      upper_torso: 1.00
+      lower_torso: 1.00
+      limbs: 0.85
+    assumptions:
+      - "300 HP total effective health"
+      - "Armor plate break triggers visual cue"

@@ -1,0 +1,40 @@
+{
+  "version_id": "v1.2.0-midseason",
+  "release_date": "2026-11-20",
+  "patch_name": "MW4 Mid-Season 1 Balancing Update",
+  "notes": "Tuning assault rifles and SMGs based on competitive feedback.",
+  "weapon_stat_updates": [
+    {
+      "weapon_id": "xm4_mw4",
+      "rpm": 780.0,
+      "base_ads_ms": 230.0,
+      "sprint_to_fire_ms": 200.0,
+      "tactical_sprint_to_fire_ms": 275.0,
+      "bullet_velocity_mps": 745.0,
+      "reload_empty_s": 2.30,
+      "reload_tactical_s": 1.75,
+      "recoil_horizontal": 17.2,
+      "recoil_vertical": 24.8,
+      "hipfire_spread_deg": 3.8,
+      "move_speed_mps": 4.90,
+      "ads_move_speed_mps": 2.98,
+      "flinch_resistance": 1.0
+    },
+    {
+      "weapon_id": "rival9_mw4",
+      "rpm": 900.0,
+      "base_ads_ms": 175.0,
+      "sprint_to_fire_ms": 155.0,
+      "tactical_sprint_to_fire_ms": 215.0,
+      "bullet_velocity_mps": 555.0,
+      "reload_empty_s": 2.00,
+      "reload_tactical_s": 1.50,
+      "recoil_horizontal": 22.5,
+      "recoil_vertical": 26.5,
+      "hipfire_spread_deg": 2.7,
+      "move_speed_mps": 5.28,
+      "ads_move_speed_mps": 3.75,
+      "flinch_resistance": 1.2
+    }
+  ]
+}

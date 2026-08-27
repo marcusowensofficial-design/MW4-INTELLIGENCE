@@ -1,0 +1,29 @@
+# Set default behavior to automatically normalize text files
+* text=auto
+
+# Windows scripts must always have CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Unix scripts must always have LF
+*.sh text eol=lf
+
+# Python & Web Source Files
+*.py text diff=python
+*.md text
+*.json text
+*.yaml text
+*.yml text
+*.css text
+*.html text
+*.csv text
+
+# Binary files (prevent any line ending mangling)
+*.png binary
+*.webp binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.duckdb binary
+*.parquet binary

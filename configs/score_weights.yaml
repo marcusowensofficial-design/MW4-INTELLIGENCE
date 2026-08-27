@@ -1,0 +1,60 @@
+# Balance Scoring Weight Presets
+# Weights normalize each domain metric from 0.0 to 1.0. The sum of weights equals 1.0.
+
+default_profile: "balanced_general"
+
+profiles:
+  balanced_general:
+    name: "General Balanced META"
+    description: "Evenly weighted across close, mid, long range, handling, and recoil control."
+    weights:
+      cqb_ttk: 0.25
+      mid_ttk: 0.25
+      long_ttk: 0.15
+      handling_ads_stf: 0.15
+      recoil_stability: 0.15
+      sustainability_reload_mag: 0.05
+
+  aggressive_cqb:
+    name: "Aggressive CQB / Rusher"
+    description: "Prioritizes close-range practical engagement time, sprint-to-fire speed, and ADS handling."
+    weights:
+      cqb_ttk: 0.40
+      mid_ttk: 0.15
+      long_ttk: 0.05
+      handling_ads_stf: 0.30
+      recoil_stability: 0.05
+      sustainability_reload_mag: 0.05
+
+  precision_anchor:
+    name: "Long Range Anchor / Lane Holder"
+    description: "Prioritizes mid-to-long range TTK, bullet velocity, and minimum recoil deflection."
+    weights:
+      cqb_ttk: 0.10
+      mid_ttk: 0.30
+      long_ttk: 0.30
+      handling_ads_stf: 0.05
+      recoil_stability: 0.20
+      sustainability_reload_mag: 0.05
+
+  hardcore_lethality:
+    name: "Hardcore 1-Shot Dominance"
+    description: "Focuses on 1-shot lethal range, sprint-to-fire reaction time, and hipfire spread."
+    weights:
+      cqb_ttk: 0.35
+      mid_ttk: 0.20
+      long_ttk: 0.15
+      handling_ads_stf: 0.25
+      recoil_stability: 0.03
+      sustainability_reload_mag: 0.02
+
+# Class-specific baseline adjustments
+class_presets:
+  assault_rifle: "balanced_general"
+  submachine_gun: "aggressive_cqb"
+  battle_rifle: "precision_anchor"
+  marksman_rifle: "precision_anchor"
+  sniper_rifle: "precision_anchor"
+  light_machine_gun: "precision_anchor"
+  shotgun: "aggressive_cqb"
+  handgun: "aggressive_cqb"

@@ -1,0 +1,125 @@
+# Source Registry and Evidence Confidence Hierarchy
+# Strict Source Truth Hierarchy:
+# Tier 1: Official Patch Notes (Infinity Ward / Activision)
+# Tier 2: Controlled Measured Tests (Frame-by-frame 240fps/120fps video captures, private match distance markers)
+# Tier 3: Reproducible Public Testing (Community spreadsheets, weapon breakdown creators with published methods)
+# Tier 4: Community Leads / AI suggestions (Unverified rumors, datamine whispers, raw OCR, AI claims)
+
+source_tiers:
+  tier_1:
+    name: "Tier 1: Official Patch Notes"
+    description: "First-party Activision / Infinity Ward official changelogs, patch notes, and blog announcements."
+    base_confidence: 0.98
+    requires_review: false
+    auto_verify: true
+
+  tier_2:
+    name: "Tier 2: Controlled Measured Tests"
+    description: "High-speed (120-240fps) frame-by-frame video capture testing in controlled private matches with fixed distance markers."
+    base_confidence: 0.92
+    requires_review: false
+    auto_verify: true
+
+  tier_3:
+    name: "Tier 3: Reproducible Public Testing"
+    description: "Verified community database releases with public methodologies, test scripts, or corroborating community test sets."
+    base_confidence: 0.78
+    requires_review: false
+    auto_verify: false
+
+  tier_4:
+    name: "Tier 4: Community Leads & AI Drafts"
+    description: "Unverified community observations, automated screenshot OCR drafts, or AI-synthesized claims. Must be queued in AI Review Queue."
+    base_confidence: 0.40
+    requires_review: true
+    auto_verify: false
+
+# Registered Sources with assigned tiers
+registered_sources:
+  # Tier 1: Official First-Party Sources
+  - source_id: "official_callofduty_blog"
+    name: "Official Call of Duty Blog & Patch Notes"
+    tier: "tier_1"
+    url: "https://www.callofduty.com/patchnotes"
+    test_method: "First-party developer patch notes and balance updates"
+
+  - source_id: "activision_support_trello"
+    name: "Activision Official Trello Board (Live Issues & Stealth Fixes)"
+    tier: "tier_1"
+    url: "https://trello.com/b/callofduty"
+    test_method: "Official live issue tracker and stealth patch documentation"
+
+  # Tier 2: Controlled Empirical Frame-by-Frame Testing
+  - source_id: "mw4_lab_frame_analysis"
+    name: "MW4 Intelligence Lab 240fps Frame Audit"
+    tier: "tier_2"
+    url: "https://mw4-intel-lab.local/methodology"
+    test_method: "240fps lossless capture with Elgato 4K60 Pro, 1m laser distance increments"
+
+  - source_id: "thexclusiveace_empirical_testing"
+    name: "TheXclusiveAce Gun Guides & Recoil Testing"
+    tier: "tier_2"
+    url: "https://www.youtube.com/@TheXclusiveAce"
+    test_method: "High-frame-rate capture (120-240fps) frame-counting for ADS, STF, and wall recoil plot extraction"
+
+  - source_id: "truegamedata_lab_verification"
+    name: "TrueGameData High-Speed Empirical Gunsmith Testing"
+    tier: "tier_2"
+    url: "https://www.truegamedata.com"
+    test_method: "Controlled private match damage step verification and attachment modifier isolation"
+
+  # Tier 3: Reproducible Public Repositories & Meta Spreadsheets
+  - source_id: "sym_gg_data_archive"
+    name: "Sym.gg Verified Weapon Mechanics Archive"
+    tier: "tier_3"
+    url: "https://sym.gg"
+    test_method: "Public community mechanics data and baseline weapon attributes"
+
+  - source_id: "jgod_master_spreadsheet"
+    name: "JGOD Master TTK & Damage Range Spreadsheet"
+    tier: "tier_3"
+    url: "https://www.youtube.com/@JGOD"
+    test_method: "Curated community damage dropoff tables, TTK calculations, and meta loadout analysis"
+
+  - source_id: "codmunity_meta_database"
+    name: "CODMunity Gunsmith & Meta Loadout Database"
+    tier: "tier_3"
+    url: "https://codmunity.com"
+    test_method: "Aggregated community loadout rankings and attachment popularity metrics"
+
+  - source_id: "charlieintel_patch_tracking"
+    name: "CharlieIntel Patch & Balance Shift Archive"
+    tier: "tier_3"
+    url: "https://charlieintel.com"
+    test_method: "Verified breaking patch logs, weapon tuning coverage, and CDL balance updates"
+
+  - source_id: "breakingpoint_cdl_intel"
+    name: "BreakingPoint.gg (CDL Rules & Pro Loadouts)"
+    tier: "tier_3"
+    url: "https://breakingpoint.gg"
+    test_method: "Call of Duty League (CDL) competitive ruleset, Gentlemen's Agreements (GAs), and pro player loadouts"
+
+  - source_id: "wzhub_gg_database"
+    name: "WZHUB.gg Meta & Camo Tracker"
+    tier: "tier_3"
+    url: "https://wzhub.gg"
+    test_method: "Aggregated meta loadouts, camo unlock tracking, and attachment statistics"
+
+  - source_id: "cod_tracker_network"
+    name: "Tracker Network (cod.tracker.gg)"
+    tier: "tier_3"
+    url: "https://cod.tracker.gg"
+    test_method: "Global player weapon usage metrics, pick rates, and combat record distributions"
+
+  # Tier 4: Community Leads, AI Drafts & OCR Extracts
+  - source_id: "ai_review_ocr_extractor"
+    name: "Automated OCR Screenshot & AI Ingestion Draft"
+    tier: "tier_4"
+    url: "local://ai-review-queue"
+    test_method: "Computer vision stat card OCR. Must be validated by human analyst before promotion."
+
+  - source_id: "community_discord_leads"
+    name: "Community Leads & Player Observations"
+    tier: "tier_4"
+    url: "https://discord.gg/callofduty"
+    test_method: "Unverified community observations and beta playtest leads"

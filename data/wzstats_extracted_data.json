@@ -1,0 +1,2063 @@
+{
+  "builds": [
+    {
+      "id": "han-86-mw4-wzstats-2a16eb",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "xrk-clutch-ls",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "XRK CLUTCH-LS"
+      },
+      "optic": {
+        "attachmentId": "sz-micro-d-3",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "SZ MICRO D-3"
+      },
+      "stock": {
+        "attachmentId": "fr4-retractable-stock",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "stock",
+        "name": "FR4 RETRACTABLE STOCK"
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "hanbit-rk8-406.4mm",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "HANBIT RK8 406.4MM"
+      },
+      "addedAt": 1787354722.897,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "han-86-mw4",
+      "createdAt": "2026-08-21T23:06:36.825Z",
+      "playstyle": "LOW_LEVEL",
+      "tierScore": 0,
+      "updatedAt": "2026-08-21T23:25:21.829Z",
+      "ammunition": {
+        "attachmentId": "5.56-nato-frangible",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "ammunition",
+        "name": "5.56 NATO FRANGIBLE"
+      },
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "han-86-mw4-wzstats-b4814f",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "schlager-visiv-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SCHLAGER VISIV-5"
+      },
+      "stock": {
+        "attachmentId": "meiko-l9p-fold",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "stock",
+        "name": "MEIKO L9P-FOLD"
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "han-86-silenced-412.75mm",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "HAN 86 SILENCED 412.75MM"
+      },
+      "addedAt": 1787355451.949,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "han-86-mw4",
+      "createdAt": "2026-08-21T23:27:52.147Z",
+      "playstyle": "VERSATILE",
+      "tierScore": 0,
+      "updatedAt": "2026-08-22T00:01:47.339Z",
+      "ammunition": {
+        "attachmentId": "5.56-nato-frangible",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "ammunition",
+        "name": "5.56 NATO FRANGIBLE"
+      },
+      "description": "",
+      "isPublished": true,
+      "underbarrel": {
+        "attachmentId": "fss-tac90-grip",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "underbarrel",
+        "name": "FSS TAC90 GRIP"
+      },
+      "displayOrder": 0,
+      "isMW4BestBuild": true,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "iso-nightshade-mw4-wzstats-fe175e",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "stock": {
+        "attachmentId": "gi-80-milspec-stock",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "stock",
+        "name": "GI-80 MILSPEC STOCK",
+        "unlockedAtWeaponLevel": 15
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "zlr-mag-z-9\"",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "ZLR MAG-Z 9\"",
+        "unlockedAtWeaponLevel": 2
+      },
+      "muzzle": {
+        "attachmentId": "fss-crackdown",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "FSS CRACKDOWN",
+        "unlockedAtWeaponLevel": 4
+      },
+      "addedAt": 1787361471.089,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "rearGrip": {
+        "attachmentId": "demo-stp-1",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "rearGrip",
+        "name": "DEMO STP-1",
+        "unlockedAtWeaponLevel": 6
+      },
+      "weaponId": "iso-nightshade-mw4",
+      "createdAt": "2026-08-22T01:09:46.940Z",
+      "playstyle": "LOW_LEVEL",
+      "tierScore": 0,
+      "updatedAt": "2026-08-22T01:20:42.303Z",
+      "ammunition": {
+        "attachmentId": "9mm-parabellum-frangible",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "ammunition",
+        "name": "9MM PARABELLUM FRANGIBLE",
+        "unlockedAtWeaponLevel": 8
+      },
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "iso-nightshade-mw4-wzstats-7bc8a7",
+      "data": {
+        "id": "iso-nightshade-mw4-wzstats-7bc8a7",
+        "cons": [],
+        "pros": [],
+        "type": "mw4",
+        "laser": {
+          "attachmentId": "schlager-visiv-5",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "laser",
+          "name": "SCHLAGER VISIV-5",
+          "unlockedAtWeaponLevel": 39
+        },
+        "title": "",
+        "barrel": {
+          "attachmentId": "zlr-carbon-900",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "barrel",
+          "name": "ZLR CARBON-900",
+          "unlockedAtWeaponLevel": 35
+        },
+        "muzzle": {
+          "attachmentId": "fss-crackdown",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "muzzle",
+          "name": "FSS CRACKDOWN",
+          "unlockedAtWeaponLevel": 4
+        },
+        "addedAt": 1787362139.226,
+        "authorId": "wzstats",
+        "position": 10,
+        "prosCons": "{}",
+        "rearGrip": {
+          "attachmentId": "demo-stp-1",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "rearGrip",
+          "name": "DEMO STP-1",
+          "unlockedAtWeaponLevel": 6
+        },
+        "weaponId": "iso-nightshade-mw4",
+        "createdAt": "2026-08-22T01:20:56.889Z",
+        "playstyle": "VERSATILE",
+        "tierScore": 0,
+        "updatedAt": "2026-08-22T16:48:48.312Z",
+        "ammunition": {
+          "attachmentId": "9mm-parabellum-frangible",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "ammunition",
+          "name": "9MM PARABELLUM FRANGIBLE",
+          "unlockedAtWeaponLevel": 8
+        },
+        "description": "",
+        "isPublished": true,
+        "displayOrder": 0,
+        "isMW4BestBuild": true,
+        "attachmentCount": 5,
+        "interactionCount": null,
+        "authorDisplayName": "WZStats",
+        "isBestPlaystyleVariant": true,
+        "externalSourceTitle": null,
+        "externalSourceImage": null,
+        "weapon": {
+          "id": "iso-nightshade-mw4",
+          "game": "mw4",
+          "name": "ISO NIGHTSHADE",
+          "type": "SMG",
+          "isNew": false,
+          "score": 0,
+          "displayType": "SMG",
+          "baseWeaponId": "",
+          "imageVersion": "",
+          "baseBulletCount": 0,
+          "bo7RankedBanned": false,
+          "conversionKitId": "",
+          "ironGauntletBanned": false,
+          "warzoneRankedBanned": false,
+          "blackOpsRoyaleBanned": false,
+          "unlockedAtPlayerLevel": 0,
+          "unlockedAtWeaponLevel": 0,
+          "bo7RankedAttachmentsDisabled": false,
+          "tierlist": "mw4",
+          "tier": "META",
+          "typeRank": 1,
+          "typeTotal": 3,
+          "categoryRank": 1,
+          "categoryTotal": 6,
+          "whyRank": null,
+          "weaponType": "SMG",
+          "weaponName": "ISO NIGHTSHADE",
+          "weaponId": "iso-nightshade-mw4"
+        }
+      },
+      "code": null,
+      "interactionCount": null,
+      "authorId": "wzstats",
+      "externalSourceImage": null,
+      "externalSourceTitle": null,
+      "isPublished": true,
+      "position": 10,
+      "type": "mw4",
+      "createdAt": "2026-08-22T01:20:56.889Z",
+      "updatedAt": "2026-08-22T16:48:48.312Z"
+    },
+    {
+      "id": "m4-mw4-wzstats-d1a8fb",
+      "data": {
+        "id": "m4-mw4-wzstats-d1a8fb",
+        "cons": [],
+        "pros": [],
+        "type": "mw4",
+        "laser": {
+          "attachmentId": "sz-gen.6-peq",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "laser",
+          "name": "SZ GEN.6 PEQ",
+          "unlockedAtWeaponLevel": 2
+        },
+        "stock": {
+          "attachmentId": "pf1-fixed-stock",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "stock",
+          "name": "PF1 FIXED STOCK",
+          "unlockedAtWeaponLevel": 14
+        },
+        "title": "",
+        "muzzle": {
+          "attachmentId": "fss-is300",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "muzzle",
+          "name": "FSS IS300",
+          "unlockedAtWeaponLevel": 4
+        },
+        "addedAt": 1787364819.103,
+        "authorId": "wzstats",
+        "position": 10,
+        "prosCons": "{}",
+        "rearGrip": {
+          "attachmentId": "brace-dx-grip",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "rearGrip",
+          "name": "BRACE DX GRIP",
+          "unlockedAtWeaponLevel": 10
+        },
+        "weaponId": "m4-mw4",
+        "createdAt": "2026-08-22T02:10:27.183Z",
+        "playstyle": "VERSATILE",
+        "tierScore": 0,
+        "updatedAt": "2026-08-23T17:28:50.524Z",
+        "description": "",
+        "isPublished": true,
+        "underbarrel": {
+          "attachmentId": "fss-fireline-grip",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "underbarrel",
+          "name": "FSS FIRELINE GRIP",
+          "unlockedAtWeaponLevel": 37
+        },
+        "displayOrder": 0,
+        "isMW4BestBuild": true,
+        "attachmentCount": 5,
+        "interactionCount": null,
+        "authorDisplayName": "WZStats",
+        "isBestPlaystyleVariant": true,
+        "externalSourceTitle": null,
+        "externalSourceImage": null,
+        "weapon": {
+          "id": "m4-mw4",
+          "game": "mw4",
+          "name": "M4",
+          "type": "ASSAULT_RIFLE",
+          "isNew": false,
+          "score": 0,
+          "displayType": "ASSAULT_RIFLE",
+          "baseWeaponId": "",
+          "imageVersion": "",
+          "baseBulletCount": 0,
+          "bo7RankedBanned": false,
+          "conversionKitId": "",
+          "ironGauntletBanned": false,
+          "warzoneRankedBanned": false,
+          "blackOpsRoyaleBanned": false,
+          "unlockedAtPlayerLevel": 0,
+          "unlockedAtWeaponLevel": 0,
+          "bo7RankedAttachmentsDisabled": false,
+          "tierlist": "mw4",
+          "tier": "META",
+          "typeRank": 1,
+          "typeTotal": 5,
+          "categoryRank": 1,
+          "categoryTotal": 9,
+          "whyRank": null,
+          "weaponType": "ASSAULT_RIFLE",
+          "weaponName": "M4",
+          "weaponId": "m4-mw4"
+        }
+      },
+      "code": null,
+      "interactionCount": null,
+      "authorId": "wzstats",
+      "externalSourceImage": null,
+      "externalSourceTitle": null,
+      "isPublished": true,
+      "position": 10,
+      "type": "mw4",
+      "createdAt": "2026-08-22T02:10:27.183Z",
+      "updatedAt": "2026-08-23T17:28:50.524Z"
+    },
+    {
+      "id": "m4-mw4-wzstats-cc70d4",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "sz-gen.6-peq",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SZ GEN.6 PEQ",
+        "unlockedAtWeaponLevel": 2
+      },
+      "optic": {
+        "attachmentId": "slimline-elite",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "SLIMLINE ELITE",
+        "unlockedAtWeaponLevel": 13
+      },
+      "stock": {
+        "attachmentId": "pf1-fixed-stock",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "stock",
+        "name": "PF1 FIXED STOCK",
+        "unlockedAtWeaponLevel": 14
+      },
+      "title": "",
+      "muzzle": {
+        "attachmentId": "fss-is300",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "FSS IS300",
+        "unlockedAtWeaponLevel": 4
+      },
+      "addedAt": 1787364200.617,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "m4-mw4",
+      "createdAt": "2026-08-21T23:10:46.912Z",
+      "playstyle": "LOW_LEVEL",
+      "tierScore": 0,
+      "updatedAt": "2026-08-22T02:10:19.521Z",
+      "ammunition": {
+        "attachmentId": "5.56-nato-overpressured",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "ammunition",
+        "name": "5.56 NATO OVERPRESSURED",
+        "unlockedAtWeaponLevel": 3
+      },
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "kg-7-vulcan-mw4-wzstats-1cb216",
+      "comb": {
+        "attachmentId": "tt-type-40-comb",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "comb",
+        "name": "TT TYPE 40 COMB",
+        "unlockedAtWeaponLevel": 6
+      },
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "schlager-visiv-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SCHLAGER VISIV-5",
+        "unlockedAtWeaponLevel": 7
+      },
+      "optic": {
+        "attachmentId": "hanbit-3080-fireline",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "HANBIT 3080 FIRELINE",
+        "unlockedAtWeaponLevel": 13
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "tt-baem-12\"",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "TT BAEM 12\"",
+        "unlockedAtWeaponLevel": 5
+      },
+      "muzzle": {
+        "attachmentId": "ds-rkt-90",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "DS RKT-90",
+        "unlockedAtWeaponLevel": 4
+      },
+      "addedAt": 1787371421.558,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "kg-7-vulcan-mw4",
+      "createdAt": "2026-08-22T04:00:49.145Z",
+      "playstyle": "LOW_LEVEL",
+      "tierScore": 0,
+      "updatedAt": "2026-08-22T04:03:40.399Z",
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "ppsh-41-mw4-wzstats-c1efac",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "schlager-visiv-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SCHLAGER VISIV-5",
+        "unlockedAtWeaponLevel": 4
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "hanbit-rdr-tiger-50-x",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "HANBIT RDR-TIGER 50-XL",
+        "unlockedAtWeaponLevel": 14
+      },
+      "muzzle": {
+        "attachmentId": "ftac-silent-recon",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "FTAC SILENT RECON",
+        "unlockedAtWeaponLevel": 11
+      },
+      "addedAt": 1787369018.868,
+      "authorId": "wzstats",
+      "magazine": {
+        "attachmentId": "53-round-mag",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "magazine",
+        "name": "53 ROUND MAG",
+        "unlockedAtWeaponLevel": 3
+      },
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "ppsh-41-mw4",
+      "createdAt": "2026-08-22T03:13:31.866Z",
+      "playstyle": "LOW_LEVEL",
+      "tierScore": 0,
+      "updatedAt": "2026-08-22T03:23:37.696Z",
+      "ammunition": {
+        "attachmentId": "7.62-tokarev-overpressured",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "ammunition",
+        "name": "7.62 TOKAREV OVERPRESSURED",
+        "unlockedAtWeaponLevel": 9
+      },
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "ppsh-41-mw4-wzstats-261f98",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "schlager-visiv-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SCHLAGER VISIV-5",
+        "unlockedAtWeaponLevel": 4
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "hanbit-rdr-tiger-50-x",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "HANBIT RDR-TIGER 50-XL",
+        "unlockedAtWeaponLevel": 14
+      },
+      "muzzle": {
+        "attachmentId": "ftac-silent-recon",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "FTAC SILENT RECON",
+        "unlockedAtWeaponLevel": 11
+      },
+      "addedAt": 1787369215.677,
+      "authorId": "wzstats",
+      "magazine": {
+        "attachmentId": "53-round-mag",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "magazine",
+        "name": "53 ROUND MAG",
+        "unlockedAtWeaponLevel": 3
+      },
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "ppsh-41-mw4",
+      "createdAt": "2026-08-22T03:23:44.872Z",
+      "playstyle": "VERSATILE",
+      "tierScore": 0,
+      "updatedAt": "2026-08-22T03:26:54.602Z",
+      "ammunition": {
+        "attachmentId": "7.62-tokarev-frangible",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "ammunition",
+        "name": "7.62 TOKAREV FRANGIBLE",
+        "unlockedAtWeaponLevel": 26
+      },
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "isMW4BestBuild": true,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "kg-7-vulcan-mw4-wzstats-df67ca",
+      "comb": {
+        "attachmentId": "haebang-ync-45",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "comb",
+        "name": "HAEBANG YNC-45",
+        "unlockedAtWeaponLevel": 32
+      },
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "schlager-visiv-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SCHLAGER VISIV-5",
+        "unlockedAtWeaponLevel": 7
+      },
+      "stock": {
+        "attachmentId": "tt-g76-rp-stock",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "stock",
+        "name": "TT G76-RP STOCK",
+        "unlockedAtWeaponLevel": 46
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "haebang-naseon-v.5-26\"",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "HAEBANG NASEON V.5 26\"",
+        "unlockedAtWeaponLevel": 21
+      },
+      "muzzle": {
+        "attachmentId": "ivanov-qr600",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "IVANOV QR600",
+        "unlockedAtWeaponLevel": 62
+      },
+      "addedAt": 1787371792.16,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "kg-7-vulcan-mw4",
+      "createdAt": "2026-08-22T04:03:52.500Z",
+      "playstyle": "ADS_SPEED",
+      "tierScore": 0,
+      "updatedAt": "2026-08-22T04:09:51.650Z",
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "isMW4BestBuild": true,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "kastov-762-mw4-wzstats-901c46",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "fjx-evr7",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "FJX EVR7",
+        "unlockedAtWeaponLevel": 15
+      },
+      "optic": {
+        "attachmentId": "z-dot-9",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "Z-DOT 9",
+        "unlockedAtWeaponLevel": 12
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "tt-414-r-hightac",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "TT 414-R HIGHTAC",
+        "unlockedAtWeaponLevel": 2
+      },
+      "muzzle": {
+        "attachmentId": "exp-r3000-v",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "EXP R3000-V",
+        "unlockedAtWeaponLevel": 8
+      },
+      "addedAt": 1787428205.825,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "kastov-762-mw4",
+      "createdAt": "2026-08-22T19:45:57.620Z",
+      "playstyle": "LOW_LEVEL",
+      "tierScore": 0,
+      "updatedAt": "2026-08-22T19:50:04.516Z",
+      "description": "",
+      "isPublished": true,
+      "underbarrel": {
+        "attachmentId": "fss-fireline-grip",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "underbarrel",
+        "name": "FSS FIRELINE GRIP",
+        "unlockedAtWeaponLevel": 3
+      },
+      "displayOrder": 0,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "hyeon-burst-mw4-wzstats-4cd3ba",
+      "apex": {
+        "attachmentId": "hyeon-hyperburst",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "apex",
+        "name": "HYEON HYPERBURST",
+        "unlockedAtWeaponLevel": 64
+      },
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "sz-gen.6-peq",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SZ GEN.6 PEQ",
+        "unlockedAtWeaponLevel": 4
+      },
+      "optic": {
+        "attachmentId": "iota-d",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "IOTA-D",
+        "unlockedAtWeaponLevel": 33
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "mugi-ingoem-558.8mm",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "MUGI INGOEM 558.8MM",
+        "unlockedAtWeaponLevel": 46
+      },
+      "muzzle": {
+        "attachmentId": "fss-is300",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "FSS IS300",
+        "unlockedAtWeaponLevel": 63
+      },
+      "addedAt": 1787433012.568,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "hyeon-burst-mw4",
+      "createdAt": "2026-08-21T23:10:51.786Z",
+      "playstyle": "APEX",
+      "tierScore": 0,
+      "updatedAt": "2026-08-22T21:17:25.868Z",
+      "description": "",
+      "isPublished": true,
+      "underbarrel": {
+        "attachmentId": "fss-tac90-grip",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "underbarrel",
+        "name": "FSS TAC90 GRIP",
+        "unlockedAtWeaponLevel": 39
+      },
+      "displayOrder": 0,
+      "isMW4BestBuild": true,
+      "attachmentCount": 6,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "kastov-762-mw4-wzstats-d607b5",
+      "data": {
+        "id": "kastov-762-mw4-wzstats-d607b5",
+        "cons": [],
+        "pros": [],
+        "type": "mw4",
+        "laser": {
+          "attachmentId": "schlager-visiv-5",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "laser",
+          "name": "SCHLAGER VISIV-5",
+          "unlockedAtWeaponLevel": 30
+        },
+        "optic": {
+          "attachmentId": "cronen-zero-k",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "optic",
+          "name": "CRONEN ZERO-K",
+          "unlockedAtWeaponLevel": 35
+        },
+        "stock": {
+          "attachmentId": "kastov-dogfighter-27",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "stock",
+          "name": "KASTOV DOGFIGHTER 27",
+          "unlockedAtWeaponLevel": 42
+        },
+        "title": "",
+        "barrel": {
+          "attachmentId": "fjx-ghostfire-16.3\"",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "barrel",
+          "name": "FJX GHOSTFIRE 16.3\"",
+          "unlockedAtWeaponLevel": 61
+        },
+        "addedAt": 1787428648.74,
+        "authorId": "wzstats",
+        "position": 10,
+        "prosCons": "{}",
+        "reargrip": {
+          "attachmentId": "mugi-00-yk1-grip",
+          "verticalTuning": 0,
+          "horizontalTuning": 0
+        },
+        "weaponId": "kastov-762-mw4",
+        "createdAt": "2026-08-22T19:50:39.795Z",
+        "playstyle": "VERSATILE",
+        "tierScore": 0,
+        "updatedAt": "2026-08-22T19:57:27.496Z",
+        "description": "",
+        "isPublished": true,
+        "underbarrel": {
+          "attachmentId": "fss-tac90-grip",
+          "verticalTuning": 0,
+          "horizontalTuning": 0,
+          "slot": "underbarrel",
+          "name": "FSS TAC90 GRIP",
+          "unlockedAtWeaponLevel": 47
+        },
+        "displayOrder": 0,
+        "isMW4BestBuild": true,
+        "attachmentCount": 6,
+        "interactionCount": null,
+        "authorDisplayName": "WZStats",
+        "isBestPlaystyleVariant": true,
+        "externalSourceTitle": null,
+        "externalSourceImage": null,
+        "weapon": {
+          "id": "kastov-762-mw4",
+          "game": "mw4",
+          "name": "KASTOV 762",
+          "type": "ASSAULT_RIFLE",
+          "isNew": false,
+          "score": 0,
+          "displayType": "ASSAULT_RIFLE",
+          "baseWeaponId": "",
+          "imageVersion": "",
+          "baseBulletCount": 0,
+          "bo7RankedBanned": false,
+          "conversionKitId": "",
+          "ironGauntletBanned": false,
+          "warzoneRankedBanned": false,
+          "blackOpsRoyaleBanned": false,
+          "unlockedAtPlayerLevel": 0,
+          "unlockedAtWeaponLevel": 0,
+          "bo7RankedAttachmentsDisabled": false,
+          "tierlist": "mw4",
+          "tier": "META",
+          "typeRank": 2,
+          "typeTotal": 5,
+          "categoryRank": 2,
+          "categoryTotal": 9,
+          "whyRank": null,
+          "weaponType": "ASSAULT_RIFLE",
+          "weaponName": "KASTOV 762",
+          "weaponId": "kastov-762-mw4"
+        }
+      },
+      "code": null,
+      "interactionCount": null,
+      "authorId": "wzstats",
+      "externalSourceImage": null,
+      "externalSourceTitle": null,
+      "isPublished": true,
+      "position": 10,
+      "type": "mw4",
+      "createdAt": "2026-08-22T19:50:39.795Z",
+      "updatedAt": "2026-08-22T19:57:27.496Z"
+    },
+    {
+      "id": "finn-lmg-mw4-wzstats-e170b2",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "optic": {
+        "attachmentId": "slimline-elite",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "SLIMLINE ELITE",
+        "unlockedAtWeaponLevel": 7
+      },
+      "stock": {
+        "attachmentId": "hanbit-tech50-gen.5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "stock",
+        "name": "HANBIT TECH50 GEN.5",
+        "unlockedAtWeaponLevel": 5
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "ftac-firebase-70-15\"",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "FTAC FIREBASE-70 15\"",
+        "unlockedAtWeaponLevel": 2
+      },
+      "muzzle": {
+        "attachmentId": "ftac-dominion",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "FTAC DOMINION",
+        "unlockedAtWeaponLevel": 9
+      },
+      "addedAt": 1787445117.134,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "rearGrip": {
+        "attachmentId": "xrk-aura-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "rearGrip",
+        "name": "XRK AURA-5",
+        "unlockedAtWeaponLevel": 8
+      },
+      "weaponId": "finn-lmg-mw4",
+      "createdAt": "2026-08-23T00:25:12.726Z",
+      "playstyle": "LOW_LEVEL",
+      "tierScore": 0,
+      "updatedAt": "2026-08-23T00:31:55.329Z",
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "type-73-mw4-wzstats-d48d63",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "qfl-s4.5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "QFL-S4.5",
+        "unlockedAtWeaponLevel": 6
+      },
+      "optic": {
+        "attachmentId": "fjx-708-pro",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "FJX 708 PRO",
+        "unlockedAtWeaponLevel": 8
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "rss-40f-12\"",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "RSS-40F 12\"",
+        "unlockedAtWeaponLevel": 4
+      },
+      "muzzle": {
+        "attachmentId": "ivanov-qr600",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "IVANOV QR600"
+      },
+      "addedAt": 1787447607.922,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "rearGrip": {
+        "attachmentId": "exp-zbr-904",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "rearGrip",
+        "name": "EXP ZBR-904",
+        "unlockedAtWeaponLevel": 9
+      },
+      "weaponId": "type-73-mw4",
+      "createdAt": "2026-08-23T01:09:29.022Z",
+      "playstyle": "LOW_LEVEL",
+      "tierScore": 0,
+      "updatedAt": "2026-08-23T01:13:26.142Z",
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "finn-lmg-mw4-wzstats-741df3",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "sz-gen.6-peq",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SZ GEN.6 PEQ",
+        "unlockedAtWeaponLevel": 44
+      },
+      "optic": {
+        "attachmentId": "iota-d",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "IOTA-D",
+        "unlockedAtWeaponLevel": 40
+      },
+      "title": "",
+      "muzzle": {
+        "attachmentId": "xrk-mil-tac-suppressor",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "XRK MIL-TAC SUPPRESSOR",
+        "unlockedAtWeaponLevel": 36
+      },
+      "addedAt": 1787445688.476,
+      "authorId": "wzstats",
+      "magazine": {
+        "attachmentId": "75-round-box-mag",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "magazine",
+        "name": "75 ROUND BOX MAG",
+        "unlockedAtWeaponLevel": 34
+      },
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "finn-lmg-mw4",
+      "createdAt": "2026-08-23T00:32:19.256Z",
+      "playstyle": "VERSATILE",
+      "tierScore": 0,
+      "updatedAt": "2026-08-23T00:41:26.727Z",
+      "description": "",
+      "isPublished": true,
+      "underbarrel": {
+        "attachmentId": "bruen-renegade-grip",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "underbarrel",
+        "name": "BRUEN RENEGADE GRIP",
+        "unlockedAtWeaponLevel": 45
+      },
+      "displayOrder": 0,
+      "isMW4BestBuild": true,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "oris-86-mw4-wzstats-ed7eec",
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "schlager-visiv-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SCHLAGER VISIV-5",
+        "unlockedAtWeaponLevel": 8
+      },
+      "optic": {
+        "attachmentId": "cronen-r808",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "CRONEN R808",
+        "unlockedAtWeaponLevel": 12
+      },
+      "stock": {
+        "attachmentId": "no-stock",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "stock",
+        "name": "NO STOCK",
+        "unlockedAtWeaponLevel": 3
+      },
+      "title": "",
+      "muzzle": {
+        "attachmentId": "matuzek-blackveil",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "MATUZEK BLACKVEIL",
+        "unlockedAtWeaponLevel": 14
+      },
+      "addedAt": 1787450633.355,
+      "authorId": "wzstats",
+      "magazine": {
+        "attachmentId": "6-round-mag",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "magazine",
+        "name": "6 ROUND MAG",
+        "unlockedAtWeaponLevel": 11
+      },
+      "position": 2,
+      "prosCons": "{}",
+      "weaponId": "oris-86-mw4",
+      "createdAt": "2026-08-23T01:58:04.306Z",
+      "playstyle": "LOW_LEVEL",
+      "tierScore": 0,
+      "updatedAt": "2026-08-23T02:03:51.591Z",
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "oris-86-mw4-wzstats-4534ec",
+      "apex": {
+        "attachmentId": "oris-8.6-razor",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "apex",
+        "name": "ORIS 8.6 RAZOR",
+        "unlockedAtWeaponLevel": 68
+      },
+      "bolt": {
+        "attachmentId": "lightfir-5-quick-bolt",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "bolt",
+        "name": "LIGHTFIR-5 QUICK BOLT",
+        "unlockedAtWeaponLevel": 42
+      },
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "schlager-visiv-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SCHLAGER VISIV-5",
+        "unlockedAtWeaponLevel": 8
+      },
+      "optic": {
+        "attachmentId": "sz-micro-o-3",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "SZ MICRO O-3",
+        "unlockedAtWeaponLevel": 30
+      },
+      "stock": {
+        "attachmentId": "br7-invader",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "stock",
+        "name": "BR7 INVADER",
+        "unlockedAtWeaponLevel": 22
+      },
+      "title": "",
+      "muzzle": {
+        "attachmentId": "exp-undertow-gen.-2",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "EXP UNDERTOW GEN. 2",
+        "unlockedAtWeaponLevel": 54
+      },
+      "addedAt": 1787451959.434,
+      "authorId": "wzstats",
+      "position": 1,
+      "prosCons": "{}",
+      "weaponId": "oris-86-mw4",
+      "createdAt": "2026-08-23T02:08:14.004Z",
+      "playstyle": "APEX",
+      "tierScore": 0,
+      "updatedAt": "2026-08-23T02:26:02.479Z",
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "isMW4BestBuild": true,
+      "attachmentCount": 6,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "type-73-mw4-wzstats-b0911c",
+      "apex": {
+        "attachmentId": "type-73-assault",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "apex",
+        "name": "TYPE 73 ASSAULT",
+        "unlockedAtWeaponLevel": 57
+      },
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "schlager-visiv-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SCHLAGER VISIV-5",
+        "unlockedAtWeaponLevel": 25
+      },
+      "optic": {
+        "attachmentId": "iota-d",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "IOTA-D",
+        "unlockedAtWeaponLevel": 35
+      },
+      "stock": {
+        "attachmentId": "ftac-rzro-stock",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "stock",
+        "name": "FTAC RZRO STOCK",
+        "unlockedAtWeaponLevel": 22
+      },
+      "title": "",
+      "barrel": {
+        "attachmentId": "haebang-et-9d-772.16mm",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "barrel",
+        "name": "HAEBANG ET-9D 772.16MM",
+        "unlockedAtWeaponLevel": 34
+      },
+      "muzzle": {
+        "attachmentId": "gauge-12-mono",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "GAUGE-12 MONO",
+        "unlockedAtWeaponLevel": 39
+      },
+      "addedAt": 1787448667.057,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "type-73-mw4",
+      "createdAt": "2026-08-23T01:13:33.960Z",
+      "playstyle": "APEX",
+      "tierScore": 0,
+      "updatedAt": "2026-08-23T01:31:05.252Z",
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "isMW4BestBuild": true,
+      "attachmentCount": 6,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "rezi-12-mw4-wzstats-247553",
+      "bolt": {
+        "attachmentId": "zlr-competition-b6",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "bolt",
+        "name": "ZLR COMPETITION-B6",
+        "unlockedAtWeaponLevel": 47
+      },
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "schlager-visiv-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SCHLAGER VISIV-5",
+        "unlockedAtWeaponLevel": 5
+      },
+      "stock": {
+        "attachmentId": "tv-xr-14-kilo",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "stock",
+        "name": "TV XR-14 KILO",
+        "unlockedAtWeaponLevel": 58
+      },
+      "title": "",
+      "muzzle": {
+        "attachmentId": "exp-firelite-12",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "EXP FIRELITE 12",
+        "unlockedAtWeaponLevel": 24
+      },
+      "addedAt": 1787512394.435,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "rearGrip": {
+        "attachmentId": "bruen-r12-sh",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "rearGrip",
+        "name": "BRUEN R12-SH",
+        "unlockedAtWeaponLevel": 38
+      },
+      "weaponId": "rezi-12-mw4",
+      "createdAt": "2026-08-23T19:08:16.844Z",
+      "playstyle": "VERSATILE",
+      "tierScore": 0,
+      "updatedAt": "2026-08-23T19:13:12.770Z",
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "isMW4BestBuild": true,
+      "attachmentCount": 5,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "rezi-12-mw4-wzstats-bdca5f",
+      "bolt": {
+        "attachmentId": "u12g-match-9",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "bolt",
+        "name": "U12G MATCH 9",
+        "unlockedAtWeaponLevel": 8
+      },
+      "cons": [],
+      "pros": [],
+      "type": "mw4",
+      "laser": {
+        "attachmentId": "schlager-visiv-5",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "laser",
+        "name": "SCHLAGER VISIV-5",
+        "unlockedAtWeaponLevel": 5
+      },
+      "optic": {
+        "attachmentId": "zlr-type-c",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "optic",
+        "name": "ZLR TYPE C",
+        "unlockedAtWeaponLevel": 14
+      },
+      "title": "",
+      "muzzle": {
+        "attachmentId": "sakin-omega-13",
+        "verticalTuning": 0,
+        "horizontalTuning": 0,
+        "slot": "muzzle",
+        "name": "SAKIN OMEGA 13",
+        "unlockedAtWeaponLevel": 13
+      },
+      "addedAt": 1787512093.628,
+      "authorId": "wzstats",
+      "position": 10,
+      "prosCons": "{}",
+      "weaponId": "rezi-12-mw4",
+      "createdAt": "2026-08-23T18:59:47.621Z",
+      "playstyle": "LOW_LEVEL",
+      "tierScore": 0,
+      "updatedAt": "2026-08-23T19:08:12.035Z",
+      "description": "",
+      "isPublished": true,
+      "displayOrder": 0,
+      "attachmentCount": 4,
+      "interactionCount": null,
+      "authorDisplayName": "WZStats",
+      "isBestPlaystyleVariant": true,
+      "externalSourceTitle": null,
+      "externalSourceImage": null
+    },
+    {
+      "id": "krait-p68-mw4-wzstats-a69238",
+      "data": {
+        "id": "krait-p68-mw4-wzstats-a69238",
+        "cons": [],
+        "pros": [],
+        "type": "mw4",
+        "title": "",
+        "authorId": "wzstats",
+        "position": 10,
+        "prosCons": "{}",
+        "weaponId": "krait-p68-mw4",
+        "createdAt": "2026-08-23T05:22:05.490Z",
+        "playstyle": "VERSATILE",
+        "tierScore": 0,
+        "updatedAt": "2026-08-23T05:22:23.703Z",
+        "description": "",
+        "isPublished": false,
+        "displayOrder": 0,
+        "attachmentCount": 0,
+        "interactionCount": null,
+        "authorDisplayName": "WZStats",
+        "externalSourceTitle": null,
+        "externalSourceImage": null,
+        "weapon": {
+          "id": "krait-p68-mw4",
+          "game": "mw4",
+          "name": "KRAIT P68",
+          "type": "PISTOL",
+          "isNew": false,
+          "score": 0,
+          "displayType": "PISTOL",
+          "baseWeaponId": "",
+          "imageVersion": "",
+          "baseBulletCount": 0,
+          "bo7RankedBanned": false,
+          "conversionKitId": "",
+          "ironGauntletBanned": false,
+          "warzoneRankedBanned": false,
+          "blackOpsRoyaleBanned": false,
+          "unlockedAtPlayerLevel": 0,
+          "unlockedAtWeaponLevel": 0,
+          "bo7RankedAttachmentsDisabled": false,
+          "tierlist": "mw4",
+          "tier": "D",
+          "typeRank": 1,
+          "typeTotal": 2,
+          "categoryRank": 4,
+          "categoryTotal": 6,
+          "whyRank": null,
+          "weaponType": "PISTOL",
+          "weaponName": "KRAIT P68",
+          "weaponId": "krait-p68-mw4"
+        }
+      },
+      "code": null,
+      "interactionCount": null,
+      "authorId": "wzstats",
+      "externalSourceImage": null,
+      "externalSourceTitle": null,
+      "isPublished": false,
+      "position": 10,
+      "type": "mw4",
+      "createdAt": "2026-08-23T05:22:05.490Z",
+      "updatedAt": "2026-08-23T05:22:23.703Z"
+    }
+  ],
+  "attachments": [
+    {
+      "attachmentId": "hanbit-rk8-406.4mm",
+      "name": "HANBIT RK8 406.4MM",
+      "slot": "barrel",
+      "used_in_build": "han-86-mw4-wzstats-2a16eb",
+      "weapon": "han-86-mw4"
+    },
+    {
+      "attachmentId": "xrk-clutch-ls",
+      "name": "XRK CLUTCH-LS",
+      "slot": "laser",
+      "used_in_build": "han-86-mw4-wzstats-2a16eb",
+      "weapon": "han-86-mw4"
+    },
+    {
+      "attachmentId": "sz-micro-d-3",
+      "name": "SZ MICRO D-3",
+      "slot": "optic",
+      "used_in_build": "han-86-mw4-wzstats-2a16eb",
+      "weapon": "han-86-mw4"
+    },
+    {
+      "attachmentId": "fr4-retractable-stock",
+      "name": "FR4 RETRACTABLE STOCK",
+      "slot": "stock",
+      "used_in_build": "han-86-mw4-wzstats-2a16eb",
+      "weapon": "han-86-mw4"
+    },
+    {
+      "attachmentId": "5.56-nato-frangible",
+      "name": "5.56 NATO FRANGIBLE",
+      "slot": "ammunition",
+      "used_in_build": "han-86-mw4-wzstats-b4814f",
+      "weapon": "han-86-mw4"
+    },
+    {
+      "attachmentId": "han-86-silenced-412.75mm",
+      "name": "HAN 86 SILENCED 412.75MM",
+      "slot": "barrel",
+      "used_in_build": "han-86-mw4-wzstats-b4814f",
+      "weapon": "han-86-mw4"
+    },
+    {
+      "attachmentId": "schlager-visiv-5",
+      "name": "SCHLAGER VISIV-5",
+      "slot": "laser",
+      "used_in_build": "rezi-12-mw4-wzstats-bdca5f",
+      "weapon": "rezi-12-mw4"
+    },
+    {
+      "attachmentId": "meiko-l9p-fold",
+      "name": "MEIKO L9P-FOLD",
+      "slot": "stock",
+      "used_in_build": "han-86-mw4-wzstats-b4814f",
+      "weapon": "han-86-mw4"
+    },
+    {
+      "attachmentId": "fss-tac90-grip",
+      "name": "FSS TAC90 GRIP",
+      "slot": "underbarrel",
+      "used_in_build": "kastov-762-mw4-wzstats-d607b5",
+      "weapon": "kastov-762-mw4"
+    },
+    {
+      "attachmentId": "fss-crackdown",
+      "name": "FSS CRACKDOWN",
+      "slot": "muzzle",
+      "used_in_build": "iso-nightshade-mw4-wzstats-7bc8a7",
+      "weapon": "iso-nightshade-mw4"
+    },
+    {
+      "attachmentId": "zlr-mag-z-9\"",
+      "name": "ZLR MAG-Z 9\"",
+      "slot": "barrel",
+      "used_in_build": "iso-nightshade-mw4-wzstats-fe175e",
+      "weapon": "iso-nightshade-mw4"
+    },
+    {
+      "attachmentId": "gi-80-milspec-stock",
+      "name": "GI-80 MILSPEC STOCK",
+      "slot": "stock",
+      "used_in_build": "iso-nightshade-mw4-wzstats-fe175e",
+      "weapon": "iso-nightshade-mw4"
+    },
+    {
+      "attachmentId": "9mm-parabellum-frangible",
+      "name": "9MM PARABELLUM FRANGIBLE",
+      "slot": "ammunition",
+      "used_in_build": "iso-nightshade-mw4-wzstats-7bc8a7",
+      "weapon": "iso-nightshade-mw4"
+    },
+    {
+      "attachmentId": "demo-stp-1",
+      "name": "DEMO STP-1",
+      "slot": "rearGrip",
+      "used_in_build": "iso-nightshade-mw4-wzstats-7bc8a7",
+      "weapon": "iso-nightshade-mw4"
+    },
+    {
+      "attachmentId": "zlr-carbon-900",
+      "name": "ZLR CARBON-900",
+      "slot": "barrel",
+      "used_in_build": "iso-nightshade-mw4-wzstats-7bc8a7",
+      "weapon": "iso-nightshade-mw4"
+    },
+    {
+      "attachmentId": "fss-is300",
+      "name": "FSS IS300",
+      "slot": "muzzle",
+      "used_in_build": "hyeon-burst-mw4-wzstats-4cd3ba",
+      "weapon": "hyeon-burst-mw4"
+    },
+    {
+      "attachmentId": "sz-gen.6-peq",
+      "name": "SZ GEN.6 PEQ",
+      "slot": "laser",
+      "used_in_build": "finn-lmg-mw4-wzstats-741df3",
+      "weapon": "finn-lmg-mw4"
+    },
+    {
+      "attachmentId": "pf1-fixed-stock",
+      "name": "PF1 FIXED STOCK",
+      "slot": "stock",
+      "used_in_build": "m4-mw4-wzstats-cc70d4",
+      "weapon": "m4-mw4"
+    },
+    {
+      "attachmentId": "fss-fireline-grip",
+      "name": "FSS FIRELINE GRIP",
+      "slot": "underbarrel",
+      "used_in_build": "kastov-762-mw4-wzstats-901c46",
+      "weapon": "kastov-762-mw4"
+    },
+    {
+      "attachmentId": "brace-dx-grip",
+      "name": "BRACE DX GRIP",
+      "slot": "rearGrip",
+      "used_in_build": "m4-mw4-wzstats-d1a8fb",
+      "weapon": "m4-mw4"
+    },
+    {
+      "attachmentId": "slimline-elite",
+      "name": "SLIMLINE ELITE",
+      "slot": "optic",
+      "used_in_build": "finn-lmg-mw4-wzstats-e170b2",
+      "weapon": "finn-lmg-mw4"
+    },
+    {
+      "attachmentId": "5.56-nato-overpressured",
+      "name": "5.56 NATO OVERPRESSURED",
+      "slot": "ammunition",
+      "used_in_build": "m4-mw4-wzstats-cc70d4",
+      "weapon": "m4-mw4"
+    },
+    {
+      "attachmentId": "ds-rkt-90",
+      "name": "DS RKT-90",
+      "slot": "muzzle",
+      "used_in_build": "kg-7-vulcan-mw4-wzstats-1cb216",
+      "weapon": "kg-7-vulcan-mw4"
+    },
+    {
+      "attachmentId": "tt-baem-12\"",
+      "name": "TT BAEM 12\"",
+      "slot": "barrel",
+      "used_in_build": "kg-7-vulcan-mw4-wzstats-1cb216",
+      "weapon": "kg-7-vulcan-mw4"
+    },
+    {
+      "attachmentId": "hanbit-3080-fireline",
+      "name": "HANBIT 3080 FIRELINE",
+      "slot": "optic",
+      "used_in_build": "kg-7-vulcan-mw4-wzstats-1cb216",
+      "weapon": "kg-7-vulcan-mw4"
+    },
+    {
+      "attachmentId": "ftac-silent-recon",
+      "name": "FTAC SILENT RECON",
+      "slot": "muzzle",
+      "used_in_build": "ppsh-41-mw4-wzstats-261f98",
+      "weapon": "ppsh-41-mw4"
+    },
+    {
+      "attachmentId": "hanbit-rdr-tiger-50-x",
+      "name": "HANBIT RDR-TIGER 50-XL",
+      "slot": "barrel",
+      "used_in_build": "ppsh-41-mw4-wzstats-261f98",
+      "weapon": "ppsh-41-mw4"
+    },
+    {
+      "attachmentId": "53-round-mag",
+      "name": "53 ROUND MAG",
+      "slot": "magazine",
+      "used_in_build": "ppsh-41-mw4-wzstats-261f98",
+      "weapon": "ppsh-41-mw4"
+    },
+    {
+      "attachmentId": "7.62-tokarev-overpressured",
+      "name": "7.62 TOKAREV OVERPRESSURED",
+      "slot": "ammunition",
+      "used_in_build": "ppsh-41-mw4-wzstats-c1efac",
+      "weapon": "ppsh-41-mw4"
+    },
+    {
+      "attachmentId": "7.62-tokarev-frangible",
+      "name": "7.62 TOKAREV FRANGIBLE",
+      "slot": "ammunition",
+      "used_in_build": "ppsh-41-mw4-wzstats-261f98",
+      "weapon": "ppsh-41-mw4"
+    },
+    {
+      "attachmentId": "ivanov-qr600",
+      "name": "IVANOV QR600",
+      "slot": "muzzle",
+      "used_in_build": "type-73-mw4-wzstats-d48d63",
+      "weapon": "type-73-mw4"
+    },
+    {
+      "attachmentId": "haebang-naseon-v.5-26\"",
+      "name": "HAEBANG NASEON V.5 26\"",
+      "slot": "barrel",
+      "used_in_build": "kg-7-vulcan-mw4-wzstats-df67ca",
+      "weapon": "kg-7-vulcan-mw4"
+    },
+    {
+      "attachmentId": "tt-g76-rp-stock",
+      "name": "TT G76-RP STOCK",
+      "slot": "stock",
+      "used_in_build": "kg-7-vulcan-mw4-wzstats-df67ca",
+      "weapon": "kg-7-vulcan-mw4"
+    },
+    {
+      "attachmentId": "exp-r3000-v",
+      "name": "EXP R3000-V",
+      "slot": "muzzle",
+      "used_in_build": "kastov-762-mw4-wzstats-901c46",
+      "weapon": "kastov-762-mw4"
+    },
+    {
+      "attachmentId": "tt-414-r-hightac",
+      "name": "TT 414-R HIGHTAC",
+      "slot": "barrel",
+      "used_in_build": "kastov-762-mw4-wzstats-901c46",
+      "weapon": "kastov-762-mw4"
+    },
+    {
+      "attachmentId": "fjx-evr7",
+      "name": "FJX EVR7",
+      "slot": "laser",
+      "used_in_build": "kastov-762-mw4-wzstats-901c46",
+      "weapon": "kastov-762-mw4"
+    },
+    {
+      "attachmentId": "z-dot-9",
+      "name": "Z-DOT 9",
+      "slot": "optic",
+      "used_in_build": "kastov-762-mw4-wzstats-901c46",
+      "weapon": "kastov-762-mw4"
+    },
+    {
+      "attachmentId": "mugi-ingoem-558.8mm",
+      "name": "MUGI INGOEM 558.8MM",
+      "slot": "barrel",
+      "used_in_build": "hyeon-burst-mw4-wzstats-4cd3ba",
+      "weapon": "hyeon-burst-mw4"
+    },
+    {
+      "attachmentId": "iota-d",
+      "name": "IOTA-D",
+      "slot": "optic",
+      "used_in_build": "type-73-mw4-wzstats-b0911c",
+      "weapon": "type-73-mw4"
+    },
+    {
+      "attachmentId": "fjx-ghostfire-16.3\"",
+      "name": "FJX GHOSTFIRE 16.3\"",
+      "slot": "barrel",
+      "used_in_build": "kastov-762-mw4-wzstats-d607b5",
+      "weapon": "kastov-762-mw4"
+    },
+    {
+      "attachmentId": "cronen-zero-k",
+      "name": "CRONEN ZERO-K",
+      "slot": "optic",
+      "used_in_build": "kastov-762-mw4-wzstats-d607b5",
+      "weapon": "kastov-762-mw4"
+    },
+    {
+      "attachmentId": "kastov-dogfighter-27",
+      "name": "KASTOV DOGFIGHTER 27",
+      "slot": "stock",
+      "used_in_build": "kastov-762-mw4-wzstats-d607b5",
+      "weapon": "kastov-762-mw4"
+    },
+    {
+      "attachmentId": "ftac-dominion",
+      "name": "FTAC DOMINION",
+      "slot": "muzzle",
+      "used_in_build": "finn-lmg-mw4-wzstats-e170b2",
+      "weapon": "finn-lmg-mw4"
+    },
+    {
+      "attachmentId": "ftac-firebase-70-15\"",
+      "name": "FTAC FIREBASE-70 15\"",
+      "slot": "barrel",
+      "used_in_build": "finn-lmg-mw4-wzstats-e170b2",
+      "weapon": "finn-lmg-mw4"
+    },
+    {
+      "attachmentId": "hanbit-tech50-gen.5",
+      "name": "HANBIT TECH50 GEN.5",
+      "slot": "stock",
+      "used_in_build": "finn-lmg-mw4-wzstats-e170b2",
+      "weapon": "finn-lmg-mw4"
+    },
+    {
+      "attachmentId": "xrk-aura-5",
+      "name": "XRK AURA-5",
+      "slot": "rearGrip",
+      "used_in_build": "finn-lmg-mw4-wzstats-e170b2",
+      "weapon": "finn-lmg-mw4"
+    },
+    {
+      "attachmentId": "rss-40f-12\"",
+      "name": "RSS-40F 12\"",
+      "slot": "barrel",
+      "used_in_build": "type-73-mw4-wzstats-d48d63",
+      "weapon": "type-73-mw4"
+    },
+    {
+      "attachmentId": "qfl-s4.5",
+      "name": "QFL-S4.5",
+      "slot": "laser",
+      "used_in_build": "type-73-mw4-wzstats-d48d63",
+      "weapon": "type-73-mw4"
+    },
+    {
+      "attachmentId": "fjx-708-pro",
+      "name": "FJX 708 PRO",
+      "slot": "optic",
+      "used_in_build": "type-73-mw4-wzstats-d48d63",
+      "weapon": "type-73-mw4"
+    },
+    {
+      "attachmentId": "exp-zbr-904",
+      "name": "EXP ZBR-904",
+      "slot": "rearGrip",
+      "used_in_build": "type-73-mw4-wzstats-d48d63",
+      "weapon": "type-73-mw4"
+    },
+    {
+      "attachmentId": "xrk-mil-tac-suppressor",
+      "name": "XRK MIL-TAC SUPPRESSOR",
+      "slot": "muzzle",
+      "used_in_build": "finn-lmg-mw4-wzstats-741df3",
+      "weapon": "finn-lmg-mw4"
+    },
+    {
+      "attachmentId": "bruen-renegade-grip",
+      "name": "BRUEN RENEGADE GRIP",
+      "slot": "underbarrel",
+      "used_in_build": "finn-lmg-mw4-wzstats-741df3",
+      "weapon": "finn-lmg-mw4"
+    },
+    {
+      "attachmentId": "75-round-box-mag",
+      "name": "75 ROUND BOX MAG",
+      "slot": "magazine",
+      "used_in_build": "finn-lmg-mw4-wzstats-741df3",
+      "weapon": "finn-lmg-mw4"
+    },
+    {
+      "attachmentId": "matuzek-blackveil",
+      "name": "MATUZEK BLACKVEIL",
+      "slot": "muzzle",
+      "used_in_build": "oris-86-mw4-wzstats-ed7eec",
+      "weapon": "oris-86-mw4"
+    },
+    {
+      "attachmentId": "cronen-r808",
+      "name": "CRONEN R808",
+      "slot": "optic",
+      "used_in_build": "oris-86-mw4-wzstats-ed7eec",
+      "weapon": "oris-86-mw4"
+    },
+    {
+      "attachmentId": "no-stock",
+      "name": "NO STOCK",
+      "slot": "stock",
+      "used_in_build": "oris-86-mw4-wzstats-ed7eec",
+      "weapon": "oris-86-mw4"
+    },
+    {
+      "attachmentId": "6-round-mag",
+      "name": "6 ROUND MAG",
+      "slot": "magazine",
+      "used_in_build": "oris-86-mw4-wzstats-ed7eec",
+      "weapon": "oris-86-mw4"
+    },
+    {
+      "attachmentId": "exp-undertow-gen.-2",
+      "name": "EXP UNDERTOW GEN. 2",
+      "slot": "muzzle",
+      "used_in_build": "oris-86-mw4-wzstats-4534ec",
+      "weapon": "oris-86-mw4"
+    },
+    {
+      "attachmentId": "sz-micro-o-3",
+      "name": "SZ MICRO O-3",
+      "slot": "optic",
+      "used_in_build": "oris-86-mw4-wzstats-4534ec",
+      "weapon": "oris-86-mw4"
+    },
+    {
+      "attachmentId": "br7-invader",
+      "name": "BR7 INVADER",
+      "slot": "stock",
+      "used_in_build": "oris-86-mw4-wzstats-4534ec",
+      "weapon": "oris-86-mw4"
+    },
+    {
+      "attachmentId": "gauge-12-mono",
+      "name": "GAUGE-12 MONO",
+      "slot": "muzzle",
+      "used_in_build": "type-73-mw4-wzstats-b0911c",
+      "weapon": "type-73-mw4"
+    },
+    {
+      "attachmentId": "haebang-et-9d-772.16mm",
+      "name": "HAEBANG ET-9D 772.16MM",
+      "slot": "barrel",
+      "used_in_build": "type-73-mw4-wzstats-b0911c",
+      "weapon": "type-73-mw4"
+    },
+    {
+      "attachmentId": "ftac-rzro-stock",
+      "name": "FTAC RZRO STOCK",
+      "slot": "stock",
+      "used_in_build": "type-73-mw4-wzstats-b0911c",
+      "weapon": "type-73-mw4"
+    },
+    {
+      "attachmentId": "exp-firelite-12",
+      "name": "EXP FIRELITE 12",
+      "slot": "muzzle",
+      "used_in_build": "rezi-12-mw4-wzstats-247553",
+      "weapon": "rezi-12-mw4"
+    },
+    {
+      "attachmentId": "tv-xr-14-kilo",
+      "name": "TV XR-14 KILO",
+      "slot": "stock",
+      "used_in_build": "rezi-12-mw4-wzstats-247553",
+      "weapon": "rezi-12-mw4"
+    },
+    {
+      "attachmentId": "bruen-r12-sh",
+      "name": "BRUEN R12-SH",
+      "slot": "rearGrip",
+      "used_in_build": "rezi-12-mw4-wzstats-247553",
+      "weapon": "rezi-12-mw4"
+    },
+    {
+      "attachmentId": "sakin-omega-13",
+      "name": "SAKIN OMEGA 13",
+      "slot": "muzzle",
+      "used_in_build": "rezi-12-mw4-wzstats-bdca5f",
+      "weapon": "rezi-12-mw4"
+    },
+    {
+      "attachmentId": "zlr-type-c",
+      "name": "ZLR TYPE C",
+      "slot": "optic",
+      "used_in_build": "rezi-12-mw4-wzstats-bdca5f",
+      "weapon": "rezi-12-mw4"
+    }
+  ]
+}
