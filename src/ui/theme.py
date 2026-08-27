@@ -213,9 +213,50 @@ section[data-testid="stSidebar"] span {
 """
 
 
+RENAME_APP_JS = """
+<script>
+function renameAppSidebarItem() {
+    try {
+        const parentDoc = window.parent.document;
+        if (!parentDoc) return;
+        
+        const links = parentDoc.querySelectorAll('[data-testid="stSidebarNav"] a, [data-testid="stSidebarNavItems"] a, section[data-testid="stSidebar"] a');
+        links.forEach(a => {
+            const spans = a.querySelectorAll('span, p, div');
+            if (spans.length > 0) {
+                spans.forEach(s => {
+                    if (s.textContent.trim().toLowerCase() === 'app') {
+                        s.textContent = '🎯 SAIL6 MW4 RESEARCH HUB MAIN PAGE';
+                    }
+                });
+            } else if (a.textContent.trim().toLowerCase() === 'app') {
+                a.textContent = '🎯 SAIL6 MW4 RESEARCH HUB MAIN PAGE';
+            }
+        });
+    } catch(e) {}
+}
+
+if (typeof window !== 'undefined' && window.parent) {
+    renameAppSidebarItem();
+    try {
+        const sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+        if (sidebar) {
+            const observer = new MutationObserver(renameAppSidebarItem);
+            observer.observe(sidebar, { childList: true, subtree: true, characterData: true });
+        }
+    } catch(e) {}
+    setTimeout(renameAppSidebarItem, 100);
+    setTimeout(renameAppSidebarItem, 400);
+    setTimeout(renameAppSidebarItem, 1000);
+}
+</script>
+"""
+
+
 def inject_custom_theme() -> None:
-    """Injects tactical dark CSS styles into the current Streamlit app page."""
+    """Injects tactical dark CSS styles and precise sidebar labeling into the current Streamlit app page."""
     st.markdown(TACTICAL_CSS, unsafe_allow_html=True)
+    st.components.v1.html(RENAME_APP_JS, height=0, width=0)
 
 
 def render_page_header(
