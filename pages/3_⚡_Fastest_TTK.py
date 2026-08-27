@@ -37,19 +37,45 @@ if not weapons:
     st.warning("No weapons found in database.")
     st.stop()
 
+# Load Core and Hardcore rulesets
+core_ruleset = repo.get_ruleset("core") or active_ruleset
+hc_ruleset = repo.get_ruleset("hardcore") or active_ruleset
+
 # Field Intel Explainer Box
 render_field_intel_box(
-    title="How Time-To-Kill (TTK) Works In A Real Gunfight",
-    text="<b>Time-to-Kill (TTK)</b> is the exact number of milliseconds it takes to eliminate an enemy from full health.<br>"
+    title="How Time-To-Kill (TTK) & Shots-To-Kill (STK) Work",
+    text="<b>Time-to-Kill (TTK)</b> is the exact number of milliseconds it takes to eliminate an enemy.<br>"
          "• <b>Lower number = Faster Kill:</b> A weapon with <b>200ms TTK</b> deletes opponents much faster than a <b>280ms TTK</b> weapon.<br>"
          "• <b>Shots-to-Kill (STK):</b> The exact number of bullets you must connect on target (e.g. 1 shot, 2 shots, 3 shots, 4 shots).<br>"
-         "• <b>Core (100 HP) vs Hardcore (30 HP):</b> In Hardcore, low health makes almost all rifles and snipers instant 1-shot or 2-shot kills!",
-    tip="Use the Health Mode dropdown below to see exact Hardcore vs Core Shots-to-Kill numbers, or use the Sort dropdown to sort 1-shot, 2-shot, 3-shot weapons consecutively!"
+         "• <b>Core (100 HP) vs Hardcore (30 HP):</b> Switch using the button bar below to see how many shots it takes to kill in Hardcore vs Core!",
+    tip="Use the Core / Hardcore buttons below to toggle between 100 HP and 30 HP, or select 'Side-by-Side' to view both simultaneously!"
 )
 
-# 1. Controls & Distance Filter
-st.markdown("#### 🎯 Filter & Engagement Parameters")
-c1, c2, c3, c4 = st.columns([1.5, 1.2, 1.2, 1.1])
+# ---------------------------------------------------------------------------
+# 1. Primary Health Mode & Filter Controls
+# ---------------------------------------------------------------------------
+st.markdown("#### 🎮 1. Select Game Mode & Health Ruleset")
+
+mode_radio = st.radio(
+    "Active Health Mode:",
+    options=[
+        "🟢 Core Mode (100 HP Standard Health)",
+        "💀 Hardcore Mode (30 HP High Lethality)",
+        "⚔️ Core vs Hardcore (Side-by-Side Comparison)"
+    ],
+    index=0 if selected_rs_id != "hardcore" else 1,
+    horizontal=True,
+    help="Switches all ballistics calculations between 100 HP Core and 30 HP Hardcore."
+)
+
+is_side_by_side = "Side-by-Side" in mode_radio
+is_hc_mode = "Hardcore" in mode_radio and not is_side_by_side
+active_mode_label = "Hardcore (30 HP)" if is_hc_mode else ("Core vs Hardcore" if is_side_by_side else "Core (100 HP)")
+target_health_eval = 30.0 if is_hc_mode else 100.0
+eval_ruleset = hc_ruleset if is_hc_mode else core_ruleset
+
+st.markdown("#### 🎯 2. Weapon Class & Hitbox Filters")
+c1, c2, c3 = st.columns([1.8, 1.2, 1.2])
 
 with c1:
     available_classes = sorted(list({w.weapon_class.value.replace("_", " ").title() for w in weapons}))
@@ -57,20 +83,10 @@ with c1:
         "Weapon Class Filter",
         options=available_classes,
         default=available_classes,
-        help="Select one or more weapon classes (e.g. Assault Rifle and Submachine Gun) to compare side-by-side."
+        help="Select one or more weapon classes to compare side-by-side."
     )
 
 with c2:
-    ruleset_choice = st.selectbox(
-        "Health & Game Mode",
-        options=["🟢 Core Mode (100 HP Standard)", "💀 Hardcore Mode (30 HP High Lethality)"],
-        index=0 if selected_rs_id != "hardcore" else 1,
-        help="Switch between standard 100 HP Core and ultra-lethal 30 HP Hardcore mode to see exact shots-to-kill."
-    )
-    eval_rs_id = "hardcore" if "Hardcore" in ruleset_choice else "core"
-    eval_ruleset = repo.get_ruleset(eval_rs_id) or active_ruleset
-
-with c3:
     hit_location = st.selectbox(
         "Target Hitbox",
         options=["chest", "head", "neck", "stomach", "limbs"],
@@ -84,12 +100,14 @@ with c3:
         }.get(x, x.title())
     )
 
-with c4:
+with c3:
     use_flight_time = st.checkbox("Include Bullet Flight Latency", value=True, help="Adds projectile travel time (Distance / Velocity) for true impact TTK.")
     include_obd = st.checkbox("Include Open-Bolt Delay (OBD)", value=True, help="Factors in trigger chambering delay on heavy LMGs and specific SMGs.")
 
 
-# Helper calculation function
+# ---------------------------------------------------------------------------
+# Helper Calculation Function (Computes Core and Hardcore STK)
+# ---------------------------------------------------------------------------
 def compute_leaderboard_for_distance(eval_dist_m: float):
     data = []
     for w in weapons:
@@ -98,22 +116,33 @@ def compute_leaderboard_for_distance(eval_dist_m: float):
             continue
 
         stats = repo.get_weapon_stats(w.weapon_id, selected_ver)
-        profiles = repo.get_damage_profiles(w.weapon_id, selected_ver, eval_rs_id)
-        if not profiles:
-            profiles = repo.get_damage_profiles(w.weapon_id, selected_ver, "core")
+        profiles = repo.get_damage_profiles(w.weapon_id, selected_ver, "core")
 
         if stats and profiles:
             dmg_at_dist = get_damage_at_distance(eval_dist_m, profiles, hit_location)
             dmg_head = get_damage_at_distance(eval_dist_m, profiles, "head")
             dmg_chest = get_damage_at_distance(eval_dist_m, profiles, "chest")
 
-            stk = calculate_shots_to_kill(eval_ruleset.target_health, dmg_at_dist, eval_ruleset.min_stk_cap)
-            stk_head = calculate_shots_to_kill(eval_ruleset.target_health, dmg_head, eval_ruleset.min_stk_cap)
+            # Core STK (100 HP) and Hardcore STK (30 HP)
+            stk_core = calculate_shots_to_kill(100.0, dmg_at_dist, 1)
+            stk_hc = calculate_shots_to_kill(30.0, dmg_at_dist, 1)
 
+            # Active evaluation STK based on selected mode
+            stk_active = stk_hc if is_hc_mode else stk_core
+
+            stk_head = calculate_shots_to_kill(target_health_eval, dmg_head, 1)
             obd_val = (getattr(stats, "open_bolt_delay_ms", 0.0) or 0.0) if include_obd else 0.0
 
-            fire_ttk = calculate_theoretical_ttk_ms(
-                stk=stk,
+            # Fire TTK
+            fire_ttk_core = calculate_theoretical_ttk_ms(
+                stk=stk_core,
+                rpm=stats.rpm,
+                burst_count=getattr(w, "burst_count", 1),
+                burst_delay_ms=getattr(w, "burst_delay_ms", 0.0),
+                open_bolt_delay_ms=obd_val
+            )
+            fire_ttk_hc = calculate_theoretical_ttk_ms(
+                stk=stk_hc,
                 rpm=stats.rpm,
                 burst_count=getattr(w, "burst_count", 1),
                 burst_delay_ms=getattr(w, "burst_delay_ms", 0.0),
@@ -129,15 +158,16 @@ def compute_leaderboard_for_distance(eval_dist_m: float):
             )
 
             flight_latency_ms = (eval_dist_m / max(100.0, stats.bullet_velocity_mps)) * 1000.0 if use_flight_time else 0.0
-            impact_ttk = fire_ttk + flight_latency_ms
+            
+            impact_ttk_core = fire_ttk_core + flight_latency_ms
+            impact_ttk_hc = fire_ttk_hc + flight_latency_ms
+            active_ttk = impact_ttk_hc if is_hc_mode else impact_ttk_core
 
             headshots_needed = calculate_headshots_for_stk_reduction(
-                target_health=eval_ruleset.target_health,
+                target_health=target_health_eval,
                 body_damage=dmg_chest,
                 head_damage=dmg_head
             )
-
-            active_ttk = impact_ttk if use_flight_time else fire_ttk
 
             data.append({
                 "weapon_id": w.weapon_id,
@@ -146,10 +176,14 @@ def compute_leaderboard_for_distance(eval_dist_m: float):
                 "rpm": stats.rpm,
                 "mag_size": w.base_mag_size,
                 "damage_per_shot": round(dmg_at_dist, 1),
-                "stk": int(stk),
-                "fire_ttk_ms": round(fire_ttk, 1),
+                "stk": int(stk_active),
+                "stk_core": int(stk_core),
+                "stk_hc": int(stk_hc),
+                "fire_ttk_ms": round(fire_ttk_hc if is_hc_mode else fire_ttk_core, 1),
                 "flight_ms": round(flight_latency_ms, 1),
                 "active_ttk_ms": round(active_ttk, 1),
+                "active_ttk_core_ms": round(impact_ttk_core if use_flight_time else fire_ttk_core, 1),
+                "active_ttk_hc_ms": round(impact_ttk_hc if use_flight_time else fire_ttk_hc, 1),
                 "optimal_head_ttk_ms": round(optimal_head_ttk + (flight_latency_ms if use_flight_time else 0.0), 1),
                 "headshot_drop_text": f"{headshots_needed} Headshot{'s' if headshots_needed > 1 else ''}" if headshots_needed is not None and headshots_needed > 0 else "N/A (Max Body STK)",
                 "bullet_velocity": stats.bullet_velocity_mps,
@@ -163,7 +197,7 @@ def compute_leaderboard_for_distance(eval_dist_m: float):
 def render_podium_section(leaderboard_data, distance_title):
     if not leaderboard_data:
         return
-    st.markdown(f"#### 🏆 Top 3 Fastest Killers — {distance_title} ({eval_ruleset.name})")
+    st.markdown(f"#### 🏆 Top 3 Fastest Killers — {distance_title} ({active_mode_label})")
     pod_cols = st.columns(3)
     medals = ["🥇 1st Place", "🥈 2nd Place", "🥉 3rd Place"]
     colors = ["#f59e0b", "#94a3b8", "#b45309"]
@@ -194,7 +228,7 @@ def render_bar_chart(leaderboard_data, distance_m):
         return None
 
     def get_ttk_color(ttk_val):
-        if ttk_val <= 100: return "#22c55e" # Ultra fast / 1-shot (green)
+        if ttk_val <= 60: return "#22c55e" # Ultra fast / Hardcore 1-shot (green)
         if ttk_val <= 180: return "#10b981" # Fast (emerald)
         if ttk_val <= 230: return "#38bdf8" # Competitive (cyan)
         if ttk_val <= 280: return "#fbbf24" # Medium (amber)
@@ -214,9 +248,10 @@ def render_bar_chart(leaderboard_data, distance_m):
             textposition="outside",
             hovertext=[
                 f"<b>{row['weapon_name']}</b> ({row['weapon_class']})<br>"
-                f"Mode: <b>{eval_ruleset.name} ({int(eval_ruleset.target_health)} HP)</b><br>"
+                f"Mode: <b>{active_mode_label}</b><br>"
                 f"Time-to-Kill: <b>{row['active_ttk_ms']} ms</b><br>"
                 f"Shots-to-Kill: <b>{row['stk']} rounds</b><br>"
+                f"Core STK: {row['stk_core']} | Hardcore STK: {row['stk_hc']}<br>"
                 f"Damage: {row['damage_per_shot']} / shot<br>"
                 f"Fire Rate: {row['rpm']} RPM<br>"
                 f"Velocity: {row['bullet_velocity']} m/s"
@@ -227,7 +262,7 @@ def render_bar_chart(leaderboard_data, distance_m):
     )
 
     fig.update_layout(
-        title=f"<b>Time-to-Kill (ms) at {distance_m:.0f}m ({eval_ruleset.name} • {int(eval_ruleset.target_health)} HP) - Lower is Faster</b>",
+        title=f"<b>Time-to-Kill (ms) at {distance_m:.0f}m ({active_mode_label}) - Lower is Faster</b>",
         xaxis_title="Time-to-Kill (Milliseconds)",
         height=max(460, len(df_chart) * 26),
         margin=dict(l=240, r=50, t=50, b=40),
@@ -248,7 +283,7 @@ tab_dual, tab_single = st.tabs([
 # TAB 1: Dual 15m vs 25m Comparison Matrix
 # ---------------------------------------------------------------------------
 with tab_dual:
-    st.markdown(f"### ⚔️ Side-by-Side 15m Close Quarters vs 25m Mid-Range TTK Analysis ({eval_ruleset.name} • {int(eval_ruleset.target_health)} HP)")
+    st.markdown(f"### ⚔️ Side-by-Side 15m Close Quarters vs 25m Mid-Range TTK Analysis ({active_mode_label})")
     st.caption("Compares point-blank and close-quarters dominance (15m) directly against mid-range dropoffs (25m), revealing which weapons suffer severe STK penalties.")
 
     data_15m = compute_leaderboard_for_distance(15.0)
@@ -266,7 +301,7 @@ with tab_dual:
 
         # Direct Dropoff Delta Table
         st.markdown("---")
-        st.markdown(f"#### 📉 15m ➡️ 25m Direct Dropoff TTK(TIME TO KILL) & STK(SHOTS TO KILL) Penalty Matrix ({eval_ruleset.name})")
+        st.markdown(f"#### 📉 15m ➡️ 25m Direct Dropoff TTK(TIME TO KILL) & STK(SHOTS TO KILL) Penalty Matrix ({active_mode_label})")
         st.caption("Highlights TTK slowdown (Delta ms) and STK increase when engaging targets at 25m instead of 15m. Click any column header or select a consecutive sort preset below:")
 
         map_15 = {d["weapon_id"]: d for d in data_15m}
@@ -278,46 +313,65 @@ with tab_dual:
             if d25:
                 delta_ms = round(d25["active_ttk_ms"] - d15["active_ttk_ms"], 1)
                 stk_diff = d25["stk"] - d15["stk"]
-                delta_rows.append({
+                
+                row_dict = {
                     "Weapon": d15["weapon_name"],
                     "Class": d15["weapon_class"],
-                    "15m TTK (Kill Speed)": round(d15["active_ttk_ms"]),
-                    "15m STK (Bullets)": int(d15["stk"]),
-                    "25m TTK (Mid-Range)": round(d25["active_ttk_ms"]),
-                    "25m STK (Bullets)": int(d25["stk"]),
-                    "TTK Slowdown": round(delta_ms),
-                    "Extra Bullets Needed": int(stk_diff),
-                    "Fire Rate": round(d15["rpm"]),
-                    "Bullet Velocity": round(d15["bullet_velocity"]),
                     "_sort_15_stk": d15["stk"],
                     "_sort_15_ttk": d15["active_ttk_ms"],
                     "_sort_25_stk": d25["stk"],
                     "_sort_25_ttk": d25["active_ttk_ms"],
                     "_sort_slowdown": delta_ms,
                     "_sort_rpm": d15["rpm"],
-                    "_sort_vel": d15["bullet_velocity"]
-                })
+                    "_sort_vel": d15["bullet_velocity"],
+                    "_sort_hc_15_stk": d15["stk_hc"],
+                    "_sort_core_15_stk": d15["stk_core"],
+                    "Fire Rate": round(d15["rpm"]),
+                    "Bullet Velocity": round(d15["bullet_velocity"])
+                }
+
+                if is_side_by_side:
+                    # Side-by-Side Columns
+                    row_dict["15m Core STK (100HP)"] = int(d15["stk_core"])
+                    row_dict["15m Hardcore STK (30HP)"] = int(d15["stk_hc"])
+                    row_dict["25m Core STK (100HP)"] = int(d25["stk_core"])
+                    row_dict["25m Hardcore STK (30HP)"] = int(d25["stk_hc"])
+                    row_dict["15m Core TTK"] = round(d15["active_ttk_core_ms"])
+                    row_dict["15m Hardcore TTK"] = round(d15["active_ttk_hc_ms"])
+                else:
+                    # Standard Mode Table
+                    row_dict["15m TTK (Kill Speed)"] = round(d15["active_ttk_ms"])
+                    row_dict["15m STK (Bullets)"] = int(d15["stk"])
+                    row_dict["25m TTK (Mid-Range)"] = round(d25["active_ttk_ms"])
+                    row_dict["25m STK (Bullets)"] = int(d25["stk"])
+                    row_dict["TTK Slowdown"] = round(delta_ms)
+                    row_dict["Extra Bullets Needed"] = int(stk_diff)
+
+                delta_rows.append(row_dict)
 
         # Interactive Sort Controls
         c_sort1, c_sort_info = st.columns([2, 1])
         with c_sort1:
+            sort_options = [
+                "🎯 15m Shots-to-Kill (1 Shot ➔ 2 ➔ 3 ➔ 4 ➔ 5 Shots)",
+                "🎯 15m Shots-to-Kill (5 Shots ➔ 4 ➔ 3 ➔ 2 ➔ 1 Shot)",
+                "⚡ 15m TTK Kill Speed (Fastest ➔ Slowest)",
+                "⚡ 15m TTK Kill Speed (Slowest ➔ Fastest)",
+                "🎯 25m Shots-to-Kill (1 Shot ➔ 2 ➔ 3 ➔ 4 ➔ 5 Shots)",
+                "🎯 25m Shots-to-Kill (5 Shots ➔ 4 ➔ 3 ➔ 2 ➔ 1 Shot)",
+                "⚡ 25m TTK Mid-Range (Fastest ➔ Slowest)",
+                "⚡ 25m TTK Mid-Range (Slowest ➔ Fastest)",
+                "📉 TTK Slowdown Penalty (Lowest ➔ Highest)",
+                "📉 TTK Slowdown Penalty (Highest ➔ Lowest)",
+                "🔥 Fire Rate (RPM - Highest ➔ Lowest)",
+                "🚀 Bullet Velocity (Highest ➔ Lowest)"
+            ]
+            if is_side_by_side:
+                sort_options.insert(0, "💀 15m Hardcore STK (1-Shot Killers First)")
+
             sort_selection = st.selectbox(
                 "🔢 Sort Table Consecutively By:",
-                options=[
-                    "🎯 15m Shots-to-Kill (1 Shot ➔ 2 ➔ 3 ➔ 4 ➔ 5 Shots)",
-                    "🎯 15m Shots-to-Kill (5 Shots ➔ 4 ➔ 3 ➔ 2 ➔ 1 Shot)",
-                    "⚡ 15m TTK Kill Speed (Fastest ➔ Slowest)",
-                    "⚡ 15m TTK Kill Speed (Slowest ➔ Fastest)",
-                    "🎯 25m Shots-to-Kill (1 Shot ➔ 2 ➔ 3 ➔ 4 ➔ 5 Shots)",
-                    "🎯 25m Shots-to-Kill (5 Shots ➔ 4 ➔ 3 ➔ 2 ➔ 1 Shot)",
-                    "⚡ 25m TTK Mid-Range (Fastest ➔ Slowest)",
-                    "⚡ 25m TTK Mid-Range (Slowest ➔ Fastest)",
-                    "📉 TTK Slowdown Penalty (Lowest ➔ Highest)",
-                    "📉 TTK Slowdown Penalty (Highest ➔ Lowest)",
-                    "🔋 Extra Bullets Needed (Lowest ➔ Highest)",
-                    "🔥 Fire Rate (RPM - Highest ➔ Lowest)",
-                    "🚀 Bullet Velocity (Highest ➔ Lowest)"
-                ],
+                options=sort_options,
                 index=0,
                 key="sort_dropoff_matrix"
             )
@@ -325,7 +379,9 @@ with tab_dual:
             st.caption("💡 **Pro-Tip**: You can also click directly on **any column header** below to sort ascending or descending instantly!")
 
         # Apply Sort Ordering
-        if "15m Shots-to-Kill (1 Shot ➔" in sort_selection:
+        if "15m Hardcore STK (1-Shot" in sort_selection:
+            delta_rows.sort(key=lambda x: (x["_sort_hc_15_stk"], x["_sort_15_ttk"]))
+        elif "15m Shots-to-Kill (1 Shot ➔" in sort_selection:
             delta_rows.sort(key=lambda x: (x["_sort_15_stk"], x["_sort_15_ttk"]))
         elif "15m Shots-to-Kill (5 Shots ➔" in sort_selection:
             delta_rows.sort(key=lambda x: (-x["_sort_15_stk"], x["_sort_15_ttk"]))
@@ -345,8 +401,6 @@ with tab_dual:
             delta_rows.sort(key=lambda x: x["_sort_slowdown"])
         elif "TTK Slowdown Penalty (Highest ➔ Lowest)" in sort_selection:
             delta_rows.sort(key=lambda x: -x["_sort_slowdown"])
-        elif "Extra Bullets Needed" in sort_selection:
-            delta_rows.sort(key=lambda x: (x["Extra Bullets Needed"], x["_sort_15_stk"]))
         elif "Fire Rate" in sort_selection:
             delta_rows.sort(key=lambda x: -x["_sort_rpm"])
         elif "Bullet Velocity" in sort_selection:
@@ -355,21 +409,36 @@ with tab_dual:
         df_delta = pd.DataFrame(delta_rows)
         display_delta_cols = [c for c in df_delta.columns if not c.startswith("_")]
 
-        # Render with rich st.column_config for native interactive numerical sorting
+        # Configure dynamic column formatters
+        col_cfg = {
+            "Weapon": st.column_config.TextColumn("Weapon", help="Weapon platform name"),
+            "Class": st.column_config.TextColumn("Class", help="Weapon category"),
+            "Fire Rate": st.column_config.NumberColumn("Fire Rate", format="%d RPM", help="Rounds per minute"),
+            "Bullet Velocity": st.column_config.NumberColumn("Bullet Velocity", format="%d m/s", help="Bullet flight speed in m/s")
+        }
+
+        if is_side_by_side:
+            col_cfg.update({
+                "15m Core STK (100HP)": st.column_config.NumberColumn("15m Core STK", format="%d shots", help="Bullets needed to kill at 15m in Core 100 HP"),
+                "15m Hardcore STK (30HP)": st.column_config.NumberColumn("15m Hardcore STK", format="%d shots", help="Bullets needed to kill at 15m in Hardcore 30 HP (1-shot vs 2-shot)"),
+                "25m Core STK (100HP)": st.column_config.NumberColumn("25m Core STK", format="%d shots", help="Bullets needed to kill at 25m in Core 100 HP"),
+                "25m Hardcore STK (30HP)": st.column_config.NumberColumn("25m Hardcore STK", format="%d shots", help="Bullets needed to kill at 25m in Hardcore 30 HP"),
+                "15m Core TTK": st.column_config.NumberColumn("15m Core TTK", format="%d ms", help="Core 100 HP Time-to-Kill in milliseconds"),
+                "15m Hardcore TTK": st.column_config.NumberColumn("15m Hardcore TTK", format="%d ms", help="Hardcore 30 HP Time-to-Kill in milliseconds (0ms for 1-shot kills)")
+            })
+        else:
+            col_cfg.update({
+                "15m TTK (Kill Speed)": st.column_config.NumberColumn(f"15m TTK ({active_mode_label})", format="%d ms", help="Time-to-kill at 15 meters in ms"),
+                "15m STK (Bullets)": st.column_config.NumberColumn(f"15m STK ({active_mode_label})", format="%d shots", help="Exact number of bullets required to eliminate"),
+                "25m TTK (Mid-Range)": st.column_config.NumberColumn(f"25m TTK ({active_mode_label})", format="%d ms", help="Time-to-kill at 25 meters in ms"),
+                "25m STK (Bullets)": st.column_config.NumberColumn(f"25m STK ({active_mode_label})", format="%d shots", help="Exact number of bullets required at 25 meters"),
+                "TTK Slowdown": st.column_config.NumberColumn("TTK Slowdown", format="+%d ms", help="Time-to-kill increase due to range falloff"),
+                "Extra Bullets Needed": st.column_config.NumberColumn("Extra Bullets Needed", format="+%d", help="Extra bullets needed (0 = same shots to kill)")
+            })
+
         st.dataframe(
             df_delta[display_delta_cols],
-            column_config={
-                "Weapon": st.column_config.TextColumn("Weapon", help="Weapon platform name"),
-                "Class": st.column_config.TextColumn("Class", help="Weapon category"),
-                "15m TTK (Kill Speed)": st.column_config.NumberColumn("15m TTK (Kill Speed)", format="%d ms", help="Time-to-kill at 15 meters in ms"),
-                "15m STK (Bullets)": st.column_config.NumberColumn("15m STK (Bullets)", format="%d shots", help="Exact number of bullets required to eliminate"),
-                "25m TTK (Mid-Range)": st.column_config.NumberColumn("25m TTK (Mid-Range)", format="%d ms", help="Time-to-kill at 25 meters in ms"),
-                "25m STK (Bullets)": st.column_config.NumberColumn("25m STK (Bullets)", format="%d shots", help="Exact number of bullets required at 25 meters"),
-                "TTK Slowdown": st.column_config.NumberColumn("TTK Slowdown", format="+%d ms", help="Time-to-kill increase due to range falloff"),
-                "Extra Bullets Needed": st.column_config.NumberColumn("Extra Bullets Needed", format="+%d", help="Extra bullets needed (0 = same shots to kill)"),
-                "Fire Rate": st.column_config.NumberColumn("Fire Rate", format="%d RPM", help="Rounds per minute"),
-                "Bullet Velocity": st.column_config.NumberColumn("Bullet Velocity", format="%d m/s", help="Bullet flight speed in m/s")
-            },
+            column_config=col_cfg,
             use_container_width=True,
             hide_index=True
         )
@@ -377,14 +446,14 @@ with tab_dual:
         col_dl1, col_dl2 = st.columns(2)
         with col_dl1:
             csv_15 = pd.DataFrame(data_15m).to_csv(index=False).encode('utf-8')
-            st.download_button(f"📥 Download 15m TTK Table ({eval_ruleset.name} CSV)", data=csv_15, file_name=f"mw4_ttk_15m_{eval_rs_id}.csv", mime="text/csv", key="dl_ttk_15m")
+            st.download_button(f"📥 Download 15m TTK Table ({active_mode_label} CSV)", data=csv_15, file_name=f"mw4_ttk_15m_{'hc' if is_hc_mode else 'core'}.csv", mime="text/csv", key="dl_ttk_15m")
         with col_dl2:
             csv_25 = pd.DataFrame(data_25m).to_csv(index=False).encode('utf-8')
-            st.download_button(f"📥 Download 25m TTK Table ({eval_ruleset.name} CSV)", data=csv_25, file_name=f"mw4_ttk_25m_{eval_rs_id}.csv", mime="text/csv", key="dl_ttk_25m")
+            st.download_button(f"📥 Download 25m TTK Table ({active_mode_label} CSV)", data=csv_25, file_name=f"mw4_ttk_25m_{'hc' if is_hc_mode else 'core'}.csv", mime="text/csv", key="dl_ttk_25m")
 
         # Side by Side Bar Charts
         st.markdown("---")
-        st.markdown(f"#### 📊 Comparative TTK Visualizer (15m vs 25m • {eval_ruleset.name})")
+        st.markdown(f"#### 📊 Comparative TTK Visualizer (15m vs 25m • {active_mode_label})")
         c_bc1, c_bc2 = st.columns(2)
         with c_bc1:
             fig_15 = render_bar_chart(data_15m, 15.0)
@@ -400,7 +469,7 @@ with tab_dual:
 # TAB 2: Custom Distance Explorer
 # ---------------------------------------------------------------------------
 with tab_single:
-    st.markdown(f"### 🎯 Custom Distance Bracket Explorer ({eval_ruleset.name} • {int(eval_ruleset.target_health)} HP)")
+    st.markdown(f"### 🎯 Custom Distance Bracket Explorer ({active_mode_label})")
     
     c_d1, c_d2 = st.columns([1, 2])
     with c_d1:
@@ -427,7 +496,7 @@ with tab_single:
         if fig_single:
             st.plotly_chart(fig_single, use_container_width=True, key="plotly_chart_single_custom")
 
-        st.markdown(f"#### 📋 Complete TTK Ballistics Table ({eval_dist_m:.0f}m • {eval_ruleset.name})")
+        st.markdown(f"#### 📋 Complete TTK Ballistics Table ({eval_dist_m:.0f}m • {active_mode_label})")
 
         # Sort Selector for Single Distance Table
         c_sort_s1, c_sort_s2 = st.columns([2, 1])
@@ -469,20 +538,23 @@ with tab_single:
 
         t_rows = []
         for idx, row in enumerate(single_data):
-            t_rows.append({
+            t_row = {
                 "Rank": idx + 1,
                 "Weapon Platform": row["weapon_name"],
                 "Class": row["weapon_class"],
                 "Kill Speed (Active TTK)": round(row["active_ttk_ms"]),
+                "Bullets to Kill (STK)": int(row["stk"]),
+                "Core STK (100HP)": int(row["stk_core"]),
+                "Hardcore STK (30HP)": int(row["stk_hc"]),
+                "Damage per Shot": float(row["damage_per_shot"]),
                 "Fire TTK (Zero Latency)": round(row["fire_ttk_ms"]),
                 "Bullet Flight Delay": round(row["flight_ms"]),
                 "Headshot Ceiling TTK": round(row["optimal_head_ttk_ms"]),
-                "Bullets to Kill (STK)": int(row["stk"]),
-                "Damage per Shot": float(row["damage_per_shot"]),
                 "Headshots for -1 STK": row["headshot_drop_text"],
                 "Fire Rate (RPM)": round(row["rpm"]),
                 "Muzzle Velocity": round(row["bullet_velocity"])
-            })
+            }
+            t_rows.append(t_row)
 
         st.dataframe(
             pd.DataFrame(t_rows),
@@ -491,11 +563,13 @@ with tab_single:
                 "Weapon Platform": st.column_config.TextColumn("Weapon Platform"),
                 "Class": st.column_config.TextColumn("Class"),
                 "Kill Speed (Active TTK)": st.column_config.NumberColumn("Kill Speed (Active TTK)", format="%d ms"),
+                "Bullets to Kill (STK)": st.column_config.NumberColumn(f"STK ({active_mode_label})", format="%d shots"),
+                "Core STK (100HP)": st.column_config.NumberColumn("Core STK (100HP)", format="%d shots"),
+                "Hardcore STK (30HP)": st.column_config.NumberColumn("Hardcore STK (30HP)", format="%d shots"),
+                "Damage per Shot": st.column_config.NumberColumn("Damage per Shot", format="%.1f HP"),
                 "Fire TTK (Zero Latency)": st.column_config.NumberColumn("Fire TTK (Zero Latency)", format="%d ms"),
                 "Bullet Flight Delay": st.column_config.NumberColumn("Bullet Flight Delay", format="+%d ms"),
                 "Headshot Ceiling TTK": st.column_config.NumberColumn("Headshot Ceiling TTK", format="%d ms"),
-                "Bullets to Kill (STK)": st.column_config.NumberColumn("Bullets to Kill (STK)", format="%d shots"),
-                "Damage per Shot": st.column_config.NumberColumn("Damage per Shot", format="%.1f HP"),
                 "Headshots for -1 STK": st.column_config.TextColumn("Headshots for -1 STK"),
                 "Fire Rate (RPM)": st.column_config.NumberColumn("Fire Rate (RPM)", format="%d RPM"),
                 "Muzzle Velocity": st.column_config.NumberColumn("Muzzle Velocity", format="%d m/s")
