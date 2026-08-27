@@ -10,8 +10,9 @@ from ..database.repository import IntelligenceRepository
 from ..database.models import GameVersion, Ruleset
 
 
+@st.cache_resource
 def get_shared_repository() -> IntelligenceRepository:
-    """Returns a singleton IntelligenceRepository backed by the primary DuckDB instance."""
+    """Returns a cached singleton IntelligenceRepository backed by the primary DuckDB instance."""
     db_manager.init_database()
     repo = IntelligenceRepository(db_manager)
     # Automatically seed baseline intelligence if database is newly initialized

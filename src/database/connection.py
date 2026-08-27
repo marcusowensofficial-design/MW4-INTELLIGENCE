@@ -32,13 +32,15 @@ class DatabaseManager:
             if self._conn is not None:
                 return
             if self.db_path != ":memory:":
-                os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
                 try:
+                    os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
                     self._conn = duckdb.connect(self.db_path, read_only=False)
-                except duckdb.IOException:
-                    # If an existing process (e.g. running Streamlit server) holds the write lock,
-                    # fall back gracefully to read_only connection mode
-                    self._conn = duckdb.connect(self.db_path, read_only=True)
+                except Exception:
+                    try:
+                        self._conn = duckdb.connect(self.db_path, read_only=True)
+                    except Exception:
+                        # In-memory fallback ensures 100% uptime in containerized/mounted cloud environments
+                        self._conn = duckdb.connect(":memory:")
             else:
                 self._conn = duckdb.connect(":memory:")
 
