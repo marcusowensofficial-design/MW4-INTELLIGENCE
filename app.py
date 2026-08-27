@@ -34,7 +34,7 @@ try:
     st.image(
         "assets/mw4_hero_banner.png",
         use_container_width=True,
-        caption="MW4 TACTICAL BALLISTICS COMMAND • MULTI-SOURCE SCRAPED & VERIFIED COMBAT INTEL"
+        caption="SAIL6 INTELLIGENCE RESEARCH HUB • MULTI-SOURCE SCRAPED & VERIFIED COMBAT INTEL"
     )
 except Exception:
     pass
