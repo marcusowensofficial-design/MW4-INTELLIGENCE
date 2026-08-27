@@ -281,7 +281,7 @@ for w in target_weapons:
                     st.code(b.share_code, language="text")
                 with col_btn_action:
                     if hasattr(st, "dialog"):
-                        if st.button("📲 Open Share Card", key=f"btn_modal_{b.preset_id}", type="primary", use_container_width=True):
+                        if st.button("📲 Open Share Card", key=f"btn_modal_{b.build_id}", type="primary", use_container_width=True):
                             export_loadout_dialog(b, w, build_attachments)
                     else:
                         st.caption("📋 Copy loadout share code.")
@@ -298,13 +298,13 @@ if hasattr(st, "dialog"):
     @st.dialog("📋 Tactical Loadout Share Card")
     def export_loadout_dialog(b_obj, w_obj, atts_list):
         st.markdown(f"### **{w_obj.name}** • *{b_obj.build_name}*")
-        st.caption(f"**Category**: {w_obj.weapon_class.value.replace('_', ' ').title()} &nbsp;|&nbsp; **Archetype**: {b_obj.archetype_label}")
+        st.caption(f"**Category**: {w_obj.weapon_class.value.replace('_', ' ').title()} &nbsp;|&nbsp; **Archetype**: {b_obj.archetype_display}")
         
         col_dlg_left, col_dlg_right = st.columns([1.8, 1.2])
         with col_dlg_left:
             st.markdown("#### 🔑 1-Click Import / Share Code:")
             st.code(b_obj.share_code, language="text")
-            st.markdown(render_copy_button_html(b_obj.share_code, btn_id=b_obj.preset_id), unsafe_allow_html=True)
+            st.markdown(render_copy_button_html(b_obj.share_code, btn_id=b_obj.build_id), unsafe_allow_html=True)
             
             st.markdown("#### 🎛️ 5-Slot Gunsmith Attachments:")
             for att in atts_list:
