@@ -10,7 +10,7 @@ from src.database.connection import db_manager
 
 
 st.set_page_config(
-    page_title="SAIL6 RESEARCH HUB - MW4 Intel",
+    page_title="SAIL6 MW4 RESEARCH MAIN PAGE - MW4 Intel",
     page_icon="🎯",
     layout="wide",
     initial_sidebar_state="expanded"

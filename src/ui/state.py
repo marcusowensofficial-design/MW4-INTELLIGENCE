@@ -50,6 +50,9 @@ def render_sidebar_controls(repo: IntelligenceRepository) -> Tuple[str, str, Rul
     Renders standard sidebar selectors for Game Version and Ruleset.
     Ensures version and ruleset state changes propagate globally.
     """
+    from .theme import inject_custom_theme
+    inject_custom_theme()
+
     # Display persistent SpecOps branding logo
     if hasattr(st, "logo"):
         try:
