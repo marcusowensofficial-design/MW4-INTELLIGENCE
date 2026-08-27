@@ -122,10 +122,81 @@ TACTICAL_CSS = """
     border-radius: 4px;
 }
 
-/* Sidebar styling */
+/* Sidebar High-Contrast Tactical Styling */
 [data-testid="stSidebar"] {
-    background-color: #07090e;
-    border-right: 1px solid rgba(56, 189, 248, 0.1);
+    background-color: #07090e !important;
+    border-right: 1px solid rgba(56, 189, 248, 0.15) !important;
+}
+
+/* Sidebar navigation links - ultra-crisp white with bold weight */
+[data-testid="stSidebarNav"] a,
+[data-testid="stSidebarNav"] span,
+[data-testid="stSidebarNavItems"] a,
+[data-testid="stSidebarNavItems"] span,
+section[data-testid="stSidebar"] li a span,
+section[data-testid="stSidebar"] a span {
+    color: #f8fafc !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+    opacity: 1.0 !important;
+    transition: all 0.18s ease-in-out !important;
+}
+
+/* Hovered sidebar link - tactical glow */
+[data-testid="stSidebarNav"] a:hover,
+[data-testid="stSidebarNavItems"] a:hover,
+section[data-testid="stSidebar"] li a:hover {
+    background: rgba(56, 189, 248, 0.15) !important;
+    border-radius: 6px !important;
+    transform: translateX(4px) !important;
+}
+
+[data-testid="stSidebarNav"] a:hover span,
+[data-testid="stSidebarNavItems"] a:hover span,
+section[data-testid="stSidebar"] li a:hover span {
+    color: #38bdf8 !important;
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.6) !important;
+}
+
+/* Active / Current sidebar page item */
+[data-testid="stSidebarNav"] a[aria-current="page"],
+[data-testid="stSidebarNavItems"] a[aria-current="page"],
+section[data-testid="stSidebar"] li a[aria-current="page"] {
+    background: linear-gradient(90deg, rgba(56, 189, 248, 0.25) 0%, rgba(15, 23, 42, 0.5) 100%) !important;
+    border-left: 3px solid #38bdf8 !important;
+    border-radius: 6px !important;
+}
+
+[data-testid="stSidebarNav"] a[aria-current="page"] span,
+[data-testid="stSidebarNavItems"] a[aria-current="page"] span,
+section[data-testid="stSidebar"] li a[aria-current="page"] span {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* Sidebar Headings, Labels & Controls */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4 {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+}
+
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] .stSelectbox label {
+    color: #e2e8f0 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+}
+
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span {
+    color: #f1f5f9 !important;
 }
 
 /* Custom Alert Boxes */
