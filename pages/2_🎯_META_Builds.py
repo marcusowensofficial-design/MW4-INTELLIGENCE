@@ -206,7 +206,10 @@ for w in target_weapons:
                         eff_html = f"<div style='margin-top:6px; padding-top:4px; border-top:1px dashed rgba(56,189,248,0.2); font-size:0.75rem; color:#4ade80;'>{'<br>'.join(effs[:2])}</div>"
                         st.markdown(
                             f'<div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 10px 12px; height: 100%;">'
-                            f'<div style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">{att.slot.value.upper()}</div>'
+                            f'<div style="display: flex; justify-content: space-between; align-items: center;">'
+                            f'<span style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">{att.slot.value.upper()}</span>'
+                            f'<span style="color: #fbbf24; font-size: 0.72rem; font-weight: 600;">(Unlocked: Lvl {att.unlock_level})</span>'
+                            f'</div>'
                             f'<div style="color: #f8fafc; font-weight: 600; font-size: 0.95rem; margin: 4px 0;">{att.name}</div>'
                             f'<div style="color: #94a3b8; font-size: 0.8rem;">{att_desc}</div>'
                             f'{eff_html}'
@@ -308,7 +311,7 @@ if hasattr(st, "dialog"):
             
             st.markdown("#### 🎛️ 5-Slot Gunsmith Attachments:")
             for att in atts_list:
-                st.markdown(f"• **{att.slot.value.upper()}**: `{att.name}`")
+                st.markdown(f"• **{att.slot.value.upper()}**: `{att.name}` *(Unlocked: Weapon Lvl {att.unlock_level})*")
         
         with col_dlg_right:
             qr_b64 = generate_loadout_qr_base64(b_obj.share_code)

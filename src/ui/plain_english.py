@@ -547,6 +547,100 @@ def get_attachment_plain_effects(att_id: str, att_name: str = "") -> List[str]:
 
 
 # ---------------------------------------------------------------------------
+# 3b. Attachment Weapon Unlock Levels Mapping & Helper
+# ---------------------------------------------------------------------------
+ATTACHMENT_UNLOCK_LEVELS: Dict[str, int] = {
+    "shadowstrike suppressor": 2,
+    "vt-7 spiritfire suppressor": 14,
+    "casus brake compensator": 8,
+    "casus brake": 8,
+    "ported tactical compensator": 5,
+    "l4r flash hider": 3,
+    "colossus heavy silencer": 17,
+    "crown-50 muzzle brake": 11,
+    "purifier horizontal brake": 19,
+    "cyclone heavy long barrel": 12,
+    "cyclone long barrel": 12,
+    "16.5' mcw cyclone long barrel": 12,
+    "phantom cqb short barrel": 6,
+    "reinforced match barrel": 16,
+    "ultralight fluted barrel": 9,
+    "chf heavy cold-forged barrel": 20,
+    "triton integrally suppressed barrel": 18,
+    "short carbine speed barrel": 4,
+    "rival-c clear shot barrel": 8,
+    "bruen venom long barrel": 15,
+    "pro-99 long barrel": 14,
+    "striker recon long barrel": 12,
+    "jak annihilator long barrel": 18,
+    "ftac grimline tac laser": 5,
+    "corio laz-44 precision laser": 10,
+    "schlager peq box iv": 8,
+    "fss ole-v laser": 14,
+    "point-g3p 1mw tactical laser": 3,
+    "dxs flash 90 tac-stance laser": 11,
+    "slate reflector": 3,
+    "mk.3 reflector": 2,
+    "corio eagleseye 2.5x scope": 16,
+    "corio eagleseye 2.5x": 16,
+    "cronen mini pro (blue dot)": 7,
+    "sz sro-7 holographic": 11,
+    "acog 4.0x tactical scope": 19,
+    "thermo-optic x9 thermal": 21,
+    "elite match iron sights": 1,
+    "skeletonized cqb stock": 9,
+    "heavy precision buffer stock": 18,
+    "no stock mod": 15,
+    "heavy tactical anchor stock": 12,
+    "commando lightweight stock": 4,
+    "buffer tube ultralight stock": 7,
+    "mtz marauder stock": 9,
+    "tactical light stock": 6,
+    "rubberized recoil stock": 11,
+    "dr-6 handstop": 7,
+    "bruen heavy support grip": 15,
+    "ftac ripper 56 stabilizer": 10,
+    "xten phantom-5 handstop": 6,
+    "merc foregrip": 4,
+    "operator vertical foregrip": 13,
+    "chemerov heavy angled grip": 17,
+    "40-round extended magazine": 4,
+    "40-round mag": 4,
+    "50-round heavy drum": 14,
+    "60-round super drum": 22,
+    "20-round fast speed mag": 8,
+    "30-round extended mag": 6,
+    "48-round extended mag": 10,
+    "100-round ammo belt box": 24,
+    "high grain match ammunition": 11,
+    "overpressured +p match ammo": 7,
+    "armor piercing tungsten rounds": 13,
+    "low grain subsonic rounds": 5,
+    "hollow point frangible ammo": 9,
+    "dragon's breath incendiary rounds": 18,
+    "explosive heavy slug rounds": 21,
+    "frangible disabling rounds": 15,
+    "phantom tactical grip": 6,
+    "heavy ergonomic tac grip": 14,
+    "stippled rubberized grip": 10,
+    "granulated match grip": 3,
+    "rival vice assault grip": 10,
+    "quick-bolt mechanism": 8,
+}
+
+
+def get_attachment_unlock_level(att_name_or_id: str) -> int:
+    """Returns the weapon level required to unlock a specific attachment in MW4."""
+    clean = (att_name_or_id or "").strip().lower()
+    if clean in ATTACHMENT_UNLOCK_LEVELS:
+        return ATTACHMENT_UNLOCK_LEVELS[clean]
+    for k, v in ATTACHMENT_UNLOCK_LEVELS.items():
+        if k in clean or clean in k:
+            return v
+    return 10
+
+
+# ---------------------------------------------------------------------------
 # 4. Field Intel Callout Component
 # ---------------------------------------------------------------------------
 def render_field_intel_box(title: str, text: str, tip: str = "") -> None:

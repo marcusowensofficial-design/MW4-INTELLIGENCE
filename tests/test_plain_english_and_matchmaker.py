@@ -149,3 +149,14 @@ def test_tactical_matchmaker_recommendations():
     )
     assert rec_heavy["weapon_id"] == "bas_b"
     assert len(rec_heavy["attachments"]) == 5
+
+
+def test_get_attachment_unlock_level():
+    """Verify attachment weapon unlock levels are returned correctly."""
+    from src.ui.plain_english import get_attachment_unlock_level
+    assert get_attachment_unlock_level("VT-7 Spiritfire Suppressor") == 14
+    assert get_attachment_unlock_level("Shadowstrike Suppressor") == 2
+    assert get_attachment_unlock_level("Bruen Heavy Support Grip") == 15
+    assert get_attachment_unlock_level("Slate Reflector") == 3
+    assert get_attachment_unlock_level("Cyclone Long Barrel") == 12
+    assert get_attachment_unlock_level("Unknown Prototype") == 10

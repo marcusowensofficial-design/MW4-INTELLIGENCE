@@ -13,6 +13,7 @@ from src.ui.plain_english import (
     get_weapon_plain_summary,
     get_weapon_star_ratings,
     get_attachment_plain_effects,
+    get_attachment_unlock_level,
     render_field_intel_box,
     render_tactical_ballistics_codex
 )
@@ -156,10 +157,12 @@ with card_col_details:
 
     # 5 Attachments Grid
     for slot, att_name, purpose in rec["attachments"]:
+        unlock_lvl = get_attachment_unlock_level(att_name)
         st.markdown(
             f'<div style="background: rgba(30,41,59,0.7); border: 1px solid rgba(148,163,184,0.2); border-left: 4px solid #38bdf8; border-radius: 6px; padding: 8px 14px; margin-bottom: 6px;">'
             f'<span style="color: #94a3b8; font-size: 11px; text-transform: uppercase; font-weight: 700;">{slot}:</span> '
             f'<span style="color: #ffffff; font-size: 13px; font-weight: 600;">{att_name}</span> '
+            f'<span style="color: #fbbf24; font-size: 11.5px; font-weight: 600; margin-left: 4px;">(Unlocked: Weapon Level {unlock_lvl})</span> '
             f'<span style="color: #4ade80; font-size: 12px; margin-left: 8px;">➔ {purpose}</span>'
             f'</div>',
             unsafe_allow_html=True
