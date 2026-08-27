@@ -20,13 +20,6 @@ st.set_page_config(
 repo = init_session_state()
 selected_ver, selected_rs_id, active_ruleset = render_sidebar_controls(repo)
 
-render_page_header(
-    title="🎯 MW4 Weapon Intelligence Lab",
-    subtitle="Evidence-Backed Competitive FPS Ballistics, Gunsmith Optimization & Patch Intelligence",
-    active_version=selected_ver,
-    active_ruleset=selected_rs_id
-)
-
 # ---------------------------------------------------------------------------
 # Tactical Hero Command Banner
 # ---------------------------------------------------------------------------
