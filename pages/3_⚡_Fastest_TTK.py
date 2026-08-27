@@ -251,7 +251,7 @@ with tab_dual:
 
         # Direct Dropoff Delta Table
         st.markdown("---")
-        st.markdown("#### 📉 15m ➡️ 25m Direct Dropoff & STK Penalty Matrix")
+        st.markdown("#### 📉 15m ➡️ 25m Direct Dropoff TTK(TIME TO KILL) & STK(SHOTS TO KILL) Penalty Matrix")
         st.caption("Highlights TTK slowdown (Delta ms) and STK increase when engaging targets at 25m instead of 15m.")
 
         map_15 = {d["weapon_id"]: d for d in data_15m}
