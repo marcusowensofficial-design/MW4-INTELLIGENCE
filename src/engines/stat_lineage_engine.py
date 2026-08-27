@@ -5,7 +5,7 @@ preventing stale baselines from overwriting verified updates.
 """
 
 from typing import List, Dict, Optional, Any, Tuple
-from ..database.models import StatDeltaEvent, StatLineageReconstruction
+from src.database.models import StatDeltaEvent, StatLineageReconstruction
 
 
 def reconstruct_stat_lineage(

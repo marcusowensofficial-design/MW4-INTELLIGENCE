@@ -4,6 +4,14 @@ Interactive catalog of CDL Tournament Pro setups, Laboratory Pareto-Optimal clas
 Omnimovement Rushers, and Zero-Recoil Beamers across all 24 Modern Warfare 4 weapons.
 """
 
+import os
+import sys
+
+# Ensure repository root is in sys.path for Streamlit Cloud deployment
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 import streamlit as st
 import pandas as pd
 from typing import List, Dict, Optional
@@ -184,17 +192,21 @@ for w in target_weapons:
 
                     recoil_pct = (1.0 - (eval_stats.effective_recoil_vertical / max(0.01, stats.recoil_vertical))) * 100
 
-                    col_m1, col_m2, col_m3, col_m4, col_m5 = st.columns(5)
+                    col_m1, col_m2, col_m3, col_m4, col_m5, col_m6 = st.columns(6)
                     with col_m1:
                         st.metric("Quick-Aim (ADS)", f"{eval_stats.effective_ads_ms:.0f} ms", f"{ads_sign}{ads_diff:.0f} ms", delta_color=ads_color)
                     with col_m2:
                         st.metric("Sprint Reaction", f"{eval_stats.effective_sprint_to_fire_ms:.0f} ms", f"{stf_sign}{stf_diff:.0f} ms", delta_color=ads_color)
                     with col_m3:
-                        st.metric("Recoil Reduction", f"{recoil_pct:+.1f}%", "Vertical Kick Dampening")
+                        st.metric("Recoil Dampening", f"{recoil_pct:+.1f}%", "Vertical Stability")
                     with col_m4:
                         st.metric("Kill Speed (0-15m)", f"{eval_stats.close_ttk_ms:.0f} ms", f"{eval_stats.effective_mag_size} Rnd Mag")
                     with col_m5:
-                        st.metric("Bullet Velocity", f"{eval_stats.effective_bullet_velocity_mps:.0f} m/s", f"{eval_stats.range_multiplier*100:.0f}% Range")
+                        add_ammo_val = eval_stats.effective_reload_add_ammo_s if getattr(eval_stats, "effective_reload_add_ammo_s", 0.0) > 0 else round(eval_stats.effective_reload_tactical_s * 0.68, 2)
+                        st.metric("⚡ Add-Ammo Reload", f"{add_ammo_val:.2f} s", f"Full: {eval_stats.effective_reload_tactical_s:.2f}s", delta_color="normal")
+                    with col_m6:
+                        kills_mag = eval_stats.kills_per_mag if getattr(eval_stats, "kills_per_mag", 0.0) > 0 else round(eval_stats.effective_mag_size / 4.0, 1)
+                        st.metric("💥 Mag Capacity", f"{kills_mag:.1f} Kills", f"{eval_stats.effective_mag_size} Bullets", delta_color="normal")
 
                 # 2. 5-Attachment Breakdown Grid
                 st.markdown("##### 🎛️ Primary Gunsmith Setup (5 Attachments)")
@@ -204,11 +216,12 @@ for w in target_weapons:
                         att_desc = att.description or 'Custom competitive attachment'
                         effs = get_attachment_plain_effects(att.attachment_id, att.name)
                         eff_html = f"<div style='margin-top:6px; padding-top:4px; border-top:1px dashed rgba(56,189,248,0.2); font-size:0.75rem; color:#4ade80;'>{'<br>'.join(effs[:2])}</div>"
+                        pick_badge = f"<span style='color:#f59e0b; font-size:0.72rem; font-weight:700; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.3); border-radius:3px; padding:1px 5px;'>🔥 {att.pick_rate_pct:.0f}% Pick</span>" if getattr(att, "pick_rate_pct", 0.0) > 0 else ""
                         st.markdown(
                             f'<div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 10px 12px; height: 100%;">'
-                            f'<div style="display: flex; justify-content: space-between; align-items: center;">'
+                            f'<div style="display: flex; justify-content: space-between; align-items: center; gap: 4px;">'
                             f'<span style="color: #38bdf8; font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">{att.slot.value.upper()}</span>'
-                            f'<span style="color: #fbbf24; font-size: 0.72rem; font-weight: 600;">(Unlocked: Lvl {att.unlock_level})</span>'
+                            f'{pick_badge}'
                             f'</div>'
                             f'<div style="color: #f8fafc; font-weight: 600; font-size: 0.95rem; margin: 4px 0;">{att.name}</div>'
                             f'<div style="color: #94a3b8; font-size: 0.8rem;">{att_desc}</div>'

@@ -6,7 +6,7 @@ Manages automated Parquet snapshot backups and scheduled patch note feed polling
 import os
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
-from ..database.connection import db_manager, DatabaseManager
+from src.database.connection import db_manager, DatabaseManager
 
 
 class LabScheduler:

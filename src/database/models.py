@@ -128,6 +128,10 @@ class WeaponVersionStats(BaseModel):
     ads_move_speed_mps: float = Field(..., gt=0, description="Strafe / ADS movement speed m/s")
     flinch_resistance: float = Field(default=1.0, ge=0, le=2.0)
     open_bolt_delay_ms: float = Field(default=0.0, ge=0.0, description="Delay before first round discharges (common on LMGs)")
+    reload_add_ammo_s: float = Field(default=0.0, ge=0, description="Tactical reload cancel / add-ammo timing in seconds")
+    swap_speed_raise_ms: float = Field(default=350.0, ge=0, description="Weapon ready / raise time in ms")
+    swap_speed_stow_ms: float = Field(default=250.0, ge=0, description="Weapon holster / stow time in ms")
+    tac_sprint_speed_mps: float = Field(default=7.0, gt=0, description="Tactical sprint movement speed in m/s")
 
 
 class DamageRangeBracket(BaseModel):
@@ -158,6 +162,8 @@ class Attachment(BaseModel):
     is_universal: bool = Field(default=True)
     unlock_level: int = Field(default=1, ge=1)
     description: Optional[str] = None
+    pick_rate_pct: float = Field(default=0.0, ge=0.0, le=100.0, description="Community pick rate percentage in meta builds")
+    is_meta_favorite: bool = Field(default=False, description="Whether this attachment is the #1 community favorite for its slot")
 
 
 class AttachmentModifier(BaseModel):
@@ -235,6 +241,10 @@ class CommunityMetaConsensus(BaseModel):
     community_pick_rate_pct: float = Field(default=5.0, description="Global pick rate percentage (e.g. 18.4%)")
     community_kd_ratio: float = Field(default=1.05, description="Average global player K/D ratio")
     recommended_secondary: str = Field(default="Renetti 3-Burst", description="Recommended companion secondary")
+    global_win_rate_pct: float = Field(default=50.0, ge=0.0, le=100.0, description="Global match win rate percentage when equipped")
+    meta_trend_delta_pct: float = Field(default=0.0, description="7-day pick-rate velocity change (e.g. +2.4% or -1.5%)")
+    headshot_pct: float = Field(default=18.0, ge=0.0, le=100.0, description="Average headshot elimination percentage")
+    kills_per_minute: float = Field(default=1.85, ge=0.0, description="Average kills per minute")
     last_updated: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
 
@@ -335,6 +345,10 @@ class EvaluatedBuildStats(BaseModel):
     balance_score: float
     recoil_index: float
     mobility_index: float
+    effective_reload_add_ammo_s: float = 0.0
+    effective_swap_speed_raise_ms: float = 350.0
+    damage_per_mag: float = 0.0
+    kills_per_mag: float = 0.0
 
     @field_validator("attachments_applied", mode="before")
     @classmethod

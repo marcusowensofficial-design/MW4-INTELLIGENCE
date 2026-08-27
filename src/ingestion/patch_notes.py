@@ -8,7 +8,7 @@ import json
 import hashlib
 from datetime import datetime, timezone
 from typing import Dict, Any, List, Tuple
-from ..database.models import (
+from src.database.models import (
     GameVersion,
     WeaponVersionStats,
     DamageRangeBracket,
@@ -17,7 +17,7 @@ from ..database.models import (
     SourceTier,
     VerificationStatus
 )
-from ..database.repository import IntelligenceRepository
+from src.database.repository import IntelligenceRepository
 
 
 def ingest_patch_note_payload(

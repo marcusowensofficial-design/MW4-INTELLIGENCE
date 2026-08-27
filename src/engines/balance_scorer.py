@@ -5,7 +5,7 @@ and Nonlinear Fatal Flaw Bottleneck Penalties for gold-standard competitive accu
 """
 
 from typing import Dict, List, Optional
-from ..database.models import (
+from src.database.models import (
     Weapon,
     WeaponVersionStats,
     DamageRangeBracket,
@@ -13,7 +13,7 @@ from ..database.models import (
     BalanceScoreBreakdown,
     WeaponClass
 )
-from .ttk_engine import generate_ttk_curve
+from src.engines.ttk_engine import generate_ttk_curve
 
 
 # Empirical 6v6 Multiplayer Sightline Weights (Reflecting realistic 12m-32m primary combat zone)

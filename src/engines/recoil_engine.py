@@ -71,6 +71,11 @@ def simulate_recoil_pattern(
             curr_x = 0.0
             curr_y = 0.0
         else:
+            # Center-return reticle settling between shots based on weapon cycle rate
+            settle_fraction = min(0.25, (shot_interval_ms / 600.0) * 0.15)
+            curr_x *= (1.0 - settle_fraction)
+            curr_y *= (1.0 - (settle_fraction * 0.5))
+
             # First 3-5 shots have sharp vertical kick
             if shot_idx <= 4:
                 vert_step = (effective_vert * 0.18) * (1.0 + rng.uniform(-0.08, 0.08))

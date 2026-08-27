@@ -59,7 +59,11 @@ CREATE TABLE IF NOT EXISTS weapon_version_stats (
     move_speed_mps DOUBLE NOT NULL,
     ads_move_speed_mps DOUBLE NOT NULL,
     flinch_resistance DOUBLE NOT NULL DEFAULT 1.0,
-    open_bolt_delay_ms DOUBLE NOT NULL DEFAULT 0.0
+    open_bolt_delay_ms DOUBLE NOT NULL DEFAULT 0.0,
+    reload_add_ammo_s DOUBLE NOT NULL DEFAULT 0.0,
+    swap_speed_raise_ms DOUBLE NOT NULL DEFAULT 350.0,
+    swap_speed_stow_ms DOUBLE NOT NULL DEFAULT 250.0,
+    tac_sprint_speed_mps DOUBLE NOT NULL DEFAULT 7.0
 );
 
 -- 5. Versioned Weapon Damage Range Profiles
@@ -85,7 +89,9 @@ CREATE TABLE IF NOT EXISTS attachments (
     weapon_id_compat VARCHAR,
     is_universal BOOLEAN DEFAULT TRUE,
     unlock_level INTEGER DEFAULT 1,
-    description TEXT
+    description TEXT,
+    pick_rate_pct DOUBLE DEFAULT 0.0,
+    is_meta_favorite BOOLEAN DEFAULT FALSE
 );
 
 -- 7. Versioned Attachment Modifiers
@@ -185,6 +191,10 @@ CREATE TABLE IF NOT EXISTS community_meta_consensus (
     community_pick_rate_pct DOUBLE NOT NULL DEFAULT 5.0,
     community_kd_ratio DOUBLE NOT NULL DEFAULT 1.05,
     recommended_secondary VARCHAR NOT NULL DEFAULT 'Renetti 3-Burst',
+    global_win_rate_pct DOUBLE NOT NULL DEFAULT 50.0,
+    meta_trend_delta_pct DOUBLE NOT NULL DEFAULT 0.0,
+    headshot_pct DOUBLE NOT NULL DEFAULT 18.0,
+    kills_per_minute DOUBLE NOT NULL DEFAULT 1.85,
     last_updated VARCHAR NOT NULL
 );
 
@@ -216,9 +226,22 @@ CREATE TABLE IF NOT EXISTS meta_build_presets (
 
 -- Backward-compatible column migrations
 ALTER TABLE weapon_version_stats ADD COLUMN IF NOT EXISTS open_bolt_delay_ms DOUBLE DEFAULT 0.0;
+ALTER TABLE weapon_version_stats ADD COLUMN IF NOT EXISTS reload_add_ammo_s DOUBLE DEFAULT 0.0;
+ALTER TABLE weapon_version_stats ADD COLUMN IF NOT EXISTS swap_speed_raise_ms DOUBLE DEFAULT 350.0;
+ALTER TABLE weapon_version_stats ADD COLUMN IF NOT EXISTS swap_speed_stow_ms DOUBLE DEFAULT 250.0;
+ALTER TABLE weapon_version_stats ADD COLUMN IF NOT EXISTS tac_sprint_speed_mps DOUBLE DEFAULT 7.0;
+
+ALTER TABLE attachments ADD COLUMN IF NOT EXISTS pick_rate_pct DOUBLE DEFAULT 0.0;
+ALTER TABLE attachments ADD COLUMN IF NOT EXISTS is_meta_favorite BOOLEAN DEFAULT FALSE;
+
 ALTER TABLE community_meta_consensus ADD COLUMN IF NOT EXISTS community_pick_rate_pct DOUBLE DEFAULT 5.0;
 ALTER TABLE community_meta_consensus ADD COLUMN IF NOT EXISTS community_kd_ratio DOUBLE DEFAULT 1.05;
 ALTER TABLE community_meta_consensus ADD COLUMN IF NOT EXISTS recommended_secondary VARCHAR DEFAULT 'Renetti 3-Burst';
+ALTER TABLE community_meta_consensus ADD COLUMN IF NOT EXISTS global_win_rate_pct DOUBLE DEFAULT 50.0;
+ALTER TABLE community_meta_consensus ADD COLUMN IF NOT EXISTS meta_trend_delta_pct DOUBLE DEFAULT 0.0;
+ALTER TABLE community_meta_consensus ADD COLUMN IF NOT EXISTS headshot_pct DOUBLE DEFAULT 18.0;
+ALTER TABLE community_meta_consensus ADD COLUMN IF NOT EXISTS kills_per_minute DOUBLE DEFAULT 1.85;
+
 ALTER TABLE meta_build_presets ADD COLUMN IF NOT EXISTS secondary_name VARCHAR DEFAULT 'Renetti 3-Burst';
 ALTER TABLE meta_build_presets ADD COLUMN IF NOT EXISTS secondary_role VARCHAR DEFAULT '180ms Fast-Swap Pocket Pistol';
 ALTER TABLE meta_build_presets ADD COLUMN IF NOT EXISTS secondary_attachments_json TEXT DEFAULT '[]';

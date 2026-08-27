@@ -4,6 +4,14 @@ Dedicated real-time leaderboard ranking every weapon by theoretical TTK, True Im
 and Optimal Headshot TTK across all engagement distance brackets with tactical weapon graphics.
 """
 
+import os
+import sys
+
+# Ensure repository root is in sys.path for Streamlit Cloud deployment
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go

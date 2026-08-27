@@ -4,7 +4,7 @@ Handles Gunsmith build legality, slot exclusivity, modifier stacking, and stat d
 """
 
 from typing import List, Dict, Optional, Tuple, Set
-from ..database.models import (
+from src.database.models import (
     Weapon,
     WeaponVersionStats,
     DamageRangeBracket,
@@ -15,8 +15,8 @@ from ..database.models import (
     Ruleset,
     EvaluatedBuildStats
 )
-from .ttk_engine import generate_ttk_curve
-from .engagement_engine import calculate_practical_engagement_time
+from src.engines.ttk_engine import generate_ttk_curve
+from src.engines.engagement_engine import calculate_practical_engagement_time
 
 
 MAX_ATTACHMENTS_STANDARD = 5
@@ -79,20 +79,23 @@ def calculate_modified_stats(
     ]
 
     # Initialize stat accumulators
-    pct_mods: Dict[str, float] = {}
+    pct_mods: Dict[str, List[float]] = {}
     delta_mods: Dict[str, float] = {}
 
     for mod in active_modifiers:
         key = mod.stat_key
         if mod.mod_type == ModifierType.PERCENTAGE:
-            pct_mods[key] = pct_mods.get(key, 0.0) + mod.mod_value
+            pct_mods.setdefault(key, []).append(mod.mod_value)
         elif mod.mod_type == ModifierType.DELTA:
             delta_mods[key] = delta_mods.get(key, 0.0) + mod.mod_value
 
     def apply_mod(base_val: float, key: str, min_bound: float = 0.0, is_int: bool = False) -> float:
-        pct = pct_mods.get(key, 0.0)
+        # Multiplicative compound scaling for percentage modifiers (IW9 / MW4 Gunsmith engine)
+        mult = 1.0
+        for m in pct_mods.get(key, []):
+            mult *= (1.0 + m)
         delta = delta_mods.get(key, 0.0)
-        val = (base_val * (1.0 + pct)) + delta
+        val = (base_val * mult) + delta
         val = max(min_bound, val)
         return int(round(val)) if is_int else val
 
@@ -109,7 +112,11 @@ def calculate_modified_stats(
     eff_move = apply_mod(base_stats.move_speed_mps, "move_speed_mps", min_bound=2.0)
     eff_ads_move = apply_mod(base_stats.ads_move_speed_mps, "ads_move_speed_mps", min_bound=1.0)
     eff_mag = int(apply_mod(float(weapon.base_mag_size), "base_mag_size", min_bound=5.0, is_int=True))
-    range_mult = 1.0 + pct_mods.get("range_multiplier", 0.0) + delta_mods.get("range_multiplier", 0.0)
+    
+    range_mult = 1.0
+    for m in pct_mods.get("range_multiplier", []):
+        range_mult *= (1.0 + m)
+    range_mult += delta_mods.get("range_multiplier", 0.0)
     range_mult = max(0.20, range_mult)
 
     # Temporary modified stats object for TTK curves
@@ -173,6 +180,18 @@ def calculate_modified_stats(
     recoil_index = round((eff_recoil_h * 0.45) + (eff_recoil_v * 0.55), 2)
     mobility_index = round((eff_move * 15.0) + (eff_ads_move * 10.0) + max(0.0, (400.0 - eff_ads) * 0.1), 2)
 
+    # Tactical Timings and Magazine Capacity
+    base_add_ammo = base_stats.reload_add_ammo_s if getattr(base_stats, "reload_add_ammo_s", 0.0) > 0 else round(base_stats.reload_tactical_s * 0.68, 2)
+    reload_ratio = base_add_ammo / max(0.5, base_stats.reload_tactical_s)
+    eff_add_ammo = round(eff_reload_tac * reload_ratio, 2)
+    
+    base_swap = getattr(base_stats, "swap_speed_raise_ms", 350.0) or 350.0
+    eff_swap = round(apply_mod(base_swap, "swap_speed_raise_ms", min_bound=100.0), 1)
+
+    base_damage = damage_profiles[0].damage_chest if damage_profiles else 30.0
+    damage_per_mag = round(eff_mag * base_damage, 1)
+    kills_per_mag = round(eff_mag / max(1, close_stk), 1)
+
     # Normalized balance score placeholder (detailed in balance_scorer.py)
     balance_score = round(
         max(10.0, min(99.0, 100.0 - (mid_pet.practical_engagement_time_ms * 0.08) - (recoil_index * 0.8) + (range_mult * 10.0))),
@@ -208,5 +227,9 @@ def calculate_modified_stats(
         mid_pet_ms=mid_pet.practical_engagement_time_ms,
         balance_score=balance_score,
         recoil_index=recoil_index,
-        mobility_index=mobility_index
+        mobility_index=mobility_index,
+        effective_reload_add_ammo_s=eff_add_ammo,
+        effective_swap_speed_raise_ms=eff_swap,
+        damage_per_mag=damage_per_mag,
+        kills_per_mag=kills_per_mag
     )

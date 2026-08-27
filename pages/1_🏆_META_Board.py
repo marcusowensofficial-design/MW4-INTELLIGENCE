@@ -1,3 +1,11 @@
+import os
+import sys
+
+# Ensure repository root is in sys.path for Streamlit Cloud deployment
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 import streamlit as st
 import pandas as pd
 from src.ui.theme import render_page_header
@@ -255,194 +263,378 @@ for w in weapons:
 
 evaluated_scores.sort(key=lambda s: s.composite_balance_score, reverse=True)
 
-# 1. Tier List Visual Presentation
-st.markdown("### 🏆 Competitive Tier Standings")
+# Organize into 3 Interactive Intelligence Views
+tab_tier, tab_telemetry, tab_consensus = st.tabs([
+    "🏆 Tier Rankings & Balance Scores",
+    "📊 Community Telemetry & Meta Trends",
+    "🌐 Multi-Authority Consensus Matrix"
+])
 
-tier_groups = {"S": [], "A": [], "B": [], "C": [], "D": []}
-for s in evaluated_scores:
-    tier_groups[s.tier_rating].append(s)
-
-tier_colors = {
-    "S": ("#f59e0b", "rgba(245, 158, 11, 0.15)", "rgba(245, 158, 11, 0.4)"),
-    "A": ("#38bdf8", "rgba(56, 189, 248, 0.15)", "rgba(56, 189, 248, 0.4)"),
-    "B": ("#4ade80", "rgba(74, 222, 128, 0.15)", "rgba(74, 222, 128, 0.4)"),
-    "C": ("#a855f7", "rgba(168, 85, 247, 0.15)", "rgba(168, 85, 247, 0.4)"),
-    "D": ("#94a3b8", "rgba(148, 163, 184, 0.15)", "rgba(148, 163, 184, 0.4)")
-}
-
-for tier_letter in ["S", "A", "B", "C", "D"]:
-    items = tier_groups[tier_letter]
-    text_c, bg_c, border_c = tier_colors[tier_letter]
-
-    pills_html = []
-    for s in items:
-        img_thumb = get_weapon_img_tag(s.weapon_id, max_height_px=22, max_width_px=48, extra_style="vertical-align: middle; margin-right: 6px;")
-        plain_doss = get_weapon_plain_summary(s.weapon_id, s.weapon_name, s.weapon_class.value)
-        pill = (
-            f'<span style="display:inline-flex; align-items:center; background:rgba(15,23,42,0.85); border:1px solid {border_c}; '
-            f'border-radius:6px; padding:5px 10px; font-size:12.5px; font-weight:600; color:#f8fafc; margin-bottom: 4px;">'
-            f'{img_thumb}<b>{s.weapon_name}</b> '
-            f'<span style="color:{text_c}; font-size:11px; font-weight:700; margin-left:6px;">({s.composite_balance_score}/100)</span>'
-            f'<span style="color:#7dd3fc; font-size:10px; margin-left:8px; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.25); padding:1px 6px; border-radius:3px;">{plain_doss["role_title"]}</span>'
-            f'</span>'
-        )
-        pills_html.append(pill)
-
-    pills_content = ' '.join(pills_html) if pills_html else '<span style="color:#64748b; font-size:12px; font-style:italic;">No weapons currently ranked in this tier</span>'
-    st.markdown(
-        f'<div style="background:{bg_c}; border: 1px solid {border_c}; border-left: 6px solid {text_c}; border-radius: 6px; padding: 12px 16px; margin-bottom: 12px;">'
-        f'<div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">'
-        f'<div style="font-size: 28px; font-weight: 800; color: {text_c}; min-width: 40px;">{tier_letter}</div>'
-        f'<div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">{pills_content}</div>'
-        f'</div>'
-        f'</div>',
-        unsafe_allow_html=True
-    )
-
-st.markdown("---")
-
-# 2. Transparent Mathematical Breakdown Table
-st.markdown("### 🔬 Transparent Mathematical Scoring Breakdown")
-st.caption("Every ranking exposes its normalized component sub-scores (0-100), raw measurements, weights, and confidence rating.")
-
-breakdown_rows = []
-for s in evaluated_scores:
-    breakdown_rows.append({
-        "Tier": s.tier_rating,
-        "Weapon": s.weapon_name,
-        "Class": s.weapon_class.value.replace("_", " ").title(),
-        "Overall Score": f"{s.composite_balance_score:.1f}",
-        "CQB Sub-Score": f"{s.cqb_ttk_score:.1f}",
-        "Mid Sub-Score": f"{s.mid_ttk_score:.1f}",
-        "Long Sub-Score": f"{s.long_ttk_score:.1f}",
-        "Handling Sub-Score": f"{s.handling_score:.1f}",
-        "Recoil Sub-Score": f"{s.recoil_score:.1f}",
-        "Sustainability Sub-Score": f"{s.sustainability_score:.1f}",
-        "Raw Close TTK": f"{s.raw_close_ttk_ms:.0f} ms",
-        "Raw ADS": f"{s.raw_ads_ms:.0f} ms",
-        "Confidence": f"{int(s.confidence_score * 100)}%"
-    })
-
-if breakdown_rows:
-    df_scores = pd.DataFrame(breakdown_rows)
-    st.dataframe(df_scores, use_container_width=True, hide_index=True)
-
-st.markdown("---")
-
-# 3. Multi-Outlet Meta Consensus Matrix (2026 MW4 Beta)
-c_mat_title, c_mat_btn = st.columns([3, 1])
-with c_mat_title:
-    st.markdown("### 🌐 Multi-Authority Meta Consensus Matrix (2026 MW4 Beta)")
-    st.caption("Compare our **Mathematical Ballistic Balance Score** alongside official tier rankings from 6 leading Call of Duty competitive analytics & publication authorities (**WZStats.gg**, **WZRanked**, **CODMunity**, **Dexerto**, **CharlieIntel**, and **Dot Esports**) for the **2026 MW4 Beta**.")
-with c_mat_btn:
-    st.write("")
-    if st.button("🚀 Live Scrape & Sync 6 Platforms", key="sync_btn_meta_board", type="primary"):
-        from src.ingestion.community_scraper import CommunityMetaScraper
-        with st.spinner("Scraping WZStats, WZRanked, CODMunity, Dexerto, Charlie, and DotEsports..."):
-            sc = CommunityMetaScraper(repo)
-            res = sc.sync_all_platforms(selected_ver)
-            st.success(f"Scraped {len(res['platforms_scraped'])} platforms! Checked {res['total_weapons_audited']} weapons.")
-            st.rerun()
-
-# Build Top 10 Pick Rate Leaderboard Chart
-all_consensus_records = {}
-if hasattr(repo, "get_community_consensus"):
-    try:
-        all_consensus_records = repo.get_community_consensus(selected_ver)
-        if not all_consensus_records:
-            all_consensus_records = repo.get_community_consensus()
-    except Exception:
-        all_consensus_records = {}
-
-leaderboard_data = []
-for s in evaluated_scores:
-    rec = all_consensus_records.get(s.weapon_id)
-    pr = rec.community_pick_rate_pct if rec else 5.0
-    kd = rec.community_kd_ratio if rec else 1.05
-    sec = rec.recommended_secondary if rec else "Renetti 3-Burst"
-    out = outlet_data.get(s.weapon_id, {})
-    leaderboard_data.append({
-        "Weapon": s.weapon_name,
-        "Class": s.weapon_class.value.replace("_", " ").title(),
-        "Pick Rate %": pr,
-        "Player K/D": kd,
-        "Tier": s.tier_rating,
-        "Consensus Tag": out.get("consensus", "⭐ BALANCED VIABLE"),
-        "Recommended Secondary": sec
-    })
-
-if leaderboard_data:
-    df_lead = pd.DataFrame(leaderboard_data).sort_values("Pick Rate %", ascending=False).head(10)
+# ---------------------------------------------------------------------------
+# TAB 1: Tier Rankings & Balance Scores
+# ---------------------------------------------------------------------------
+with tab_tier:
+    st.markdown("### 🏆 Competitive Tier Standings")
     
-    # Plotly Glowing Horizontal Bar Chart
-    import plotly.express as px
-    fig_lead = px.bar(
-        df_lead,
-        x="Pick Rate %",
-        y="Weapon",
-        orientation="h",
-        color="Pick Rate %",
-        color_continuous_scale=["#38bdf8", "#818cf8", "#f59e0b", "#ef4444"],
-        text=df_lead["Pick Rate %"].apply(lambda v: f"{v:.1f}% Pick"),
-        hover_data={"Weapon": True, "Class": True, "Pick Rate %": ':.1f', "Player K/D": ':.2f', "Tier": True, "Consensus Tag": True, "Recommended Secondary": True},
-        title="🔥 Top 10 Community Pick-Rate & K/D Efficiency Leaderboard (2026 MW4 Beta)"
-    )
-    fig_lead.update_layout(
-        template="plotly_dark",
-        paper_bgcolor="rgba(15, 23, 42, 0.4)",
-        plot_bgcolor="rgba(15, 23, 42, 0.4)",
-        font={"color": "#f8fafc", "family": "Inter, sans-serif"},
-        yaxis={"categoryorder": "total ascending", "title": ""},
-        xaxis={"title": "Community Pick Rate (%)", "gridcolor": "rgba(148, 163, 184, 0.15)"},
-        coloraxis_showscale=False,
-        height=380,
-        margin={"l": 20, "r": 20, "t": 45, "b": 20}
-    )
-    fig_lead.update_traces(
-        textposition="outside",
-        marker_line_color="rgba(255,255,255,0.2)",
-        marker_line_width=1
-    )
-    st.plotly_chart(fig_lead, use_container_width=True)
+    tier_groups = {"S": [], "A": [], "B": [], "C": [], "D": []}
+    for s in evaluated_scores:
+        tier_groups[s.tier_rating].append(s)
 
-consensus_rows = []
-for s in evaluated_scores:
-    rec = all_consensus_records.get(s.weapon_id)
-    pr = rec.community_pick_rate_pct if rec else 5.0
-    kd = rec.community_kd_ratio if rec else 1.05
-    sec = rec.recommended_secondary if rec else "Renetti 3-Burst"
-    out = outlet_data.get(s.weapon_id, {
-        "wzstats": "Unranked", "wzranked": "Unranked", "codmunity": "Unranked",
-        "dexerto": "Unranked", "charlie": "Unranked", "dotesports": "Unranked",
-        "consensus": "Under Analysis", "badge_color": "#94a3b8"
-    })
-    consensus_rows.append({
-        "Weapon": s.weapon_name,
-        "Class": s.weapon_class.value.replace("_", " ").title(),
-        "Pick Rate %": f"{pr:.1f}%",
-        "Player K/D": f"{kd:.2f}",
-        "Our Lab (Math / PET)": f"{s.tier_rating}-Tier ({s.composite_balance_score:.1f}/100)",
-        "WZStats.gg": out.get("wzstats", "B-Tier 🔷"),
-        "WZRanked": out.get("wzranked", "B-Tier 🔷"),
-        "CODMunity": out.get("codmunity", "B-Tier 🔷"),
-        "Dexerto": out.get("dexerto", "B-Tier 🔷"),
-        "CharlieIntel": out.get("charlie", "B-Tier 🔷"),
-        "Dot Esports": out.get("dotesports", "B-Tier 🔷"),
-        "Recommended Companion": sec,
-        "Community Meta Consensus": out.get("consensus", "⭐ BALANCED VIABLE")
-    })
+    tier_colors = {
+        "S": ("#f59e0b", "rgba(245, 158, 11, 0.15)", "rgba(245, 158, 11, 0.4)"),
+        "A": ("#38bdf8", "rgba(56, 189, 248, 0.15)", "rgba(56, 189, 248, 0.4)"),
+        "B": ("#4ade80", "rgba(74, 222, 128, 0.15)", "rgba(74, 222, 128, 0.4)"),
+        "C": ("#a855f7", "rgba(168, 85, 247, 0.15)", "rgba(168, 85, 247, 0.4)"),
+        "D": ("#94a3b8", "rgba(148, 163, 184, 0.15)", "rgba(148, 163, 184, 0.4)")
+    }
 
-df_consensus = pd.DataFrame(consensus_rows)
-st.dataframe(df_consensus, use_container_width=True, hide_index=True)
+    for tier_letter in ["S", "A", "B", "C", "D"]:
+        items = tier_groups[tier_letter]
+        text_c, bg_c, border_c = tier_colors[tier_letter]
 
-st.markdown("---")
-st.markdown("### 🕸️ 6-Axis Weapon Balance Radar Analysis")
-st.caption("Inspect how any weapon scores across all 6 balance dimensions simultaneously.")
+        pills_html = []
+        for s in items:
+            img_thumb = get_weapon_img_tag(s.weapon_id, max_height_px=22, max_width_px=48, extra_style="vertical-align: middle; margin-right: 6px;")
+            plain_doss = get_weapon_plain_summary(s.weapon_id, s.weapon_name, s.weapon_class.value)
+            pill = (
+                f'<span style="display:inline-flex; align-items:center; background:rgba(15,23,42,0.85); border:1px solid {border_c}; '
+                f'border-radius:6px; padding:5px 10px; font-size:12.5px; font-weight:600; color:#f8fafc; margin-bottom: 4px;">'
+                f'{img_thumb}<b>{s.weapon_name}</b> '
+                f'<span style="color:{text_c}; font-size:11px; font-weight:700; margin-left:6px;">({s.composite_balance_score}/100)</span>'
+                f'<span style="color:#7dd3fc; font-size:10px; margin-left:8px; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.25); padding:1px 6px; border-radius:3px;">{plain_doss["role_title"]}</span>'
+                f'</span>'
+            )
+            pills_html.append(pill)
 
-score_map = {s.weapon_name: s for s in evaluated_scores}
-if score_map:
-    chosen_radar_weapon = st.selectbox("Select Weapon for Radar Breakdown", options=list(score_map.keys()))
-    radar_score = score_map[chosen_radar_weapon]
-    fig_radar = create_balance_radar_chart(radar_score)
-    st.plotly_chart(fig_radar, use_container_width=True)
+        pills_content = ' '.join(pills_html) if pills_html else '<span style="color:#64748b; font-size:12px; font-style:italic;">No weapons currently ranked in this tier</span>'
+        st.markdown(
+            f'<div style="background:{bg_c}; border: 1px solid {border_c}; border-left: 6px solid {text_c}; border-radius: 6px; padding: 12px 16px; margin-bottom: 12px;">'
+            f'<div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">'
+            f'<div style="font-size: 28px; font-weight: 800; color: {text_c}; min-width: 40px;">{tier_letter}</div>'
+            f'<div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">{pills_content}</div>'
+            f'</div>'
+            f'</div>',
+            unsafe_allow_html=True
+        )
+
+    st.markdown("---")
+
+    # Mathematical Breakdown Table
+    st.markdown("### 🔬 Transparent Mathematical Scoring Breakdown")
+    st.caption("Every ranking exposes its normalized component sub-scores (0-100), raw ballistic measurements, and confidence rating.")
+
+    breakdown_rows = []
+    for s in evaluated_scores:
+        st_obj = repo.get_weapon_stats(s.weapon_id, selected_ver)
+        add_ammo_str = f"{st_obj.reload_add_ammo_s:.2f}s" if st_obj and st_obj.reload_add_ammo_s > 0 else f"{st_obj.reload_tactical_s*0.68:.2f}s" if st_obj else "1.20s"
+        swap_str = f"{st_obj.swap_speed_raise_ms:.0f}ms" if st_obj and st_obj.swap_speed_raise_ms > 0 else "350ms"
+        
+        breakdown_rows.append({
+            "Tier": s.tier_rating,
+            "Weapon": s.weapon_name,
+            "Class": s.weapon_class.value.replace("_", " ").title(),
+            "Overall Score": f"{s.composite_balance_score:.1f}",
+            "CQB Sub-Score": f"{s.cqb_ttk_score:.1f}",
+            "Mid Sub-Score": f"{s.mid_ttk_score:.1f}",
+            "Long Sub-Score": f"{s.long_ttk_score:.1f}",
+            "Handling": f"{s.handling_score:.1f}",
+            "Recoil": f"{s.recoil_score:.1f}",
+            "Raw Close TTK": f"{s.raw_close_ttk_ms:.0f} ms",
+            "Raw ADS": f"{s.raw_ads_ms:.0f} ms",
+            "⚡ Add-Ammo Reload": add_ammo_str,
+            "⚡ Fast-Swap": swap_str,
+            "Confidence": f"{int(s.confidence_score * 100)}%"
+        })
+
+    if breakdown_rows:
+        df_scores = pd.DataFrame(breakdown_rows)
+        st.dataframe(df_scores, use_container_width=True, hide_index=True)
+
+    st.markdown("---")
+    st.markdown("### 🕸️ 6-Axis Weapon Balance Radar Analysis")
+    st.caption("Inspect how any weapon scores across all 6 balance dimensions simultaneously.")
+
+    score_map = {s.weapon_name: s for s in evaluated_scores}
+    if score_map:
+        chosen_radar_weapon = st.selectbox("Select Weapon for Radar Breakdown", options=list(score_map.keys()))
+        radar_score = score_map[chosen_radar_weapon]
+        fig_radar = create_balance_radar_chart(radar_score)
+        st.plotly_chart(fig_radar, use_container_width=True)
+
+
+# ---------------------------------------------------------------------------
+# TAB 2: Community Telemetry & Meta Trends
+# ---------------------------------------------------------------------------
+with tab_telemetry:
+    st.markdown("### 📊 Live Community Telemetry, Win Rates & 7-Day Meta Momentum")
+    st.caption("Aggregated telemetry scraped directly from **WZRanked**, **Tracker Network**, and **WZStats.gg** tracking global match win rates, pick-rate velocity shifts, and headshot efficiencies.")
+
+    # Prepare Telemetry DataFrame
+    all_consensus = repo.get_community_consensus(selected_ver)
+    if not all_consensus:
+        all_consensus = repo.get_community_consensus()
+
+    telemetry_rows = []
+    for s in evaluated_scores:
+        rec = all_consensus.get(s.weapon_id)
+        pr = rec.community_pick_rate_pct if rec else 5.0
+        wr = rec.global_win_rate_pct if rec else 50.0
+        delta = rec.meta_trend_delta_pct if rec else 0.0
+        hs = rec.headshot_pct if rec else 18.0
+        kpm = rec.kills_per_minute if rec else 1.85
+        kd = rec.community_kd_ratio if rec else 1.05
+        
+        telemetry_rows.append({
+            "weapon_id": s.weapon_id,
+            "Weapon": s.weapon_name,
+            "Class": s.weapon_class.value.replace("_", " ").title(),
+            "Tier": s.tier_rating,
+            "Pick Rate %": pr,
+            "Win Rate %": wr,
+            "7D Momentum (Δ %)": delta,
+            "Headshot %": hs,
+            "Kills / Min (KPM)": kpm,
+            "K/D Ratio": kd
+        })
+
+    df_tel = pd.DataFrame(telemetry_rows)
+
+    if not df_tel.empty:
+        import plotly.express as px
+
+        # Metric KPI cards
+        top_picked = df_tel.sort_values("Pick Rate %", ascending=False).iloc[0]
+        top_win = df_tel.sort_values("Win Rate %", ascending=False).iloc[0]
+        top_momentum = df_tel.sort_values("7D Momentum (Δ %)", ascending=False).iloc[0]
+
+        kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
+        with kpi_col1:
+            st.metric(
+                "🔥 #1 Most Picked Weapon",
+                f"{top_picked['Weapon']}",
+                f"{top_picked['Pick Rate %']:.1f}% Pick Rate",
+                delta_color="normal"
+            )
+        with kpi_col2:
+            st.metric(
+                "🏆 #1 Highest Win Rate",
+                f"{top_win['Weapon']}",
+                f"{top_win['Win Rate %']:.1f}% Match Win Rate",
+                delta_color="normal"
+            )
+        with kpi_col3:
+            st.metric(
+                "📈 Fastest Rising Meta Weapon",
+                f"{top_momentum['Weapon']}",
+                f"{top_momentum['7D Momentum (Δ %)']:+.1f}% 7-Day Surge",
+                delta_color="normal"
+            )
+
+        st.markdown("---")
+
+        # 1. Win Rate vs Pick Rate Matrix (Quadrant Plot)
+        st.markdown("#### 🎯 Global Win Rate % vs. Pick Rate % Efficiency Matrix")
+        st.caption("Weapons in the top-right are **Uncontested Meta Kings** (high pick rate & high win rate). Weapons in the top-left are **High-Skill Sleeper Gems** (high win rate with low pick rate).")
+
+        fig_quad = px.scatter(
+            df_tel,
+            x="Pick Rate %",
+            y="Win Rate %",
+            color="Tier",
+            size="K/D Ratio",
+            text="Weapon",
+            color_discrete_map={"S": "#f59e0b", "A": "#38bdf8", "B": "#4ade80", "C": "#a855f7", "D": "#94a3b8"},
+            hover_data={"Weapon": True, "Class": True, "Win Rate %": ":.1f", "Pick Rate %": ":.1f", "7D Momentum (Δ %)": ":+.1f", "Headshot %": ":.1f"}
+        )
+        fig_quad.add_hline(y=50.0, line_dash="dash", line_color="rgba(148, 163, 184, 0.4)", annotation_text="50% Baseline Win Rate")
+        fig_quad.add_vline(x=5.0, line_dash="dash", line_color="rgba(148, 163, 184, 0.4)", annotation_text="5% Popularity Cutoff")
+        fig_quad.update_traces(textposition="top center", marker=dict(line=dict(width=1, color="white")))
+        fig_quad.update_layout(
+            template="plotly_dark",
+            paper_bgcolor="rgba(15, 23, 42, 0.4)",
+            plot_bgcolor="rgba(15, 23, 42, 0.4)",
+            font={"color": "#f8fafc", "family": "Inter, sans-serif"},
+            height=460,
+            margin={"l": 20, "r": 20, "t": 30, "b": 20}
+        )
+        st.plotly_chart(fig_quad, use_container_width=True)
+
+        st.markdown("---")
+
+        # 2. 7-Day Meta Momentum (Rising vs Falling)
+        col_rise, col_fall = st.columns(2)
+        with col_rise:
+            st.markdown("##### 📈 Top 5 Surging Weapons (7-Day Pick Rate Gain)")
+            df_gainers = df_tel.sort_values("7D Momentum (Δ %)", ascending=False).head(5)
+            fig_gain = px.bar(
+                df_gainers,
+                x="7D Momentum (Δ %)",
+                y="Weapon",
+                orientation="h",
+                color="7D Momentum (Δ %)",
+                color_continuous_scale=["#22c55e", "#4ade80"],
+                text=df_gainers["7D Momentum (Δ %)"].apply(lambda v: f"+{v:.1f}%"),
+                height=260
+            )
+            fig_gain.update_layout(
+                template="plotly_dark", paper_bgcolor="rgba(15,23,42,0.4)", plot_bgcolor="rgba(15,23,42,0.4)",
+                font={"color": "#f8fafc"}, yaxis={"categoryorder": "total ascending", "title": ""},
+                xaxis={"title": "7-Day Pick Rate Shift (%)"}, coloraxis_showscale=False, margin={"l": 10, "r": 10, "t": 20, "b": 10}
+            )
+            fig_gain.update_traces(textposition="outside")
+            st.plotly_chart(fig_gain, use_container_width=True)
+
+        with col_fall:
+            st.markdown("##### 📉 Top 5 Falling Weapons (7-Day Pick Rate Loss)")
+            df_losers = df_tel.sort_values("7D Momentum (Δ %)", ascending=True).head(5)
+            fig_loss = px.bar(
+                df_losers,
+                x="7D Momentum (Δ %)",
+                y="Weapon",
+                orientation="h",
+                color="7D Momentum (Δ %)",
+                color_continuous_scale=["#ef4444", "#f87171"],
+                text=df_losers["7D Momentum (Δ %)"].apply(lambda v: f"{v:.1f}%"),
+                height=260
+            )
+            fig_loss.update_layout(
+                template="plotly_dark", paper_bgcolor="rgba(15,23,42,0.4)", plot_bgcolor="rgba(15,23,42,0.4)",
+                font={"color": "#f8fafc"}, yaxis={"categoryorder": "total descending", "title": ""},
+                xaxis={"title": "7-Day Pick Rate Shift (%)"}, coloraxis_showscale=False, margin={"l": 10, "r": 10, "t": 20, "b": 10}
+            )
+            fig_loss.update_traces(textposition="outside")
+            st.plotly_chart(fig_loss, use_container_width=True)
+
+        st.markdown("---")
+
+        # 3. Community Attachment Popularity Leaderboard
+        st.markdown("#### 🔥 Most Popular Community Attachments Across All Meta Builds")
+        st.caption("Scraped from verified WZStats & WZRanked builds showing which individual attachments players equip most.")
+        
+        all_atts = repo.get_attachments()
+        sorted_atts = sorted([a for a in all_atts if a.pick_rate_pct > 0], key=lambda a: a.pick_rate_pct, reverse=True)
+        
+        if sorted_atts:
+            att_cols = st.columns(4)
+            for i, a in enumerate(sorted_atts[:8]):
+                with att_cols[i % 4]:
+                    meta_tag = "👑 META #1" if a.is_meta_favorite else "⭐ POPULAR"
+                    st.markdown(
+                        f'<div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; padding: 10px; margin-bottom: 10px;">'
+                        f'<div style="display:flex; justify-content:space-between; align-items:center;">'
+                        f'<span style="color:#38bdf8; font-size:10px; font-weight:700; text-transform:uppercase;">{a.slot.value}</span>'
+                        f'<span style="color:#f59e0b; font-size:10px; font-weight:700;">{meta_tag}</span>'
+                        f'</div>'
+                        f'<div style="color:#ffffff; font-size:13px; font-weight:600; margin:4px 0 2px 0;">{a.name}</div>'
+                        f'<div style="color:#4ade80; font-size:12px; font-weight:700;">🔥 {a.pick_rate_pct:.1f}% Pick Rate</div>'
+                        f'</div>',
+                        unsafe_allow_html=True
+                    )
+
+
+# ---------------------------------------------------------------------------
+# TAB 3: Multi-Authority Consensus Matrix
+# ---------------------------------------------------------------------------
+with tab_consensus:
+    c_mat_title, c_mat_btn = st.columns([3, 1])
+    with c_mat_title:
+        st.markdown("### 🌐 Multi-Authority Meta Consensus Matrix (2026 MW4 Beta)")
+        st.caption("Compare our **Mathematical Ballistic Balance Score** alongside official tier rankings from 6 leading Call of Duty competitive analytics & publication authorities (**WZStats.gg**, **WZRanked**, **CODMunity**, **Dexerto**, **CharlieIntel**, and **Dot Esports**).")
+    with c_mat_btn:
+        st.write("")
+        if st.button("🚀 Live Scrape & Sync 6 Platforms", key="sync_btn_meta_board_tab3", type="primary"):
+            from src.ingestion.community_scraper import CommunityMetaScraper
+            with st.spinner("Scraping WZStats, WZRanked, CODMunity, Dexerto, Charlie, and DotEsports..."):
+                sc = CommunityMetaScraper(repo)
+                res = sc.sync_all_platforms(selected_ver)
+    # Fetch consensus intelligence
+    all_consensus_records = repo.get_community_consensus(selected_ver)
+    outlet_data = {}
+    for wid, cm in all_consensus_records.items():
+        outlet_data[wid] = {
+            "wzstats": cm.wzstats_tier,
+            "wzranked": cm.wzranked_tier,
+            "codmunity": cm.codmunity_tier,
+            "dexerto": cm.dexerto_tier,
+            "charlie": cm.charlie_tier,
+            "dotesports": cm.dotesports_tier,
+            "consensus": cm.consensus_tag,
+            "badge_color": cm.badge_color
+        }
+
+    # Build Top 10 Pick Rate Leaderboard Chart
+    leaderboard_data = []
+    for s in evaluated_scores:
+        rec = all_consensus_records.get(s.weapon_id)
+        pr = rec.community_pick_rate_pct if rec else 5.0
+        kd = rec.community_kd_ratio if rec else 1.05
+        sec = rec.recommended_secondary if rec else "Renetti 3-Burst"
+        out = outlet_data.get(s.weapon_id, {})
+        leaderboard_data.append({
+            "Weapon": s.weapon_name,
+            "Class": s.weapon_class.value.replace("_", " ").title(),
+            "Pick Rate %": pr,
+            "Player K/D": kd,
+            "Tier": s.tier_rating,
+            "Consensus Tag": out.get("consensus", "⭐ BALANCED VIABLE"),
+            "Recommended Secondary": sec
+        })
+
+    if leaderboard_data:
+        df_lead = pd.DataFrame(leaderboard_data).sort_values("Pick Rate %", ascending=False).head(10)
+        import plotly.express as px
+        fig_lead = px.bar(
+            df_lead,
+            x="Pick Rate %",
+            y="Weapon",
+            orientation="h",
+            color="Pick Rate %",
+            color_continuous_scale=["#38bdf8", "#818cf8", "#f59e0b", "#ef4444"],
+            text=df_lead["Pick Rate %"].apply(lambda v: f"{v:.1f}% Pick"),
+            hover_data={"Weapon": True, "Class": True, "Pick Rate %": ':.1f', "Player K/D": ':.2f', "Tier": True, "Consensus Tag": True, "Recommended Secondary": True},
+            title="🔥 Top 10 Community Pick-Rate & K/D Efficiency Leaderboard (2026 MW4 Beta)"
+        )
+        fig_lead.update_layout(
+            template="plotly_dark",
+            paper_bgcolor="rgba(15, 23, 42, 0.4)",
+            plot_bgcolor="rgba(15, 23, 42, 0.4)",
+            font={"color": "#f8fafc", "family": "Inter, sans-serif"},
+            yaxis={"categoryorder": "total ascending", "title": ""},
+            xaxis={"title": "Community Pick Rate (%)", "gridcolor": "rgba(148, 163, 184, 0.15)"},
+            coloraxis_showscale=False,
+            height=360,
+            margin={"l": 20, "r": 20, "t": 45, "b": 20}
+        )
+        fig_lead.update_traces(textposition="outside", marker_line_color="rgba(255,255,255,0.2)", marker_line_width=1)
+        st.plotly_chart(fig_lead, use_container_width=True)
+
+    consensus_rows = []
+    for s in evaluated_scores:
+        rec = all_consensus_records.get(s.weapon_id)
+        pr = rec.community_pick_rate_pct if rec else 5.0
+        kd = rec.community_kd_ratio if rec else 1.05
+        sec = rec.recommended_secondary if rec else "Renetti 3-Burst"
+        out = outlet_data.get(s.weapon_id, {
+            "wzstats": "Unranked", "wzranked": "Unranked", "codmunity": "Unranked",
+            "dexerto": "Unranked", "charlie": "Unranked", "dotesports": "Unranked",
+            "consensus": "Under Analysis", "badge_color": "#94a3b8"
+        })
+        consensus_rows.append({
+            "Weapon": s.weapon_name,
+            "Class": s.weapon_class.value.replace("_", " ").title(),
+            "Pick Rate %": f"{pr:.1f}%",
+            "Player K/D": f"{kd:.2f}",
+            "Our Lab (Math / PET)": f"{s.tier_rating}-Tier ({s.composite_balance_score:.1f}/100)",
+            "WZStats.gg": out.get("wzstats", "B-Tier 🔷"),
+            "WZRanked": out.get("wzranked", "B-Tier 🔷"),
+            "CODMunity": out.get("codmunity", "B-Tier 🔷"),
+            "Dexerto": out.get("dexerto", "B-Tier 🔷"),
+            "CharlieIntel": out.get("charlie", "B-Tier 🔷"),
+            "Dot Esports": out.get("dotesports", "B-Tier 🔷"),
+            "Recommended Companion": sec,
+            "Community Meta Consensus": out.get("consensus", "⭐ BALANCED VIABLE")
+        })
+
+    df_consensus = pd.DataFrame(consensus_rows)
+    st.dataframe(df_consensus, use_container_width=True, hide_index=True)
 

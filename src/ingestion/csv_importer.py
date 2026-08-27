@@ -6,7 +6,7 @@ Strict Pydantic-validated batch importer for weapon statistics, damage profiles,
 import io
 import pandas as pd
 from typing import Tuple, List, Dict, Any
-from ..database.models import (
+from src.database.models import (
     WeaponVersionStats,
     DamageRangeBracket,
     Attachment,
@@ -15,7 +15,7 @@ from ..database.models import (
     SourceTier,
     VerificationStatus
 )
-from ..database.repository import IntelligenceRepository
+from src.database.repository import IntelligenceRepository
 
 
 def import_weapon_stats_csv(

@@ -5,9 +5,9 @@ weapons, attachments, damage profiles, and evidence records.
 """
 
 from typing import List
-from .connection import db_manager, DatabaseManager
-from .repository import IntelligenceRepository
-from .models import (
+from src.database.connection import db_manager, DatabaseManager
+from src.database.repository import IntelligenceRepository
+from src.database.models import (
     GameVersion,
     Ruleset,
     Weapon,

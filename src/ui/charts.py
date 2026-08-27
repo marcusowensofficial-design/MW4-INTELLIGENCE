@@ -7,7 +7,7 @@ Pareto frontier tradeoffs, balance radar, and damage hitbox profiles.
 from typing import List, Dict, Any, Optional
 import plotly.graph_objects as go
 import plotly.express as px
-from ..database.models import TTKCalculationResult, PracticalEngagementResult, ParetoBuildPoint, BalanceScoreBreakdown
+from src.database.models import TTKCalculationResult, PracticalEngagementResult, ParetoBuildPoint, BalanceScoreBreakdown
 
 
 DARK_LAYOUT = dict(

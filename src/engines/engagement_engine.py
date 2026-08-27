@@ -5,7 +5,7 @@ reaction time, ADS transition, sprint-to-fire delay, theoretical TTK, and accura
 """
 
 from typing import Optional
-from ..database.models import PracticalEngagementResult
+from src.database.models import PracticalEngagementResult
 
 
 def calculate_expected_miss_penalty_ms(
@@ -40,6 +40,7 @@ def calculate_practical_engagement_time(
     is_already_ads: bool = False,
     is_tactical_sprint: bool = False,
     tactical_sprint_to_fire_ms: float = 280.0,
+    concurrent_handling: bool = True,
     weapon_id: str = "weapon",
     weapon_name: str = "Weapon",
     distance_m: float = 15.0
@@ -48,7 +49,8 @@ def calculate_practical_engagement_time(
     Calculates total Practical Engagement Time (PET) in milliseconds.
     
     Formula:
-    PET = reaction_ms + ads_ms_effective + sprint_penalty_effective + theoretical_ttk_ms + expected_miss_penalty_ms
+    - Concurrent Sprint Handling (COD Engine): PET = reaction_ms + max(ADS, STF) + theoretical_ttk_ms + miss_penalty_ms
+    - Sequential Staged Handling: PET = reaction_ms + ADS + STF + theoretical_ttk_ms + miss_penalty_ms
     """
     # ADS handling
     ads_effective = 0.0 if is_already_ads else ads_ms
@@ -59,10 +61,22 @@ def calculate_practical_engagement_time(
     else:
         stf_effective = tactical_sprint_to_fire_ms if is_tactical_sprint else sprint_to_fire_ms
 
+    # Handling transition latency (Concurrent in-engine vs sequential staged)
+    if is_already_ads:
+        handling_latency = 0.0
+    elif not is_sprinting:
+        handling_latency = ads_effective
+    elif concurrent_handling:
+        # Real-world COD engine: Sprint-out and ADS animations run concurrently
+        handling_latency = max(ads_effective, stf_effective)
+    else:
+        # Sequential staged handling
+        handling_latency = ads_effective + stf_effective
+
     # Miss penalty
     miss_penalty_ms = calculate_expected_miss_penalty_ms(stk=stk, rpm=rpm, accuracy=accuracy)
 
-    total_pet_ms = reaction_ms + ads_effective + stf_effective + theoretical_ttk_ms + miss_penalty_ms
+    total_pet_ms = reaction_ms + handling_latency + theoretical_ttk_ms + miss_penalty_ms
 
     return PracticalEngagementResult(
         weapon_id=weapon_id,

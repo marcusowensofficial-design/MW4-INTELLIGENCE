@@ -24,9 +24,9 @@ def test_miss_penalty_50_percent_accuracy():
 
 
 def test_practical_engagement_sprint_encounter():
-    # reaction=200, ads=240, stf=200, ttk=240, stk=4, rpm=750 (80ms/shot), acc=1.0 (0 miss)
-    # PET = 200 + 240 + 200 + 240 + 0 = 880.0 ms
-    res = calculate_practical_engagement_time(
+    # Concurrent Handling (COD Engine): reaction=200, max(ads=240, stf=200) = 240, ttk=240, stk=4, rpm=750, acc=1.0 (0 miss)
+    # PET = 200 + max(240, 200) + 240 + 0 = 680.0 ms
+    res_concurrent = calculate_practical_engagement_time(
         reaction_ms=200.0,
         ads_ms=240.0,
         sprint_to_fire_ms=200.0,
@@ -35,11 +35,27 @@ def test_practical_engagement_sprint_encounter():
         rpm=750.0,
         accuracy=1.0,
         is_sprinting=True,
-        is_already_ads=False
+        is_already_ads=False,
+        concurrent_handling=True
     )
-    assert res.practical_engagement_time_ms == 880.0
-    assert res.ads_ms == 240.0
-    assert res.sprint_to_fire_ms == 200.0
+    assert res_concurrent.practical_engagement_time_ms == 680.0
+    assert res_concurrent.ads_ms == 240.0
+    assert res_concurrent.sprint_to_fire_ms == 200.0
+
+    # Sequential Staged Mode: PET = 200 + 240 + 200 + 240 + 0 = 880.0 ms
+    res_seq = calculate_practical_engagement_time(
+        reaction_ms=200.0,
+        ads_ms=240.0,
+        sprint_to_fire_ms=200.0,
+        theoretical_ttk_ms=240.0,
+        stk=4,
+        rpm=750.0,
+        accuracy=1.0,
+        is_sprinting=True,
+        is_already_ads=False,
+        concurrent_handling=False
+    )
+    assert res_seq.practical_engagement_time_ms == 880.0
 
 
 def test_practical_engagement_already_ads():

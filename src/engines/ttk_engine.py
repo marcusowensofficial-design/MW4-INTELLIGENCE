@@ -6,7 +6,7 @@ and continuous damage distance curves for Core and Hardcore rulesets.
 
 import math
 from typing import List, Dict, Optional, Tuple, Union
-from ..database.models import (
+from src.database.models import (
     Weapon,
     WeaponVersionStats,
     DamageRangeBracket,

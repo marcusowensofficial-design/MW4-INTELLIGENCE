@@ -5,7 +5,7 @@ Computes source reliability, temporal freshness decay, and multi-tester consensu
 
 from datetime import datetime
 from typing import List, Optional
-from ..database.models import EvidenceLedgerEntry, SourceTier, VerificationStatus
+from src.database.models import EvidenceLedgerEntry, SourceTier, VerificationStatus
 
 
 TIER_CONFIDENCE_WEIGHTS = {

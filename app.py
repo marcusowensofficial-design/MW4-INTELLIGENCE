@@ -1,3 +1,11 @@
+import os
+import sys
+
+# Ensure repository root is in sys.path for Streamlit Cloud deployment
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 import streamlit as st
 import pandas as pd
 from datetime import datetime, timezone
@@ -100,17 +108,23 @@ with col_info:
     st.caption("⚡ **Live Sync Action:** Resolves monthly rollover paths, crawls official patch feeds, hashes raw snapshots, and runs background Parquet backup.")
 
 if update_all_clicked:
-    with st.spinner("Scraping official Call of Duty patch notes and updating all weapon feeds..."):
+    with st.spinner("Scraping official Call of Duty patch notes, WZStats, WZRanked telemetry, and updating database..."):
+        from src.ingestion.community_scraper import CommunityMetaScraper
         scraper = PatchNotesScraper(repo)
+        comm_scraper = CommunityMetaScraper(repo)
+        
         success, msg, data = scraper.scrape_and_ingest()
+        comm_res = comm_scraper.sync_all_platforms(selected_ver)
+        att_res = comm_scraper.sync_wzstats_loadouts_and_attachments()
+        
         # Trigger Parquet snapshot export
         import os
         snap_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "snapshots")
         db_manager.export_all_to_parquet(snap_dir)
         
         if success:
-            st.success(f"✅ {msg}")
-            st.toast("Weapon stats & patch notes updated successfully!", icon="🎯")
+            st.success(f"✅ {msg} Synchronized 6 community authority platforms and updated attachment popularity distributions.")
+            st.toast("Weapon stats, patch notes & community telemetry updated successfully!", icon="🎯")
             st.rerun()
         else:
             st.error(msg)

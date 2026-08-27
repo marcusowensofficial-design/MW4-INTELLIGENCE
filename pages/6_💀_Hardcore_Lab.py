@@ -3,6 +3,14 @@ MW4 Weapon Intelligence Lab - Hardcore Tactical Lab
 Dedicated 30 HP lethality analysis, 1-shot kill distance breakpoints, and Core vs Hardcore comparison.
 """
 
+import os
+import sys
+
+# Ensure repository root is in sys.path for Streamlit Cloud deployment
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 import streamlit as st
 import pandas as pd
 from src.ui.theme import render_page_header

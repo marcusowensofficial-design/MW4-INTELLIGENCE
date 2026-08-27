@@ -6,8 +6,8 @@ Extracts weapon card metrics from user-uploaded screenshots and routes them safe
 from typing import Dict, Any, Tuple
 from PIL import Image
 import io
-from .ai_gatekeeper import submit_ai_claim_to_review_queue
-from ..database.repository import IntelligenceRepository
+from src.ingestion.ai_gatekeeper import submit_ai_claim_to_review_queue
+from src.database.repository import IntelligenceRepository
 
 
 def parse_weapon_card_screenshot(

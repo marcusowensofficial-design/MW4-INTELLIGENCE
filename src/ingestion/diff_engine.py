@@ -5,8 +5,8 @@ Compares weapon physical stats and damage profiles across game versions to detec
 
 from typing import List, Dict, Any, Optional, Tuple
 from pydantic import BaseModel
-from ..database.models import WeaponVersionStats, DamageRangeBracket
-from ..database.repository import IntelligenceRepository
+from src.database.models import WeaponVersionStats, DamageRangeBracket
+from src.database.repository import IntelligenceRepository
 
 
 class StatDelta(BaseModel):

@@ -130,7 +130,7 @@ def render_weapon_podium_card(
     weapon_id: str = None
 ) -> str:
     """Renders an authentic Call of Duty Gunsmith style tactical card with transparent weapon render."""
-    from .weapon_assets import get_weapon_img_tag
+    from src.ui.weapon_assets import get_weapon_img_tag
     img_tag = get_weapon_img_tag(weapon_id, max_height_px=46, max_width_px=140) if weapon_id else ""
     
     if img_tag:

@@ -1,3 +1,11 @@
+import os
+import sys
+
+# Ensure repository root is in sys.path for Streamlit Cloud deployment
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 import streamlit as st
 import pandas as pd
 from datetime import datetime, timezone
@@ -91,7 +99,7 @@ with tab_gunsmith:
         ("Rear Grip", AttachmentSlot.REAR_GRIP)
     ]
 
-    # Quick Meta Presets Selector
+    # Quick Meta Presets Selector & 1-Click Auto-Equip
     meta_presets = {
         "Custom (Manual Slot Selection)": [],
         "⚡ XM4 CDL Pro Meta (Zero-Recoil Laser)": ["muzzle_vt7_spiritfire", "barrel_cyclone_long", "underbarrel_bruen_heavy_grip", "optic_slate_reflector", "mag_40_round"],
@@ -100,20 +108,32 @@ with tab_gunsmith:
         "⚡ BAS-B Heavy Combat (Max 7.62 Punch)": ["barrel_cyclone_long", "underbarrel_bruen_heavy_grip", "optic_slate_reflector", "stock_heavy_tac", "mag_40_round"]
     }
 
-    c_pre1, c_pre2 = st.columns([3, 1])
+    # Retrieve #1 most popular community attachments for this weapon
+    top_community_atts = repo.get_most_popular_attachments(weapon.weapon_id, max_slots=5)
+    top_comm_ids = {a.attachment_id for a in top_community_atts}
+
+    c_pre1, c_pre2, c_pre3 = st.columns([2.5, 1.5, 1.5])
     with c_pre1:
         chosen_preset = st.selectbox(
-            "⚡ Quick-Load Verified Pro Meta Preset",
+            "⚡ Quick-Load Verified Meta Preset",
             options=list(meta_presets.keys()),
             key=f"preset_picker_{weapon.weapon_id}"
         )
     with c_pre2:
         st.write("")
         st.write("")
+        auto_meta_clicked = st.button("🔥 Auto-Equip Top Pick Rates", help="Instantly equips the #1 most picked community attachment in each slot.")
+    with c_pre3:
+        st.write("")
+        st.write("")
         if chosen_preset != "Custom (Manual Slot Selection)":
-            st.caption("Auto-configured 5 meta slots.")
+            st.caption("Preset configured.")
 
-    preset_att_ids = set(meta_presets[chosen_preset])
+    if auto_meta_clicked:
+        preset_att_ids = top_comm_ids
+        st.toast(f"Equipped top {len(top_community_atts)} community meta attachments for {weapon.name}!")
+    else:
+        preset_att_ids = set(meta_presets[chosen_preset])
 
     selected_attachments = []
 
@@ -121,13 +141,14 @@ with tab_gunsmith:
     for idx, (slot_label, slot_enum) in enumerate(slots):
         slot_atts = [a for a in all_attachments if a.slot == slot_enum]
         
-        # Build mapping and labels with verified status
+        # Build mapping and labels with verified status & pick rates
         att_display_map = {}
         preset_idx = 0
         for s_idx, a in enumerate(slot_atts):
             a_mods = [m for m in all_mods if m.attachment_id == a.attachment_id]
-            status_tag = "" if a_mods else " [UNVERIFIED DATA]"
-            disp_label = f"{a.name}{status_tag}"
+            status_tag = "" if a_mods else " [UNVERIFIED]"
+            pick_tag = f" (🔥 {a.pick_rate_pct:.0f}% Pick)" if a.pick_rate_pct > 0 else ""
+            disp_label = f"{a.name}{pick_tag}{status_tag}"
             att_display_map[disp_label] = a
             if a.attachment_id in preset_att_ids:
                 preset_idx = s_idx + 1 # offset by 1 for "None"
@@ -140,7 +161,7 @@ with tab_gunsmith:
                 f"{slot_label} Slot",
                 options=att_options,
                 index=preset_idx if preset_idx < len(att_options) else 0,
-                key=f"slot_{slot_enum.value}_{chosen_preset[:6]}"
+                key=f"slot_{slot_enum.value}_{chosen_preset[:6]}_{'auto' if auto_meta_clicked else 'norm'}"
             )
             if choice != "None":
                 chosen_att = att_display_map[choice]
@@ -160,8 +181,9 @@ with tab_gunsmith:
             benefit_pills = []
             for a in selected_attachments:
                 effects = get_attachment_plain_effects(a.attachment_id, a.name)
+                pick_str = f" • 🔥 {a.pick_rate_pct:.0f}% Pick" if a.pick_rate_pct > 0 else ""
                 for eff in effects:
-                    benefit_pills.append(f'<span style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 4px; padding: 3px 8px; font-size: 11.5px; margin: 2px 4px 2px 0; display: inline-block;"><b>{a.name}:</b> {eff}</span>')
+                    benefit_pills.append(f'<span style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 4px; padding: 3px 8px; font-size: 11.5px; margin: 2px 4px 2px 0; display: inline-block;"><b>{a.name}{pick_str}:</b> {eff}</span>')
             
             st.markdown(f'<div style="margin-bottom: 14px;">{" ".join(benefit_pills)}</div>', unsafe_allow_html=True)
 
@@ -191,7 +213,7 @@ with tab_gunsmith:
             # Display stats comparison cards
             st.markdown("#### 📊 Modified Build Performance vs Baseline")
 
-            m1, m2, m3, m4 = st.columns(4)
+            m1, m2, m3, m4, m5 = st.columns(5)
             with m1:
                 ads_delta = eval_build.effective_ads_ms - baseline.effective_ads_ms
                 st.metric(
@@ -238,6 +260,22 @@ with tab_gunsmith:
                 )
 
             with m4:
+                add_ammo_now = eval_build.effective_reload_add_ammo_s
+                add_ammo_base = baseline.effective_reload_add_ammo_s
+                add_delta = add_ammo_now - add_ammo_base
+                st.metric(
+                    "⚡ Add-Ammo Reload",
+                    f"{add_ammo_now:.2f} s",
+                    delta=f"{add_delta:+.2f} s",
+                    delta_color="inverse"
+                )
+                st.metric(
+                    "⚡ Fast-Swap Draw",
+                    f"{eval_build.effective_swap_speed_raise_ms:.0f} ms",
+                    delta="Weapon Ready Time"
+                )
+
+            with m5:
                 pet_delta = eval_build.close_pet_ms - baseline.close_pet_ms
                 st.metric(
                     "Practical Combat Time",
@@ -245,11 +283,10 @@ with tab_gunsmith:
                     delta=f"{pet_delta:+.0f} ms",
                     delta_color="inverse"
                 )
-                bal_delta = eval_build.balance_score - baseline.balance_score
                 st.metric(
-                    "Balance Rating",
-                    f"{eval_build.balance_score:.1f}/100",
-                    delta=f"{bal_delta:+.1f}"
+                    "💥 Mag Lethality",
+                    f"{eval_build.kills_per_mag:.1f} Kills",
+                    delta=f"{eval_build.damage_per_mag:.0f} Total DMG"
                 )
 
             # 2D Recoil Spray Pattern Simulation

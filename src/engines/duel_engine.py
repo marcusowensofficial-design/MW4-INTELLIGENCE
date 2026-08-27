@@ -5,8 +5,8 @@ Simulates millisecond-accurate 1v1 shootouts between two customized weapon build
 
 from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
-from .ttk_engine import get_damage_at_distance, calculate_shots_to_kill
-from ..database.models import DamageRangeBracket, Ruleset
+from src.engines.ttk_engine import get_damage_at_distance, calculate_shots_to_kill
+from src.database.models import DamageRangeBracket, Ruleset
 
 
 class DuelCombatant(BaseModel):

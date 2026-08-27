@@ -5,9 +5,9 @@ Thread-safe session state caching and global selectors for Game Version and Rule
 
 import streamlit as st
 from typing import Tuple, List, Optional
-from ..database.connection import db_manager, DatabaseManager
-from ..database.repository import IntelligenceRepository
-from ..database.models import GameVersion, Ruleset
+from src.database.connection import db_manager, DatabaseManager
+from src.database.repository import IntelligenceRepository
+from src.database.models import GameVersion, Ruleset
 
 
 @st.cache_resource
@@ -17,7 +17,7 @@ def get_shared_repository() -> IntelligenceRepository:
     repo = IntelligenceRepository(db_manager)
     # Automatically seed baseline intelligence if database is newly initialized
     if not repo.get_weapons():
-        from ..database.seed_data import seed_database
+        from src.database.seed_data import seed_database
         seed_database(db_manager)
     return repo
 
@@ -50,7 +50,7 @@ def render_sidebar_controls(repo: IntelligenceRepository) -> Tuple[str, str, Rul
     Renders standard sidebar selectors for Game Version and Ruleset.
     Ensures version and ruleset state changes propagate globally.
     """
-    from .theme import inject_custom_theme
+    from src.ui.theme import inject_custom_theme
     inject_custom_theme()
 
     # Display persistent SpecOps branding logo

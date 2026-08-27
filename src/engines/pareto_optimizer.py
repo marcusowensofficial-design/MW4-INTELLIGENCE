@@ -6,7 +6,7 @@ Recoil Stability, Mobility, and Effective Range.
 
 import itertools
 from typing import List, Dict, Optional, Tuple
-from ..database.models import (
+from src.database.models import (
     Weapon,
     WeaponVersionStats,
     DamageRangeBracket,
@@ -17,7 +17,7 @@ from ..database.models import (
     ParetoBuildPoint,
     EvaluatedBuildStats
 )
-from .attachment_engine import calculate_modified_stats, validate_build_legality
+from src.engines.attachment_engine import calculate_modified_stats, validate_build_legality
 
 
 def is_dominated(

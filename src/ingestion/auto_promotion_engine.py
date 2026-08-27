@@ -7,7 +7,7 @@ to apply direct verified database updates without manual review friction.
 import re
 from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional, Tuple
-from ..database.models import (
+from src.database.models import (
     WeaponVersionStats,
     DamageRangeBracket,
     EvidenceLedgerEntry,
@@ -15,7 +15,7 @@ from ..database.models import (
     SourceTier,
     VerificationStatus
 )
-from ..database.repository import IntelligenceRepository
+from src.database.repository import IntelligenceRepository
 
 
 # Strict physical and anatomical bounding guardrails

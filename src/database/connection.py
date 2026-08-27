@@ -8,7 +8,7 @@ import threading
 import duckdb
 from pathlib import Path
 from typing import Optional, Dict
-from .schema import SCHEMA_DDL
+from src.database.schema import SCHEMA_DDL
 
 
 DEFAULT_DB_PATH = os.path.join(

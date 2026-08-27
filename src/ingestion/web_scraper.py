@@ -11,7 +11,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional, Tuple
-from ..database.models import (
+from src.database.models import (
     GameVersion,
     WeaponVersionStats,
     EvidenceLedgerEntry,
@@ -19,9 +19,9 @@ from ..database.models import (
     SourceTier,
     VerificationStatus
 )
-from ..database.repository import IntelligenceRepository
-from .ai_gatekeeper import submit_ai_claim_to_review_queue
-from .auto_promotion_engine import parse_and_auto_apply_patch_adjustments
+from src.database.repository import IntelligenceRepository
+from src.ingestion.ai_gatekeeper import submit_ai_claim_to_review_queue
+from src.ingestion.auto_promotion_engine import parse_and_auto_apply_patch_adjustments
 
 
 DEFAULT_USER_AGENT = (

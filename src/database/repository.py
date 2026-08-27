@@ -5,8 +5,8 @@ Parameterized DuckDB queries ensuring strict data integrity and type conversions
 
 import json
 from typing import List, Optional, Dict, Any
-from .connection import db_manager, DatabaseManager
-from .models import (
+from src.database.connection import db_manager, DatabaseManager
+from src.database.models import (
     GameVersion,
     Ruleset,
     Weapon,
@@ -250,7 +250,8 @@ class IntelligenceRepository:
                 SELECT stat_id, weapon_id, game_version_id, rpm, base_ads_ms, sprint_to_fire_ms,
                        tactical_sprint_to_fire_ms, bullet_velocity_mps, reload_empty_s, reload_tactical_s,
                        recoil_horizontal, recoil_vertical, hipfire_spread_deg, move_speed_mps,
-                       ads_move_speed_mps, flinch_resistance, open_bolt_delay_ms
+                       ads_move_speed_mps, flinch_resistance, open_bolt_delay_ms,
+                       reload_add_ammo_s, swap_speed_raise_ms, swap_speed_stow_ms, tac_sprint_speed_mps
                 FROM weapon_version_stats
                 WHERE weapon_id = ? AND game_version_id = ?
                 """,
@@ -275,7 +276,11 @@ class IntelligenceRepository:
                 move_speed_mps=r[13],
                 ads_move_speed_mps=r[14],
                 flinch_resistance=r[15],
-                open_bolt_delay_ms=r[16] if len(r) > 16 and r[16] is not None else 0.0
+                open_bolt_delay_ms=r[16] if len(r) > 16 and r[16] is not None else 0.0,
+                reload_add_ammo_s=float(r[17]) if len(r) > 17 and r[17] is not None else round(float(r[9]) * 0.68, 2),
+                swap_speed_raise_ms=float(r[18]) if len(r) > 18 and r[18] is not None else 350.0,
+                swap_speed_stow_ms=float(r[19]) if len(r) > 19 and r[19] is not None else 250.0,
+                tac_sprint_speed_mps=float(r[20]) if len(r) > 20 and r[20] is not None else round(float(r[13]) * 1.32, 2)
             )
         finally:
             conn.close()
@@ -289,8 +294,9 @@ class IntelligenceRepository:
                 (stat_id, weapon_id, game_version_id, rpm, base_ads_ms, sprint_to_fire_ms,
                  tactical_sprint_to_fire_ms, bullet_velocity_mps, reload_empty_s, reload_tactical_s,
                  recoil_horizontal, recoil_vertical, hipfire_spread_deg, move_speed_mps,
-                 ads_move_speed_mps, flinch_resistance, open_bolt_delay_ms)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 ads_move_speed_mps, flinch_resistance, open_bolt_delay_ms,
+                 reload_add_ammo_s, swap_speed_raise_ms, swap_speed_stow_ms, tac_sprint_speed_mps)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     stats.stat_id,
@@ -309,7 +315,11 @@ class IntelligenceRepository:
                     stats.move_speed_mps,
                     stats.ads_move_speed_mps,
                     stats.flinch_resistance,
-                    stats.open_bolt_delay_ms
+                    stats.open_bolt_delay_ms,
+                    stats.reload_add_ammo_s,
+                    stats.swap_speed_raise_ms,
+                    stats.swap_speed_stow_ms,
+                    stats.tac_sprint_speed_mps
                 ]
             )
         finally:
@@ -383,7 +393,7 @@ class IntelligenceRepository:
     def get_attachments(self, weapon_id: Optional[str] = None, slot: Optional[str] = None) -> List[Attachment]:
         conn = self.manager.get_connection()
         try:
-            query = "SELECT attachment_id, name, slot, weapon_id_compat, is_universal, unlock_level, description FROM attachments WHERE 1=1"
+            query = "SELECT attachment_id, name, slot, weapon_id_compat, is_universal, unlock_level, description, pick_rate_pct, is_meta_favorite FROM attachments WHERE 1=1"
             params: List[Any] = []
             if weapon_id:
                 query += " AND (is_universal = TRUE OR weapon_id_compat = ?)"
@@ -391,7 +401,7 @@ class IntelligenceRepository:
             if slot:
                 query += " AND slot = ?"
                 params.append(slot)
-            query += " ORDER BY slot ASC, unlock_level ASC, name ASC"
+            query += " ORDER BY slot ASC, pick_rate_pct DESC, unlock_level ASC, name ASC"
 
             rows = conn.execute(query, params).fetchall()
             return [
@@ -402,7 +412,9 @@ class IntelligenceRepository:
                     weapon_id_compat=r[3],
                     is_universal=bool(r[4]),
                     unlock_level=r[5],
-                    description=r[6]
+                    description=r[6],
+                    pick_rate_pct=float(r[7]) if len(r) > 7 and r[7] is not None else 0.0,
+                    is_meta_favorite=bool(r[8]) if len(r) > 8 and r[8] is not None else False
                 )
                 for r in rows
             ]
@@ -413,7 +425,7 @@ class IntelligenceRepository:
         conn = self.manager.get_connection()
         try:
             r = conn.execute(
-                "SELECT attachment_id, name, slot, weapon_id_compat, is_universal, unlock_level, description FROM attachments WHERE attachment_id = ?",
+                "SELECT attachment_id, name, slot, weapon_id_compat, is_universal, unlock_level, description, pick_rate_pct, is_meta_favorite FROM attachments WHERE attachment_id = ?",
                 [attachment_id]
             ).fetchone()
             if not r:
@@ -425,7 +437,9 @@ class IntelligenceRepository:
                 weapon_id_compat=r[3],
                 is_universal=bool(r[4]),
                 unlock_level=r[5],
-                description=r[6]
+                description=r[6],
+                pick_rate_pct=float(r[7]) if len(r) > 7 and r[7] is not None else 0.0,
+                is_meta_favorite=bool(r[8]) if len(r) > 8 and r[8] is not None else False
             )
         finally:
             conn.close()
@@ -436,8 +450,8 @@ class IntelligenceRepository:
             conn.execute(
                 """
                 INSERT OR REPLACE INTO attachments
-                (attachment_id, name, slot, weapon_id_compat, is_universal, unlock_level, description)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
+                (attachment_id, name, slot, weapon_id_compat, is_universal, unlock_level, description, pick_rate_pct, is_meta_favorite)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     att.attachment_id,
@@ -446,11 +460,30 @@ class IntelligenceRepository:
                     att.weapon_id_compat,
                     att.is_universal,
                     att.unlock_level,
-                    att.description
+                    att.description,
+                    att.pick_rate_pct,
+                    att.is_meta_favorite
                 ]
             )
         finally:
             conn.close()
+
+    def get_most_popular_attachments(self, weapon_id: str, max_slots: int = 5) -> List[Attachment]:
+        """
+        Retrieves the top community meta attachment for up to max_slots distinct slots
+        based on real scraped pick rate percentages.
+        """
+        all_atts = self.get_attachments(weapon_id=weapon_id)
+        # Group by slot and pick the one with highest pick_rate_pct
+        slot_bests: Dict[str, Attachment] = {}
+        for a in all_atts:
+            s_val = a.slot.value
+            if s_val not in slot_bests or a.pick_rate_pct > slot_bests[s_val].pick_rate_pct:
+                slot_bests[s_val] = a
+        
+        # Sort by pick_rate_pct descending and pick top 5
+        sorted_bests = sorted(slot_bests.values(), key=lambda x: x.pick_rate_pct, reverse=True)
+        return sorted_bests[:max_slots]
 
     def get_attachment_modifiers(
         self,
@@ -884,6 +917,7 @@ class IntelligenceRepository:
                    dexerto_tier, charlie_tier, dotesports_tier,
                    consensus_tag, badge_color,
                    community_pick_rate_pct, community_kd_ratio, recommended_secondary,
+                   global_win_rate_pct, meta_trend_delta_pct, headshot_pct, kills_per_minute,
                    last_updated
             FROM community_meta_consensus WHERE 1=1
             """
@@ -910,7 +944,11 @@ class IntelligenceRepository:
                     community_pick_rate_pct=float(r[11]) if r[11] is not None else 5.0,
                     community_kd_ratio=float(r[12]) if r[12] is not None else 1.05,
                     recommended_secondary=str(r[13]) if r[13] else "Renetti 3-Burst",
-                    last_updated=r[14]
+                    global_win_rate_pct=float(r[14]) if len(r) > 14 and r[14] is not None else 50.0,
+                    meta_trend_delta_pct=float(r[15]) if len(r) > 15 and r[15] is not None else 0.0,
+                    headshot_pct=float(r[16]) if len(r) > 16 and r[16] is not None else 18.0,
+                    kills_per_minute=float(r[17]) if len(r) > 17 and r[17] is not None else 1.85,
+                    last_updated=r[18] if len(r) > 18 else datetime.now(timezone.utc).isoformat()
                 )
             return result
         finally:
@@ -927,8 +965,9 @@ class IntelligenceRepository:
                  dexerto_tier, charlie_tier, dotesports_tier,
                  consensus_tag, badge_color,
                  community_pick_rate_pct, community_kd_ratio, recommended_secondary,
+                 global_win_rate_pct, meta_trend_delta_pct, headshot_pct, kills_per_minute,
                  last_updated)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     item.consensus_id,
@@ -945,6 +984,10 @@ class IntelligenceRepository:
                     item.community_pick_rate_pct,
                     item.community_kd_ratio,
                     item.recommended_secondary,
+                    item.global_win_rate_pct,
+                    item.meta_trend_delta_pct,
+                    item.headshot_pct,
+                    item.kills_per_minute,
                     item.last_updated
                 ]
             )

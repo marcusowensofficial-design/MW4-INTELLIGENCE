@@ -3,6 +3,14 @@ MW4 Weapon Intelligence Lab - Weapon Lab & Ballistics Inspector
 Interactive TTK curves, Practical Engagement Time breakdown, and Evidence Provenance.
 """
 
+import os
+import sys
+
+# Ensure repository root is in sys.path for Streamlit Cloud deployment
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
+
 import streamlit as st
 import pandas as pd
 from src.ui.theme import render_page_header
@@ -184,15 +192,24 @@ with col_p1:
 with col_p2:
     acc_slider = st.slider("Player Accuracy (%)", min_value=40, max_value=100, value=72, step=2) / 100.0
 with col_p3:
-    sprint_toggle = st.checkbox("Engaging out of full sprint", value=True)
+    sprint_mode = st.selectbox(
+        "Engage Movement State",
+        options=["⚡ Standard Sprint", "🚀 Tactical Super-Sprint", "🏃 Walking / Pre-Aim (Already ADS)"],
+        index=0
+    )
 
-# Recompute PET with user settings
+is_sprint = (sprint_mode != "🏃 Walking / Pre-Aim (Already ADS)")
+is_tac = (sprint_mode == "🚀 Tactical Super-Sprint")
+is_ads = (sprint_mode == "🏃 Walking / Pre-Aim (Already ADS)")
+
+# Recompute PET with user settings & concurrent handling
 dynamic_pets = []
 for idx, w_name in enumerate(selected_weapon_names):
     w = weapon_names[w_name]
     stats = repo.get_weapon_stats(w.weapon_id, selected_ver)
     if stats and idx < len(ttk_results):
         t_res = ttk_results[idx]
+        tac_stf = getattr(stats, "tactical_sprint_to_fire_ms", round(stats.sprint_to_fire_ms * 1.35, 1))
         d_pet = calculate_practical_engagement_time(
             reaction_ms=float(react_slider),
             ads_ms=stats.base_ads_ms,
@@ -201,7 +218,11 @@ for idx, w_name in enumerate(selected_weapon_names):
             stk=t_res.curve_points[15].shots_to_kill if len(t_res.curve_points) > 15 else 4,
             rpm=stats.rpm,
             accuracy=acc_slider,
-            is_sprinting=sprint_toggle,
+            is_sprinting=is_sprint,
+            is_already_ads=is_ads,
+            is_tactical_sprint=is_tac,
+            tactical_sprint_to_fire_ms=tac_stf,
+            concurrent_handling=True,
             weapon_id=w.weapon_id,
             weapon_name=w.name,
             distance_m=15.0
@@ -211,7 +232,7 @@ for idx, w_name in enumerate(selected_weapon_names):
 if dynamic_pets:
     fig_pet = create_practical_engagement_stacked_chart(
         dynamic_pets,
-        title=f"Practical Engagement Time Breakdown (Sprint: {sprint_toggle} • Accuracy: {int(acc_slider*100)}%)"
+        title=f"Practical Engagement Time Breakdown ({sprint_mode} • Accuracy: {int(acc_slider*100)}%)"
     )
     st.plotly_chart(fig_pet, use_container_width=True)
 
@@ -272,15 +293,26 @@ if primary_stats and primary_profiles:
             unsafe_allow_html=True
         )
 
+        add_ammo_val = primary_stats.reload_add_ammo_s if getattr(primary_stats, "reload_add_ammo_s", 0.0) > 0 else round(primary_stats.reload_tactical_s * 0.68, 2)
+        swap_raise_val = getattr(primary_stats, "swap_speed_raise_ms", 350.0) or 350.0
+        swap_stow_val = getattr(primary_stats, "swap_speed_stow_ms", 250.0) or 250.0
+        tac_sprint_val = getattr(primary_stats, "tac_sprint_speed_mps", round(primary_stats.move_speed_mps * 1.32, 2)) or 6.8
+        
+        base_chest_dmg = primary_profiles[0].damage_chest if primary_profiles else 30.0
+        total_mag_dmg = round(primary_weapon.base_mag_size * base_chest_dmg, 1)
+        close_stk_calc = calculate_shots_to_kill(active_ruleset.target_health, base_chest_dmg, active_ruleset.min_stk_cap)
+        kills_per_mag_calc = round(primary_weapon.base_mag_size / max(1, close_stk_calc), 1)
+
         stat_items = [
             {"Metric": "Fire Rate (RPM)", "Value": f"{primary_stats.rpm} RPM"},
             {"Metric": "Quick-Aim Speed (ADS)", "Value": f"{primary_stats.base_ads_ms} ms"},
             {"Metric": "Sprint-to-Shoot Time", "Value": f"{primary_stats.sprint_to_fire_ms} ms"},
+            {"Metric": "⚡ Add-Ammo Reload (Sprint Cancel)", "Value": f"{add_ammo_val:.2f} s (Full: {primary_stats.reload_tactical_s}s)"},
+            {"Metric": "⚡ Fast-Swap Speed (Raise / Stow)", "Value": f"{swap_raise_val:.0f} ms / {swap_stow_val:.0f} ms"},
+            {"Metric": "💥 Magazine Lethality Capacity", "Value": f"{kills_per_mag_calc} Kills ({total_mag_dmg} Total DMG)"},
+            {"Metric": "🏃 Tac-Sprint / Base Sprint", "Value": f"{tac_sprint_val:.2f} m/s / {primary_stats.move_speed_mps:.2f} m/s"},
             {"Metric": "Bullet Velocity", "Value": f"{primary_stats.bullet_velocity_mps} m/s"},
-            {"Metric": "Tactical Reload", "Value": f"{primary_stats.reload_tactical_s} s"},
-            {"Metric": "Empty Reload", "Value": f"{primary_stats.reload_empty_s} s"},
             {"Metric": "Gun Kick / Recoil (H / V)", "Value": f"{primary_stats.recoil_horizontal} / {primary_stats.recoil_vertical}"},
-            {"Metric": "Magazine Capacity", "Value": f"{primary_weapon.base_mag_size} rounds"},
             {"Metric": "Strafe Move Speed", "Value": f"{primary_stats.ads_move_speed_mps} m/s"}
         ]
         st.dataframe(pd.DataFrame(stat_items), use_container_width=True, hide_index=True)
