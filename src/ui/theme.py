@@ -143,37 +143,6 @@ section[data-testid="stSidebar"] a span {
     transition: all 0.18s ease-in-out !important;
 }
 
-/* Bulletproof Rename Root App Entry to 'SAIL6 MW4 RESEARCH MAIN PAGE' in Sidebar */
-[data-testid="stSidebarNavItems"] li:first-child a,
-[data-testid="stSidebarNav"] li:first-child a,
-section[data-testid="stSidebar"] ul li:first-child a,
-a[data-testid="stSidebarNavLink"]:first-child {
-    position: relative !important;
-}
-
-[data-testid="stSidebarNavItems"] li:first-child a *,
-[data-testid="stSidebarNav"] li:first-child a *,
-section[data-testid="stSidebar"] ul li:first-child a *,
-a[data-testid="stSidebarNavLink"]:first-child * {
-    visibility: hidden !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-}
-
-[data-testid="stSidebarNavItems"] li:first-child a::after,
-[data-testid="stSidebarNav"] li:first-child a::after,
-section[data-testid="stSidebar"] ul li:first-child a::after,
-a[data-testid="stSidebarNavLink"]:first-child::after {
-    content: "🎯 SAIL6 MW4 RESEARCH MAIN PAGE" !important;
-    visibility: visible !important;
-    font-size: 13.5px !important;
-    font-weight: 700 !important;
-    color: #38bdf8 !important;
-    white-space: nowrap !important;
-    display: inline-block !important;
-    padding: 2px 0 !important;
-}
-
 /* Hovered sidebar link - tactical glow */
 [data-testid="stSidebarNav"] a:hover,
 [data-testid="stSidebarNavItems"] a:hover,
