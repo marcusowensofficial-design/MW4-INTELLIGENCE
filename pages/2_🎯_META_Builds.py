@@ -276,11 +276,38 @@ for w in target_weapons:
                 # 5. Playstyle Strategy & Share Code
                 st.markdown(f"**Tactical Playstyle Guide**: *{b.playstyle_notes}*")
                 
-                col_code, col_btn_action = st.columns([3, 1])
+                col_code, col_btn_action = st.columns([2.8, 1.2])
                 with col_code:
-                    st.code(b.share_code, language="markdown")
+                    st.code(b.share_code, language="text")
                 with col_btn_action:
-                    st.write("")
-                    st.caption("📋 Copy loadout share code for custom sharing.")
+                    if hasattr(st, "dialog"):
+                        if st.button("📲 Open Share Card", key=f"btn_modal_{b.preset_id}", type="primary", use_container_width=True):
+                            export_loadout_dialog(b, w, build_attachments)
+                    else:
+                        st.caption("📋 Copy loadout share code.")
 
         st.markdown("<br/>", unsafe_allow_html=True)
+
+
+# ---------------------------------------------------------------------------
+# Native Modal Dialog for 1-Click Loadout Export (@st.dialog)
+# ---------------------------------------------------------------------------
+if hasattr(st, "dialog"):
+    @st.dialog("📋 Tactical Loadout Share Card")
+    def export_loadout_dialog(b_obj, w_obj, atts_list):
+        st.markdown(f"### **{w_obj.name}** • *{b_obj.build_name}*")
+        st.caption(f"**Category**: {w_obj.weapon_class.value.replace('_', ' ').title()} &nbsp;|&nbsp; **Archetype**: {b_obj.archetype_label}")
+        
+        st.markdown("#### 🔑 1-Click Import / Share Code:")
+        st.code(b_obj.share_code, language="text")
+        
+        st.markdown("#### 🎛️ 5-Slot Gunsmith Attachments:")
+        for att in atts_list:
+            st.markdown(f"• **{att.slot.value.upper()}**: `{att.name}`")
+            
+        st.markdown("#### 🛡️ Complete Tactical Class Setup:")
+        st.markdown(f"• **Perks**: `{b_obj.perk_1_name}` | `{b_obj.perk_2_name}` | `{b_obj.perk_3_name}`")
+        st.markdown(f"• **Secondary Companion**: `{b_obj.secondary_name}` (*{b_obj.secondary_role}*)")
+        st.markdown(f"• **Equipment**: 💣 `{b_obj.lethal_name}` | ⚡ `{b_obj.tactical_name}` | 🚀 `{b_obj.field_upgrade_name}`")
+        
+        st.markdown(f"💡 **Combat Guide**: *{b_obj.playstyle_notes}*")

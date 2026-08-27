@@ -310,12 +310,15 @@ with tab_gunsmith:
 
             st.markdown("---")
             st.markdown("#### 🔗 Compact Gunsmith Share Code")
-            col_sc_txt, col_sc_btn = st.columns([4, 1])
+            col_sc_txt, col_sc_btn = st.columns([3, 1.2])
             with col_sc_txt:
                 st.code(share_code, language="text")
             with col_sc_btn:
-                st.write("")
-                st.caption("Copy this code to share with squadmates or import across lab devices.")
+                if hasattr(st, "dialog"):
+                    if st.button("📲 Open Share Card", key="btn_share_modal_custom", type="primary", use_container_width=True):
+                        export_custom_build_dialog(weapon, selected_attachments, share_code, eval_build)
+                else:
+                    st.caption("Copy code to share with squadmates.")
 
             # Save Build Section
             st.markdown("---")
@@ -565,3 +568,32 @@ with tab_saved:
                     if st.button("🗑️ Delete", key=f"del_{b.build_id}"):
                         repo.delete_custom_build(b.build_id)
                         st.rerun()
+
+
+# ---------------------------------------------------------------------------
+# Native Modal Dialog for Custom Gunsmith Builds (@st.dialog)
+# ---------------------------------------------------------------------------
+if hasattr(st, "dialog"):
+    @st.dialog("📲 Gunsmith Custom Loadout Card")
+    def export_custom_build_dialog(w_obj, atts_list, share_code_val, eval_build_obj):
+        st.markdown(f"### **{w_obj.name}** • *Custom Gunsmith Setup*")
+        st.caption(f"**Category**: {w_obj.weapon_class.value.replace('_', ' ').title()} &nbsp;|&nbsp; **Balance Rating**: {eval_build_obj.balance_score:.1f}/100")
+        
+        st.markdown("#### 🔑 1-Click Share / Import Code:")
+        st.code(share_code_val, language="text")
+        
+        st.markdown("#### 🎛️ 5-Slot Gunsmith Attachments:")
+        if atts_list:
+            for att in atts_list:
+                st.markdown(f"• **{att.slot.value.upper()}**: `{att.name}`")
+        else:
+            st.markdown("• *Naked Baseline (Zero Attachments)*")
+            
+        st.markdown("#### 📊 Evaluated Ballistics Summary:")
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            st.metric("Quick-Aim (ADS)", f"{eval_build_obj.effective_ads_ms:.0f} ms")
+        with c2:
+            st.metric("Recoil Index", f"{eval_build_obj.recoil_index:.1f}")
+        with c3:
+            st.metric("Close TTK", f"{eval_build_obj.close_ttk_ms:.0f} ms")
