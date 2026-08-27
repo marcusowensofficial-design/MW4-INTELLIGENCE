@@ -573,22 +573,39 @@ with tab_saved:
 # ---------------------------------------------------------------------------
 # Native Modal Dialog for Custom Gunsmith Builds (@st.dialog)
 # ---------------------------------------------------------------------------
+from src.ui.qr_helper import generate_loadout_qr_base64, render_copy_button_html
+
 if hasattr(st, "dialog"):
     @st.dialog("📲 Gunsmith Custom Loadout Card")
     def export_custom_build_dialog(w_obj, atts_list, share_code_val, eval_build_obj):
         st.markdown(f"### **{w_obj.name}** • *Custom Gunsmith Setup*")
         st.caption(f"**Category**: {w_obj.weapon_class.value.replace('_', ' ').title()} &nbsp;|&nbsp; **Balance Rating**: {eval_build_obj.balance_score:.1f}/100")
         
-        st.markdown("#### 🔑 1-Click Share / Import Code:")
-        st.code(share_code_val, language="text")
-        
-        st.markdown("#### 🎛️ 5-Slot Gunsmith Attachments:")
-        if atts_list:
-            for att in atts_list:
-                st.markdown(f"• **{att.slot.value.upper()}**: `{att.name}`")
-        else:
-            st.markdown("• *Naked Baseline (Zero Attachments)*")
+        col_dlg_left, col_dlg_right = st.columns([1.8, 1.2])
+        with col_dlg_left:
+            st.markdown("#### 🔑 1-Click Share / Import Code:")
+            st.code(share_code_val, language="text")
+            st.markdown(render_copy_button_html(share_code_val, btn_id=f"custom_{w_obj.weapon_id}"), unsafe_allow_html=True)
             
+            st.markdown("#### 🎛️ 5-Slot Gunsmith Attachments:")
+            if atts_list:
+                for att in atts_list:
+                    st.markdown(f"• **{att.slot.value.upper()}**: `{att.name}`")
+            else:
+                st.markdown("• *Naked Baseline (Zero Attachments)*")
+        
+        with col_dlg_right:
+            qr_b64 = generate_loadout_qr_base64(share_code_val)
+            if qr_b64:
+                st.markdown(
+                    f'<div style="text-align:center; background:#0f172a; padding:12px; border:1px solid rgba(56,189,248,0.3); border-radius:8px; margin-top:8px;">'
+                    f'<img src="{qr_b64}" style="width:160px; height:160px; border-radius:4px; display:block; margin:0 auto;" alt="Loadout QR" />'
+                    f'<div style="color:#94a3b8; font-size:11px; margin-top:8px; font-weight:600;">📲 Scan on Mobile to Save</div>'
+                    f'</div>',
+                    unsafe_allow_html=True
+                )
+            
+        st.markdown("---")
         st.markdown("#### 📊 Evaluated Ballistics Summary:")
         c1, c2, c3 = st.columns(3)
         with c1:

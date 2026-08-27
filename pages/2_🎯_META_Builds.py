@@ -292,19 +292,36 @@ for w in target_weapons:
 # ---------------------------------------------------------------------------
 # Native Modal Dialog for 1-Click Loadout Export (@st.dialog)
 # ---------------------------------------------------------------------------
+from src.ui.qr_helper import generate_loadout_qr_base64, render_copy_button_html
+
 if hasattr(st, "dialog"):
     @st.dialog("📋 Tactical Loadout Share Card")
     def export_loadout_dialog(b_obj, w_obj, atts_list):
         st.markdown(f"### **{w_obj.name}** • *{b_obj.build_name}*")
         st.caption(f"**Category**: {w_obj.weapon_class.value.replace('_', ' ').title()} &nbsp;|&nbsp; **Archetype**: {b_obj.archetype_label}")
         
-        st.markdown("#### 🔑 1-Click Import / Share Code:")
-        st.code(b_obj.share_code, language="text")
-        
-        st.markdown("#### 🎛️ 5-Slot Gunsmith Attachments:")
-        for att in atts_list:
-            st.markdown(f"• **{att.slot.value.upper()}**: `{att.name}`")
+        col_dlg_left, col_dlg_right = st.columns([1.8, 1.2])
+        with col_dlg_left:
+            st.markdown("#### 🔑 1-Click Import / Share Code:")
+            st.code(b_obj.share_code, language="text")
+            st.markdown(render_copy_button_html(b_obj.share_code, btn_id=b_obj.preset_id), unsafe_allow_html=True)
             
+            st.markdown("#### 🎛️ 5-Slot Gunsmith Attachments:")
+            for att in atts_list:
+                st.markdown(f"• **{att.slot.value.upper()}**: `{att.name}`")
+        
+        with col_dlg_right:
+            qr_b64 = generate_loadout_qr_base64(b_obj.share_code)
+            if qr_b64:
+                st.markdown(
+                    f'<div style="text-align:center; background:#0f172a; padding:12px; border:1px solid rgba(56,189,248,0.3); border-radius:8px; margin-top:8px;">'
+                    f'<img src="{qr_b64}" style="width:160px; height:160px; border-radius:4px; display:block; margin:0 auto;" alt="Loadout QR" />'
+                    f'<div style="color:#94a3b8; font-size:11px; margin-top:8px; font-weight:600;">📲 Scan on Mobile to Save</div>'
+                    f'</div>',
+                    unsafe_allow_html=True
+                )
+            
+        st.markdown("---")
         st.markdown("#### 🛡️ Complete Tactical Class Setup:")
         st.markdown(f"• **Perks**: `{b_obj.perk_1_name}` | `{b_obj.perk_2_name}` | `{b_obj.perk_3_name}`")
         st.markdown(f"• **Secondary Companion**: `{b_obj.secondary_name}` (*{b_obj.secondary_role}*)")
