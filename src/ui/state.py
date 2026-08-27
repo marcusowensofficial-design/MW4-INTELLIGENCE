@@ -13,7 +13,12 @@ from ..database.models import GameVersion, Ruleset
 def get_shared_repository() -> IntelligenceRepository:
     """Returns a singleton IntelligenceRepository backed by the primary DuckDB instance."""
     db_manager.init_database()
-    return IntelligenceRepository(db_manager)
+    repo = IntelligenceRepository(db_manager)
+    # Automatically seed baseline intelligence if database is newly initialized
+    if not repo.get_weapons():
+        from ..database.seed_data import seed_database
+        seed_database(db_manager)
+    return repo
 
 
 def init_session_state() -> IntelligenceRepository:
@@ -21,7 +26,7 @@ def init_session_state() -> IntelligenceRepository:
     repo = get_shared_repository()
 
     # Load available versions & rulesets
-    if "available_versions" not in st.session_state:
+    if "available_versions" not in st.session_state or not st.session_state.get("available_versions"):
         versions = repo.get_game_versions()
         st.session_state["available_versions"] = [v.version_id for v in versions] or ["v1.1.0-launch"]
 
@@ -29,7 +34,7 @@ def init_session_state() -> IntelligenceRepository:
         active = repo.get_active_game_version()
         st.session_state["selected_version"] = active.version_id if active else "v1.1.0-launch"
 
-    if "available_rulesets" not in st.session_state:
+    if "available_rulesets" not in st.session_state or not st.session_state.get("available_rulesets"):
         rulesets = repo.get_rulesets()
         st.session_state["available_rulesets"] = [r.ruleset_id for r in rulesets] or ["core", "hardcore"]
 
