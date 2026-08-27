@@ -75,7 +75,10 @@ col_class, col_weapon, col_arch = st.columns([1.5, 2, 2])
 
 with col_class:
     class_options = ["All Classes"] + sorted(list(set(w.weapon_class.value.replace("_", " ").title() for w in weapons_all)))
-    chosen_class = st.selectbox("Weapon Category", options=class_options, index=0)
+    if hasattr(st, "pills"):
+        chosen_class = st.pills("Weapon Category", options=class_options, default="All Classes") or "All Classes"
+    else:
+        chosen_class = st.selectbox("Weapon Category", options=class_options, index=0)
 
 filtered_weapons = [
     w for w in weapons_all

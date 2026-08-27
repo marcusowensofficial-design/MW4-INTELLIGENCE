@@ -60,7 +60,10 @@ with c_engine_col1:
 
 with c_engine_col2:
     class_options = ["All Classes"] + sorted(list({w.weapon_class.value.replace("_", " ").title() for w in weapons}))
-    chosen_class = st.selectbox("Filter Weapon Class", options=class_options)
+    if hasattr(st, "pills"):
+        chosen_class = st.pills("Filter Weapon Class", options=class_options, default="All Classes") or "All Classes"
+    else:
+        chosen_class = st.selectbox("Filter Weapon Class", options=class_options)
 
 c_mode_col1, _ = st.columns([2, 1])
 with c_mode_col1:

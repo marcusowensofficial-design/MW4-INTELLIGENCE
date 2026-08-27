@@ -28,6 +28,18 @@ render_page_header(
 )
 
 # ---------------------------------------------------------------------------
+# Tactical Hero Command Banner
+# ---------------------------------------------------------------------------
+try:
+    st.image(
+        "assets/mw4_hero_banner.png",
+        use_container_width=True,
+        caption="MW4 TACTICAL BALLISTICS COMMAND • MULTI-SOURCE SCRAPED & VERIFIED COMBAT INTEL"
+    )
+except Exception:
+    pass
+
+# ---------------------------------------------------------------------------
 # Global 24-Hour Freshness Warning & One-Click Live Update Center
 # ---------------------------------------------------------------------------
 snapshots = repo.get_source_snapshots()
@@ -164,45 +176,61 @@ render_tactical_ballistics_codex()
 
 st.markdown("---")
 
-# Quick Intelligence Nav Grid
+# Quick Intelligence Nav Grid with native st.page_link
 st.markdown("### 🧭 Intelligence Modules")
 
 c1, c2, c3 = st.columns(3)
 
 with c1:
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#38bdf8; margin:0 0 6px 0;">🎯 Tactical Arsenal Matchmaker</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Interactive 3-question advisor that matches your playstyle to the best gun and 5-slot tournament loadout.</p><a href="/Arsenal_Matchmaker" target="_self" style="color:#38bdf8; font-size:12px; font-weight:600; text-decoration:none;">Launch Matchmaker →</a></div>',
+        '<div class="stat-card"><h4 style="color:#38bdf8; margin:0 0 6px 0;">🎯 Tactical Arsenal Matchmaker</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:6px;">Interactive 3-question advisor that matches your playstyle to the best gun and 5-slot tournament loadout.</p></div>',
         unsafe_allow_html=True
     )
+    if hasattr(st, "page_link"):
+        st.page_link("pages/0_🎯_Arsenal_Matchmaker.py", label="Launch Arsenal Matchmaker", icon="🎯")
+    
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#38bdf8; margin:0 0 6px 0;">🏆 META Board & Tier List</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">S/A/B/C/D tournament tier classifications with ease-of-control ratings and customizable balance weights.</p><a href="/META_Board" target="_self" style="color:#38bdf8; font-size:12px; font-weight:600; text-decoration:none;">Launch META Board →</a></div>',
+        '<div class="stat-card" style="margin-top:12px;"><h4 style="color:#38bdf8; margin:0 0 6px 0;">🏆 META Board & Tier List</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:6px;">S/A/B/C/D tournament tier classifications with ease-of-control ratings and customizable balance weights.</p></div>',
         unsafe_allow_html=True
     )
+    if hasattr(st, "page_link"):
+        st.page_link("pages/1_🏆_META_Board.py", label="Launch META Board", icon="🏆")
 
 with c2:
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">🎯 Verified META Builds Hub</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Browse CDL Pro setups, zero-recoil laser classes, and 1-click share codes for all 24 Modern Warfare 4 weapons.</p><a href="/META_Builds" target="_self" style="color:#4ade80; font-size:12px; font-weight:600; text-decoration:none;">Launch META Builds →</a></div>',
+        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">🎯 Verified META Builds Hub</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:6px;">Browse CDL Pro setups, zero-recoil laser classes, and 1-click share codes for all Modern Warfare 4 weapons.</p></div>',
         unsafe_allow_html=True
     )
+    if hasattr(st, "page_link"):
+        st.page_link("pages/2_🎯_META_Builds.py", label="Launch META Builds", icon="🎯")
+
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#4ade80; margin:0 0 6px 0;">⚡ Fastest TTK Leaderboard</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Rank weapons by pure kill speed (Time-To-Kill) and bullets needed to eliminate opponents at any distance.</p><a href="/Fastest_TTK" target="_self" style="color:#4ade80; font-size:12px; font-weight:600; text-decoration:none;">Launch Fastest TTK →</a></div>',
+        '<div class="stat-card" style="margin-top:12px;"><h4 style="color:#4ade80; margin:0 0 6px 0;">⚡ Fastest TTK Leaderboard</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:6px;">Rank weapons by pure kill speed (Time-To-Kill) and bullets needed to eliminate opponents at any distance.</p></div>',
         unsafe_allow_html=True
     )
+    if hasattr(st, "page_link"):
+        st.page_link("pages/3_⚡_Fastest_TTK.py", label="Launch Fastest TTK", icon="⚡")
 
 with c3:
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🔫 Weapon Lab</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Compare continuous TTK curves, human reaction times, and physical gun stats with plain-English ratings.</p><a href="/Weapon_Lab" target="_self" style="color:#fb923c; font-size:12px; font-weight:600; text-decoration:none;">Launch Weapon Lab →</a></div>',
+        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🔫 Weapon Lab</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:6px;">Compare continuous TTK curves, human reaction times, and physical gun stats with plain-English ratings.</p></div>',
         unsafe_allow_html=True
     )
+    if hasattr(st, "page_link"):
+        st.page_link("pages/4_🔫_Weapon_Lab.py", label="Launch Weapon Lab", icon="🔫")
+
     st.markdown(
-        '<div class="stat-card"><h4 style="color:#fb923c; margin:0 0 6px 0;">🛠️ Build Optimizer & Gunsmith</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:10px;">Equip 5-slot attachments with plain-English effect tags and solve for mathematical Pareto-frontier builds.</p><a href="/Build_Optimizer" target="_self" style="color:#fb923c; font-size:12px; font-weight:600; text-decoration:none;">Launch Optimizer →</a></div>',
+        '<div class="stat-card" style="margin-top:12px;"><h4 style="color:#fb923c; margin:0 0 6px 0;">🛠️ Build Optimizer & Gunsmith</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:6px;">Equip 5-slot attachments with plain-English effect tags and solve for mathematical Pareto-frontier builds.</p></div>',
         unsafe_allow_html=True
     )
+    if hasattr(st, "page_link"):
+        st.page_link("pages/5_🛠️_Build_Optimizer.py", label="Launch Build Optimizer", icon="🛠️")
 
 st.markdown("---")
 
-# Quick Weapon Roster Overview Table
+# Quick Weapon Roster Overview Table with ProgressColumn and Numerical Sorting
 st.markdown(f"### 📋 Weapon Arsenal Overview ({selected_ver} • {selected_rs_id.upper()})")
+st.caption("Click any column header to sort consecutively. Balance Score bar represents normalized multi-metric combat power.")
 
 roster_rows = []
 for w in weapons:
@@ -217,19 +245,42 @@ for w in weapons:
             "Weapon": w.name,
             "Class": w.weapon_class.value.replace("_", " ").title(),
             "Ease of Aim (Recoil)": plain_dossier["ease_label"],
-            "Kill Speed (Close TTK)": f"{score_res.raw_close_ttk_ms} ms",
-            "Fire Rate (RPM)": f"{stats.rpm} RPM",
-            "Quick-Aim (ADS)": f"{stats.base_ads_ms} ms",
-            "Sprint-to-Shoot": f"{stats.sprint_to_fire_ms} ms",
-            "Bullet Velocity": f"{stats.bullet_velocity_mps} m/s",
-            "Mag Size": f"{w.base_mag_size} rds",
+            "Kill Speed (Close TTK)": round(score_res.raw_close_ttk_ms, 1),
+            "Fire Rate": round(stats.rpm),
+            "Quick-Aim (ADS)": round(stats.base_ads_ms),
+            "Sprint-to-Shoot": round(stats.sprint_to_fire_ms),
+            "Bullet Velocity": round(stats.bullet_velocity_mps),
+            "Mag Size": int(w.base_mag_size),
             "Competitive Tier": score_res.tier_rating,
-            "Balance Score": f"{score_res.composite_balance_score}/100"
+            "Balance Score": float(score_res.composite_balance_score)
         })
 
 if roster_rows:
     df_roster = pd.DataFrame(roster_rows)
-    st.dataframe(df_roster, use_container_width=True, hide_index=True)
+    st.dataframe(
+        df_roster,
+        column_config={
+            "Weapon": st.column_config.TextColumn("Weapon Platform", help="Weapon designation"),
+            "Class": st.column_config.TextColumn("Category"),
+            "Ease of Aim (Recoil)": st.column_config.TextColumn("Ease of Aim (Recoil)", help="Physical recoil rating from horizontal and vertical kick"),
+            "Kill Speed (Close TTK)": st.column_config.NumberColumn("Kill Speed (Close TTK)", format="%d ms", help="Close quarters time to kill"),
+            "Fire Rate": st.column_config.NumberColumn("Fire Rate", format="%d RPM"),
+            "Quick-Aim (ADS)": st.column_config.NumberColumn("Quick-Aim (ADS)", format="%d ms"),
+            "Sprint-to-Shoot": st.column_config.NumberColumn("Sprint-to-Shoot", format="%d ms"),
+            "Bullet Velocity": st.column_config.NumberColumn("Bullet Velocity", format="%d m/s"),
+            "Mag Size": st.column_config.NumberColumn("Mag Size", format="%d rds"),
+            "Competitive Tier": st.column_config.TextColumn("Competitive Tier"),
+            "Balance Score": st.column_config.ProgressColumn(
+                "Balance Score",
+                min_value=0.0,
+                max_value=100.0,
+                format="%.1f",
+                help="Composite mathematical combat power rating (0-100)"
+            )
+        },
+        use_container_width=True,
+        hide_index=True
+    )
 else:
     st.info(f"No weapon stats recorded yet for version '{selected_ver}' and ruleset '{selected_rs_id}'.")
 

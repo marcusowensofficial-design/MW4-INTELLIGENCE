@@ -56,17 +56,28 @@ render_field_intel_box(
 # ---------------------------------------------------------------------------
 st.markdown("#### 🎮 1. Select Game Mode & Health Ruleset")
 
-mode_radio = st.radio(
-    "Active Health Mode:",
-    options=[
-        "🟢 Core Mode (100 HP Standard Health)",
-        "💀 Hardcore Mode (30 HP High Lethality)",
-        "⚔️ Core vs Hardcore (Side-by-Side Comparison)"
-    ],
-    index=0 if selected_rs_id != "hardcore" else 1,
-    horizontal=True,
-    help="Switches all ballistics calculations between 100 HP Core and 30 HP Hardcore."
-)
+mode_options = [
+    "🟢 Core Mode (100 HP Standard Health)",
+    "💀 Hardcore Mode (30 HP High Lethality)",
+    "⚔️ Core vs Hardcore (Side-by-Side Comparison)"
+]
+default_mode = mode_options[0] if selected_rs_id != "hardcore" else mode_options[1]
+
+if hasattr(st, "segmented_control"):
+    mode_radio = st.segmented_control(
+        "Active Health Mode:",
+        options=mode_options,
+        default=default_mode,
+        help="Switches all ballistics calculations between 100 HP Core and 30 HP Hardcore."
+    ) or default_mode
+else:
+    mode_radio = st.radio(
+        "Active Health Mode:",
+        options=mode_options,
+        index=0 if selected_rs_id != "hardcore" else 1,
+        horizontal=True,
+        help="Switches all ballistics calculations between 100 HP Core and 30 HP Hardcore."
+    )
 
 is_side_by_side = "Side-by-Side" in mode_radio
 is_hc_mode = "Hardcore" in mode_radio and not is_side_by_side
@@ -79,12 +90,21 @@ c1, c2, c3 = st.columns([1.8, 1.2, 1.2])
 
 with c1:
     available_classes = sorted(list({w.weapon_class.value.replace("_", " ").title() for w in weapons}))
-    selected_classes = st.multiselect(
-        "Weapon Class Filter",
-        options=available_classes,
-        default=available_classes,
-        help="Select one or more weapon classes to compare side-by-side."
-    )
+    if hasattr(st, "pills"):
+        selected_classes = st.pills(
+            "Weapon Class Filter",
+            options=available_classes,
+            default=available_classes,
+            selection_mode="multi",
+            help="Select one or more weapon classes to compare side-by-side."
+        ) or available_classes
+    else:
+        selected_classes = st.multiselect(
+            "Weapon Class Filter",
+            options=available_classes,
+            default=available_classes,
+            help="Select one or more weapon classes to compare side-by-side."
+        )
 
 with c2:
     hit_location = st.selectbox(

@@ -50,6 +50,13 @@ def render_sidebar_controls(repo: IntelligenceRepository) -> Tuple[str, str, Rul
     Renders standard sidebar selectors for Game Version and Ruleset.
     Ensures version and ruleset state changes propagate globally.
     """
+    # Display persistent SpecOps branding logo
+    if hasattr(st, "logo"):
+        try:
+            st.logo("assets/mw4_logo.png", icon_image="assets/mw4_logo.png")
+        except Exception:
+            pass
+
     st.sidebar.markdown("### 🎛️ Global Intelligence Scope")
 
     versions = repo.get_game_versions()
