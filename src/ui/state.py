@@ -17,12 +17,9 @@ def get_shared_repository() -> IntelligenceRepository:
     db_manager.init_database()
     repo = IntelligenceRepository(db_manager)
     
-    # Check if database needs seeding or re-synchronization with authentic snapshots
+    # Always ensure full 17 authentic weapons and versions are populated
     weapons = repo.get_weapons()
-    weapon_ids = [w.weapon_id for w in weapons] if weapons else []
-    
-    # If empty or containing legacy placeholder weapons like patriot_xmr_mw4, re-seed from parquets
-    if not weapons or 'patriot_xmr_mw4' in weapon_ids or 'patriot_xmr_mw4' not in weapon_ids:
+    if not weapons or len(weapons) < 17:
         from src.database.seed_data import seed_database
         seed_database(db_manager)
         

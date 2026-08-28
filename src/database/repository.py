@@ -242,7 +242,7 @@ class IntelligenceRepository:
     # -----------------------------------------------------------------------
     # Weapon Version Stats
     # -----------------------------------------------------------------------
-    def get_weapon_stats(self, weapon_id: str, version_id: str) -> Optional[WeaponVersionStats]:
+    def get_weapon_stats(self, weapon_id: str, version_id: str = "v1.2.0-beta-weekend2") -> Optional[WeaponVersionStats]:
         conn = self.manager.get_connection()
         try:
             r = conn.execute(
@@ -257,6 +257,23 @@ class IntelligenceRepository:
                 """,
                 [weapon_id, version_id]
             ).fetchone()
+
+            if not r:
+                r = conn.execute(
+                    """
+                    SELECT stat_id, weapon_id, game_version_id, rpm, base_ads_ms, sprint_to_fire_ms,
+                           tactical_sprint_to_fire_ms, bullet_velocity_mps, reload_empty_s, reload_tactical_s,
+                           recoil_horizontal, recoil_vertical, hipfire_spread_deg, move_speed_mps,
+                           ads_move_speed_mps, flinch_resistance, open_bolt_delay_ms,
+                           reload_add_ammo_s, swap_speed_raise_ms, swap_speed_stow_ms, tac_sprint_speed_mps
+                    FROM weapon_version_stats
+                    WHERE weapon_id = ?
+                    ORDER BY CASE WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 0 ELSE 1 END
+                    LIMIT 1
+                    """,
+                    [weapon_id]
+                ).fetchone()
+
             if not r:
                 return None
             return WeaponVersionStats(
@@ -328,7 +345,12 @@ class IntelligenceRepository:
     # -----------------------------------------------------------------------
     # Damage Profiles
     # -----------------------------------------------------------------------
-    def get_damage_profiles(self, weapon_id: str, version_id: str, ruleset_id: str = "core") -> List[DamageRangeBracket]:
+    def get_damage_profiles(
+        self,
+        weapon_id: str,
+        version_id: str = "v1.2.0-beta-weekend2",
+        ruleset_id: str = "core"
+    ) -> List[DamageRangeBracket]:
         conn = self.manager.get_connection()
         try:
             rows = conn.execute(
@@ -341,6 +363,31 @@ class IntelligenceRepository:
                 """,
                 [weapon_id, version_id, ruleset_id]
             ).fetchall()
+
+            if not rows and ruleset_id != "core":
+                rows = conn.execute(
+                    """
+                    SELECT profile_id, weapon_id, game_version_id, ruleset_id, range_start_m, range_end_m,
+                           damage_head, damage_neck, damage_chest, damage_stomach, damage_limbs
+                    FROM weapon_damage_profiles
+                    WHERE weapon_id = ? AND game_version_id = ? AND ruleset_id = 'core'
+                    ORDER BY range_start_m ASC
+                    """,
+                    [weapon_id, version_id]
+                ).fetchall()
+
+            if not rows:
+                rows = conn.execute(
+                    """
+                    SELECT profile_id, weapon_id, game_version_id, ruleset_id, range_start_m, range_end_m,
+                           damage_head, damage_neck, damage_chest, damage_stomach, damage_limbs
+                    FROM weapon_damage_profiles
+                    WHERE weapon_id = ? AND ruleset_id = 'core'
+                    ORDER BY CASE WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 0 ELSE 1 END, range_start_m ASC
+                    """,
+                    [weapon_id]
+                ).fetchall()
+
             return [
                 DamageRangeBracket(
                     profile_id=r[0],
