@@ -107,7 +107,7 @@ if hc_ttk_curves:
     selected_hc_names = st.multiselect(
         "Select Weapons to Plot",
         options=[w.name for w in weapons],
-        default=["Patriot XMR", "Rival-9 SpecOps", "BAS-B Battle Rifle", "Longbow Tactical Sniper"],
+        default=["PATRIOT XMR", "ISO NIGHTSHADE", "HYEON BURST", "M4"],
         key="hc_plot_sel"
     )
     filtered_hc_curves = [c for c in hc_ttk_curves if c.weapon_name in selected_hc_names]

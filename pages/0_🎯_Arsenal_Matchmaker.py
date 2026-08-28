@@ -211,7 +211,7 @@ with c_arch2:
         '<div style="background: rgba(15,23,42,0.7); border: 1px solid rgba(56,189,248,0.3); border-radius: 8px; padding: 14px; text-align: center;">'
         '<div style="font-size: 24px; margin-bottom: 4px;">⚡</div>'
         '<h4 style="color:#ffffff; margin:0 0 4px 0; font-size:15px;">Fast CQB Rusher</h4>'
-        '<p style="color:#94a3b8; font-size:11.5px; margin-bottom:8px;"><b>Rival-9 (SMG)</b><br>Fastest sprint & close-range TTK.</p>'
+        '<p style="color:#94a3b8; font-size:11.5px; margin-bottom:8px;"><b>ISO Nightshade (SMG)</b><br>Fastest 923-RPM sprint & close-range TTK.</p>'
         '<span style="color:#38bdf8; font-size:11px; font-weight:700;">⭐⭐⭐⭐☆ Super Snappy</span>'
         '</div>',
         unsafe_allow_html=True
@@ -222,7 +222,7 @@ with c_arch3:
         '<div style="background: rgba(15,23,42,0.7); border: 1px solid rgba(56,189,248,0.3); border-radius: 8px; padding: 14px; text-align: center;">'
         '<div style="font-size: 24px; margin-bottom: 4px;">🛡️</div>'
         '<h4 style="color:#ffffff; margin:0 0 4px 0; font-size:15px;">100-Round Turret</h4>'
-        '<p style="color:#94a3b8; font-size:11.5px; margin-bottom:8px;"><b>Pulemyot 762 (Bullpup)</b><br>Never reload. Wipes entire squads.</p>'
+        '<p style="color:#94a3b8; font-size:11.5px; margin-bottom:8px;"><b>Type 73 (LMG)</b><br>821-RPM high-cadence drum. Wipes entire squads.</p>'
         '<span style="color:#38bdf8; font-size:11px; font-weight:700;">⭐⭐⭐⭐⭐ Zero Kick</span>'
         '</div>',
         unsafe_allow_html=True
@@ -233,7 +233,7 @@ with c_arch4:
         '<div style="background: rgba(15,23,42,0.7); border: 1px solid rgba(56,189,248,0.3); border-radius: 8px; padding: 14px; text-align: center;">'
         '<div style="font-size: 24px; margin-bottom: 4px;">💥</div>'
         '<h4 style="color:#ffffff; margin:0 0 4px 0; font-size:15px;">7.62 Heavy Punch</h4>'
-        '<p style="color:#94a3b8; font-size:11.5px; margin-bottom:8px;"><b>BAS-B (Battle Rifle)</b><br>3-shot lethal kill stopping power.</p>'
+        '<p style="color:#94a3b8; font-size:11.5px; margin-bottom:8px;"><b>Patriot XMR (AR)</b><br>4-shot lethal laser stopping power.</p>'
         '<span style="color:#38bdf8; font-size:11px; font-weight:700;">⭐⭐⭐⭐☆ Heavy Hitter</span>'
         '</div>',
         unsafe_allow_html=True

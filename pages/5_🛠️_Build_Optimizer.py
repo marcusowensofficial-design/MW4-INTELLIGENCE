@@ -84,7 +84,7 @@ with tab_gunsmith:
         text="You can equip up to <b>5 attachments</b>. Attachments are strategic tradeoffs: heavy grips and long barrels stop your gun from kicking, but make you aim slightly slower.<br>"
              "• <b>Green Delta Numbers:</b> Improvements to your weapon.<br>"
              "• <b>Plain-English Tags:</b> Look below your equipped attachments for instant summaries of what each piece is doing for you.",
-        tip="If you struggle with recoil, equip a Bruen Heavy Support Grip. If you want faster reaction speed, equip a lightweight stock or handstop!"
+        tip="If you struggle with recoil, equip a FSS Fireline or FSS Tac90 Grip. If you want faster reaction speed, equip a lightweight stock or handstop!"
     )
 
     slots = [
@@ -102,10 +102,10 @@ with tab_gunsmith:
     # Quick Meta Presets Selector & 1-Click Auto-Equip
     meta_presets = {
         "Custom (Manual Slot Selection)": [],
-        "⚡ XM4 CDL Pro Meta (Zero-Recoil Laser)": ["muzzle_vt7_spiritfire", "barrel_cyclone_long", "underbarrel_bruen_heavy_grip", "optic_slate_reflector", "mag_40_round"],
-        "⚡ Rival-9 Hyperspeed CQB (Max Sprint-to-Fire)": ["muzzle_shadowstrike_suppressor", "barrel_phantom_short", "laser_ftac_grimline", "underbarrel_dr6_handstop", "stock_skeletonized_cqb"],
-        "⚡ MCW Long-Range Anchor (Max Beam Stability)": ["muzzle_vt7_spiritfire", "underbarrel_bruen_heavy_grip", "optic_slate_reflector", "stock_skeletonized_cqb", "mag_40_round"],
-        "⚡ BAS-B Heavy Combat (Max 7.62 Punch)": ["barrel_cyclone_long", "underbarrel_bruen_heavy_grip", "optic_slate_reflector", "stock_heavy_tac", "mag_40_round"]
+        "⚡ Patriot XMR S-Tier Laser (4-Shot Meta)": ["muzzle_vt7_spiritfire", "barrel_cyclone_long", "att_ub_fss_fireline", "optic_slate_reflector", "mag_40_round"],
+        "⚡ ISO Nightshade Hyperspeed CQB (923 RPM)": ["muzzle_shadowstrike_suppressor", "barrel_phantom_short", "laser_ftac_grimline", "underbarrel_dr6_handstop", "stock_skeletonized_cqb"],
+        "⚡ Hyeon Burst 38.1m 1-Burst Apex": ["muzzle_vt7_spiritfire", "att_ub_fss_fireline", "optic_slate_reflector", "stock_skeletonized_cqb", "mag_40_round"],
+        "⚡ PPSh-41 71-Round Trench Sweeper": ["barrel_cyclone_long", "att_ub_fss_fireline", "optic_slate_reflector", "stock_heavy_tac", "mag_40_round"]
     }
 
     # Retrieve #1 most popular community attachments for this weapon
