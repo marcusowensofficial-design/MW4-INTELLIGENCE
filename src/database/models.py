@@ -15,12 +15,30 @@ class SourceTier(str, Enum):
     TIER_3 = "tier_3"  # Reproducible Public Testing (Sym.gg / TrueGameData)
     TIER_4 = "tier_4"  # Community Leads & AI Drafts
 
+    @classmethod
+    def _missing_(cls, value):
+        if isinstance(value, str):
+            v = value.lower().strip()
+            for m in cls:
+                if m.value == v or m.name.lower() == v:
+                    return m
+        return cls.TIER_3
+
 
 class VerificationStatus(str, Enum):
     VERIFIED = "verified"
     PENDING_REVIEW = "pending_review"
     REJECTED = "rejected"
     ILLUSTRATIVE = "illustrative"
+
+    @classmethod
+    def _missing_(cls, value):
+        if isinstance(value, str):
+            v = value.lower().strip()
+            for m in cls:
+                if m.value == v or m.name.lower() == v:
+                    return m
+        return cls.VERIFIED
 
 
 class WeaponClass(str, Enum):
@@ -35,6 +53,15 @@ class WeaponClass(str, Enum):
     LAUNCHER = "launcher"
     MELEE = "melee"
 
+    @classmethod
+    def _missing_(cls, value):
+        if isinstance(value, str):
+            v = value.lower().strip().replace(" ", "_").replace("-", "_")
+            for m in cls:
+                if m.value == v or m.name.lower() == v:
+                    return m
+        return cls.ASSAULT_RIFLE
+
 
 class FiringMode(str, Enum):
     FULL_AUTO = "full_auto"
@@ -44,6 +71,25 @@ class FiringMode(str, Enum):
     BURST_4 = "burst_4"
     BOLT_ACTION = "bolt_action"
     PUMP_ACTION = "pump_action"
+
+    @classmethod
+    def _missing_(cls, value):
+        if isinstance(value, str):
+            v = value.lower().strip().replace(" ", "_").replace("-", "_")
+            for m in cls:
+                if m.value == v or m.name.lower() == v:
+                    return m
+            if "burst" in v:
+                return cls.BURST_3
+            elif "bolt" in v:
+                return cls.BOLT_ACTION
+            elif "semi" in v or "single" in v:
+                return cls.SEMI_AUTO
+            elif "pump" in v:
+                return cls.PUMP_ACTION
+            elif "auto" in v:
+                return cls.FULL_AUTO
+        return cls.FULL_AUTO
 
 
 class AttachmentSlot(str, Enum):
@@ -61,10 +107,37 @@ class AttachmentSlot(str, Enum):
     TRIGGER_ACTION = "trigger_action"
     CONVERSION_KIT = "conversion_kit"
 
+    @classmethod
+    def _missing_(cls, value):
+        if isinstance(value, str):
+            v = value.lower().strip().replace(" ", "_").replace("-", "_")
+            for m in cls:
+                if m.value == v or m.name.lower() == v:
+                    return m
+            if "grip" in v:
+                return cls.UNDERBARREL
+            elif "sight" in v or "scope" in v or "dot" in v:
+                return cls.OPTIC
+            elif "mag" in v:
+                return cls.MAGAZINE
+            elif "ammo" in v or "round" in v:
+                return cls.AMMUNITION
+        return cls.UNDERBARREL
+
 
 class ModifierType(str, Enum):
     PERCENTAGE = "pct"  # e.g., +0.10 (+10%) or -0.15 (-15%)
     DELTA = "delta"       # e.g., +50 ms or -2.5 m
+
+    @classmethod
+    def _missing_(cls, value):
+        if isinstance(value, str):
+            v = value.lower().strip()
+            if v in ("pct", "percentage", "percent", "%", "multiplier", "mult"):
+                return cls.PERCENTAGE
+            elif v in ("delta", "delta_ms", "additive", "flat", "+", "-"):
+                return cls.DELTA
+        return cls.DELTA
 
 
 # ---------------------------------------------------------------------------

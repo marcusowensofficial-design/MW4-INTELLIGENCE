@@ -521,7 +521,7 @@ class IntelligenceRepository:
                     attachment_id=r[1],
                     game_version_id=r[2],
                     stat_key=r[3],
-                    mod_type=ModifierType(r[4]),
+                    mod_type=ModifierType(r[4]) if r[4] else ModifierType.DELTA,
                     mod_value=r[5],
                     notes=r[6]
                 )
