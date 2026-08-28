@@ -102,10 +102,11 @@ with tab_gunsmith:
     # Quick Meta Presets Selector & 1-Click Auto-Equip
     meta_presets = {
         "Custom (Manual Slot Selection)": [],
-        "⚡ Patriot XMR S-Tier Laser (4-Shot Meta)": ["muzzle_vt7_spiritfire", "barrel_cyclone_long", "att_ub_fss_fireline", "optic_slate_reflector", "mag_40_round"],
-        "⚡ ISO Nightshade Hyperspeed CQB (923 RPM)": ["muzzle_shadowstrike_suppressor", "barrel_phantom_short", "laser_ftac_grimline", "underbarrel_dr6_handstop", "stock_skeletonized_cqb"],
-        "⚡ Hyeon Burst 38.1m 1-Burst Apex": ["muzzle_vt7_spiritfire", "att_ub_fss_fireline", "optic_slate_reflector", "stock_skeletonized_cqb", "mag_40_round"],
-        "⚡ PPSh-41 71-Round Trench Sweeper": ["barrel_cyclone_long", "att_ub_fss_fireline", "optic_slate_reflector", "stock_heavy_tac", "mag_40_round"]
+        "👑 ISO Nightshade Apex God-Class (923 RPM)": ["zlr-mag-z-9", "ta-lightning-r3m", "schlager-visiv-5", "mire-50-tac-grip", "bruen-mod3"],
+        "⚡ Patriot XMR S-Tier Laser (279ms Meta)": ["zlr-reverb90", "18-le-crosswind", "fss-fireline-grip", "slimline-elite", "5.56-nato-high-velocity"],
+        "🛡️ M4 810-RPM Workhorse Laser": ["zlr-reverb90", "18-le-crosswind", "fss-tac90-grip", "slimline-elite", "5.56-nato-high-velocity"],
+        "⚡ Hyeon Burst 1-Burst Lethal": ["zlr-reverb90", "fss-fireline-grip", "slimline-elite", "exp-g2-44-stock", "5.56-nato-high-velocity"],
+        "⚡ PPSh-41 1110-RPM Trench Shredder": ["fss-fireline-grip", "slimline-elite", "schlager-visiv-5", "gi-80-milspec-stock", "9mm-parabellum-high-velocity"]
     }
 
     # Retrieve #1 most popular community attachments for this weapon
@@ -135,10 +136,36 @@ with tab_gunsmith:
     else:
         preset_att_ids = set(meta_presets[chosen_preset])
 
+    # ⚡ Dedicated APEX Attachment Slot (Free Bonus Slot)
+    apex_slot_atts = [a for a in all_attachments if a.slot == AttachmentSlot.CONVERSION_KIT]
+    apex_choice_att = None
+
+    if apex_slot_atts:
+        c_apex1, c_apex2 = st.columns([1.5, 2.5])
+        with c_apex1:
+            apex_options = ["None (Standard Platform)"] + [f"⚡ {a.name}" for a in apex_slot_atts]
+            apex_pick = st.selectbox("⚡ APEX Attachment Slot (Free Bonus 6th Slot)", options=apex_options, key=f"apex_picker_{weapon.weapon_id}")
+            if apex_pick != "None (Standard Platform)":
+                apex_choice_att = apex_slot_atts[apex_options.index(apex_pick) - 1]
+        
+        with c_apex2:
+            if apex_choice_att:
+                st.markdown(
+                    f'<div style="background: rgba(34, 197, 94, 0.1); border: 1px solid #22c55e; border-radius: 8px; padding: 10px 14px; margin-top: 18px;">'
+                    f'<b style="color: #4ade80;">⚡ APEX ACTIVE: {apex_choice_att.name}</b>'
+                    f'<div style="font-size: 12px; color: #cbd5e1; margin-top: 3px;">{apex_choice_att.description}</div>'
+                    f'<div style="font-size: 11px; color: #f59e0b; margin-top: 4px;">🚫 APEX includes its own integrated tracking optic & receiver. Optic & Ammunition are locked. Does NOT consume one of your 5 attachment slots!</div>'
+                    f'</div>',
+                    unsafe_allow_html=True
+                )
+
     selected_attachments = []
 
     c_s1, c_s2, c_s3 = st.columns(3)
     for idx, (slot_label, slot_enum) in enumerate(slots):
+        # If APEX is equipped and slot is optic or ammunition, block it
+        is_blocked_by_apex = bool(apex_choice_att and slot_enum in (AttachmentSlot.OPTIC, AttachmentSlot.AMMUNITION))
+        
         slot_atts = [a for a in all_attachments if a.slot == slot_enum]
         
         # Build mapping and labels with verified status & pick rates
@@ -146,44 +173,54 @@ with tab_gunsmith:
         preset_idx = 0
         for s_idx, a in enumerate(slot_atts):
             a_mods = [m for m in all_mods if m.attachment_id == a.attachment_id]
-            status_tag = "" if a_mods else " [UNVERIFIED]"
+            status_tag = "" if a_mods else " [⏳ Stats Coming Soon]"
             pick_tag = f" (🔥 {a.pick_rate_pct:.0f}% Pick)" if a.pick_rate_pct > 0 else ""
             disp_label = f"{a.name}{pick_tag}{status_tag}"
             att_display_map[disp_label] = a
             if a.attachment_id in preset_att_ids:
                 preset_idx = s_idx + 1 # offset by 1 for "None"
 
-        att_options = ["None"] + list(att_display_map.keys())
+        if is_blocked_by_apex:
+            att_options = [f"🔒 Integrated by {apex_choice_att.name} APEX"]
+        else:
+            att_options = ["None"] + list(att_display_map.keys())
+            
         target_col = [c_s1, c_s2, c_s3][idx % 3]
 
         with target_col:
             choice = st.selectbox(
                 f"{slot_label} Slot",
                 options=att_options,
-                index=preset_idx if preset_idx < len(att_options) else 0,
-                key=f"slot_{slot_enum.value}_{chosen_preset[:6]}_{'auto' if auto_meta_clicked else 'norm'}"
+                index=0 if is_blocked_by_apex else (preset_idx if preset_idx < len(att_options) else 0),
+                disabled=is_blocked_by_apex,
+                key=f"slot_{slot_enum.value}_{chosen_preset[:6]}_{'auto' if auto_meta_clicked else 'norm'}_{'apex' if apex_choice_att else 'noapex'}"
             )
-            if choice != "None":
+            if not is_blocked_by_apex and choice != "None":
                 chosen_att = att_display_map[choice]
                 selected_attachments.append(chosen_att)
 
     st.markdown("---")
 
-    # Validate slot count
+    # Full attachment list evaluated (standard 5 slots + free APEX slot)
+    total_eval_attachments = selected_attachments + ([apex_choice_att] if apex_choice_att else [])
+
+    # Validate slot count (APEX does not count toward standard 5 limit)
     if len(selected_attachments) > 5:
-        st.error(f"⚠️ Build exceeds maximum 5 attachments limit (Currently equipped: {len(selected_attachments)})")
+        st.error(f"⚠️ Build exceeds maximum 5 standard attachments limit (Currently equipped: {len(selected_attachments)})")
     else:
-        st.success(f"Equipped: {len(selected_attachments)} / 5 Attachments")
+        apex_msg = f" + ⚡ {apex_choice_att.name} APEX" if apex_choice_att else ""
+        st.success(f"Equipped: {len(selected_attachments)} / 5 Standard Attachments{apex_msg}")
 
         # Plain-English Attachment Benefits Breakdown
-        if selected_attachments:
+        if total_eval_attachments:
             st.markdown("##### 💡 Active Attachment Benefits In Plain English")
             benefit_pills = []
-            for a in selected_attachments:
+            for a in total_eval_attachments:
                 effects = get_attachment_plain_effects(a.attachment_id, a.name)
                 pick_str = f" • 🔥 {a.pick_rate_pct:.0f}% Pick" if a.pick_rate_pct > 0 else ""
+                is_apx_str = " [APEX]" if a.slot == AttachmentSlot.CONVERSION_KIT else ""
                 for eff in effects:
-                    benefit_pills.append(f'<span style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 4px; padding: 3px 8px; font-size: 11.5px; margin: 2px 4px 2px 0; display: inline-block;"><b>{a.name}{pick_str}:</b> {eff}</span>')
+                    benefit_pills.append(f'<span style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 4px; padding: 3px 8px; font-size: 11.5px; margin: 2px 4px 2px 0; display: inline-block;"><b>{a.name}{is_apx_str}{pick_str}:</b> {eff}</span>')
             
             st.markdown(f'<div style="margin-bottom: 14px;">{" ".join(benefit_pills)}</div>', unsafe_allow_html=True)
 
@@ -192,7 +229,7 @@ with tab_gunsmith:
             eval_build = calculate_modified_stats(
                 weapon=weapon,
                 base_stats=base_stats,
-                attachments=selected_attachments,
+                attachments=total_eval_attachments,
                 all_modifiers=all_mods,
                 ruleset=active_ruleset,
                 damage_profiles=damage_profiles,
