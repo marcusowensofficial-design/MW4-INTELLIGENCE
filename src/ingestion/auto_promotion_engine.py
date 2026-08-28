@@ -74,7 +74,7 @@ def parse_and_auto_apply_patch_adjustments(
     weapon_id_by_name = {}
     for w in weapons:
         weapon_id_by_name[w.name.lower()] = w.weapon_id
-        # Also map short names e.g. "xm4" -> "xm4_mw4"
+        # Also map short names e.g. "xm4" -> "patriot_xmr_mw4"
         clean_alias = re.sub(r"[^a-zA-Z0-9]", "", w.name.lower())
         weapon_id_by_name[clean_alias] = w.weapon_id
 

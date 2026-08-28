@@ -13,7 +13,7 @@ from typing import Dict, List, Any, Optional, Tuple
 # ---------------------------------------------------------------------------
 WEAPON_PLAIN_DOSSIERS: Dict[str, Dict[str, Any]] = {
     # Assault Rifles
-    "xm4": {
+    "patriot_xmr": {
         "role_title": "🎯 Laser Beam All-Rounder",
         "summary": "The ultimate reliable workhorse. Shoots like a laser beam with almost zero gun kick and very forgiving fire rate.",
         "best_for": "Players who want an easy-to-aim gun that works great in every medium-range gunfight.",
@@ -22,7 +22,7 @@ WEAPON_PLAIN_DOSSIERS: Dict[str, Dict[str, Any]] = {
         "recoil_profile": "Minimal upward climb, virtually zero side-to-side bounce.",
         "pro_tip": "Aim at the chest and let the slight upward drift land effortless headshots."
     },
-    "mcw": {
+    "m4": {
         "role_title": "🎯 Tournament Precision Rifle",
         "summary": "Pinpoint accuracy with extreme stability at distance. Low damage up close, but an absolute laser past 25 meters.",
         "best_for": "Holding down lanes, head glitches, and picking off enemies across the map.",
@@ -78,7 +78,7 @@ WEAPON_PLAIN_DOSSIERS: Dict[str, Dict[str, Any]] = {
     },
 
     # Submachine Guns
-    "rival_9": {
+    "iso_nightshade": {
         "role_title": "⚡ Ultimate CDL Tournament SMG",
         "summary": "The reigning king of close-quarters combat. Blistering sprint speed, lightning-fast aim, and rapid time-to-kill.",
         "best_for": "Aggressive rushers who slide, jump, and dive into enemy spawns.",
@@ -337,15 +337,15 @@ def get_weapon_plain_summary(
     else:
         # Fuzzy alias resolver
         normalized_keys = {
-            "xm4": ["xm4"],
-            "mcw": ["mcw"],
+            "patriot_xmr": ["xm4"],
+            "m4": ["mcw"],
             "m4": ["m4_"],
             "holger_556": ["holger", "holger556"],
             "mtz_556": ["mtz556", "mtz_556"],
             "kastov_74m": ["ak74m", "kastov"],
             "hyeon_burst": ["hyeon"],
             "han_86": ["han86", "han_86"],
-            "rival_9": ["rival9", "rival_9"],
+            "iso_nightshade": ["rival9", "rival_9"],
             "striker": ["striker45", "striker_45", "striker"],
             "striker_9": ["striker9", "striker_9"],
             "superi_46": ["superi"],
@@ -688,7 +688,7 @@ def get_matchmaker_recommendation(
     if "Aggressive CQB" in playstyle_choice or "Run & Gun" in playstyle_choice:
         return {
             "weapon_id": "rival_9",
-            "weapon_name": "Rival-9 (Submachine Gun)",
+            "weapon_name": "ISO Nightshade (Submachine Gun)",
             "build_name": "⚡ CDL Pro Tournament Shredder",
             "role_badge": "👑 #1 Competitive Close-Quarters SMG",
             "ease_rating": "★★★★☆ (Super Snappy & Agile)",
@@ -744,7 +744,7 @@ def get_matchmaker_recommendation(
         else:
             return {
                 "weapon_id": "mcw",
-                "weapon_name": "MCW (Assault Rifle)",
+                "weapon_name": "M4 (Assault Rifle)",
                 "build_name": "🔭 Tournament Lane Anchor Laser",
                 "role_badge": "👑 #1 Long-Range Precision AR",
                 "ease_rating": "★★★★★ (Zero Sway & Pinpoint)",
@@ -798,7 +798,7 @@ def get_matchmaker_recommendation(
         else:
             return {
                 "weapon_id": "xm4",
-                "weapon_name": "XM4 (Assault Rifle)",
+                "weapon_name": "Patriot XMR (Assault Rifle)",
                 "build_name": "👑 CDL Pro Zero-Recoil Beam",
                 "role_badge": "👑 #1 Best All-Rounder in MW4",
                 "ease_rating": "★★★★★ (Effortless Laser)",

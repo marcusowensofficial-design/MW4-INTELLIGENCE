@@ -19,21 +19,22 @@ ASSETS_DIR = os.path.join(
 # Canonical mapping from database weapon_id to authentic WZStats asset filename
 WEAPON_FILE_MAP: Dict[str, str] = {
     # Assault Rifles
-    "xm4_mw4": "m4-mw4.png",
-    "mcw_mw4": "mcw.png",
+    "patriot_xmr_mw4": "m4-mw4.png",
+    "m4_mw4": "m4-mw4.png",
+    "kastov762_mw4": "kastov-762.png",
     "ak74m_mw4": "kastov-762-mw4.png",
     "holger556_mw4": "holger-556.png",
     "han86_mw4": "han-86-mw4.png",
     "hyeon_burst_mw4": "hyeon-burst-mw4.png",
     # Submachine Guns
-    "rival9_mw4": "rival-9.png",
-    "striker45_mw4": "striker.png",
+    "x58_nyx_mw4": "x-58-nyx-mw4.png",
+    "ppsh41_mw4": "ppsh-41.png",
     "amr9_mw4": "amr9.png",
     "wsp_swarm_mw4": "wsp-swarm.png",
     "ppsh41_mw4": "ppsh-41-mw4.png",
     "iso_nightshade_mw4": "iso-nightshade-mw4.png",
     # Battle Rifles
-    "basb_mw4": "bas-b.png",
+    "mar9_mw4": "m4-mw4.png",
     "sidewinder_mw4": "sidewinder.png",
     # Marksman Rifles
     "kvd_enforcer_mw4": "kvd-enforcer.png",
@@ -71,7 +72,7 @@ def get_weapon_image_b64(weapon_id: str) -> Optional[str]:
                 break
 
     if not fname:
-        fname = "w_xm4.png"  # Default clean fallback
+        fname = "m4-mw4.png"  # Default clean fallback
 
     full_path = os.path.join(ASSETS_DIR, fname)
     if not os.path.exists(full_path):

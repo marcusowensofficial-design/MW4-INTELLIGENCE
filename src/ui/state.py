@@ -3,6 +3,7 @@ MW4 Weapon Intelligence Lab - Streamlit State Management
 Thread-safe session state caching and global selectors for Game Version and Ruleset.
 """
 
+import os
 import streamlit as st
 from typing import Tuple, List, Optional
 from src.database.connection import db_manager, DatabaseManager
@@ -15,10 +16,16 @@ def get_shared_repository() -> IntelligenceRepository:
     """Returns a cached singleton IntelligenceRepository backed by the primary DuckDB instance."""
     db_manager.init_database()
     repo = IntelligenceRepository(db_manager)
-    # Automatically seed baseline intelligence if database is newly initialized
-    if not repo.get_weapons():
+    
+    # Check if database needs seeding or re-synchronization with authentic snapshots
+    weapons = repo.get_weapons()
+    weapon_ids = [w.weapon_id for w in weapons] if weapons else []
+    
+    # If empty or containing legacy placeholder weapons like patriot_xmr_mw4, re-seed from parquets
+    if not weapons or 'patriot_xmr_mw4' in weapon_ids or 'patriot_xmr_mw4' not in weapon_ids:
         from src.database.seed_data import seed_database
         seed_database(db_manager)
+        
     return repo
 
 
@@ -29,11 +36,11 @@ def init_session_state() -> IntelligenceRepository:
     # Load available versions & rulesets
     if "available_versions" not in st.session_state or not st.session_state.get("available_versions"):
         versions = repo.get_game_versions()
-        st.session_state["available_versions"] = [v.version_id for v in versions] or ["v1.1.0-launch"]
+        st.session_state["available_versions"] = [v.version_id for v in versions] or ["v1.2.0-beta-weekend2"]
 
     if "selected_version" not in st.session_state:
         active = repo.get_active_game_version()
-        st.session_state["selected_version"] = active.version_id if active else "v1.1.0-launch"
+        st.session_state["selected_version"] = active.version_id if active else "v1.2.0-beta-weekend2"
 
     if "available_rulesets" not in st.session_state or not st.session_state.get("available_rulesets"):
         rulesets = repo.get_rulesets()
@@ -63,7 +70,7 @@ def render_sidebar_controls(repo: IntelligenceRepository) -> Tuple[str, str, Rul
     st.sidebar.markdown("### 🎛️ Global Intelligence Scope")
 
     versions = repo.get_game_versions()
-    version_ids = [v.version_id for v in versions] or ["v1.1.0-launch"]
+    version_ids = [v.version_id for v in versions] or ["v1.2.0-beta-weekend2"]
     curr_ver_idx = version_ids.index(st.session_state["selected_version"]) if st.session_state["selected_version"] in version_ids else 0
 
     selected_ver = st.sidebar.selectbox(

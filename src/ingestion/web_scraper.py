@@ -165,7 +165,7 @@ class PatchNotesScraper:
                 "fetch_timestamp": datetime.now(timezone.utc).isoformat(),
                 "adjustments_count": 3,
                 "adjustments": [
-                    {"raw_text": "XM4 Commando: Bullet velocity increased from 735m/s to 750m/s."},
+                    {"raw_text": "Patriot XMR: Bullet velocity increased from 735m/s to 750m/s."},
                     {"raw_text": "Rival-9 SpecOps: Sprint to fire time improved by 10ms (160ms -> 150ms)."},
                     {"raw_text": "BAS-B: Recoil vertical reduced from 41 to 38."}
                 ],

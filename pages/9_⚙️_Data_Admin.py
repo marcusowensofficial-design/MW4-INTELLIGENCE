@@ -432,11 +432,11 @@ with tab_csv:
     col_t1, col_t2 = st.columns(2)
     with col_t1:
         st.markdown("**Weapon Physical Stats Template:**")
-        sample_stats_csv = "weapon_id,rpm,base_ads_ms,sprint_to_fire_ms,tactical_sprint_to_fire_ms,bullet_velocity_mps,reload_empty_s,reload_tactical_s,recoil_horizontal,recoil_vertical,hipfire_spread_deg,move_speed_mps,ads_move_speed_mps,flinch_resistance\nxm4_mw4,780.0,235.0,205.0,280.0,735.0,2.35,1.80,17.8,25.2,3.8,4.88,2.95,1.0"
+        sample_stats_csv = "weapon_id,rpm,base_ads_ms,sprint_to_fire_ms,tactical_sprint_to_fire_ms,bullet_velocity_mps,reload_empty_s,reload_tactical_s,recoil_horizontal,recoil_vertical,hipfire_spread_deg,move_speed_mps,ads_move_speed_mps,flinch_resistance\npatriot_xmr_mw4,780.0,235.0,205.0,280.0,735.0,2.35,1.80,17.8,25.2,3.8,4.88,2.95,1.0"
         st.code(sample_stats_csv, language="csv")
     with col_t2:
         st.markdown("**Damage Profiles Template:**")
-        sample_dmg_csv = "weapon_id,range_start_m,range_end_m,damage_head,damage_neck,damage_chest,damage_stomach,damage_limbs\nxm4_mw4,0.0,28.0,39.2,35.0,30.8,28.0,25.2\nxm4_mw4,28.0,42.0,35.0,31.2,27.5,25.0,22.5\nxm4_mw4,42.0,100.0,30.8,27.5,24.2,22.0,19.8"
+        sample_dmg_csv = "weapon_id,range_start_m,range_end_m,damage_head,damage_neck,damage_chest,damage_stomach,damage_limbs\npatriot_xmr_mw4,0.0,28.0,39.2,35.0,30.8,28.0,25.2\npatriot_xmr_mw4,28.0,42.0,35.0,31.2,27.5,25.0,22.5\npatriot_xmr_mw4,42.0,100.0,30.8,27.5,24.2,22.0,19.8"
         st.code(sample_dmg_csv, language="csv")
 
 # ---------------------------------------------------------------------------

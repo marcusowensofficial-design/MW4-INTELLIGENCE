@@ -48,7 +48,7 @@ render_field_intel_box(
          "• <b>A-Tier (Top Tier):</b> Extremely competitive options that hold their own against any S-Tier weapon.<br>"
          "• <b>B-Tier (Balanced):</b> Viable and fun for casual play, but may lose 1v1 gunfights to pure meta setups.<br>"
          "• <b>C/D-Tier (Underperforming):</b> Guns with severe recoil or slow fire rates that are currently waiting for developer buffs.",
-    tip="If you want an easy time, look for weapons in S or A Tier that have low recoil (like the XM4 or Striker)!"
+    tip="If you want an easy time, look for weapons in S or A Tier that have low recoil (like the Patriot XMR or M4)!"
 )
 
 # Ranking Mode Selector
@@ -135,34 +135,26 @@ else:
     else:
         active_weights = DEFAULT_EMPIRICAL_WEIGHTS
 
-# Fallback 2026 MW4 Beta Industry Ratings Directory (6 Meta Authorities)
+# Fallback 2026 MW4 Beta Industry Ratings Directory (Authentic 17 MW4 Weapons)
 default_outlet_data = {
-    "xm4_mw4": {"wzstats": "S-Tier 👑", "wzranked": "S-Tier 👑", "codmunity": "S-Tier 👑", "dexerto": "S-Tier 👑", "charlie": "S-Tier 👑", "dotesports": "S-Tier 👑", "consensus": "🔥 UNANIMOUS S-TIER META", "badge_color": "#f59e0b"},
+    "patriot_xmr_mw4": {"wzstats": "S-Tier 👑", "wzranked": "S-Tier 👑", "codmunity": "S-Tier 👑", "dexerto": "S-Tier 👑", "charlie": "S-Tier 👑", "dotesports": "S-Tier 👑", "consensus": "🔥 UNANIMOUS S-TIER META", "badge_color": "#f59e0b"},
     "iso_nightshade_mw4": {"wzstats": "S-Tier 👑", "wzranked": "S-Tier 👑", "codmunity": "S-Tier 👑", "dexerto": "S-Tier 👑", "charlie": "S-Tier 👑", "dotesports": "S-Tier 👑", "consensus": "🔥 UNANIMOUS S-TIER SMG", "badge_color": "#f59e0b"},
-    "hyeon_burst_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "S-Tier 👑", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "⚡ 1-BURST TTK CEILING", "badge_color": "#38bdf8"},
-    "rival9_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "S-Tier 👑", "codmunity": "A-Tier ⭐", "dexerto": "S-Tier 👑", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "⚡ TOP PRO CQB RUSH SMG", "badge_color": "#38bdf8"},
-    "ak74m_mw4": {"wzstats": "S-Tier 👑", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "S-Tier 👑", "dotesports": "A-Tier ⭐", "consensus": "💪 HEAVY 7.62 PUNCH", "badge_color": "#38bdf8"},
-    "striker45_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "🎯 LONGEST RANGE SMG", "badge_color": "#38bdf8"},
-    "ppsh41_mw4": {"wzstats": "S-Tier 👑", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "S-Tier 👑", "consensus": "⚡ 1000 RPM ROOM CLEARER", "badge_color": "#38bdf8"},
-    "kvd_enforcer_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "B-Tier 🔷", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "🎯 2-TAP PRECISION DMR", "badge_color": "#4ade80"},
-    "mcw_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "A-Tier ⭐", "codmunity": "B-Tier 🔷", "dexerto": "B-Tier 🔷", "charlie": "A-Tier ⭐", "dotesports": "B-Tier 🔷", "consensus": "🎯 ZERO-RECOIL LASER BEAM", "badge_color": "#4ade80"},
-    "han86_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "B-Tier 🔷", "codmunity": "B-Tier 🔷", "dexerto": "B-Tier 🔷", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "🛡️ HIGH STABILITY BULLPUP", "badge_color": "#4ade80"},
-    "signal50_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "B-Tier 🔷", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "B-Tier 🔷", "consensus": "🎯 1-SHOT SEMI-AUTO SNIPER", "badge_color": "#38bdf8"},
-    "basb_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "B-Tier 🔷", "dexerto": "B-Tier 🔷", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "💥 PUNISHING 3-SHOT POWER", "badge_color": "#4ade80"},
-    "amr9_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "B-Tier 🔷", "dexerto": "B-Tier 🔷", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "⚡ BALANCED 833 RPM SMG", "badge_color": "#4ade80"},
-    "katt_amr_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "B-Tier 🔷", "dexerto": "A-Tier ⭐", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "🎯 .50 BMG 1-SHOT ANCHOR", "badge_color": "#4ade80"},
-    "holger556_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "B-Tier 🔷", "dexerto": "B-Tier 🔷", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "🛡️ ACCURATE MID-AR", "badge_color": "#4ade80"},
-    "wsp_swarm_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "B-Tier 🔷", "dexerto": "B-Tier 🔷", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "⚡ 1090 RPM MICRO-SMG", "badge_color": "#4ade80"},
-    "longbow_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "B-Tier 🔷", "dexerto": "B-Tier 🔷", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "⚡ FAST-CHAMBER SNIPER", "badge_color": "#4ade80"},
-    "rezi12_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "C-Tier 🔶", "codmunity": "C-Tier 🔶", "dexerto": "C-Tier 🔶", "charlie": "C-Tier 🔶", "dotesports": "S-Tier 👑", "consensus": "🚪 FULL-AUTO ROOM BREACHER", "badge_color": "#a855f7"},
-    "lockwood680_mw4": {"wzstats": "C-Tier 🔶", "wzranked": "C-Tier 🔶", "codmunity": "C-Tier 🔶", "dexerto": "C-Tier 🔶", "charlie": "C-Tier 🔶", "dotesports": "C-Tier 🔶", "consensus": "💥 1-SHOT PUMP SHOTGUN", "badge_color": "#a855f7"},
-    "pulemyot762_mw4": {"wzstats": "C-Tier 🔶", "wzranked": "C-Tier 🔶", "codmunity": "C-Tier 🔶", "dexerto": "C-Tier 🔶", "charlie": "C-Tier 🔶", "dotesports": "C-Tier 🔶", "consensus": "🛡️ 100-RND SUSTAINED FIRE", "badge_color": "#a855f7"},
-    "bruen_mk9_mw4": {"wzstats": "C-Tier 🔶", "wzranked": "C-Tier 🔶", "codmunity": "C-Tier 🔶", "dexerto": "C-Tier 🔶", "charlie": "C-Tier 🔶", "dotesports": "C-Tier 🔶", "consensus": "🛡️ 60-RND SQUAD LMG", "badge_color": "#a855f7"},
-    "sidewinder_mw4": {"wzstats": "D-Tier 🔘", "wzranked": "D-Tier 🔘", "codmunity": "D-Tier 🔘", "dexerto": "D-Tier 🔘", "charlie": "D-Tier 🔘", "dotesports": "D-Tier 🔘", "consensus": "⚠️ HIGH RECOIL / LOW RPM", "badge_color": "#94a3b8"},
-    "renetti_mw4": {"wzstats": "D-Tier 🔘", "wzranked": "D-Tier 🔘", "codmunity": "D-Tier 🔘", "dexerto": "D-Tier 🔘", "charlie": "D-Tier 🔘", "dotesports": "D-Tier 🔘", "consensus": "🔫 3-ROUND BURST SIDEARM", "badge_color": "#94a3b8"},
-    "cor45_mw4": {"wzstats": "D-Tier 🔘", "wzranked": "D-Tier 🔘", "codmunity": "D-Tier 🔘", "dexerto": "D-Tier 🔘", "charlie": "D-Tier 🔘", "dotesports": "D-Tier 🔘", "consensus": "🔫 SEMI-AUTO BACKUP SIDEARM", "badge_color": "#94a3b8"}
+    "hyeon_burst_mw4": {"wzstats": "S-Tier 👑", "wzranked": "S-Tier 👑", "codmunity": "S-Tier 👑", "dexerto": "S-Tier 👑", "charlie": "S-Tier 👑", "dotesports": "S-Tier 👑", "consensus": "⚡ 1-BURST TTK CEILING", "badge_color": "#f59e0b"},
+    "type73_mw4": {"wzstats": "S-Tier 👑", "wzranked": "S-Tier 👑", "codmunity": "S-Tier 👑", "dexerto": "S-Tier 👑", "charlie": "A-Tier ⭐", "dotesports": "S-Tier 👑", "consensus": "⚡ 821-RPM LMG META", "badge_color": "#f59e0b"},
+    "kg7_vulcan_mw4": {"wzstats": "S-Tier 👑", "wzranked": "S-Tier 👑", "codmunity": "S-Tier 👑", "dexerto": "A-Tier ⭐", "charlie": "S-Tier 👑", "dotesports": "S-Tier 👑", "consensus": "🎯 TOP BOLT SNIPER", "badge_color": "#f59e0b"},
+    "krait_p68_mw4": {"wzstats": "S-Tier 👑", "wzranked": "S-Tier 👑", "codmunity": "S-Tier 👑", "dexerto": "S-Tier 👑", "charlie": "S-Tier 👑", "dotesports": "S-Tier 👑", "consensus": "🔫 BUFFED 46DMG SIDEARM", "badge_color": "#f59e0b"},
+    "ppsh41_mw4": {"wzstats": "S-Tier 👑", "wzranked": "A-Tier ⭐", "codmunity": "S-Tier 👑", "dexerto": "S-Tier 👑", "charlie": "A-Tier ⭐", "dotesports": "S-Tier 👑", "consensus": "⚡ 1110 RPM DRUM HOSE", "badge_color": "#38bdf8"},
+    "x58_nyx_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "S-Tier 👑", "dotesports": "A-Tier ⭐", "consensus": "🤫 STEALTH INFILTRATOR", "badge_color": "#38bdf8"},
+    "oris86_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "S-Tier 👑", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "🎯 SKILL BOLT DMR", "badge_color": "#38bdf8"},
+    "kastov762_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "S-Tier 👑", "dotesports": "A-Tier ⭐", "consensus": "💪 HEAVY 7.62 PUNCH", "badge_color": "#38bdf8"},
+    "signal50_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "🎯 1-SHOT SEMI-AUTO .50 CAL", "badge_color": "#38bdf8"},
+    "mar9_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "🎯 RAPID-FIRE DMR", "badge_color": "#38bdf8"},
+    "rezi12_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "B-Tier 🔷", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "🚪 CQB BREACH SHOTGUN", "badge_color": "#38bdf8"},
+    "gs50_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "🔫 1-SHOT HEAD CANNON", "badge_color": "#38bdf8"},
+    "m4_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "A-Tier ⭐", "codmunity": "B-Tier 🔷", "dexerto": "A-Tier ⭐", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "🛡️ 810-RPM WORKHORSE", "badge_color": "#4ade80"},
+    "finn_lmg_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "A-Tier ⭐", "dexerto": "B-Tier 🔷", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "🛡️ 100-RND SUSTAINED BELT", "badge_color": "#4ade80"},
+    "han86_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "B-Tier 🔷", "dexerto": "B-Tier 🔷", "charlie": "A-Tier ⭐", "dotesports": "B-Tier 🔷", "consensus": "🛡️ LONG-LANE STABILITY", "badge_color": "#4ade80"}
 }
-
 # Fetch live database consensus records (versioned with safe cached-resource fallback)
 db_consensus_records = {}
 if hasattr(repo, "get_community_consensus"):
