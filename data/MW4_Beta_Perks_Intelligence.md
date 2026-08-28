@@ -53,10 +53,10 @@
 
 | Perk Name | In-Game Effect / Tactical Behavior | Unlock Requirement | Meta Impact Tier |
 | :--- | :--- | :--- | :--- |
-| **Blood Rush** | Extends Tactical Sprint duration; grants a burst of high crouch/slide movement speed on kills. | **Start (Level 1)** | **A-Tier** (Omnimovement Agility) |
+| **Blood Rush** | **Enables Tactical Sprint** (removed from base movement in Weekend 2) with reduced Sprint-to-Fire penalty; grants a burst of high crouch/slide movement speed on kills. | **Start (Level 1)** | **S-Tier** (Mandatory for Aggressive Rushers) |
 | **Scavenger** | Fallen enemies drop ammunition and armor resupply pouches on elimination. | **Start (Level 1)** | **B-Tier** (Long Killstreaks) |
 | **Lethal Reach** | Increases tactical and lethal equipment throw velocity; increases melee lunge distance. | **Player Rank 8** | **B-Tier** (Grenade Lineups) |
-| **Battle Hardened**| Greatly reduces duration and visual distortion from Flashbangs, Stun Grenades, and EMPs. | **Player Rank 28** | **S-Tier** (Hardpoint / Competitive CDL) |
+| **Battle Hardened**| Greatly reduces duration and visual distortion from Flashbangs, Stun Grenades, and EMPs. Integrated into temporary spawn protection as of Weekend 2. | **Player Rank 28** | **S-Tier** (Hardpoint / Competitive CDL) |
 | **Cold-Blooded** | Grants total immunity to enemy AI targeting (Helicopters, Sentries), thermal scopes, and snapshot pulses. | **Player Rank 30** | **A-Tier** (Anti-Streak Anchor) |
 | **Combat Grid** | Highlights enemy tactical equipment, field upgrades, vehicles, and killstreaks in red through walls. | **Player Rank 40 (Launch Preview)** | **A-Tier** (Wall-Hack Equipment Spotting) |
 
