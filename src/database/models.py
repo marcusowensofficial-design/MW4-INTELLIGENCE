@@ -56,6 +56,9 @@ class AttachmentSlot(str, Enum):
     MAGAZINE = "magazine"
     AMMUNITION = "ammunition"
     REAR_GRIP = "rear_grip"
+    COMB = "comb"
+    GUARD = "guard"
+    TRIGGER_ACTION = "trigger_action"
     CONVERSION_KIT = "conversion_kit"
 
 
