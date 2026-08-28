@@ -241,10 +241,10 @@ for w in weapons:
                 (0.10 * dot_val)
             )
             
-            if blended_score >= 82.0: tier_label = "S"
-            elif blended_score >= 70.0: tier_label = "A"
-            elif blended_score >= 55.0: tier_label = "B"
-            elif blended_score >= 40.0: tier_label = "C"
+            if blended_score >= 78.0: tier_label = "S"
+            elif blended_score >= 68.0: tier_label = "A"
+            elif blended_score >= 60.0: tier_label = "B"
+            elif blended_score >= 45.0: tier_label = "C"
             else: tier_label = "D"
             
             # Update score object with consensus values
@@ -298,16 +298,17 @@ with tab_tier:
             )
             pills_html.append(pill)
 
-        pills_content = ' '.join(pills_html) if pills_html else '<span style="color:#64748b; font-size:12px; font-style:italic;">No weapons currently ranked in this tier</span>'
-        st.markdown(
-            f'<div style="background:{bg_c}; border: 1px solid {border_c}; border-left: 6px solid {text_c}; border-radius: 6px; padding: 12px 16px; margin-bottom: 12px;">'
-            f'<div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">'
-            f'<div style="font-size: 28px; font-weight: 800; color: {text_c}; min-width: 40px;">{tier_letter}</div>'
-            f'<div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">{pills_content}</div>'
-            f'</div>'
-            f'</div>',
-            unsafe_allow_html=True
-        )
+        if items:
+            pills_content = ' '.join(pills_html)
+            st.markdown(
+                f'<div style="background:{bg_c}; border: 1px solid {border_c}; border-left: 6px solid {text_c}; border-radius: 6px; padding: 12px 16px; margin-bottom: 12px;">'
+                f'<div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">'
+                f'<div style="font-size: 28px; font-weight: 800; color: {text_c}; min-width: 40px;">{tier_letter}</div>'
+                f'<div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">{pills_content}</div>'
+                f'</div>'
+                f'</div>',
+                unsafe_allow_html=True
+            )
 
     st.markdown("---")
 

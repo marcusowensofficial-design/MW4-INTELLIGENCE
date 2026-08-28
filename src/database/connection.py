@@ -105,7 +105,7 @@ class DatabaseManager:
         with self._lock:
             conn = self.get_connection()
             try:
-                query = f"INSERT OR REPLACE INTO {table_name} SELECT * FROM read_parquet(?)"
+                query = f"INSERT OR REPLACE INTO {table_name} BY NAME SELECT * FROM read_parquet(?)"
                 conn.execute(query, [parquet_path])
                 count = conn.execute(f"SELECT COUNT(*) FROM {table_name}").fetchone()[0]
                 return count
