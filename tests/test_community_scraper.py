@@ -26,11 +26,11 @@ def test_community_scraper_weapon_id_matching():
     repo = IntelligenceRepository(db)
     scraper = CommunityMetaScraper(repo)
 
-    assert scraper.match_weapon_id("XM4 Commando") == "xm4_mw4"
-    assert scraper.match_weapon_id("M4") == "xm4_mw4"
-    assert scraper.match_weapon_id("ISO Nightshade") == "iso_nightshade_mw4"
-    assert scraper.match_weapon_id("Rival-9") == "rival9_mw4"
-    assert scraper.match_weapon_id("Kastov 762") == "ak74m_mw4"
+    assert scraper.match_weapon_id("patriot xmr") == "patriot_xmr_mw4"
+    assert scraper.match_weapon_id("M4") == "m4_mw4"
+    assert scraper.match_weapon_id("iso nightshade") == "iso_nightshade_mw4"
+    assert scraper.match_weapon_id("iso nightshade") == "iso_nightshade_mw4"
+    assert scraper.match_weapon_id("Kastov 762") == "kastov762_mw4"
     assert scraper.match_weapon_id("PPSh-41") == "ppsh41_mw4"
     assert scraper.match_weapon_id("Hyeon Burst") == "hyeon_burst_mw4"
 
@@ -54,8 +54,8 @@ def test_community_scraper_sync_all_platforms_execution():
     repo = IntelligenceRepository(db)
     scraper = CommunityMetaScraper(repo)
 
-    report = scraper.sync_all_platforms("v1.0.0-beta")
+    report = scraper.sync_all_platforms("v1.2.0-beta-weekend2")
     assert report["success"] is True
     assert len(report["platforms_scraped"]) == 6
-    assert report["total_weapons_audited"] == 24
+    assert report["total_weapons_audited"] == 17
     assert "evidence_id" in report

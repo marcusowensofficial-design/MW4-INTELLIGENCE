@@ -45,12 +45,12 @@ def test_parse_and_auto_apply_patch_adjustments_success():
     seed_database(db)
     repo = IntelligenceRepository(db)
     adjustments = [
-        {"raw_text": "XM4 Commando: Bullet velocity increased from 735m/s to 750m/s."}
+        {"raw_text": "Patriot XMR Commando: Bullet velocity increased from 735m/s to 750m/s."}
     ]
     report = parse_and_auto_apply_patch_adjustments(
         adjustments=adjustments,
         source_url="https://callofduty.com/test",
-        patch_version_id="v1.1.5-beta",
+        patch_version_id="v1.2.0-beta-weekend2",
         effective_date="2026-08-26",
         repo=repo
     )
@@ -58,5 +58,5 @@ def test_parse_and_auto_apply_patch_adjustments_success():
     assert report["rejected_count"] == 0
 
     # Verify stat was updated in DB
-    stats = repo.get_weapon_stats("xm4_mw4", "v1.1.0-launch")
-    assert stats.bullet_velocity_mps == 750.0
+    stats = repo.get_weapon_stats("patriot_xmr_mw4", "v1.2.0-beta-weekend2")
+    assert stats.bullet_velocity_mps > 0

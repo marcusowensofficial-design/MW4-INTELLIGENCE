@@ -409,6 +409,8 @@ def get_weapon_plain_summary(
             matched_dossier["ease_rating"] = 1
             matched_dossier["ease_label"] = "⭐☆☆☆☆ High Skill (Severe Kick)"
 
+    if "plain_summary" in matched_dossier and "summary" not in matched_dossier:
+        matched_dossier["summary"] = matched_dossier["plain_summary"]
     return matched_dossier
 
 
@@ -1216,6 +1218,8 @@ def get_weapon_plain_summary(
             matched_dossier["ease_rating"] = 1
             matched_dossier["ease_label"] = "⭐☆☆☆☆ High Skill (Severe Kick)"
 
+    if "plain_summary" in matched_dossier and "summary" not in matched_dossier:
+        matched_dossier["summary"] = matched_dossier["plain_summary"]
     return matched_dossier
 
 
