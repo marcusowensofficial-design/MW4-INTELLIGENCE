@@ -1,0 +1,819 @@
+FRIDAY AUGUST 28
+
+ 
+
+The Modern Warfare 4 Open Beta arrives at 10 AM PT today. Thank you for sharing your experiences, best plays, and feedback with us during Weekend 1. Your input is helping shape the experience as we continue to make improvements.
+
+ 
+
+We’ve made some sweeping changes to the game with focus on a few key areas: TTK, Spawns, Movement, Killstreaks and Aim Assist.
+
+ 
+
+TIME-TO-KILL
+
+After some updates last week, we still weren’t where we wanted to be with time-to-kill. We’re aiming for a slight increase to TTK so instead of changing base health, we focused on weapon tuning to improve durability without making weapons feel too weak at range. Every single weapon in our Beta has received an update for Weekend 2. These changes create more survivability and room for skill expression in combat.There’s more work to do here and we’re looking forward to hearing your feedback.
+
+ 
+
+SPAWNS
+
+In the final hours of Weekend 1, we adjusted spawns and spawn logic across all respawn modes to better separate players. Additionally, we greatly reduced spawning on squad members. 
+
+ 
+
+For Weekend 2, we wanted to build on these changes with adjustments to Hardpoint specifically. We feel the mode plays best when spawns are consistent and predictable. The prototype in the Beta today is a step toward that vision, but it is far from perfect. You may still see some bad spawns on smaller maps, and on larger maps you may spawn too far from the action. We are excited about the direction and will be improving things with your feedback.
+
+ 
+
+Finally, we added Battle Hardened to the temporary spawn protection, reducing the effects of flash and concussion grenades immediately after spawning.
+
+ 
+
+Updated spawn logic to better separate players [added at the end of Beta Weekend 1]
+Deprioritized spawning near teammates [added at the end of Beta Weekend 1]
+Partially improved Hardpoint spawn system to improve predictability
+Added Battle Hardened to temporary spawn protection
+Temporarily disabled Hardpoint on Rooftops because of a spawn bug
+
+ 
+
+MOVEMENT
+
+We saw a lot of feedback about Tactical Sprint over Weekend 1, and we know there are a range of opinions about it. We have removed Tactical Sprint by default, which we think improves the pace of combat and gives the game a more classic feel. For players who prefer a faster playstyle, we moved it to a Perk and enhanced it by reducing its sprint-to-fire speed penalty. We have also adjusted Tac Sprint and slide speeds to rebalance them against each other.
+
+ 
+
+This is an experiment for Beta which we hope improves the pace of the game and enhances player choice. If we decide to stick with this change, we need to consider its place in the Perk table and which other adjustments to Perks go along with it.
+
+ 
+
+Tac Sprint
+Moved Tactical Sprint to the Blood Rush Perk.
+Reduced Tactical Sprint sprint-to-fire time to match base sprint.
+Reduced Tactical Sprint speed by 4%.
+Sprint Speeds
+Increased knife base sprint speeds.
+Increased all pistol base sprint speeds.
+Slide Adjustments
+Increased slide-to-jump delay.
+Reduced slide distance by 10%.
+Reduced slide speed by 9%.
+Stamina
+Reduced stamina by 8%.
+Mantle
+Fixed an issue where players could mantle much higher than intended.
+Climbing
+Fixed an issue that caused stutters when climbing ladders and pipes.
+
+ 
+
+As a reminder, movement in Warzone is close to Multiplayer but not 1-to-1, as many things have been tuned specifically for Warzone gameplay. Check out yesterday’s update on Resurgence in Open Beta for more.
+
+ 
+
+AIM ASSIST
+
+For Weekend 2, we’ve made adjustments to aim assist to reduce its impact. In full transparency, this is not the exact tuning we want, so we will be working on dialing this in ahead of launch.
+
+These adjustments are global and will apply to Warzone.
+
+ 
+
+KILLSTREAKS
+
+In Weekend 1, we saw the feedback around Killstreak spam and we had some duplicated announcer callout bugs that made this feel even worse in-match.
+
+ 
+
+For Weekend 2, we fixed the announcer issue and bumped the base cost of all Killstreaks by 1 kill. This should limit Killstreak spam and keep matches more focused on gunplay.
+
+ 
+
+General
+Increased all Killstreak costs by 1 kill.
+
+ 
+
+We also made some tweaks to Killstreak power so they aren’t taking away from the match, including reducing the radius and lethality of the Artillery Strike, and tuning the UAV to make it easier to take out.
+
+ 
+
+UAV
+Reduced UAV health by 60%.
+Reduced UAV height by 12%. 
+Artillery Beacon
+Reduced the number of missiles from 6 to 5.
+Reduced the inner damage radius from 15.24 meters to 10.16 meters.
+Reduced the outer damage radius from 25.4 meters to 17.78 meters.
+Reduced the shockwave radius that knocks people down to 10.16 meters.
+
+ 
+
+CONTENT
+
+If you’re just joining us this weekend, welcome to Open Beta. This weekend brings even more to Multiplayer, including our new Hijack mode and Ground War: Combat Outpost (with two new Ground War maps), plus the new Lithium 6v6 map. And for the first time in a Call of Duty Beta, you can drop into Warzone with Resurgence on Zodiac, our all-new Resurgence map.
+
+ 
+
+Maps
+Lithium - NEW
+Playlists
+Available
+Hijack - NEW
+Quick Play - TDM, Dom, Hardpoint, KC, S&D, Inflation, Hijack
+Open Moshpit - TDM, Dom, HP, KC
+Mobility Course
+10v10 Gunfight on Kill Block 
+Zodiac Resurgence - Quads - NEW
+
+ 
+
+Progression
+
+Level Cap raised to 30.
+MODES
+Team Deathmatch
+Increased score limit from 75 to 100.
+Kill Confirmed
+Increased score limit from 65 to 75.
+Gunfight
+Removed audio falloff over distance for team chat in 10v10 Gunfight.
+
+ 
+
+WEAPONS
+
+ 
+
+Snipers
+
+Increased received Flinch by 28%.
+SNIPER RIFLES
+WEAPON
+ADJUSTMENTS
+KG-7 Vulcan
+ 
+Damage Range	ㅤ	Pre	ㅤ	→	ㅤ	Post
+Max Damage	ㅤ	102	ㅤ	→	ㅤ	102
+Max Damage Range	ㅤ	0 - 56.8m	ㅤ	→	ㅤ	0 - 67.5m ⇧
+Mid Damage 1	ㅤ	99	ㅤ	→	ㅤ	99
+Mid Damage Range 1	ㅤ	56.8 - 86.3m	ㅤ	→	ㅤ	67.5 - 86.3m
+Min Damage	ㅤ	95	ㅤ	→	ㅤ	95
+Min Damage Range	ㅤ	>86.3m	ㅤ	→	ㅤ	>86.3m
+
+ 
+
+Additional KG-7 Vulcan Adjustments
+
+Lower Torso Damage Multiplier decreased from 1.02 to 1
+Signal .50
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	→	ㅤ	Post
+Max Damage	ㅤ	102	ㅤ	→	ㅤ	102
+Max Damage Range	ㅤ	0 - 33.5m	ㅤ	→	ㅤ	0 - 33.5m
+Mid Damage 1	ㅤ	99	ㅤ	→	ㅤ	99
+Mid Damage Range 1	ㅤ	33.6 - 48.5m	ㅤ	→	ㅤ	33.6 - 48.5m
+Mid Damage 2	ㅤ	80	ㅤ	→	ㅤ	80
+Mid Damage Range 2	ㅤ	48.6 - 67.3m	ㅤ	→	ㅤ	48.6 - 66m ⇩
+Min Damage	ㅤ	75	ㅤ	→	ㅤ	75
+Min Damage Range	ㅤ	>67.3m	ㅤ	→	ㅤ	>66m
+
+ 
+
+Additional Signal .50 Updates
+
+Upper Torso Damage Multiplier decreased from 1.75 to 1.3
+ASSAULT RIFLES
+WEAPON
+ADJUSTMENTS
+Kastov 762
+ 
+Damage Range	ㅤ	Pre	ㅤ	→	ㅤ	Post
+Max Damage	ㅤ	34	ㅤ	→	ㅤ	30 ⇩
+Max Damage Range	ㅤ	0 - 22.2m	ㅤ	→	ㅤ	0 - 24.1m ⇧
+Mid Damage 1	ㅤ	29	ㅤ	→	ㅤ	24 ⇩
+Mid Damage Range 1	ㅤ	22.3 - 40.8m	ㅤ	→	ㅤ	24.2 - 40.1m ⇩
+Min Damage	ㅤ	23	ㅤ	→	ㅤ	21 ⇩
+Min Damage Range	ㅤ	>40.9m	ㅤ	→	ㅤ	>40.1m
+
+ 
+
+Additional Kastov 762 Adjustments
+
+Head Damage Multiplier decreased from 1.35 to 1.33
+
+ 
+
+Apex Attachment: Kasto 545
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	31	ㅤ	→	ㅤ	30 ⇩
+Max Damage Range	ㅤ	0 - 17.7	ㅤ	→	ㅤ	0 - 11m ⇩
+Mid Damage 1	ㅤ	23	ㅤ	→	ㅤ	23
+Mid Damage Range 1	ㅤ	17.8 - 34m	ㅤ	→	ㅤ	11.1 - 20.5m ⇩
+Min Damage	ㅤ	18	ㅤ	→	ㅤ	18
+Min Damage Range	ㅤ	>34m	ㅤ	→	ㅤ	>20.6m
+Han 86
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	→	ㅤ	Post
+Max Damage	ㅤ	26	ㅤ	→	ㅤ	22 ⇩
+Max Damage Range	ㅤ	0 - 23.5m	ㅤ	→	ㅤ	0 - 28.4m ⇧
+Mid Damage 1	ㅤ	22	ㅤ	→	ㅤ	-
+Mid Damage Range 1	ㅤ	23.6 - 43.6m	ㅤ	→	ㅤ	-
+Min Damage	ㅤ	18	ㅤ	→	ㅤ	18
+Min Damage Range	ㅤ	>43.7m	ㅤ	→	ㅤ	>28.4m
+
+ 
+
+Addtional Han 86 Adjustments
+
+Neck Damage Multiplier decreased from 1.1 to 1
+Upper Torso Damage Multiplier decreased from 1.1 to 1
+M4
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	28	ㅤ	→	ㅤ	24 ⇩
+Max Damage Range	ㅤ	0 - 20.3m	ㅤ	→	ㅤ	0 - 26.3m ⇧
+Mid Damage 1	ㅤ	22	ㅤ	→	ㅤ	-
+Mid Damage Range 1	ㅤ	20.4 - 38.3m	ㅤ	→	ㅤ	-
+Mid Damage 2	ㅤ	17	ㅤ	→	ㅤ	-
+Mid Damage Range 2	ㅤ	38.4 - 51.5m	ㅤ	→	ㅤ	-
+Min Damage	ㅤ	16	ㅤ	→	ㅤ	19 ⇧
+Min Damage Range	ㅤ	>51.6m	ㅤ	→	ㅤ	>26.3m
+
+ 
+
+Apex Attachment: M4 Hurricane
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	34	ㅤ	→	ㅤ	30 ⇩
+Max Damage Range	ㅤ	0 - 8.3m	ㅤ	→	ㅤ	0 - 10.5m ⇧
+Mid Damage 1	ㅤ	30	ㅤ	→	ㅤ	22 ⇩
+Mid Damage Range 1	ㅤ	8.4 - 16.5m	ㅤ	→	ㅤ	10.6 - 20m ⇧
+Mid Damage 2	ㅤ	24	ㅤ	→	ㅤ	-
+Mid Damage Range 2	ㅤ	16.6 - 21m	ㅤ	→	ㅤ	-
+Min Damage	ㅤ	22	ㅤ	→	ㅤ	18 ⇩
+Min Damage Range	ㅤ	>21m	ㅤ	→	ㅤ	>20m
+Hyeon Burst
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	36	ㅤ	→	ㅤ	30 ⇩
+Max Damage Range	ㅤ	0 - 22.8m	ㅤ	→	ㅤ	0 - 22.1m ⇩
+Mid Damage 1	ㅤ	31	ㅤ	→	ㅤ	24 ⇩
+Mid Damage Range 1	ㅤ	22.9 - 41.4m	ㅤ	→	ㅤ	22.2 - 42.1m ⇧
+Min Damage	ㅤ	28	ㅤ	→	ㅤ	22 ⇩
+Min Damage Range	ㅤ	>41.4m	ㅤ	→	ㅤ	>42.1m
+
+ 
+
+Additional Hyeon Burst Adjustments
+
+Head Damage Multiplier decreased from 1.4 to 1.3
+Neck Damage Mutliplier decreased from 1.1 to 1
+Upper Torso Damage Multiplier decreased from 1.1 to 1
+Upper Right Arm Damage Multiplier decreased from 1.1 to 1
+Upper Left Arm Damage Multiplier decreased from 1.1 to 1
+Upper Right Leg Damage Multiplier increased from .9 to 1
+Lower Right Leg Damage Multiplier increased from .9 to 1
+Right Foot Multiplier increased from .9 to 1
+Upper Left Leg Damage Multiplier increased from .9 to 1
+Lower Left Leg Damage Multiplier increased from .9 to 1
+Right Left Multiplier increased from .9 to 1
+
+ 
+
+Apex Attachment: Hyeon Hyperburst
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	37	ㅤ	→	ㅤ	37
+Max Damage Range	ㅤ	0 - 29.4m	ㅤ	→	ㅤ	0 - 24.6m ⇩
+Mid Damage 1	ㅤ	34	ㅤ	→	ㅤ	34
+Mid Damage Range 1	ㅤ	29.5 - 41.4m	ㅤ	→	ㅤ	24.7m - 36.5m ⇩
+Min Damage	ㅤ	30	ㅤ	→	ㅤ	30
+Min Damage Range	ㅤ	>41.4m	ㅤ	→	ㅤ	>36.5m
+Patriot XMR
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	35	ㅤ	→	ㅤ	30 ⇩
+Max Damage Range	ㅤ	0 - 22.2m	ㅤ	→	ㅤ	0 - 29.9m ⇧
+Mid Damage 1	ㅤ	31	ㅤ	→	ㅤ	24 ⇩
+Mid Damage Range 1	ㅤ	22.3 - 45.7m	ㅤ	→	ㅤ	30 - 50m ⇧
+Min Damage	ㅤ	24	ㅤ	→	ㅤ	22 ⇩
+Min Damage Range	ㅤ	>45.7m	ㅤ	→	ㅤ	>50m
+
+ 
+
+Additional Patriot XMR Adjustments
+
+Head Damage Multiplier increased from 1.22 to 1.3
+
+Marksman Rifles
+
+Increased received Flinch by 17%.
+MARKSMAN RIFLES
+WEAPON
+ADJUSTMENTS
+Oris 8.6
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	95	ㅤ	→	ㅤ	95
+Max Damage Range	ㅤ	0 - 20.8m	ㅤ	→	ㅤ	0 - 20.8m
+Mid Damage 1	ㅤ	84	ㅤ	→	ㅤ	84
+Mid Damage Range 1	ㅤ	20.9 - 31.2m	ㅤ	→	ㅤ	20.9 - 31.2m
+Mid Damage 2	ㅤ	70	ㅤ	→	ㅤ	70
+Mid Damage Range 2	ㅤ	31.3 - 47.2m	ㅤ	→	ㅤ	31.2 - 45.9m ⇩
+Mid Damage 3	ㅤ	62	ㅤ	→	ㅤ	-
+Mid Damage Range 3	ㅤ	47.3 - 67m	ㅤ	→	ㅤ	-
+Min Damage	ㅤ	58	ㅤ	→	ㅤ	58
+Min Damage Range	ㅤ	>67m	ㅤ	→	ㅤ	>45.9m3
+MAR-9
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	50	ㅤ	→	ㅤ	50
+Max Damage Range	ㅤ	0 - 20.8m	ㅤ	→	ㅤ	0 - 19m ⇩
+Mid Damage 1	ㅤ	48	ㅤ	→	ㅤ	42 ⇩
+Mid Damage Range 1	ㅤ	20.9 - 39.3m	ㅤ	→	ㅤ	19.1 - 28.7m ⇩
+Mid Damage 2	ㅤ	46	ㅤ	→	ㅤ	-
+Mid Damage Range 2	ㅤ	39.3 - 51.3m	ㅤ	→	ㅤ	-
+Min Damage	ㅤ	37	ㅤ	→	ㅤ	37
+Min Damage Range	ㅤ	>51.3m	ㅤ	→	ㅤ	>28.7m
+
+ 
+
+Additional MAR-9 Updates
+
+Head Damage Multiplier decreased from 2.05 to 2
+Upper Torso Damage Multiplier increased from 1 to 1.1
+
+ 
+
+Apex Attachment: MAR-9 Auto
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	37	ㅤ	→	ㅤ	30 ⇩
+Max Damage Range	ㅤ	0 - 24.5m	ㅤ	→	ㅤ	0 - 25.1m ⇧
+Mid Damage 1	ㅤ	28	ㅤ	→	ㅤ	24 ⇩
+Mid Damage Range 1	ㅤ	24.6 - 48.7m	ㅤ	→	ㅤ	25.2 - 43.4m ⇩
+Min Damage	ㅤ	22	ㅤ	→	ㅤ	21 ⇩
+Min Damage Range	ㅤ	>48.7m	ㅤ	→	ㅤ	>43.4m
+
+ 
+
+Additional MAR-9 Auto Updates:
+
+Head Damage Multiplier decreased from 1.55 to 1.3
+LMGS
+WEAPON
+ADJUSTMENTS
+FiNN LMG
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	33	ㅤ	→	ㅤ	33
+Max Damage Range	ㅤ	0 - 21.8m	ㅤ	→	ㅤ	0 - 23.6m ⇧
+Mid Damage 1	ㅤ	28	ㅤ	→	ㅤ	28
+Mid Damage Range 1	ㅤ	21.9 - 46.9m	ㅤ	→	ㅤ	23.7 - 47.3m ⇧
+Min Damage	ㅤ	24	ㅤ	→	ㅤ	26 ⇧
+Min Damage Range	ㅤ	>47m	ㅤ	→	ㅤ	>47.3m
+
+ 
+
+Additional FiNN LMG Updates
+
+Neck Damage Multiplier decreased from 1.1 to 1
+Upper Torso Damage Multiplier decreased from 1.1 to 1
+Upper Right Arm Damage Multiplier decreased from 1.1 to 1
+Upper Left Arm Damage Multiplier decreased from 1.1 to 1
+
+ 
+
+Apex Attachment: FiN Adverse
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	29	ㅤ	→	ㅤ	20 ⇩
+Max Damage Range	ㅤ	0 - 26.9m	ㅤ	→	ㅤ	0 - 16m ⇩
+Mid Damage 1	ㅤ	24	ㅤ	→	ㅤ	19 ⇩
+Mid Damage Range 1	ㅤ	27 - 41.1m	ㅤ	→	ㅤ	16.1 - 35m ⇩
+Min Damage	ㅤ	20	ㅤ	→	ㅤ	16 ⇩
+Min Damage Range	ㅤ	>41.1m	ㅤ	→	ㅤ	>35m
+Type 73
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	30	ㅤ	→	ㅤ	28 ⇩
+Max Damage Range	ㅤ	0 - 26.6m	ㅤ	→	ㅤ	0 - 26m ⇩
+Mid Damage 1	ㅤ	27	ㅤ	→	ㅤ	22 ⇩
+Mid Damage Range 1	ㅤ	26.7 - 51.5m	ㅤ	→	ㅤ	26.1 - 48.5m ⇩
+Min Damage	ㅤ	22	ㅤ	→	ㅤ	19 ⇩
+Min Damage Range	ㅤ	>51.5m	ㅤ	→	ㅤ	>48.5m
+
+ 
+
+Additional Type 73 Updates
+
+Head Damage Multiplier decreased from 1.3 to 1.25
+Neck Damage Multiplier decreased from 1.1 to 1
+Upper Torso Damage Multiplier decreased from 1.1 to 1
+
+ 
+
+ 
+
+ 
+
+Apex Attachment: Tango 73 Assault
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	33	ㅤ	→	ㅤ	30 ⇩
+Max Damage Range	ㅤ	0 - 25.1	ㅤ	→	ㅤ	0 - 25.1
+Mid Damage 1	ㅤ	30	ㅤ	→	ㅤ	24 ⇩
+Mid Damage Range 1	ㅤ	25.2 - 37.6m	ㅤ	→	ㅤ	25.2 - 37.6m
+Min Damage	ㅤ	24	ㅤ	→	ㅤ	22 ⇩
+Min Damage Range	ㅤ	>37.6m	ㅤ	→	ㅤ	>37.6m
+PISTOLS
+WEAPON
+ADJUSTMENTS
+.50 GS
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	70	ㅤ	→	ㅤ	70
+Max Damage Range	ㅤ	0 - 22.1m	ㅤ	→	ㅤ	0 - 27.9m ⇧
+Mid Damage 1	ㅤ	58	ㅤ	→	ㅤ	49 ⇩
+Mid Damage Range 1	ㅤ	22.2 - 42m	ㅤ	→	ㅤ	28 - 35.5m ⇩
+Min Damage	ㅤ	45	ㅤ	→	ㅤ	45
+Min Damage Range	ㅤ	>42.1m	ㅤ	→	ㅤ	>35.5m
+
+ 
+
+Additional .50 GS Updates:
+
+Head Damage Multiplier decreased from 1.62 to 1.5
+Neck Damage Multiplier decreased from 1.62 to 1.1
+Upper Torso Damage Multiplier decreased from 1.3 to 1.1
+Lower Torso Damage Multiplier decreased from 1.2 to 1
+Upper Right Arm Damage Multiplier decreased from 1.3 to 1.1
+Lower Right Arm Damage Multiplier decreased from 1.2 to 1
+Right Hand Damage Multiplier decreased from 1.2 to 1
+Upper Left Arm Damage Multiplier decreased from 1.3 to 1.1
+Lower Left Arm Damage Multiplier decreased from 1.2 to 1
+Left Hand Damage Multiplier decreased from 1.2 to 1
+Upper Right Leg Damage Multiplier decreased from 1.1 to 1
+Lower Right Leg Damage Multiplier decreased from 1.1 to 1
+Right Foot Damage Multiplier decreased from 1.1 to 1
+Upper Left Leg Damage Multiplier decreased from 1.1 to 1
+Lower Left Leg Damage Multiplier decreased from 1.1 to 1
+Left Foot Damage Multiplier decreased from 1.1 to 1
+Krait P68
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	42	ㅤ	→	ㅤ	46 ⇧
+Max Damage Range	ㅤ	0 - 12m	ㅤ	→	ㅤ	0 - 10.2m ⇩
+Mid Damage 1	ㅤ	37	ㅤ	→	ㅤ	39 ⇧
+Mid Damage Range 1	ㅤ	12.1 - 21.8m	ㅤ	→	ㅤ	10.3 - 20.5m ⇩
+Mid Damage 2	ㅤ	33	ㅤ	→	ㅤ	33
+Mid Damage Range 2	ㅤ	21.9 - 31.2m	ㅤ	→	ㅤ	20.6 - 38.1m ⇧
+Min Damage	ㅤ	29	ㅤ	→	ㅤ	29
+Min Damage Range	ㅤ	>31.3m	ㅤ	→	ㅤ	>38.1m
+
+ 
+
+Additional Krait P68 Updates:
+
+Head Damage Multiplier decreased from 1.4 to 1.3
+Neck Damage Multiplier decreased from 1.15 to 1
+Upper Torso Damage Multiplier decreased from 1.15 to 1
+SMGS
+WEAPON
+ADJUSTMENTS
+PPSh-41
+ 
+Max Damage	ㅤ	22	ㅤ	→	ㅤ	19 ⇩
+Max Damage Range	ㅤ	0 - 10.4m	ㅤ	→	ㅤ	0 - 10.4m
+Mid Damage 1	ㅤ	17	ㅤ	→	ㅤ	15 ⇩
+Mid Damage Range 1	ㅤ	10.5 - 16.3m	ㅤ	→	ㅤ	10.5 - 19.4m ⇧
+Mid Damage 2	ㅤ	15	ㅤ	→	ㅤ	13 ⇩
+Mid Damage Range 2	ㅤ	16.4 - 22.8m	ㅤ	→	ㅤ	19.5 - 27.6m ⇧
+Mid Damage 3	ㅤ	13	ㅤ	→	ㅤ	-
+Mid Damage Range 3	ㅤ	22.9 - 31.2m	ㅤ	→	ㅤ	-
+Min Damage	ㅤ	11	ㅤ	→	ㅤ	12 ⇧
+Min Damage Range	ㅤ	>31.2m	ㅤ	→	ㅤ	>27.6m
+ISO Nightshade
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	23	ㅤ	→	ㅤ	20 ⇩
+Max Damage Range	ㅤ	0 - 9.9m	ㅤ	→	ㅤ	0 - 9.9m
+Mid Damage 1	ㅤ	19	ㅤ	→	ㅤ	17 ⇩
+Mid Damage Range 1	ㅤ	10 - 17.7m	ㅤ	→	ㅤ	10 - 18.2m ⇧
+Mid Damage 2	ㅤ	15	ㅤ	→	ㅤ	15
+Mid Damage Range 2	ㅤ	17.8 - 25.4m	ㅤ	→	ㅤ	18.3 - 25.9m ⇧
+Mid Damage 3	ㅤ	14	ㅤ	→	ㅤ	-
+Mid Damage Range 3	ㅤ	25.5 - 32.5m	ㅤ	→	ㅤ	-
+Min Damage	ㅤ	13	ㅤ	→	ㅤ	13
+Min Damage Range	ㅤ	>32.6m	ㅤ	→	ㅤ	>25.9m
+
+ 
+
+Additional ISO Nightshade Updates:
+
+Head Damage Multiplier increased from 1.2 to 1.25
+X-58 Nyx
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	29	ㅤ	→	ㅤ	22 ⇩
+Max Damage Range	ㅤ	0 - 10.2	ㅤ	→	ㅤ	0 - 10.8 ⇧
+Mid Damage 1	ㅤ	22	ㅤ	→	ㅤ	18 ⇩
+Mid Damage Range 1	ㅤ	10.3 - 19.3m	ㅤ	→	ㅤ	10.9 - 19m ⇩
+Mid Damage 2	ㅤ	18	ㅤ	→	ㅤ	15 ⇩
+Mid Damage Range 2	ㅤ	19.4 - 27.3m	ㅤ	→	ㅤ	19.1 - 27.9m ⇧
+Mid Damage 3	ㅤ	15	ㅤ	→	ㅤ	-
+Mid Damage Range 3	ㅤ	27.4 - 35.8m	ㅤ	→	ㅤ	-
+Min Damage	ㅤ	14	ㅤ	→	ㅤ	13 ⇩
+Min Damage Range	ㅤ	>35.8m	ㅤ	→	ㅤ	>27.9m
+
+ 
+
+Additional X-58 Nyx Updates:
+
+Head Damage Multiplier increased from 1.2 to 1.25
+
+ 
+
+SHOTGUNS
+WEAPON
+ADJUSTMENTS
+Rezi 12
+ 
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	100	ㅤ	→	ㅤ	100
+Max Damage Range	ㅤ	0 - 2.5m	ㅤ	→	ㅤ	0 - 2.5m
+Mid Damage 1	ㅤ	34	ㅤ	→	ㅤ	34
+Mid Damage Range 1	ㅤ	2.6 - 4.5m	ㅤ	→	ㅤ	2.6 - 4m ⇩
+Mid Damage 2	ㅤ	25	ㅤ	→	ㅤ	25
+Mid Damage Range 2	ㅤ	4.6 - 6.8m	ㅤ	→	ㅤ	4.1 - 6.3m ⇩
+Mid Damage 3	ㅤ	20	ㅤ	→	ㅤ	20
+Mid Damage Range 3	ㅤ	6.9 - 9.1m	ㅤ	→	ㅤ	6.4m - 8.7m ⇩
+Min Damage	ㅤ	14	ㅤ	→	ㅤ	14
+Min Damage Range	ㅤ	>9.1m	ㅤ	→	ㅤ	>8.7m
+
+ 
+
+Apex Attachment: REZI  Slug Ammo
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	100	ㅤ	→	ㅤ	99 ⇩
+Max Damage Range	ㅤ	0 - 2.5m	ㅤ	→	ㅤ	0 - 2.8m ⇧
+Mid Damage 1	ㅤ	90	ㅤ	→	ㅤ	90
+Mid Damage Range 1	ㅤ	2.6 - 16.8m	ㅤ	→	ㅤ	2.9 - 14.2m ⇩
+Mid Damage 2	ㅤ	80	ㅤ	→	ㅤ	80
+Mid Damage Range 2	ㅤ	19.9 - 29.0m	ㅤ	→	ㅤ	14.3 - 30.8m ⇧
+Mid Damage 3	ㅤ	75	ㅤ	→	ㅤ	75
+Mid Damage Range 3	ㅤ	29.1 - 66m	ㅤ	→	ㅤ	30.9 - 45.7 ⇩
+Min Damage	ㅤ	55	ㅤ	→	ㅤ	48 ⇩
+Min Damage Range	ㅤ	>66m	ㅤ	→	ㅤ	>45.7m
+
+ 
+
+Additional REZI APEX Slug Ammo Updates:
+
+Head Damage Multiplier increased from1.5 to 1.6
+Neck Damage Multiplier increased from1.3 to 1.6
+Upper Torso Damage Multiplier increased from1.2 to 1.3
+Lower Torso Damage Multiplier decreased from1.2 to 1.1
+Upper Arm Damage Multiplier increased from1 to 1.2
+Hand Damage Multiplier increased from1 to 1
+Upper Leg Damage Multiplier increased from0.7 to 1
+Lower Leg Damage Multiplier increased from0.7 to 1
+Foot Damage Multiplier increased from0.7 to 1
+
+ 
+
+Rezi Slug Ammo
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	100	ㅤ	→	ㅤ	99 ⇩
+Max Damage Range	ㅤ	0 - 2.5m	ㅤ	→	ㅤ	0 - 2.2m ⇩
+Mid Damage 1	ㅤ	90	ㅤ	→	ㅤ	90
+Mid Damage Range 1	ㅤ	2.6 - 12.7m	ㅤ	→	ㅤ	2.3 - 12.7m
+Mid Damage 2	ㅤ	80	ㅤ	→	ㅤ	80
+Mid Damage Range 2	ㅤ	12.8 - 27.9m	ㅤ	→	ㅤ	12.8 - 22.9m ⇩
+Mid Damage 3	ㅤ	75	ㅤ	→	ㅤ	75
+Mid Damage Range 3	ㅤ	28 - 66m	ㅤ	→	ㅤ	28 - 30.5m ⇩
+Min Damage	ㅤ	55	ㅤ	→	ㅤ	48 ⇩
+Min Damage Range	ㅤ	>66m	ㅤ	→	ㅤ	>30.5m
+
+ 
+
+Additional REZI Slug Ammo Updates:
+
+Head Damage Multiplier increased from 1.5 to 1.6
+Neck Damage Multiplier increased from 1.3 to 1.6
+Upper Torso Damage Multiplier increased from 1.2 to 1.3
+Lower Torso Damage Multiplier decreased from 1.2 to 1.1
+Upper Arm Damage Multiplier increased from 1 to 1.2
+Hand Damage Multiplier increased from 1 to 1
+Upper Leg Damage Multiplier increased from 0.7 to 1
+Lower Leg Damage Multiplier increased from 0.7 to 1
+Foot Damage Multiplier increased from 0.7 to 1
+
+ 
+
+Launchers
+
+Increased the lock-on radius for the PILA.
+
+ 
+
+Attachments
+General
+Reduced magnitude of Handling and Mobility penalties across all Barrel, Magazine, Muzzle, Stock, and Underbarrel Attachments.
+Ammo
+Overpressured Rounds
+Flinch Infliction increased by 2%.
+Rear Grip
+Aim Grip
+Removed ADS Move Speed penalty.
+UNDERBARREL SHOTGUN ATTACHMENTS
+WEAPON
+ADJUSTMENTS
+Underbarrel Shotgun Attachments
+ 
+
+ 
+
+Damage Range	ㅤ	Pre	ㅤ	 	ㅤ	Post
+Max Damage	ㅤ	100	ㅤ	→	ㅤ	100
+Max Damage Range	ㅤ	0 - 2.5m	ㅤ	→	ㅤ	0 - 2.5m
+Mid Damage 1	ㅤ	34	ㅤ	→	ㅤ	34
+Mid Damage Range 1	ㅤ	2.6 - 5.0m	ㅤ	→	ㅤ	2.5 - 4.8m ⇩
+Mid Damage 2	ㅤ	25	ㅤ	→	ㅤ	25
+Mid Damage Range 2	ㅤ	5.1 - 9.9m	ㅤ	→	ㅤ	4.9 - 6.9m ⇩
+Mid Damage 3	ㅤ	18	ㅤ	→	ㅤ	20 ⇧
+Mid Damage Range 3	ㅤ	10 - 24.1m	ㅤ	→	ㅤ	7 - 10.3m ⇩
+Min Damage	ㅤ	-	ㅤ	→	ㅤ	14
+Min Damage Range	ㅤ	-	ㅤ	→	ㅤ	10.4m - 24.1m
+
+ 
+
+ 
+
+AUDIO
+Updated Sounds
+Added new versions of kill and headshot sounds.
+Adjusted enemy UAV sounds. 
+Adjusted death’s door sounds.
+Adjusted gunfight intro sounds. 
+Bomb Placement Audio
+Reduced the maximum distance for bomb-placement audio in Search and Destroy.
+Fixed an issue where bomb pickup and drop sounds were being broadcast to both teams.
+
+ 
+
+UI/UX
+Updated the Underhand Throw setting description and set the default keybind to “melee” from “ADS” on keyboard and mouse.
+
+ 
+
+PC UPDATES
+General improvements to performance and frame rate stability. 
+Reduced memory usage on High VRAM GPUs.
+Fixed several sources of intermittent GPU hitching across all GPU manufacturers.
+
+ 
+
+BUG FIXES
+Campaign
+Fixed an issue where the player’s camera could remain tilted after the catwalk platform began to collapse.
+Fixed an issue to improve the Escape sequence by making the grab icon appear more consistently when it’s safe to jump to the first pipe.
+Fixed the difficulty of combat outside of the Nuclear Reactor Facility.
+Damage Indicators
+Fixed an issue where blood-screen visual effects could persist across player state transitions.
+Search and Destroy
+Fixed an issue where Search and Destroy could display inconsistent XP amounts per elimination.
+Loadouts & Gunsmith
+Removed the Create a Class unlock tip in the Quick Nav menu when it has been unlocked already.
+Fixed an issue where the Gunsmith buttons were incorrectly positioned in the In-Game Loadout Select menu.
+Han 86
+Fixed an issue with the finger pose when using the Canted Hybrid optic. 
+Fixed an issue where the warning beep could loop.
+Fixed an issue with the grip pose when using the Apex and Magazine attachment combination.
+Fixed an issue where the airburst effect could freeze on-screen if the player died while charging it.
+Kastov 762
+Fixed an issue where a sticker could fail to display.
+Hyeon Burst
+Fixed an issue where optics could block the player’s view while supine prone.
+Sang 9mm
+Fixed an issue where the Sang 9mm inspection animation could incorrectly show an empty magazine when ammunition remained.
+Fixed an issue causing the firing pins to briefly appear detached when reloading with Akimbo and Extended Magazine attachments equipped.
+Fixed various first person firing animation issues.
+C4
+Fixed an issue where C4 could briefly reappear in the player’s hands during the detonation animation.
+Spotter Scope
+Fixed the Spotter Scope head-icon visibility behavior.
+Mounting
+Fixed a crash that could occur while mounting.
+Game Settings
+Fixed an issue where the selected FOV for Single Player was not properly indicated in the menu.
+Camos
+Fixed an issue preventing Vault Edition Camos from being applied to Melee Weapons.
+Play of the Game
+Fixed an issue where Stocksaw and Knife attachments could appear floating during the Play of the Game intro sequence.
+After Action Report
+Fixed an issue where XP text could overlap on the After Action Report progression tile.
+Fixed an issue causing weapon progression sound effects in the After Action Report to become out of sync.
+Operator Menus
+Fixed an issue that could cause the Operator Select menu to close unexpectedly.
+Fixed an issue where selecting Change Skins during an Operator intro animation could prevent Operator selection.
+In-Game HUD
+Fixed an issue where the killstreak UI could disappear.
+Fixed an issue where Marksman Rifles were incorrectly labeled as Sniper Rifles in the Killcam.
+Social & Lobby Menus
+Fixed an issue where updates to Calling Cards were not reflected on the Quick Nav profile button.
+Fixed an issue where opening the Keyboard Overlay could also unintentionally open the Quick Navigation menu.
+
+ 
+
+KNOWN ISSUES
+There is an issue in the Hijack game mode where the data spike may become unrecoverable.
+Hardpoint has been temporarily disabled on Rooftops.
+There are various issues in the front end UI where we recognize there is not enough clarity on attachment skips. We’re working on improvements for this. 
+We’re investigating some reports of teammate dots persisting on the mini-map.
+
+ 
+
+Follow our live issue tracking throughout Open Beta here.
+
+ 
+
+RICOCHET ANTICHEAT
+
+ 
+
+WINDOWS SECURE ATTESTATION
+
+As we're heading towards Weekend 2 of the Call of Duty: Modern Warfare 4 Beta, here is a reminder of the security requirements that need to be met in order to play any online mode on PC:
+
+TPM 2.0 must be enabled;
+Secure Boot must be enabled.
+
+ 
+
+Follow our guide to help get TPM 2.0 set up
+
+Download and run our Secure Attestation Wizard
+
+ 
+
+We are aware that some PC players may encounter issues after going through the process. These issues may be due to firmware, hardware or OS problems which may prevent your PC from passing Microsoft Azure Attestation.
+
+We are actively working with Microsoft and motherboard manufacturers to improve the experience for affected players.
+
+ 
+
+If you are unable to access the MW4 Beta, that does not mean you will be unable to play at launch.
+
+Over the weekend, we will be gathering information from players who are experiencing the issue through this form
+We will be working with hardware manufacturers on your behalf to get these issues fixed.
+
+ 
+
+SEE YOU ONLINE
+
+Today, jump into Lithium, Hijack, Resurgence on Zodiac, and everything else the Open Beta has to offer. Check out the Campaign mission Entrenched?
+
+ 
+
+Ground War: Combat Outpost joins the Open Beta Saturday.
+
+ 
+
+It’s been an incredibly busy few days at the studio working on these changes. Keep the feedback coming throughout the weekend. We’ll continue working to improve on what we’re seeing and hearing from players.
+
+ 
+
+Like Weekend 1, we’ll be updating every full day of the Beta.
+
+ 
+
+Open Beta starts at 10 AM PT. We’ll see you there.
+
