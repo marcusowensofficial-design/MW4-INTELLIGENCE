@@ -458,7 +458,7 @@ class IntelligenceRepository:
                     slot=AttachmentSlot(r[2]),
                     weapon_id_compat=r[3],
                     is_universal=bool(r[4]),
-                    unlock_level=r[5],
+                    unlock_level=int(r[5]) if len(r) > 5 and r[5] is not None else 1,
                     description=r[6],
                     pick_rate_pct=float(r[7]) if len(r) > 7 and r[7] is not None else 0.0,
                     is_meta_favorite=bool(r[8]) if len(r) > 8 and r[8] is not None else False
@@ -483,7 +483,7 @@ class IntelligenceRepository:
                 slot=AttachmentSlot(r[2]),
                 weapon_id_compat=r[3],
                 is_universal=bool(r[4]),
-                unlock_level=r[5],
+                unlock_level=int(r[5]) if len(r) > 5 and r[5] is not None else 1,
                 description=r[6],
                 pick_rate_pct=float(r[7]) if len(r) > 7 and r[7] is not None else 0.0,
                 is_meta_favorite=bool(r[8]) if len(r) > 8 and r[8] is not None else False
