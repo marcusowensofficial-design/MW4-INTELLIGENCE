@@ -242,7 +242,10 @@ class IntelligenceRepository:
     # -----------------------------------------------------------------------
     # Weapon Version Stats
     # -----------------------------------------------------------------------
-    def get_weapon_stats(self, weapon_id: str, version_id: str = "v1.2.0-beta-weekend2") -> Optional[WeaponVersionStats]:
+    def get_weapon_stats(self, weapon_id: str, version_id: Optional[str] = None) -> Optional[WeaponVersionStats]:
+        if not version_id:
+            active_ver = self.get_active_game_version()
+            version_id = active_ver.version_id if active_ver else "v1.3.0-launch"
         conn = self.manager.get_connection()
         try:
             r = conn.execute(
@@ -268,7 +271,7 @@ class IntelligenceRepository:
                            reload_add_ammo_s, swap_speed_raise_ms, swap_speed_stow_ms, tac_sprint_speed_mps
                     FROM weapon_version_stats
                     WHERE weapon_id = ?
-                    ORDER BY CASE WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 0 ELSE 1 END
+                    ORDER BY CASE WHEN game_version_id = 'v1.3.0-launch' THEN 0 WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 1 ELSE 2 END
                     LIMIT 1
                     """,
                     [weapon_id]
@@ -348,9 +351,12 @@ class IntelligenceRepository:
     def get_damage_profiles(
         self,
         weapon_id: str,
-        version_id: str = "v1.2.0-beta-weekend2",
+        version_id: Optional[str] = None,
         ruleset_id: str = "core"
     ) -> List[DamageRangeBracket]:
+        if not version_id:
+            active_ver = self.get_active_game_version()
+            version_id = active_ver.version_id if active_ver else "v1.3.0-launch"
         conn = self.manager.get_connection()
         try:
             rows = conn.execute(
@@ -383,7 +389,7 @@ class IntelligenceRepository:
                            damage_head, damage_neck, damage_chest, damage_stomach, damage_limbs
                     FROM weapon_damage_profiles
                     WHERE weapon_id = ? AND ruleset_id = 'core'
-                    ORDER BY CASE WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 0 ELSE 1 END, range_start_m ASC
+                    ORDER BY CASE WHEN game_version_id = 'v1.3.0-launch' THEN 0 WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 1 ELSE 2 END, range_start_m ASC
                     """,
                     [weapon_id]
                 ).fetchall()

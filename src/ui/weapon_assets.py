@@ -19,38 +19,35 @@ ASSETS_DIR = os.path.join(
 # Canonical mapping from database weapon_id to authentic WZStats asset filename
 WEAPON_FILE_MAP: Dict[str, str] = {
     # Assault Rifles
-    "patriot_xmr_mw4": "m4-mw4.png",
-    "m4_mw4": "m4-mw4.png",
-    "kastov762_mw4": "kastov-762.png",
-    "ak74m_mw4": "kastov-762-mw4.png",
-    "holger556_mw4": "holger-556.png",
     "han86_mw4": "han-86-mw4.png",
+    "m4_mw4": "m4-mw4.png",
     "hyeon_burst_mw4": "hyeon-burst-mw4.png",
+    "patriot_xmr_mw4": "patriot-xmr-mw4.png",
+    "kastov762_mw4": "kastov-762-mw4.png",
+    
     # Submachine Guns
-    "x58_nyx_mw4": "x-58-nyx-mw4.png",
-    "ppsh41_mw4": "ppsh-41.png",
-    "amr9_mw4": "amr9.png",
-    "wsp_swarm_mw4": "wsp-swarm.png",
-    "ppsh41_mw4": "ppsh-41-mw4.png",
     "iso_nightshade_mw4": "iso-nightshade-mw4.png",
-    # Battle Rifles
-    "mar9_mw4": "m4-mw4.png",
-    "sidewinder_mw4": "sidewinder.png",
-    # Marksman Rifles
-    "kvd_enforcer_mw4": "kvd-enforcer.png",
-    # Sniper Rifles
-    "longbow_mw4": "longbow.png",
-    "katt_amr_mw4": "katt-amr.png",
-    "signal50_mw4": "signal-50-mw4.png",
-    # Light Machine Guns
-    "pulemyot762_mw4": "pulemyot-762.png",
-    "bruen_mk9_mw4": "bruen-mk9.png",
+    "ppsh41_mw4": "ppsh-41-mw4.png",
+    "x58_nyx_mw4": "x-58-nyx-mw4.png",
+    
     # Shotguns
-    "lockwood680_mw4": "lockwood-680.png",
     "rezi12_mw4": "rezi-12-mw4.png",
+    
+    # Light Machine Guns
+    "finn_lmg_mw4": "finn-lmg-mw4.png",
+    "type73_mw4": "type-73-mw4.png",
+    
+    # Marksman Rifles
+    "mar9_mw4": "mar-9-mw4.png",
+    "oris86_mw4": "oris-86-mw4.png",
+    
+    # Sniper Rifles
+    "kg7_vulcan_mw4": "kg-7-vulcan-mw4.png",
+    "signal50_mw4": "signal-50-mw4.png",
+    
     # Handguns
-    "cor45_mw4": "cor-45.png",
-    "renetti_mw4": "renetti.png",
+    "krait_p68_mw4": "krait-p68-mw4.png",
+    "gs50_mw4": "50-gs-mw4.png",
 }
 
 
@@ -72,7 +69,7 @@ def get_weapon_image_b64(weapon_id: str) -> Optional[str]:
                 break
 
     if not fname:
-        fname = "m4-mw4.png"  # Default clean fallback
+        return None  # Triggers dynamic HUD class SVG blueprint
 
     full_path = os.path.join(ASSETS_DIR, fname)
     if not os.path.exists(full_path):

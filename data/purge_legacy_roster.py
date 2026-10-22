@@ -13,39 +13,58 @@ snapshots_dir = r'c:\Users\marco\OneDrive\Desktop\MW4GUNBEAST\data\snapshots'
 print("=== PURGING PLACEHOLDER WEAPONS & STANDARDIZING AUTHENTIC MW4 BETA ROSTER ===")
 con = duckdb.connect(db_path)
 
-# List of true MW4 Beta weapons from in-game menus & official patch notes
+# List of true MW4 Launch weapons from in-game menus & official patch notes
 authentic_mw4_weapons = {
     # Assault Rifles
-    'han86_mw4': ('Han 86', 'assault_rifle', 720.0, 30, 'Standard 5.56 tactical rifle with high stability and extended 28.4m range.'),
+    'han86_mw4': ('Han 86', 'assault_rifle', 741.0, 30, 'Standard 5.56 tactical rifle with high stability and extended 28.4m range.'),
     'm4_mw4': ('M4', 'assault_rifle', 811.0, 30, 'High-cadence 811 RPM modular carbine with extensive Gunsmith adaptability.'),
-    'hyeon_burst_mw4': ('Hyeon Burst', 'assault_rifle', 850.0, 30, 'High-precision 3-round burst rifle capable of devastating 1-burst eliminations.'),
+    'hyeon_burst_mw4': ('Hyeon Burst', 'assault_rifle', 375.0, 30, 'High-precision 3-round burst rifle capable of devastating 1-burst eliminations.'),
+    'patriot_xmr_mw4': ('Patriot XMR', 'assault_rifle', 645.0, 25, 'High muzzle velocity 5.56 bullpup rifle boasting a 4-shot kill out to 30.0m.'),
     'kastov762_mw4': ('Kastov 762', 'assault_rifle', 600.0, 30, 'Devastating 7.62x39mm heavy assault rifle with 30 damage per shot.'),
-    'patriot_xmr_mw4': ('Patriot XMR', 'assault_rifle', 750.0, 30, 'High muzzle velocity 5.56 bullpup rifle boasting a 4-shot kill out to 32.5m.'),
+    'oden_mw4': ('Oden', 'assault_rifle', 414.0, 20, 'Hard-hitting 12.7x55mm bullpup rifle with immense stopping power.'),
+    'axion_mw4': ('Axion', 'assault_rifle', 706.0, 30, 'Subsonic .300 BLK tactical rifle that hides enemy skull markers on elimination.'),
+    'cronen_squall_mw4': ('Cronen Squall', 'assault_rifle', 674.0, 20, 'Open-bolt bullpup chambered in 6.8 Wrath combining long-range precision and damage.'),
     
     # Submachine Guns
-    'ppsh41_mw4': ('PPSh-41', 'submachine_gun', 1000.0, 35, 'Blistering 1000 RPM submachine gun with optional 53-round drum magazine.'),
-    'iso_nightshade_mw4': ('ISO Nightshade', 'submachine_gun', 920.0, 30, 'Fast-handling 9mm SMG engineered for agility and high strafe mobility.'),
-    'x58_nyx_mw4': ('X-58 Nyx', 'submachine_gun', 880.0, 32, 'Compact point-blank CQB room clearer with 1.25x headshot multiplier.'),
-    'rival9_mw4': ('Rival-9', 'submachine_gun', 900.0, 30, 'Hyperspeed competitive SMG with 120ms ADS speed capability.'),
-    
-    # Marksman Rifles
-    'oris86_mw4': ('Oris 8.6', 'marksman_rifle', 320.0, 10, 'Heavy caliber precision DMR delivering a guaranteed 2-shot kill out to 52.1m.'),
-    'mar9_mw4': ('MAR-9', 'marksman_rifle', 410.0, 15, 'Rapid follow-up 9x39mm semi-automatic DMR with integral suppression options.'),
-    
-    # Light Machine Guns
-    'finn_lmg_mw4': ('FiNN LMG', 'light_machine_gun', 640.0, 75, 'Ultra-stable sustained fire platform with 75-round belt feed and zero horizontal recoil.'),
-    'type73_mw4': ('Type 73', 'light_machine_gun', 690.0, 100, 'Drum-fed heavy suppression machine gun for long-range defensive lock-downs.'),
-    
-    # Sniper Rifles
-    'kg7_vulcan_mw4': ('KG-7 Vulcan', 'sniper_rifle', 545.0, 20, 'Long-range precision rifle with extended 67.5m max damage reach.'),
-    'signal50_mw4': ('Signal .50', 'sniper_rifle', 110.0, 5, 'Devastating .50 BMG anti-materiel sniper with immense one-shot stopping power.'),
+    'iso_nightshade_mw4': ('ISO Nightshade', 'submachine_gun', 923.0, 30, 'Fast-handling 9mm SMG engineered for agility and high strafe mobility.'),
+    'vel46_mw4': ('VEL 46', 'submachine_gun', 952.0, 40, '4.6x30mm compact SMG offering exceptional close-quarters maneuverability.'),
+    'wz55_striga_mw4': ('Wz.55 Striga', 'submachine_gun', 651.0, 25, 'High-stopping power 9x18mm SMG with subsonic stealth rounds.'),
+    'ppsh41_mw4': ('PPSh-41', 'submachine_gun', 1110.0, 71, 'Blistering 1110 RPM submachine gun with high-capacity 71-round drum.'),
+    'x58_nyx_mw4': ('X-58 Nyx', 'submachine_gun', 800.0, 40, 'Covert 5.8x21mm SMG featuring an integrated titanium suppressor.'),
     
     # Shotguns
-    'rezi12_mw4': ('Rezi 12', 'shotgun', 220.0, 8, 'Semi-automatic 12-gauge close-quarters shotgun with optional APEX slug conversion.'),
+    'rezi12_mw4': ('Rezi 12', 'shotgun', 150.0, 6, 'Semi-automatic 12-gauge close-quarters shotgun with optional APEX slug conversion.'),
+    'warlord_mw4': ('Warlord', 'shotgun', 106.0, 14, 'Dual-tube pump-action 12-gauge delivering sustained close-range firepower.'),
+    
+    # Light Machine Guns
+    'finn_lmg_mw4': ('FiNN LMG', 'light_machine_gun', 588.0, 100, 'Ultra-stable sustained fire platform with 100-round belt feed and zero horizontal recoil.'),
+    'type73_mw4': ('Type 73', 'light_machine_gun', 821.0, 60, 'Drum-fed heavy suppression machine gun for long-range defensive lock-downs.'),
+    'apoc338_mw4': ('APOC-338', 'light_machine_gun', 555.0, 50, 'Heavy .338 belt-fed machine gun with devastating per-shot lethality.'),
+    
+    # Marksman Rifles
+    'mar9_mw4': ('MAR-9', 'marksman_rifle', 316.0, 20, 'Rapid follow-up 7.62mm semi-automatic DMR with integral suppression options.'),
+    'oris86_mw4': ('Oris 8.6', 'marksman_rifle', 90.0, 10, 'Heavy caliber 8.6 Blackout precision DMR with subsonic signature suppression.'),
+    'mosin_nagant_mw4': ('Mosin-Nagant', 'marksman_rifle', 44.0, 5, 'Classic high-caliber bolt-action rifle delivering devastating long-range energy.'),
+    
+    # Sniper Rifles
+    'kg7_vulcan_mw4': ('KG-7 Vulcan', 'sniper_rifle', 41.0, 10, 'Long-range precision bolt-action rifle with extended reach and wall penetrator Apex kit.'),
+    'astaroth57_mw4': ('Astaroth .57', 'sniper_rifle', 35.0, 3, 'Massive 14.5mm anti-materiel rifle engineered for absolute one-shot lethality.'),
+    'signal50_mw4': ('Signal 50', 'sniper_rifle', 111.0, 7, 'Devastating .50 BMG semi-automatic anti-materiel sniper with reciprocating barrel.'),
     
     # Pistols
-    'gs50_mw4': ('.50 GS', 'handgun', 180.0, 7, 'Heavy .50 caliber hand cannon with 70 base damage and 1-shot headshot lethality.'),
-    'krait_p68_mw4': ('Krait P68', 'handgun', 450.0, 15, 'Rapid-fire 9mm tactical sidearm buffed to 46 close-range damage in Weekend 2.')
+    'sang9mm_mw4': ('Sang 9mm', 'handgun', 370.0, 13, 'Rapid follow-up 9mm sidearm with optional underbarrel shotgun Apex conversion.'),
+    'krait_p68_mw4': ('Krait P68', 'handgun', 261.0, 10, 'Controllable .45-caliber tactical sidearm with integral subsonic stealth rounds.'),
+    'gs50_mw4': ('.50 GS', 'handgun', 167.0, 7, 'Heavy .50 caliber hand cannon with high damage and one-shot headshot lethality.'),
+    'mojave357_mw4': ('Mojave .357', 'handgun', 142.0, 8, 'Classic .357 magnum revolver with rapid fanning hammer conversion.'),
+    
+    # Launchers
+    'pila_mw4': ('PILA', 'launcher', 8.0, 1, 'Man-portable air-defense missile system with lock-on and unguided capabilities.'),
+    'rpg8_mw4': ('RPG-8', 'launcher', 20.0, 1, 'Unguided shoulder-fired rocket launcher with heavy anti-vehicle payload.'),
+    'jokr_mw4': ('JOKR', 'launcher', 13.0, 1, 'Top-attack fire-and-forget missile launcher for heavy armored targets.'),
+    'pm40_anvil_mw4': ('PM-40 Anvil', 'launcher', 38.0, 3, 'Pump-action 43mm multi-round grenade launcher for area suppression.'),
+    
+    # Melee
+    'fss_carbon_edge_mw4': ('FSS Carbon Edge 1095', 'melee', 120.0, 1, '1095 high-carbon steel combat knife for swift and silent CQB eliminations.')
 }
 
 # Deactivate/Remove legacy weapons not in MW4 Beta

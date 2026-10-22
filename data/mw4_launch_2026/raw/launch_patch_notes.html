@@ -1,0 +1,3116 @@
+
+
+     
+
+    
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+	
+
+
+    
+	
+
+	
+	
+
+  <head>
+
+	
+	
+
+	<script>
+
+        var curUrl = window.location.href;
+
+		var isDev = window.location.host.includes("dev") || window.location.host.includes("preview") || window.location.host.includes("test");
+        var isStage = window.location.host.includes("stage");
+        var codDomain = isDev ? 'profile-dev' : isStage ? 'profile-stage' : 'profile';
+       // var domain = isDev || isStage || window.location.host.includes("profile") ? "s-dev" : "s";
+        var domain = isDev ? 's-dev': isStage ? 's-stage' : "s";
+        var siteId, fetchUrl;
+
+        if(curUrl.includes("callofduty.com") > 0) {
+            siteId = "cod";
+            fetchUrl = "https://" + codDomain + ".callofduty.com";
+        }
+        else if(curUrl.includes("crashbandicoot.com") > 0) {
+			siteId = "crash";
+            fetchUrl = "https://" + domain + ".crashbandicoot.com";
+        }
+        else if(curUrl.includes("tonyhawkthegame.com") > 0) {
+            siteId = "th";
+            fetchUrl = "https://" + domain + ".tonyhawkthegame.com";
+        }
+        else if(curUrl.includes("sekirothegame.com") > 0) {
+            siteId = "sekiro";
+            fetchUrl = "https://" + domain + ".sekirothegame.com";
+        }
+        else if(curUrl.includes("activision.com") > 0) {
+            siteId = "activision";
+            fetchUrl = "https://" + domain + ".activision.com";
+        }
+
+		var OneTrust = {
+				dataSubjectParams: {
+					id: "",
+					isAnonymous: false,
+					token : ""
+				}
+			};		
+			function otGetCookie (cookieName) {
+				var i = 0,
+					cookies = document.cookie.split(";"),
+					length = cookies.length,
+					trimRegex = /^\s+|\s+$/g,
+					cookiePair;
+
+				for (; i < length; i++) {
+					cookiePair = cookies[i].split('=');				
+					if (cookiePair[0].replace(trimRegex, '') === cookieName) return unescape(cookiePair[1]);
+				}
+			}
+			var loggedIn = otGetCookie("ACT_SSO_COOKIE") || otGetCookie("s_ACT_SSO_COOKIE") || false;
+			if(loggedIn) {
+
+				var xsrfToken = otGetCookie("XSRF-TOKEN");
+				var ssoCookieValue = otGetCookie("ACT_SSO_COOKIE");
+    			var headers = {
+        			'Cookie': "ACT_SSO_COOKIE=" + ssoCookieValue,
+					'X-XSRF-TOKEN': xsrfToken
+    			}
+
+				fetch(fetchUrl + "/" + siteId + "/regulations/onetrust/auth", {
+					method: "POST",
+            		credentials: 'include',
+            		mode: 'cors',
+					headers: headers
+				})
+				.then((response) => response.json())
+				.then((json) => { 
+					OneTrust = {
+						dataSubjectParams: {
+							id: json.userId,
+							isAnonymous: false,
+							token : json.token
+						}
+					};
+					console.log("OneTrust: ",OneTrust);
+				})
+        		.catch(error => {
+                    // Handle errors
+                    console.error('Fetch error:', error); 
+                });
+			}
+			window.addEventListener("OneTrustGroupsUpdated", handleOneTrustGroupsUpdated);
+		    function handleOneTrustGroupsUpdated() {
+				if(loggedIn) {
+        			var xsrfToken = otGetCookie("XSRF-TOKEN");
+                    var ssoCookieValue = otGetCookie("ACT_SSO_COOKIE");
+                    var headers = {
+            			'Cookie': "ACT_SSO_COOKIE=" + ssoCookieValue,
+                        'X-XSRF-TOKEN': xsrfToken
+                    };
+					fetch(fetchUrl + "/" + siteId + "/regulations/onetrust/preferences?activeGroups=" + OnetrustActiveGroups, {
+							method: "POST",
+							credentials: 'include',
+                			mode: 'cors',
+							headers: headers
+					})
+            		.catch(error => {
+                        // Handle errors
+                        console.error('Fetch error:', error);
+                    });
+
+				}
+			}
+
+	</script>
+
+
+
+    <meta charset="UTF-8"/>
+
+    <meta name="country" content="US"/>
+
+    
+    
+
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	
+    	<script src="//cdn.optimizely.com/js/18240914759.js" type="text/plain" class="opt-anon-category-2"></script>
+    
+
+
+	
+    
+
+         <script>var dataLayer = dataLayer || [],
+    	         digitalData = {"page":{"pageInfo":{"charSet":"UTF-8","language":"EN","country":"US","site":"callofduty","pageName":"callofduty:patchnotes:home:2026:10:call-of-duty-modern-warfare-4-launch-patch-notes","siteSection":"patchnotes","siteSubsection":"call-of-duty-modern-warfare-4-launch-patch-notes"},"pageCategory":{"primaryCategory":"patchnotes","pageType":"sub category","subCategory1":"home"},"targetEntity":{"locale":"en_US","brand":"callofduty","categoryId":"['patchnotes', 'patchnotes:home', 'callofduty:patchnotes:home:2026:10:call-of-duty-modern-warfare-4-launch-patch-notes']","pageURL":"https://www.callofduty.com/content/atvi/callofduty/patchnotes/web/en/home/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes.html","id":"call-of-duty-modern-warfare-4-launch-patch-notes","name":"Call of Duty: Modern Warfare 4 Launch Patch Notes "}}};
+    </script>
+
+    
+    
+
+     
+     
+    <base href="https://www.callofduty.com"/> 
+
+
+
+	
+    
+
+	
+		<script>
+			(function(w,d,s,l,i){
+    			w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+                j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;j.setAttributeNode(d.createAttribute('data-ot-ignore'));
+                j.addEventListener('load', function() { 
+                    var _ge = new CustomEvent('gtm_loaded', { bubbles: true }); 
+                    d.dispatchEvent(_ge);
+                });
+                f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-T6X8245');
+		</script>                                                                                                                                                                        
+    
+
+
+    
+    
+
+     <title>Call of Duty: Modern Warfare 4 Launch Patch Notes </title>
+
+
+    
+    
+
+    <meta name="template" content="cod-article-template"/>
+    
+
+
+
+    
+    
+
+    
+
+
+	
+        
+        
+            
+        
+    
+
+    
+
+	<link rel="image_src" href="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-00-LAUNCH-PATCH-NOTES-TOUT-C.webp"/>
+
+    <meta property="og:title" content="Call of Duty: Modern Warfare 4 Launch Patch Notes "/>
+    <meta property="og:url" content="https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes"/>
+	
+	
+	<meta property="og:type" content="website"/>
+
+    <meta property="og:image" content="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-00-LAUNCH-PATCH-NOTES-TOUT-C.webp"/>
+    <meta property="og:image:url" content="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-00-LAUNCH-PATCH-NOTES-TOUT-C.webp"/>
+    <meta property="og:image:secure_url" content="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-00-LAUNCH-PATCH-NOTES-TOUT-C.webp"/>
+
+    <meta name="twitter:title" content="Call of Duty: Modern Warfare 4 Launch Patch Notes "/>
+    
+	
+    <meta name="twitter:image" content="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-00-LAUNCH-PATCH-NOTES-TOUT-C.webp"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:site" content="@CallofDuty"/>
+    <meta name="twitter:url" content="https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes"/>
+
+    <!-- END SHARE META TAGS -->
+
+
+    
+    
+		
+
+	 
+
+   
+
+	
+	
+
+	
+	
+
+        
+        
+        
+    
+        <script type="application/ld+json">
+
+    
+            {
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes"
+                },
+                "headline": "Modern Warfare 4 Launch Patch Notes ",
+                "image": ["https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-00-LAUNCH-PATCH-NOTES-TOUT-C.webp"],
+                "datePublished": "2026-10-21T12:00:00-07:00",
+                "author": {
+                    "@type": "Person",
+                    "name": "Call of Duty Staff"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Activision Publishing",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "[https://www.callofduty.com/content/dam/atvi/callofduty/global/favicon/favicon.ico]"
+                    }
+                },
+                "description": ""
+            }
+        
+        </script>
+
+	
+
+	
+    
+
+    
+    <!-- END SCHEMA TAGS -->
+
+    
+    
+    
+
+	<script> 
+        var ATVI = ATVI || {},
+			wcmmode;
+		if (false) wcmmode = 'edit';
+		if (false) wcmmode = 'design';
+		if (!false && !false) wcmmode = '';
+		ATVI.pageMode = wcmmode;
+		ATVI.pageEnv = ('www.callofduty.com'.indexOf('cmsauthor') > -1) ? 'dev' : 'prod';
+		ATVI.pageLocale = 'en';
+	</script>
+
+
+
+    
+    
+
+   
+
+   
+    <script>
+		(function() {
+
+    		if(window.location.href.includes("callofduty")) {
+
+                var winUrl = window.location.hostname,
+                    url = 'https://profile.callofduty.com/resources/common/scripts/sso.bar.js',
+                    prev = 'https://profile-dev.callofduty.com/resources/common/scripts/sso.bar.js',
+                    stage = 'https://profile-stage.callofduty.com/resources/common/scripts/sso.bar.js',
+                    author = '',
+                    scriptTag = document.createElement('script');
+                if (winUrl.indexOf('preview.') > -1 || winUrl.indexOf('test.') > -1 && prev) url = prev; //switch between "prev" and "url" for support team.
+                if (winUrl.indexOf('stage.') > -1 && stage) url = stage;
+                if (winUrl.indexOf('dev.') > -1) url = prev;
+                if (winUrl.indexOf('cmsauthor') > -1 && author) url = author;
+                scriptTag.setAttribute('src', url);
+                scriptTag.id = 'sso-bar-script';
+                document.write(scriptTag.outerHTML);
+
+    		}
+        })();
+
+        var config = {
+			containerId: 'cdo-bar',
+    		locale: 'en',
+			cms: true,
+    		communityId: 'cod',
+    		customSupportPath: '' || null
+        };
+
+    </script>
+
+    
+    	<script>
+        	(function() {
+                var initSsoLibrary = function() {
+                    if (typeof SSO == "object") {
+                        window.ssobar = new SSO.Bar(config);
+                	} else {
+                    	setTimeout(function() {
+                        	initSsoLibrary();
+                        }, 250);
+                    }
+                };
+
+        		if(window.location.href.includes("callofduty")) initSsoLibrary();
+
+			})();
+      	  </script>
+		
+   
+
+
+
+    
+    
+
+    
+
+	
+
+    
+
+	
+
+    
+
+    
+
+    
+    
+<link rel="stylesheet" href="/apps/atvi/global/clientlibs.3bf3f28740b0f13f93c845b52b11a008.css" type="text/css"><script type="text/javascript" src="/apps/atvi/global/clientlibs.3908e9bde27c6472d5a31a4c4fc89f54.js"></script>
+
+
+
+    
+        
+    
+<link rel="stylesheet" href="/apps/atvi/callofduty/editorial/clientlibs/core.257470ee6e06943e6cbb36e96840a51d.css" type="text/css"><script type="text/javascript" src="/apps/atvi/callofduty/editorial/clientlibs/core.123e430e66af98b87a2d8b10d0e04115.js" defer></script>
+
+
+    
+
+    
+
+
+
+
+	
+    
+	
+	 
+	 
+	
+	 
+
+	
+
+	
+        
+        
+
+            
+            
+				<link rel="alternate" hreflang="en-us" href="https://www.callofduty.com/content/atvi/callofduty/patchnotes/web/en/home/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes"/>
+                <link rel="alternate" hreflang="x-default" href="https://www.callofduty.com/content/atvi/callofduty/patchnotes/web/en/home/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes"/>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        
+        
+    
+
+	
+    
+    
+
+  
+
+
+    
+    
+    
+    
+    
+    <link rel="icon" href="https://www.callofduty.com/favicon.ico"/>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="https://www.callofduty.com/favicon.ico"/>
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.callofduty.com/favicon.ico"/>
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=100"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<link rel="apple-touch-icon" href="https://www.activision.com/content/dam/atvi/global/apple-touch-icon.png"/>
+	<meta name="robots" content="max-image-preview:large"/>
+
+    
+	
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+
+    
+    
+        
+    
+
+    
+    
+
+    <!--adobe launch header scripts-->
+        
+
+    <!--end adobe launch scripts-->
+
+
+	
+	
+
+	
+    	<meta name="google-site-verification" content="R-Kg5wv2g0DjQEL5i4ty-Xud4GcIXzVycLyo3wloQxw" />
+    
+
+
+  </head>
+
+
+	
+    
+
+
+<body class=" ">
+
+
+		
+		
+
+    
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6X8245" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+	
+
+
+
+        
+        
+	
+
+
+    
+
+        
+        <div class="root responsivegrid">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="article-layout blog-layout aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<link rel="stylesheet" href="/apps/atvi/callofduty/editorial/clientlibs/core.257470ee6e06943e6cbb36e96840a51d.css" type="text/css">
+<link rel="stylesheet" href="/apps/atvi/callofduty/editorial/components/article-layout/clientlibs.9551a678eb49cabaee7007b626eef2e3.css" type="text/css">
+<script src="/apps/atvi/callofduty/editorial/clientlibs/core.123e430e66af98b87a2d8b10d0e04115.js"></script>
+<script src="/apps/atvi/callofduty/editorial/components/article-layout/clientlibs.78ba7d92b6b61fc0362e808db88808cd.js"></script>
+
+
+
+
+
+
+    
+<link rel="stylesheet" href="/apps/atvi/callofduty/editorial/components/article-layout/clientlibsBlog.91e02fe982778220f5fcadc627a3e66a.css" type="text/css">
+<script src="/apps/atvi/callofduty/editorial/components/article-layout/clientlibsBlog.d41d8cd98f00b204e9800998ecf8427e.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="atvi-xfpage page basicpage">
+
+<section class="experience-fragment-container ">
+	
+
+	
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="responsivegrid aem-GridColumn aem-GridColumn--default--12">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="cod-single-header aem-GridColumn aem-GridColumn--default--12">
+
+    
+<link rel="stylesheet" href="/apps/atvi/callofduty/global/components/structure/v2023/cod-single-header/clientlibs.d60040a369694337bce338d72ceb9544.css" type="text/css">
+<script src="/apps/atvi/callofduty/global/components/structure/v2023/cod-single-header/clientlibs.01de6d0a1edef75f194ff13daf97ea2f.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <header id="cod-single-header" role="banner" class="cod-game-header cod-search-header">
+        <a class="skip-to-main-content-link" href="#main">Skip To Main Content</a>
+
+        <div class="cod-header_inner-container">
+            
+            <div class="cod-header_mobile-menu" data-menu="close">
+                
+                <div class="cod-header_mobile-button">
+                    <button aria-label="Menu dropdown" role="button" aria-controls="mobile-dropdown" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span class="visually-hidden">Menu dropdown</span>
+                    </button>
+                </div>
+
+                
+                <div id="mobile-dropdown" class="cod-header_mobile-dropdown">
+                    <div class="cod-header_mobile-dropdown-inner-container">
+                        
+                        <div class="cod-header_mobile-secondary-menu">
+                            
+                            
+
+	 
+	
+
+	<a href="/blog" aria-label="Read news about Call of Duty">
+		<img src="/content/dam/atvi/callofduty/cod-touchui/global/nav-logos/cod-news-logo.png" alt="News logo"/>
+	</a>	
+
+
+
+                            
+                            
+
+                            
+                            
+
+	 
+
+	<ul role="menu" id="menubar2" aria-label="Call of Duty News Menu">
+
+		
+            
+                
+    
+			<li role="menuitem" data-index="0" class="dd" aria-expanded="false" aria-haspopup="true">
+
+                <a href="/blog" target="_self" tabindex="0" data-entext="Blog">
+
+					Blog <span class="expand-arrow"></span>
+
+                </a>
+
+				
+                <ul role="menu" aria-label="Blog" class="nav-expand-content">
+
+                    <li role="menuitem">
+                        <a href="/blog/cod-intel" aria-label="Call of Duty Intel" data-entext="COD Intel">
+                           <p>COD Intel</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/modernwarfare4" aria-label="Modern Warfare 4" data-entext="Modern Warfare 4">
+                           <p>Modern Warfare 4</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/blackops7" aria-label="Black Ops 7 blogs" data-entext="Black Ops 7">
+                           <p>Black Ops 7</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/blackops6" aria-label="Black Ops 6 Blogs" data-entext="Black Ops 6">
+                           <p>Black Ops 6</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/modernwarfare3" aria-label="Modern Warfare 3 Blogs" data-entext="Modern Warfare III">
+                           <p>Modern Warfare III</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/warzone" aria-label="COD: Warzone Blogs" data-entext="COD: Warzone">
+                           <p>COD: Warzone</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/mobile" aria-label="Call of Duty Mobile Blogs" data-entext="Call of Duty Mobile">
+                           <p>Call of Duty Mobile</p>
+                        </a>
+                    </li>
+                        
+                </ul>
+            </li>
+		
+            
+                
+    
+			<li role="menuitem" data-index="1" class="dd" aria-expanded="false" aria-haspopup="true">
+
+                <a href="/guides" target="_self" tabindex="0" data-entext="Guides">
+
+					Guides <span class="expand-arrow"></span>
+
+                </a>
+
+				
+                <ul role="menu" aria-label="Guides" class="nav-expand-content">
+
+                    <li role="menuitem">
+                        <a href="/guides/blackops7" aria-label="Black Ops 7 Guides" data-entext="Black Ops 7">
+                           <p>Black Ops 7</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/guides/blackops6" aria-label="Black Ops 6 Guides" data-entext="Black Ops 6">
+                           <p>Black Ops 6</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/guides/modernwarfare3" aria-label="Modern Warfare III Guides" data-entext="Modern Warfare III">
+                           <p>Modern Warfare III</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/guides/warzone" aria-label="COD Warzone Guides" data-entext="COD: Warzone">
+                           <p>COD: Warzone</p>
+                        </a>
+                    </li>
+                        
+                </ul>
+            </li>
+		
+            
+                
+    
+			<li role="menuitem" data-index="2" aria-haspopup="false">
+
+                <a href="/patchnotes" target="_self" tabindex="0" data-entext="Patch Notes">
+
+					Patch Notes 
+
+                </a>
+
+				
+                
+            </li>
+		
+
+		<li class="nav-ellipsis-dropdown">
+        	<button class="nav-ellipsis-dropdown-toggle" aria-label="See more links"><span>...</span></button>
+        	<ul class="nav-ellipsis-dropdown-menu"></ul>
+        </li>
+	</ul>
+
+
+                        </div>
+
+                        
+                        <div class="cod-header_mobile-primary-menu">
+                            
+                            
+
+     
+    
+
+	<a href="https://www.callofduty.com" aria-label="Visit the Call of Duty home page">
+
+		<img src="/content/dam/atvi/callofduty/cod-touchui/global/cod-logo.svg" alt="Call of Duty logo"/>
+
+	</a>	
+
+
+
+                            
+                            
+
+	 
+	
+
+	<ul class="cod-header_global-list" role="menu">
+		<li role="menuitem" aria-haspopup="true" data-index="0" class="dd" aria-expanded="false">
+			<a data-entext="Games" aria-controls="submenu-games">Games <span class="expand-arrow"></span></a>
+    		<ul id="submenu-games" role="menu" class="nav-expand-content">
+				<li role="menuitem">
+
+	<a href="/modernwarfare4" data-entext="Modern Warfare 4">Modern Warfare 4 <span class="expand-arrow"></span></a>
+
+</li>
+				<li role="menuitem">
+
+	<a href="/blackops7" data-entext="Black Ops 7">Black Ops 7 <span class="expand-arrow"></span></a>
+
+</li>
+                <li role="menuitem">
+
+	<a href="/warzone" data-entext="COD: Warzone">COD: Warzone <span class="expand-arrow"></span></a>
+
+</li>
+				
+				<li role="menuitem">
+
+	<a href="/mobile" data-entext="Call of Duty Mobile">Call of Duty Mobile <span class="expand-arrow"></span></a>
+
+</li>
+    		</ul>
+    	</li>
+		<li role="menuitem" aria-haspopup="true" data-index="1" class="dd" aria-expanded="false">
+			<a data-entext="News" aria-controls="submenu-news">News <span class="expand-arrow"></span></a>
+            <ul id="submenu-news" role="menu" class="nav-expand-content">
+				<li role="menuitem">
+
+	<a href="/blog" data-entext="Blogs">Blogs <span class="expand-arrow"></span></a>
+
+</li>
+				<li role="menuitem">
+
+	<a href="/guides" data-entext="Guides">Guides <span class="expand-arrow"></span></a>
+
+</li>
+				<li role="menuitem">
+
+	<a href="/patchnotes" data-entext="Patch Notes">Patch Notes <span class="expand-arrow"></span></a>
+
+</li>
+            </ul>
+    	</li>
+		<li role="menuitem" data-index="2" aria-expanded="false">
+			
+
+	<a href="/store" data-entext="Store">Store <span class="expand-arrow"></span></a>
+
+
+            
+		</li>
+		<li role="menuitem" aria-haspopup="true" data-index="3" class="dd" aria-expanded="false">
+			<a data-entext="Esports" aria-controls="submenu-esports">Esports <span class="expand-arrow"></span></a>
+			<ul id="submenu-esports" role="menu" class="nav-expand-content">
+            	<li role="menuitem">
+					<a href="https://www.callofdutyleague.com/en-us/" aria-label="Visit the Call of Duty League website" target="_blank" data-entext="Call of Duty League">Call of Duty League</a>
+				</li>
+            	<li role="menuitem">
+					
+
+	<a href="/mobile/esports" data-entext="Call of Duty Mobile World Championship">Call of Duty Mobile World Championship <span class="expand-arrow"></span></a>
+
+
+				</li>
+            	<li role="menuitem">
+					<a href="https://www.worldseriesofwarzone.com/" aria-label="Visit the World Series of Warzone website" target="_blank" data-entext="World Series of Warzone">World Series of Warzone</a>
+				</li>
+            </ul>
+    	</li>
+		<li role="menuitem" aria-haspopup="false" data-index="4">
+			<a href="https://support.activision.com" data-entext="Support" aria-label="Visit the Activision Support website" target="_blank">Support</a>
+		</li>
+		
+		<li class="nav-ellipsis-dropdown">
+        	<button class="nav-ellipsis-dropdown-toggle" aria-label="See more links"><span>...</span></button>
+        	<ul role="menu" class="nav-ellipsis-dropdown-menu"></ul>
+        </li>
+    </ul>
+
+
+                        </div>
+
+                        
+                        <div class="cod-header_mobile-sso">
+                            <div class="logged-out">
+                                <a class="sso-login" href="https://profile.callofduty.com/cod/login" data-entext="Login">Login</a>
+                                <span>|</span>
+                                <a href="https://profile.callofduty.com/cod/signup" class="sso-signup" aria-label="Sign up for a Call of Duty account" data-entext="Sign Up">Sign Up</a>
+                            </div>
+
+                            <div class="logged-in" aria-expanded="false">
+                                <a class="sso-profile" href="https://profile.callofduty.com/cod/profile" aria-label="Visit your Call of Duty profile" data-entext="Profile">Profile</a>
+                                <span>|</span>
+                                <a class="sso-logout" href="https://profile.callofduty.com/do_logout" aria-label="Log out of your account" data-entext="Sign Out">Sign Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+            </div>
+
+            
+            <div class="cod-header_primary-logo">
+                
+
+     
+    
+
+	<a href="https://www.callofduty.com" aria-label="Visit the Call of Duty home page">
+
+		<img src="/content/dam/atvi/callofduty/cod-touchui/global/cod-logo.svg" alt="Call of Duty logo"/>
+
+	</a>	
+
+
+            </div>
+
+            
+            <div class="cod-header_secondary-logo">
+                
+
+	 
+	
+
+	<a href="/blog" aria-label="Read news about Call of Duty">
+		<img src="/content/dam/atvi/callofduty/cod-touchui/global/nav-logos/cod-news-logo.png" alt="News logo"/>
+	</a>	
+
+
+            </div>
+
+            
+            
+
+            
+            <div class="cod-header_top-nav">
+                <div class="cod-header_desktop-nav_links">
+                    <nav>
+                        
+                        
+
+                        
+                        
+
+	 
+
+	<ul role="menu" id="menubar2" aria-label="Call of Duty News Menu">
+
+		
+            
+                
+    
+			<li role="menuitem" data-index="0" class="dd" aria-expanded="false" aria-haspopup="true">
+
+                <a href="/blog" target="_self" tabindex="0" data-entext="Blog">
+
+					Blog <span class="expand-arrow"></span>
+
+                </a>
+
+				
+                <ul role="menu" aria-label="Blog" class="nav-expand-content">
+
+                    <li role="menuitem">
+                        <a href="/blog/cod-intel" aria-label="Call of Duty Intel" data-entext="COD Intel">
+                           <p>COD Intel</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/modernwarfare4" aria-label="Modern Warfare 4" data-entext="Modern Warfare 4">
+                           <p>Modern Warfare 4</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/blackops7" aria-label="Black Ops 7 blogs" data-entext="Black Ops 7">
+                           <p>Black Ops 7</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/blackops6" aria-label="Black Ops 6 Blogs" data-entext="Black Ops 6">
+                           <p>Black Ops 6</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/modernwarfare3" aria-label="Modern Warfare 3 Blogs" data-entext="Modern Warfare III">
+                           <p>Modern Warfare III</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/warzone" aria-label="COD: Warzone Blogs" data-entext="COD: Warzone">
+                           <p>COD: Warzone</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/mobile" aria-label="Call of Duty Mobile Blogs" data-entext="Call of Duty Mobile">
+                           <p>Call of Duty Mobile</p>
+                        </a>
+                    </li>
+                        
+                </ul>
+            </li>
+		
+            
+                
+    
+			<li role="menuitem" data-index="1" class="dd" aria-expanded="false" aria-haspopup="true">
+
+                <a href="/guides" target="_self" tabindex="0" data-entext="Guides">
+
+					Guides <span class="expand-arrow"></span>
+
+                </a>
+
+				
+                <ul role="menu" aria-label="Guides" class="nav-expand-content">
+
+                    <li role="menuitem">
+                        <a href="/guides/blackops7" aria-label="Black Ops 7 Guides" data-entext="Black Ops 7">
+                           <p>Black Ops 7</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/guides/blackops6" aria-label="Black Ops 6 Guides" data-entext="Black Ops 6">
+                           <p>Black Ops 6</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/guides/modernwarfare3" aria-label="Modern Warfare III Guides" data-entext="Modern Warfare III">
+                           <p>Modern Warfare III</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/guides/warzone" aria-label="COD Warzone Guides" data-entext="COD: Warzone">
+                           <p>COD: Warzone</p>
+                        </a>
+                    </li>
+                        
+                </ul>
+            </li>
+		
+            
+                
+    
+			<li role="menuitem" data-index="2" aria-haspopup="false">
+
+                <a href="/patchnotes" target="_self" tabindex="0" data-entext="Patch Notes">
+
+					Patch Notes 
+
+                </a>
+
+				
+                
+            </li>
+		
+
+		<li class="nav-ellipsis-dropdown">
+        	<button class="nav-ellipsis-dropdown-toggle" aria-label="See more links"><span>...</span></button>
+        	<ul class="nav-ellipsis-dropdown-menu"></ul>
+        </li>
+	</ul>
+
+
+                    </nav>
+                </div>
+            </div>
+
+            
+            <div class="cod-header_sso">
+                <div class="logged-out">
+                    
+                    <a href="https://profile.callofduty.com/cod/login" class="sso-login" aria-label="Log into your Call of Duty account" data-entext="Login">Login</a>
+                </div>
+
+                <div class="logged-in">
+                    <div class="account-name">
+                        <button aria-label="Call of Duty Account Settings" aria-expanded="false">
+                            <img src="/content/dam/atvi/callofduty/global/global-nav/profile_icon.png" alt="Profile Avatar logo"/>
+                            <span id="username"></span>
+                        </button>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <a href="https://profile.callofduty.com/cod/profile" class="sso-profile" data-entext="Profile">Profile</a>
+                        </li>
+						
+                        <li>
+                            <a href="https://profile.callofduty.com/do_logout" class="sso-logout" aria-label="Log out of your account" data-entext="Sign Out">Sign Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            <div class="cod-header_locale-selector">
+                <div>
+    
+<link rel="stylesheet" href="/apps/atvi/global/components/content/atvi-locale-selector/clientlibs.f7dc4b2d1fe73813c0a90a67b45b024e.css" type="text/css">
+<script src="/apps/atvi/global/components/content/atvi-locale-selector/clientlibs.4a13c2ab7a8ee37f2f7bf5b7d87826e0.js"></script>
+
+
+
+
+
+
+<div class="atvi-locale-selector  open-down " data-selectedLocale="en" role="navigation" aria-label="locale-selector.ariaLabel">
+    <h2 class="visually-hidden">Choose your region</h2>
+
+    <p class="cur-locale-selector-btn">
+        <button id="locale-selector-toggle" aria-haspopup="listbox" aria-controls="locale-selector-list" aria-expanded="false" class="flag-button flag-en" aria-label="Selected region - United States">
+            <span class="visually-hidden">Selected region -
+                United States</span>
+            <span class="flag-icon" aria-hidden="true">United States</span>
+            <span class="flag-arrow"></span>
+        </button>
+    </p>
+
+    <div class="locale-panel" id="locale-selector-list" role="listbox">
+        <div class="locale-panel-inner-container">
+            <div class="locale-panel-header">
+                <p class="selected-region-text">
+                    <span class="label">Selected region:</span>
+                    <span class="locale-string">United States</span>
+                </p>
+                <p class="close-btn">
+                    <button type="button" aria-label="Close Menu">
+                        <span class="visually-hidden">Close Menu</span>+
+                    </button>
+                </p>
+            </div>
+
+            
+
+            
+
+            <ul>
+                <li class="active flag-en" data-lang="en" role="option" aria-selected>
+                    <a href="/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes" aria-label="United States">
+                        <div class="flag-icon" aria-hidden="true"></div>
+                        <div class="region">
+                            United States
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+</div>
+            </div>
+
+            
+            <div class="cod-header_search" aria-expanded="false">
+                
+
+                
+
+                <form role="search" action="/blog/search">
+                    
+
+                    <button class="btn-search" type="submit" aria-label="Search">
+                        <img src="/content/dam/atvi/callofduty/cod-touchui/blog/common/search-icon.png" alt="Search"/>
+                    </button>
+                    <label for="search-input">Search</label>
+                    <input placeholder="Search Call of Duty News" type="search" id="search-input" name="search" spellcheck="false"/>
+                </form>
+            </div>
+
+            
+            <div class="cod-header_cta">
+                
+                <a href="/playnow/modernwarfare4" data-entext="Pre-Order Modern Warfare 4" aria-label="Pre-Order Modern Warfare 4">
+                    <span class="cod-header_cta-desktop">Pre-Order Modern Warfare 4</span>
+                    <span class="cod-header_cta-mobile">Pre-order MW4</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+
+                <div id="mobile-sidebar" class="cod-header_mobile-sidebar"> 
+
+					<div class="cod-header_mobile-sidebar-inner-container">
+
+                        <div class="cod-header_mobile-sidebar_header">
+							<div class="cod-header_mobile-sidebar_header-back">
+
+                            </div>
+                            <button class="cod-header_mobile-sidebar_header-close">Close</button>
+                        </div>
+
+                        <div class="cod-header_mobile-sidebar_links">
+
+							<div class="menu-title"></div>
+							
+
+	 
+	
+
+	<ul class="cod-header_global-list" role="menu" aria-label="COD">
+		<li role="menuitem" aria-haspopup="true" data-index="0" class="dd" aria-expanded="false" data-menuname="Games">
+			<a data-entext="Games" aria-controls="submenu-games">Games <span class="expand-arrow"></span></a>
+    		<ul id="submenu-games" role="menu" aria-label="Games" class="nav-expand-content">
+				<li role="menuitem">
+
+	<a href="/blackops7" data-entext="Black Ops 7">Black Ops 7 <span class="expand-arrow"></span></a>
+
+</li>
+				<li role="menuitem">
+
+	<a href="/blackops6" data-entext="Black Ops 6">Black Ops 6 <span class="expand-arrow"></span></a>
+
+</li>
+                <li role="menuitem">
+
+	<a href="/warzone" data-entext="COD: Warzone">COD: Warzone <span class="expand-arrow"></span></a>
+
+</li>
+				<li role="menuitem">
+
+	<a href="/mobile" data-entext="Call of Duty Mobile">Call of Duty Mobile <span class="expand-arrow"></span></a>
+
+</li>
+    		</ul>
+    	</li>
+		<li role="menuitem" aria-haspopup="true" data-index="1" class="dd" aria-expanded="false" data-menuname="News">
+			<a data-entext="News" aria-controls="submenu-news">News <span class="expand-arrow"></span></a>
+            <ul id="submenu-news" role="menu" aria-label="News" class="nav-expand-content">
+				<li role="menuitem">
+
+	<a href="/blog" data-entext="Blogs">Blogs <span class="expand-arrow"></span></a>
+
+</li>
+				<li role="menuitem">
+
+	<a href="/guides" data-entext="Guides">Guides <span class="expand-arrow"></span></a>
+
+</li>
+				<li role="menuitem">
+
+	<a href="/patchnotes" data-entext="Patch Notes">Patch Notes <span class="expand-arrow"></span></a>
+
+</li>
+            </ul>
+    	</li>
+		<li role="menuitem" data-index="2" aria-haspopup="false" data-menuname="Store">
+			
+
+	<a href="/store" data-entext="Store">Store <span class="expand-arrow"></span></a>
+
+
+		</li>
+		<li role="menuitem" aria-haspopup="true" data-index="3" class="dd" aria-expanded="false" data-menuname="Esports">
+			<a data-entext="Esports" aria-controls="submenu-esports">Esports <span class="expand-arrow"></span></a>
+			<ul id="submenu-esports" role="menu" aria-label="Esports" class="nav-expand-content">
+            	<li role="menuitem">
+					<a href="https://www.callofdutyleague.com/en-us/" aria-label="Visit the Call of Duty League website" target="_blank" data-entext="Call of Duty League">Call of Duty League</a>
+				</li>
+            	<li role="menuitem">
+					
+
+	<a href="/mobile/esports" data-entext="Call of Duty Mobile World Championship">Call of Duty Mobile World Championship <span class="expand-arrow"></span></a>
+
+
+				</li>
+            	<li role="menuitem">
+					<a href="https://www.worldseriesofwarzone.com/" aria-label="Visit the World Series of Warzone website" target="_blank" data-entext="World Series of Warzone">World Series of Warzone</a>
+				</li>
+            </ul>
+    	</li>
+		<li role="menuitem" aria-haspopup="false" data-index="4">
+			<a href="https://support.activision.com" data-entext="Support" aria-label="Visit the Activision Support website" target="_blank">Support</a>
+		</li>
+        
+    </ul>
+
+    <ul role="menu" id="cod-header_mobile-sidebar_secondary" aria-label="News" class="nav-expand-content">
+
+		
+            
+                
+    
+			<li role="menuitem" data-index="0" class="dd" aria-expanded="false" aria-haspopup="true">
+
+                <a href="/blog" target="_self" tabindex="0" data-entext="Blog">
+
+					Blog <span class="expand-arrow"></span>
+
+                </a>
+
+				
+                <ul role="menu" aria-label="Blog" class="nav-expand-content">
+
+                    <li role="menuitem">
+                        <a href="/blog/cod-intel" aria-label="Call of Duty Intel" data-entext="COD Intel">
+                           <p>COD Intel</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/modernwarfare4" aria-label="Modern Warfare 4" data-entext="Modern Warfare 4">
+                           <p>Modern Warfare 4</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/blackops7" aria-label="Black Ops 7 blogs" data-entext="Black Ops 7">
+                           <p>Black Ops 7</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/blackops6" aria-label="Black Ops 6 Blogs" data-entext="Black Ops 6">
+                           <p>Black Ops 6</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/modernwarfare3" aria-label="Modern Warfare 3 Blogs" data-entext="Modern Warfare III">
+                           <p>Modern Warfare III</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/warzone" aria-label="COD: Warzone Blogs" data-entext="COD: Warzone">
+                           <p>COD: Warzone</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/blog/mobile" aria-label="Call of Duty Mobile Blogs" data-entext="Call of Duty Mobile">
+                           <p>Call of Duty Mobile</p>
+                        </a>
+                    </li>
+                        
+                </ul>
+            </li>
+		
+            
+                
+    
+			<li role="menuitem" data-index="1" class="dd" aria-expanded="false" aria-haspopup="true">
+
+                <a href="/guides" target="_self" tabindex="0" data-entext="Guides">
+
+					Guides <span class="expand-arrow"></span>
+
+                </a>
+
+				
+                <ul role="menu" aria-label="Guides" class="nav-expand-content">
+
+                    <li role="menuitem">
+                        <a href="/guides/blackops7" aria-label="Black Ops 7 Guides" data-entext="Black Ops 7">
+                           <p>Black Ops 7</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/guides/blackops6" aria-label="Black Ops 6 Guides" data-entext="Black Ops 6">
+                           <p>Black Ops 6</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/guides/modernwarfare3" aria-label="Modern Warfare III Guides" data-entext="Modern Warfare III">
+                           <p>Modern Warfare III</p>
+                        </a>
+                    </li>
+                        
+                
+
+                    <li role="menuitem">
+                        <a href="/guides/warzone" aria-label="COD Warzone Guides" data-entext="COD: Warzone">
+                           <p>COD: Warzone</p>
+                        </a>
+                    </li>
+                        
+                </ul>
+            </li>
+		
+            
+                
+    
+			<li role="menuitem" data-index="2" aria-haspopup="false">
+
+                <a href="/patchnotes" target="_self" tabindex="0" data-entext="Patch Notes">
+
+					Patch Notes 
+
+                </a>
+
+				
+                
+            </li>
+		
+
+	</ul>
+
+
+
+                        </div>
+
+                        <div class="cod-header_mobile-sidebar_sso">
+
+							<div class="logged-out">
+                                <a class="sso-login" href="https://profile.callofduty.com/cod/login" data-entext="Login">Login</a>
+                                <span>|</span>
+                                <a href="https://profile.callofduty.com/cod/signup" class="sso-signup" aria-label="Sign up for a Call of Duty account" data-entext="Sign Up">Sign Up</a>
+                            </div>
+
+                            <div class="logged-in">
+                                <a class="sso-profile" href="https://profile.callofduty.com/cod/profile" aria-label="Visit your Call of Duty profile" data-entext="Profile">Profile</a>
+                                <span>|</span>
+                                <a class="sso-logout" href="https://profile.callofduty.com/do_logout" aria-label="Log out of your account" data-entext="Sign Out">Sign Out</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                
+
+</div>
+
+    
+</div>
+</div>
+
+    
+</div>
+
+</section></div>
+
+
+
+
+
+<main id="main-content" class="article-layout-content" data-article-type="blog" data-article-layout="fullImage">
+    <div class="inner-container">
+        <div class="article-header-container">
+            
+            
+            
+            
+            
+
+            
+            
+    
+    
+
+    <h1 class="title">Call of Duty: Modern Warfare 4 Launch Patch Notes </h1>
+
+    <!--*/ date-bylyine */-->
+    <div class="bylines mobile-up">
+        
+        <p class="dateline">October 21, 2026</p>
+        <p class="byline">
+            by Infinity Ward
+        </p>
+    </div>
+
+    <div class="graphics">
+        <div class="bg feature-img">
+            <img class="d-img" src="/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-00-LAUNCH-PATCH-NOTES-TOUT-C.webp" alt="Season hero"/>
+        </div>
+    </div>
+
+        </div>
+
+        <div class="article-body-container">
+            
+            <div class="side-nav-wrapper">
+                
+                
+                
+                    
+                    
+
+	<div class="side-nav-wrapper_inner-container">
+
+        <h6>Modern Warfare 4 Launch Patch Notes</h6>
+
+        <ul class="side-nav">
+            <li><a href="#oct21">October 21</a></li>
+        </ul>
+	</div>
+
+
+                
+            </div>
+
+            
+            
+
+            <div class="body-content">
+                
+                
+    
+    
+
+    
+    
+
+    <!--*/ date-bylyine */-->
+    <div class="bylines mobile-down">
+        
+        <p class="dateline">October 21, 2026</p>
+        <p class="byline">by Infinity Ward</p>
+    </div>
+
+    <div class="cta tablet-down-grid">
+        
+        
+
+        
+        
+
+        
+        
+    </div>
+
+    <!--*/ tags */-->
+    <div class="tags">
+        
+
+    <ul class="tile-list">
+
+        <li class="tile game-tile mw4">
+
+            
+            
+
+            
+            MW4
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+            
+            
+
+        </li>
+
+
+        <li class="tile tag-tile" data-value="patch-notes">
+			Patch Notes
+        </li>
+
+
+    </ul>
+
+
+    </div>
+
+    <p class="subtitle"></p>
+
+
+                
+                <div class="body-content-parsys">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="article-rich-text aem-GridColumn aem-GridColumn--default--12">
+    
+<link rel="stylesheet" href="/apps/atvi/callofduty/editorial/components/article-rich-text/clientlibs.da40d66e958bd6739f4759a2d6d0b0a3.css" type="text/css">
+<script src="/apps/atvi/callofduty/editorial/components/article-rich-text/clientlibs.ce9412f9a242be04bd31ef61f3c00b8a.js"></script>
+
+
+
+
+
+
+<style>
+    .article_rich_text-899696685 .bannerLabel {
+        background-color: #FFF !important;
+    }
+    .article_rich_text-899696685 .bannerLabel:before {
+        border-color: #FFF;
+    }
+</style>
+
+<div class="article_rich_text-899696685 ">
+
+    <div class="cmp-text">
+        <p><a id="oct21"></a>What a week it's been! </p>
+<p> </p>
+<p>First, a huge thank you to everyone who has jumped into Campaign Early Access. The response has been incredible, and seeing the excitement, reactions, and conversations surrounding the Campaign has been something special for all of us at Infinity Ward. Our team has spent years bringing this experience to life, and finally getting to share it with you has made this week one to remember. For those who haven't played yet, jump in and experience it yourself. </p>
+<p> </p>
+<p>And now, DMZ Early Access is underway! The excitement surrounding DMZ has been amazing to see, and we're looking forward to hearing about your first deployments into Hajin. From the discoveries you make to the stories you bring back from the Exclusion Zone, we'll be following along closely, reviewing your feedback, and continuing to make improvements as we head toward launch. </p>
+<p> </p>
+<p>We also want to thank everyone who participated in the Multiplayer Beta. Your feedback helped us identify areas that needed attention, and the work hasn't stopped since the Beta ended. Over the past several weeks, we've been making adjustments, addressing feedback, and refining the experience across the game. </p>
+<p> </p>
+<p>With launch just days away, we want to walk you through the changes, improvements, and fixes we've made as we prepare to welcome everyone into Modern Warfare 4 on October 23. Our pre-launch Patch Notes cover updates to Weapons, Movement, Spawns, and more, along with additional fixes and polish across the game. There’s a lot to get into, so let’s dive in. </p>
+<p> </p>
+<h2><span class="line-fade">MULTIPLAYER CONTENT </span></h2>
+<p> </p>
+<p>Modern Warfare 4 launches with a total of 20 Multiplayer maps across the full experience, including 12 Core 6v6 maps, three Ground War maps, four Gunfight maps, and Kill Block. We’ve also got over a dozen Multiplayer modes, 33 weapons, 33 Operators, and a full progression journey through Level 55 and beyond, all ready for you on day one.  </p>
+<p> </p>
+<h3>PROGRESSION &amp; PRESTIGE </h3>
+<p> </p>
+<p>MW4 is packed with content to earn throughout the journey, including two Prestige paths for the first time in Call of Duty. No matter which path you choose, you’ll unlock Operator Skins, Weapon Blueprints, and more inspired by Infinity Ward’s past games. </p>
+<p> </p>
+<p><a href="https://www.instagram.com/p/DerxgcvDYIX/?img_index=1">All 10 of our Prestige icons</a> pay homage to our history, and our <a href="https://www.instagram.com/p/DerypHtjRYK/?img_index=1">Prestige Master and Prestige Legend icons</a> honor those who go the extra mile. And if you’re a true OG, we’ve also got you covered throughout Prestige Master with the full selection of legacy Prestige icons from across the franchise, including all the classic Modern Warfare games.  </p>
+
+    </div>
+
+    
+
+	
+    
+
+</div>
+</div>
+<div class="article-image atvi-image aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-image-component article-image-container  align-left" data-emptytext="Call of Duty Article Image">
+    
+    
+        <div class="article-image-container img-lazy-container">
+            
+
+            
+                
+
+    
+
+    <img loading="lazy" data-src="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-RFL-PROGRESSION-014.webp" data-large="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-RFL-PROGRESSION-014.webp" class="lazy " alt style=" "/>
+
+    
+
+                
+            
+
+            
+            
+        </div>
+        
+    
+</div>
+</div>
+<div class="article-rich-text aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+
+<style>
+    .article_rich_text_co--2026857026 .bannerLabel {
+        background-color: #FFF !important;
+    }
+    .article_rich_text_co--2026857026 .bannerLabel:before {
+        border-color: #FFF;
+    }
+</style>
+
+<div class="article_rich_text_co--2026857026 ">
+
+    <div class="cmp-text">
+        <p>Modern Warfare 4 offers a deep Weapon Camo and Attachment grind, and each Optic features multiple Reticles to unlock, including multiple color variations. There’s plenty to start earning progress toward on day one, whether you’re playing MP or DMZ... yes, even the elusive blue dot. </p>
+
+    </div>
+
+    
+
+	
+    
+
+</div>
+</div>
+<div class="article-image atvi-image aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-image-component article-image-container  align-left" data-emptytext="Call of Duty Article Image">
+    
+    
+        <div class="article-image-container img-lazy-container">
+            
+
+            
+                
+
+    
+
+    <img loading="lazy" data-src="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-RFL-PROGRESSION-048.webp" data-large="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-RFL-PROGRESSION-048.webp" class="lazy " alt style=" "/>
+
+    
+
+                
+            
+
+            
+            
+        </div>
+        
+    
+</div>
+</div>
+<div class="article-rich-text aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+
+<style>
+    .article_rich_text_2052783975-1388682898 .bannerLabel {
+        background-color: #FFF !important;
+    }
+    .article_rich_text_2052783975-1388682898 .bannerLabel:before {
+        border-color: #FFF;
+    }
+</style>
+
+<div class="article_rich_text_2052783975-1388682898 ">
+
+    <div class="cmp-text">
+        <p>The Weapon Camo progression journey is the deepest we’ve ever built in a Modern Warfare game, with a huge collection to chase across Multiplayer, DMZ, and once Season 1 kicks off, Call of Duty: Warzone. MW4’s Weapon Camo grind is shared across all of these modes, and Special Camo Challenges in particular will automatically adjust to the specific mode you’re playing. Once you complete a Special Camo Challenge in any mode, that Special Camo will be available in all modes. </p>
+<p> </p>
+<p>MW4 offers some of our favorite Mastery Camos in any game we’ve made, and we hope you’ll love earning them as much as we loved crafting them. Here’s a sneak peek at DMZ’s Mastery Camos: </p>
+
+    </div>
+
+    
+
+	
+    
+
+</div>
+</div>
+<div class="atvi-video aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<link rel="stylesheet" href="/apps/atvi/global/components/content/atvi-video/clientlibs.ebece6c901eee3b875f5ff30e6a7cbfd.css" type="text/css">
+<script src="/apps/atvi/global/components/content/atvi-video/clientlibs.fc054749ec6a8a9abf0e77463734b581.js"></script>
+
+
+
+
+
+
+
+<script>
+    ATVI.components.video = ATVI.components.video || {};
+</script>
+
+
+
+
+
+
+    
+    
+
+    
+
+    <div class="background-video-container editorial-video-component ">
+
+        
+        <video loop muted playsinline controls autoPlay>
+            <source src="https://www.callofduty.com/cdn/blog/blogs/MW4/MW4-RFL-PROGRESSION-032.mp4" type="video/mp4" width="1920px" height="1080px"/>
+            <p>
+                Your broswer doesn't support HTML video. Here is a
+                <a href="https://www.callofduty.com/cdn/blog/blogs/MW4/MW4-RFL-PROGRESSION-032.mp4" download="https://www.callofduty.com/cdn/blog/blogs/MW4/MW4-RFL-PROGRESSION-032.mp4">link to the video</a> instead.
+            </p>
+        </video>
+
+        
+        
+
+    </div>
+
+
+
+    
+
+    
+
+</div>
+<div class="article-rich-text aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+
+<style>
+    .article_rich_text_co_868994655-86156283 .bannerLabel {
+        background-color: #FFF !important;
+    }
+    .article_rich_text_co_868994655-86156283 .bannerLabel:before {
+        border-color: #FFF;
+    }
+</style>
+
+<div class="article_rich_text_co_868994655-86156283 ">
+
+    <div class="cmp-text">
+        <p>For the full breakdown of everything available at launch, check out our Ready for Launch blogs covering <a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class">Operators and Weapons</a> as well as <a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-progression-prestige">Progression and Prestige</a> with more intel in the Call of Duty blog.  </p>
+<p> </p>
+<h3>MAPS</h3>
+
+    </div>
+
+    
+
+	
+    
+
+</div>
+</div>
+<div class="article-image atvi-image aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-image-component article-image-container  align-left" data-emptytext="Call of Duty Article Image">
+    
+    
+        <div class="article-image-container img-lazy-container">
+            
+
+            
+                
+
+    
+
+    <img loading="lazy" data-src="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-RFLMAPSMODES-002.webp" data-large="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-RFLMAPSMODES-002.webp" class="lazy " alt style=" "/>
+
+    
+
+                
+            
+
+            
+            
+        </div>
+        
+    
+</div>
+</div>
+<div class="article-rich-text aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+
+<style>
+    .article_rich_text_co_271775991-2107127783 .bannerLabel {
+        background-color: #FFF !important;
+    }
+    .article_rich_text_co_271775991-2107127783 .bannerLabel:before {
+        border-color: #FFF;
+    }
+</style>
+
+<div class="article_rich_text_co_271775991-2107127783 ">
+
+    <div class="cmp-text">
+        <p>At launch, Multiplayer includes: </p>
+<ul>
+<li><b>Core 6v6 Maps </b><ul>
+<li>Cachette </li>
+<li>Coal </li>
+<li>Lithium </li>
+<li>Lotus </li>
+<li>Mumbai </li>
+<li>Munition </li>
+<li>Nautical </li>
+<li>Reactor U92 </li>
+<li>Rooftops </li>
+<li>Sentry </li>
+<li>Silkworm </li>
+<li>Transit 213 </li>
+</ul>
+</li>
+<li><b>Ground War 32v32 Maps </b><ul>
+<li>Imjin Farmland </li>
+<li>Wolves Stadium </li>
+<li>Forest </li>
+</ul>
+</li>
+<li><b>Gunfight 2v2 Maps </b><ul>
+<li>Cafe </li>
+<li>Library </li>
+<li>NYC </li>
+<li>Smuggler </li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+
+	
+    
+
+</div>
+</div>
+<div class="article-image atvi-image aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-image-component article-image-container  align-left" data-emptytext="Call of Duty Article Image">
+    
+    
+        <div class="article-image-container img-lazy-container">
+            
+
+            
+                
+
+    
+
+    <img loading="lazy" data-src="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-RFLMAPSMODES-021.webp" data-large="https://imgs.callofduty.com/content/dam/atvi/callofduty/cod-touchui/patchnotes/body/mw4/mp/launch/MW4-RFLMAPSMODES-021.webp" class="lazy " alt style=" "/>
+
+    
+
+                
+            
+
+            
+            
+        </div>
+        
+    
+</div>
+</div>
+<div class="article-rich-text aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+
+<style>
+    .article_rich_text_223782881--40357823 .bannerLabel {
+        background-color: #FFF !important;
+    }
+    .article_rich_text_223782881--40357823 .bannerLabel:before {
+        border-color: #FFF;
+    }
+</style>
+
+<div class="article_rich_text_223782881--40357823 ">
+
+    <div class="cmp-text">
+        <h3><b>Kill Block </b></h3>
+<ul>
+<li>New dynamic Multiplayer map <ul>
+<li>Supports 3v3 and 10v10 Gunfight at launch </li>
+<li>6v6 modes supported post-launch  </li>
+<li>New Slabs and configurations coming post-launch </li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h3>MODES </h3>
+<p> </p>
+<p>Over a dozen Multiplayer modes are available at launch, including returning favorites and several new additions (including Hardcore). Get ready to jump into these brand-new modes on day one, plus returning classics including TDM, Domination, Hardpoint, Kill Confirmed, Free-For-All, Frontline, Search &amp; Destroy, Gunfight, and Gun Game. </p>
+<p> </p>
+<p>New Modes </p>
+<ul>
+<li><b>Inflation </b><ul>
+<li>Eliminate enemies and collect their cash. The more you carry, the bigger the target on your back. Players who reach the High Value Target threshold are revealed to both teams, creating a constant choice between hunting enemy HVTs and protecting your own.  </li>
+</ul>
+</li>
+<li><b>Hijack </b><ul>
+<li>Fight for control of the Data Spike, then carry, throw, or pass it on the way to the enemy Comm Station. Plant it to begin scoring and defend the upload to earn the full bonus.  </li>
+</ul>
+</li>
+<li><b>Collateral </b><ul>
+<li>A round-based tactical mode combining Search &amp; Destroy mechanics with a Buy Phase. Start each match with a Pistol and $800, earn cash through objective play and eliminations, then spend it between rounds to build your loadout.  </li>
+</ul>
+</li>
+<li><b>Combat Outpost </b><ul>
+<li>Ground War expands into a large-scale fight for territory. Capture Outposts to score and establish new spawn locations, then reinforce them to unlock increasingly powerful team rewards.  </li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<p>Infected and the new Possession mode are also dropping next week as a Halloween treat. For more intel on everything coming at launch, check out our Maps &amp; Modes blog with all the details.  </p>
+<p> </p>
+<h3>PROVING GROUNDS: MOBILITY COURSE </h3>
+<p> </p>
+<p>Building on the Mobility Course available during the Beta, Proving Grounds brings together movement practice and a variety of combat training exercises in one place. Whether you’re looking to improve your movement, sharpen your combat skills, or get more familiar with gameplay mechanics, Proving Grounds gives you the space to practice before jumping into a match or test your skills for a high score. </p>
+<p> </p>
+<h3>WEAPONS </h3>
+<p> </p>
+<p>Modern Warfare 4 launches with 33 weapons across Primary, Secondary, and Melee categories. Create-a-Class unlocks at Player Level 4, with Default Loadouts available before then. </p>
+<p> </p>
+<h4><b>PRIMARY WEAPONS </b></h4>
+<p> </p>
+<p><b>ASSAULT RIFLES </b></p>
+<ul>
+<li>Han 86 </li>
+<li>M4 </li>
+<li>Hyeon Burst </li>
+<li>Patriot XMR </li>
+<li>Kastov 762 </li>
+<li>Oden </li>
+<li>Axion </li>
+<li>Cronen Squall  </li>
+</ul>
+<p><b>SUBMACHINE GUNS </b></p>
+<ul>
+<li>ISO Nightshade </li>
+<li>VEL 46 </li>
+<li>Wz.55 Striga </li>
+<li>PPSh-41 </li>
+<li>X-58 Nyx  </li>
+</ul>
+<p><b>SHOTGUNS </b></p>
+<ul>
+<li>Rezi 12 </li>
+<li>Warlord  </li>
+</ul>
+<p><b>LIGHT MACHINE GUNS </b></p>
+<ul>
+<li>Finn LMG </li>
+<li>Type 73 </li>
+<li>APOC-338  </li>
+</ul>
+<p><b>MARKSMAN RIFLES </b></p>
+<ul>
+<li>MAR-9 </li>
+<li>Oris 8.6 </li>
+<li>Mosin-Nagant  </li>
+</ul>
+<p><b>SNIPER RIFLES </b></p>
+<ul>
+<li>KG-7 Vulcan </li>
+<li>Astaroth .57 </li>
+<li>Signal 50  </li>
+</ul>
+<p> </p>
+<h4>SECONDARY WEAPONS </h4>
+<p> </p>
+<p><b>PISTOLS </b></p>
+<ul>
+<li>Sang 9mm </li>
+<li>Krait P68 </li>
+<li>.50 GS </li>
+<li>Mojave .357 </li>
+</ul>
+<p><b>LAUNCHERS </b></p>
+<ul>
+<li>PILA </li>
+<li>RPG-8 </li>
+<li>JOKR </li>
+<li>PM-40 Anvil </li>
+</ul>
+<p><b>MELEE </b></p>
+<ul>
+<li>FSS Carbon Edge 1095  </li>
+</ul>
+<p> </p>
+<h3>WEAPON TUNING </h3>
+<p> </p>
+<p>We received a lot of feedback about TTK and the pace of our game during the first weekend of Beta. We had a short window to make adjustments and collect data, so we made the choice to swing hard on changes in Weekend 2. Gunfights in the second weekend of Beta felt more meaningful; players had a little more breathing room and the pace of our game felt better across all game modes. We collected a lot of feedback and in-game data, and the TTK from Weekend 2 was strongly preferred by all skill levels. </p>
+<p> </p>
+<p>While there was a clear player preference for Weekend 2’s TTK, we did not get the balance between weapons and classes exactly right. Since then, our team has spent countless hours and late nights playtesting and iterating to improve balance between all our weapons. </p>
+<p> </p>
+<p>SMGs are now more efficient in close to mid-range combat, powerful one hit kill weapons are tempered with flinch and damage tuning, and all weapons have had a deep balance pass to ensure the weapon you pick is a choice, not a requirement. </p>
+<p> </p>
+<p>We have also combed through all our attachments and tuned them to make sure Gunsmith allows flexibility and balance. Advanced Weapon Stats are also available at launch, so you’ll know everything you need to make the right choice for your playstyle. </p>
+<p> </p>
+<p>Our weapon pillars are: </p>
+<ul>
+<li>Distinction – Classes and weapons have clear, unique roles on the battlefield. </li>
+<li>Balance – Players can find success with every tool available. </li>
+<li>Feel – Weapons feel awesome, visceral, and fun. </li>
+</ul>
+<p> </p>
+<p>These pillars must work together in harmony to deliver the best version of Modern Warfare 4. Our team is excited about the tuning we have arrived at for launch. We will be playing right alongside you and updating our game to hone it to perfection. </p>
+<p> </p>
+<h3>WEAPON PROGRESSION </h3>
+<p> </p>
+<p>The MW4 weapon system provides deep weapon customization with a variety of attachments and modifications. Our weapon progression is a streamlined approach to grow your arsenal without friction, respecting your time and reducing the grind to acquire functional customization. </p>
+<p> </p>
+<p>No redundant unlocks. The speed of weapon progression increases with every shared attachment you’ve earned. </p>
+<p> </p>
+<p>Once unlocked, shared attachments are immediately available for every weapon that can use them. Every attachment is a valuable piece of equipment that makes your entire arsenal more powerful. </p>
+<p> </p>
+<p>Since the Beta we have worked to improve how weapon progression displays weapon unlocks instead of weapons levels. We’ve also improved the visualization of weapon progress after a match to more clearly represent a how progress is skipped with shared attachments. </p>
+<p> </p>
+<h3>WEAPON PRESTIGE </h3>
+<p> </p>
+<p>For those of you who want an even deeper progression journey, we’ve got you covered. Weapon Prestige is back for players who want a more dedicated grind to their favorite weapon. If a player chooses to Prestige their weapon, all attachment on that weapon (including shared attachments) become locked, and the weapon moves to a classic level system unlock. The shared attachments will remain unlocked on other weapons that have not been Prestiged. </p>
+<p> </p>
+<h3>OPTIC &amp; RETICLE CUSTOMIZATION </h3>
+<p> </p>
+<p>We have added a new Optic Rail Placement feature in Gunsmith that allows you to tailor your weapon’s ADS sight picture exactly to your preference.  </p>
+<p> </p>
+<p>This is a completely cosmetic adjustment that can have a profound effect on the feel of your weapon. We also allow tuning from the ADS perspective in Gunsmith, so there is no guesswork involved in dialing placement down to perfection. What you see in Gunsmith is what you get in game. </p>
+<p> </p>
+<p>Reticle Customization is also available on optics, with a small but significant improvement made to thermal optics. When you earn and equip custom reticle for a thermal, it comes with a completely different thermal effect. If you find a thermal optic you like but don’t enjoy that specific thermal effect, we have created a variety of authentic and distinct thermal options that are available when you customize our thermal optics reticle. </p>
+<p> </p>
+<h3>PERK PLACEMENTS </h3>
+<p> </p>
+<p>Since the Beta, we've reconfigured our Perk distribution to better balance the categories and to keep interesting player choices between speed, durability, utility and stealth.  </p>
+<p> </p>
+<p>Here’s where we landed for launch: </p>
+<p> </p>
+<p><b>Perk 1 </b></p>
+<ul>
+<li>Quick Fix </li>
+<li>Overkill </li>
+<li>High Alert </li>
+<li>Ghost </li>
+<li>Resupply </li>
+<li>Kill Chain </li>
+</ul>
+<p><b>Perk 2 </b></p>
+<ul>
+<li>Hardline </li>
+<li>Blood Rush </li>
+<li>Bomb Squad </li>
+<li>Fast Hands </li>
+<li>Ninja </li>
+<li>Birdseye </li>
+</ul>
+<p>Perk 3 </p>
+<ul>
+<li>Lethal Reach </li>
+<li>Combat Grid </li>
+<li>Battle Hardened </li>
+<li>Scavenger </li>
+<li>Tracker </li>
+<li>Cold-Blooded  </li>
+</ul>
+<p> </p>
+<h3><b>PERK TUNING </b></h3>
+<p> </p>
+<p>We’ve buffed some Perks based on Beta feedback: </p>
+<ul>
+<li>Battle Hardened will now more effectively negate most of the effects from Tactical grenades like the Flash, Concussion, and Screamer Mine. </li>
+<li>Resupply has been buffed to provide your first recharge faster. </li>
+<li>Blood Rush has been updated so that pressing the sprint key automatically triggers Tactical Sprint by default. If you prefer to manage this directly, head towards the Movement Advanced Settings to adjust it. </li>
+</ul>
+<p> </p>
+<h3><b>PLAYER MOVEMENT </b></h3>
+<p> </p>
+<p>Movement in Modern Warfare 4 is about playing the way you want, whether you prefer being a tactical elite operator carefully clearing rooms, an action hero star mantling over cars and sliding under obstacles, or a heavy gunner holding down an objective. Since the Beta, we have focused hard on making sure transitions between actions are balanced, feel grounded, and allow a clear benefit at a clear cost. The results are smoother movement that feels more authentic than ever before. </p>
+<p> </p>
+<p>Another area we have focused on improving is how enemy players move. We found several bugs where the third-person and first-person experience did not match, misrepresenting the enemy’s actions, creating some unrealistic looking movements, and allowing a few snaking opportunities. All the issues we identified have been fixed, and we will carefully monitor for any additional changes. </p>
+<p> </p>
+<p>Lastly, we have kept the change from Beta to make Tactical Sprint not available by default. It lives on the Perk Blood Rush, which is now in the second tier. Since the player is using a valuable Perk slot to Tactical Sprint, we removed the additional sprint out penalty that Tac Sprint typically incurs, and for the benefit of thumbs and controllers worldwide, the default input for Tactical Sprint is now “single tap run.” This means when you activate sprint with Blood Rush equipped, you will Tac Sprint as long as stamina allows. For players who want full autonomy over when they use their Tac Sprint, we still have “double tap” and “single tap sprint” options available. </p>
+<p> </p>
+<p>We’re excited for you to get your hands on our updated movement experience on the new maps we have available for launch. </p>
+<p> </p>
+<h3><b>MULTIPLAYER SPAWNS </b></h3>
+<p> </p>
+<p>Spawn work has continued since the Beta, including further iteration on the changes we made to player separation, squad spawning, and Hardpoint spawn predictability. Spawns have been reoriented around consistent flow and making sure you’re never far from the fight. </p>
+<p> </p>
+<h3><b>KILLSTREAKS </b></h3>
+<p> </p>
+<p>MW4 features 17 Killstreaks at launch, any of which can be attached to individual Multiplayer loadouts for the first time in a Modern Warfare game. </p>
+<p> </p>
+<p>We are launching with our new Smart Streak Later where performing objective tasks like capturing a point in Domination will contribute towards your Killstreak meter. Killstreak tuning in the second weekend of the Beta that increased the cost of all streaks will remain for launch, meaning UAVs are 5 kills (or 4 kills with the Hardline perk equipped). </p>
+<p> </p>
+<p>While the team is happy where most of these landed in the Beta, two specific changes have been made for launch: </p>
+<ul>
+<li>UAV health has been increased from 100 to 150, following feedback that UAVs were too easy to shoot down after their health was reduced during the Beta.  </li>
+<li>Wheelson pathing and targeting logic have been reworked to be more aggressive and prevent confusion when targets change quickly. </li>
+</ul>
+<p> </p>
+<h3>EQUIPMENT </h3>
+<p> </p>
+<p>At launch, Create-a-Class includes 9 Tacticals, 11 Lethals, and 12 Field Upgrades, ranging from returning equipment like the Flash Grenade, Stim, Frag Grenade, and Trophy System to options like the Screamer Mine, Zip Gun, Smoke Wall, and Seeker Drone.  </p>
+<p> </p>
+<p>Here are some of the tweaks we’ve made in time for launch: </p>
+<p> </p>
+<h4>TACTICALS </h4>
+<ul>
+<li>Flash and Concussion effective range and duration have been slightly reduced. </li>
+</ul>
+<p> </p>
+<h3>UI / UX </h3>
+<ul>
+<li>Improved communication around Shared Attachments (see above) </li>
+<li>Reduced or eliminated pre-game countdown timers that had been originally intended to give previous generation consoles time to load </li>
+<li>Added logic to start pre-loading maps earlier to avoid slowdowns waiting for the map to finish loading </li>
+<li>Gameplay Improvements <ul>
+<li>Reduced blur size on splashes to improve gameplay visibility </li>
+</ul>
+</li>
+<li>Gunny <ul>
+<li>Improved the positioning of Gunny tutorials </li>
+<li>Reduced the notifications you get about Gunny </li>
+<li>Gunny got a facelift! </li>
+</ul>
+</li>
+<li>Weapon Builds <ul>
+<li>Weapon Builds were previously automatically saved when players left the Gunsmith, flooding their Build list. Weapon Build saving in Gunsmith is now a manual process. </li>
+<li>Weapon Builds edited in-match are now automatically saved. </li>
+</ul>
+</li>
+<li>Various minor improvements and fixes to the front end </li>
+</ul>
+<p> </p>
+<h3>AUDIO </h3>
+<ul>
+<li>Added missing destruction audio for various destructible objects across Multiplayer maps. </li>
+<li>Fixed an issue where mounted vehicle turrets were missing audio. </li>
+<li>Fixed an issue where Heartbeat Sensor pings could become muted underwater. </li>
+<li>Added audio cues when sending and receiving text messages. </li>
+<li>Fixed issues causing audio dropouts when using the Assault Drone and Bomb Glider. </li>
+<li>Adjusted the audio mix and audible distances for the Chopper Gunner and its weapons. </li>
+<li>Updated Gunship audio to improve the overall Killstreak experience. </li>
+<li>Improved the Nuke sequence audio mix and fixed issues causing audio dropouts. </li>
+</ul>
+<p> </p>
+<h2><span class="line-fade">BUG FIXES </span></h2>
+<p> </p>
+<h3><b>MULTIPLAYER </b></h3>
+<ul>
+<li>Fixed a server crash that could occur during Multiplayer matches. </li>
+<li>Fixed various visual issues on Cachette. </li>
+<li>Fixed an issue where the Seeker Drone could incorrectly deploy out of bounds and be destroyed in certain areas of Multiplayer maps. </li>
+<li>Fixed an issue where the Killstreak counter could reset after using the Argonaut. </li>
+<li>Fixed an issue where match completion events were not being properly recorded in Multiplayer and DMZ. </li>
+</ul>
+<p> </p>
+<h3>DMZ </h3>
+<ul>
+<li><b>Addressed on Oct. 20: </b><ul>
+<li>Addressed various crashes and stability issues, including a crash when breaching the door in Breaking New Ground. </li>
+<li>Fixed an issue where the After-Action Report could incorrectly display 0 XP earned after a player's first match. </li>
+<li>Fixed an issue where the ISO Apex Attachment would not function as intended in DMZ. </li>
+<li>Fixed an issue where players could get double completion credit for story missions. </li>
+<li>Fixed an issue where enemy AI could move into unintended areas when a player was downed during Breaking New Ground. </li>
+<li>Fixed some instances where enemy AI could run over players while infilling. </li>
+<li>Fixed an issue where some Dynamic Operations “find the keypad codes in safes” could appear in locked spaces. </li>
+<li>Fixed an issue where only the player who dealt the final blow to a Commander received XP and progress toward the “King Slayer” Calling Card when playing in a squad. </li>
+<li>Fixed an issue where the Impact Smokes Pro Trait would not activate when a player was downed. </li>
+<li>Fixed some incorrect DMZ Orders description text. </li>
+<li>Fixed an issue where shadows could visibly pop in and out when moving around the FOB. </li>
+<li>Fixed an issue where the tablet screen could fail to turn on after searching the crashed drone in Breaking New Ground. </li>
+<li>Fixed an issue on where a missing prompt could prevent players from progressing the Chemical Denial Dynamic Op at NuriGO Mall on Nintendo Switch 2. </li>
+<li>Fixed an issue where the Gunsmith Attachment menu could remain stuck onscreen during deployment. </li>
+<li>Fixed an issue where players could not purchase saved Blueprint modifications on Nintendo Switch 2. </li>
+<li>Fixed some areas where players could get stuck in the rocks in Hajin.  </li>
+<li>Fixed an issue where players could not equip an Active Duty Operator in their Showcase. </li>
+<li>Fixed an issue where selecting Untrack Recipe with no recipes tracked at the 3D Printer could kick the player out of the FOB. </li>
+<li>Fixed an issue where selling starting equipment or dismissing Active Duty Operators with starting equipment equipped before your first deployment could result in a soft lock. </li>
+</ul>
+</li>
+<li><b>Addressed on Oct. 21: </b><ul>
+<li>Fixed an error that could occur when opening the Dog Tag Case. </li>
+<li>Fixed an issue where the Toxic Intercept Op could incorrectly fail after completing the Defend the Bomb objective. </li>
+<li>Fixed a performance issue on PC when holding a Heartbeat Sensor with a weapon equipped. </li>
+<li>Fixed an issue where AI enemies could run over players during infiltration in NK Wilderness. </li>
+<li>Fixed an issue where Dynamic Operations text could display incorrectly when Menu Text Size was set to Larger or Largest. </li>
+<li>Fixed an issue where the Orders rewards section of the End Game Report could appear in low resolution. </li>
+<li>Fixed some unintended voice lines during Breaking New Ground. </li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h3><b>WEAPONS </b></h3>
+<ul>
+<li>Fixed an issue where the Firing Range could incorrectly display a 0.00 TTK for the Rezi 12 Shotgun. </li>
+<li>Added weapon level icons to Melee and Launcher weapons. </li>
+</ul>
+<p> </p>
+<h3><b>CAMPAIGN </b></h3>
+<ul>
+<li>Fixed a progression blocker in the Hotel sequence of Counter Attack. </li>
+</ul>
+<p> </p>
+<h3><b>UI / UX </b></h3>
+<ul>
+<li>Several hundred bugs. Killed dead.  </li>
+</ul>
+<p> </p>
+<h2><span class="line-fade">PRE-LOAD DETAILS </span></h2>
+<p>If you haven’t already, remember to pre-load the latest updates and make sure you’ve got the required content packs installed so you can dive straight into MW4 on the 23rd. </p>
+
+    </div>
+
+    
+
+	
+    
+
+</div>
+</div>
+<div class="vendor-embed aem-GridColumn aem-GridColumn--default--12">
+
+
+
+
+ 
+
+
+
+  
+
+
+
+    <div class="third-party-vendor-embed twitter">
+    
+        
+	<center><blockquote class="twitter-tweet"><p lang="en">📢 Call of Duty: #MW4 | Call of Duty: #Warzone
+
+Pre-installation for Modern Warfare 4 will begin rolling out on Wednesday, October 14 at 9 PM PT. During setup, you can choose which content to download, including whether to install Warzone alongside Modern Warfare 4.
+
+The new version of Warzone will not be available until the launch of Season 1. Selecting Warzone before then will install the current live version of the game.
+
+On platforms that support automatic downloads, such as PS5, installation may begin without giving you the opportunity to choose which items to install. To review your installation options, disable automatic downloads before pre-installation begins.</p>— Call of Duty Updates (@CODUpdates) <a href="https://x.com/CODUpdates/status/2110096848874783051?ref_src=twsrc%5Etfw">October 13, 2026</a></blockquote></center>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    
+        
+
+        
+
+        
+    
+    </div>
+
+</div>
+<div class="article-rich-text aem-GridColumn aem-GridColumn--default--12">
+    
+
+
+
+
+
+
+<style>
+    .article_rich_text_209999792-1857433024 .bannerLabel {
+        background-color: #FFF !important;
+    }
+    .article_rich_text_209999792-1857433024 .bannerLabel:before {
+        border-color: #FFF;
+    }
+</style>
+
+<div class="article_rich_text_209999792-1857433024 ">
+
+    <div class="cmp-text">
+        <h2><span class="line-fade">EVENTS &amp; REWARDS </span></h2>
+<p> </p>
+<p>We’re taking a new approach to Events in Modern Warfare 4. From launch throughout the live seasons, we’re focused on providing a variety of events including some all-new formats and returning favorites. Event rewards include Apex Attachments, Weapon Camos, Calling Cards, Operator Skins, and more.  </p>
+<p> </p>
+<p>As we focus on delivering more compelling events, Weekly Challenges will not be available in Season 1. We want each Event to feel worth your time and effort unlocking new playable content and rewards.  </p>
+<p> </p>
+<p>We’re also introducing reoccurring Events so that anyone who misses the chance to complete a full track can get another chance to earn that top reward. Additionally, you can earn camo rewards for completing multiple events. Our first Event kicks off right on launch day, and we’ll be keeping an eye on the feedback here for future seasons. </p>
+<p> </p>
+<h2><span class="line-fade">LIVE ISSUES </span></h2>
+<p> </p>
+<p>We are tracking live issues on our official <a href="https://trello.com/b/tocA5kKG/modern-warfare-4-infinity-ward">Modern Warfare 4 Trello Board</a>. </p>
+<p> </p>
+<p><a href="https://x.com/CODUpdates">Be sure to check-out @CODUpdates</a> for game updates and critical news on known issues. </p>
+<p> </p>
+<p>We’ve recently rolled out a number of changes for DMZ including crash fixes, stability updates and more.  </p>
+<p> </p>
+<h2><span class="line-fade">LAUNCH DAY IS ALMOST HERE… </span></h2>
+<p> </p>
+<p>Like we did throughout Beta, we’ll continue watching gameplay, reading your feedback, and making adjustments as Modern Warfare 4 gets into everyone’s hands. Follow us on socials to stay in touch: <a href="https://x.com/InfinityWard">@InfinityWard</a>, <a href="https://x.com/callofduty">@CallofDuty</a>. </p>
+<p> </p>
+<p>Thank you to everyone who played, tested, posted, streamed, shared feedback, and helped us get here. </p>
+<p> </p>
+<p><b>We’ll see you at launch. </b></p>
+
+    </div>
+
+    
+
+	
+    
+
+</div>
+</div>
+
+    
+</div>
+</div>
+
+                
+                <div class="top-cta-container">
+                    <div class="sideline left"></div>
+                    <div class="top-cta">
+                        <span class="glint"></span>
+                        <span class="glint"></span>
+                        <span class="glint"></span>
+                        <span class="glint"></span>
+                        <a href="#main-content" class="atvi-cta-item">Back to Top</a>
+                    </div>
+                    <div class="sideline right"></div>
+                </div>
+            </div>
+
+            
+            <div class="side-cta-wrapper">
+
+                <div class="cta">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+
+                    
+
+                    
+                    
+                        
+                        
+                        
+
+                        
+                        
+
+                        
+                        
+
+                        
+                        
+                        
+
+                        
+                        
+
+                        
+                        
+                    
+                    
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="related-wrapper">
+
+
+
+
+
+
+
+
+    
+<link rel="stylesheet" href="/apps/atvi/callofduty/promotions/verdansk-replay/components/pages/home/article-related-posts/clientlibs.22d0c191430b22422469cf2e74935a0b.css" type="text/css">
+<link rel="stylesheet" href="/apps/atvi/callofduty/editorial/components/article-related-posts/clientlibs.22d0c191430b22422469cf2e74935a0b.css" type="text/css">
+<script src="/apps/atvi/callofduty/promotions/verdansk-replay/components/pages/home/article-related-posts/clientlibs.627477bc2256c1f38115f2083ac1f5ec.js"></script>
+<script src="/apps/atvi/callofduty/editorial/components/article-related-posts/clientlibs.991f23139c8d212e29348dc525a77969.js"></script>
+
+
+
+
+
+
+
+
+<div class="cq-placeholder article-related-posts-component" data-emptytext="COD Article Related Posts"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-related-posts-container ">
+    <div class="section-header">
+        <h2>Related Articles</h2>
+    </div>
+
+    
+    
+    
+
+    <div class="news-list">
+        <ul>
+            
+            
+            
+        </ul>
+    </div>
+</div>
+</div>
+    </div>
+
+    
+
+    
+    
+    <!-- Author-only publishing panel -->
+        
+    
+    
+</main>
+
+
+
+
+    <div class="atvi-xfpage page basicpage">
+
+<section class="experience-fragment-container ">
+	
+
+	
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="responsivegrid aem-GridColumn aem-GridColumn--default--12">
+
+
+<div class="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+    
+    <div class="cod-footer aem-GridColumn aem-GridColumn--default--12">            
+
+    
+<link rel="stylesheet" href="/apps/atvi/callofduty/global/components/structure/v2023/cod-footer/clientlibs.50f892f087b18204e7590fc75a2edfea.css" type="text/css"><script type="text/javascript" src="/apps/atvi/callofduty/global/components/structure/v2023/cod-footer/clientlibs.fe79ab00f5d0e5fad2180abf8b46135f.js" defer></script>
+
+
+
+
+
+
+
+<footer role="contentInfo" class="cod-global-footer ">
+
+	<div class="inner-footer">
+
+		<div class="legal-links">
+			
+                <ul>
+                    <li>
+						<a href="https://www.activision.com/legal" target="_blank">
+                        	Legal
+                    	</a>
+					</li>
+                
+                    <li>
+						<a href="https://www.activision.com/legal/terms-of-use" target="_blank">
+                        	Terms of Use
+                    	</a>
+					</li>
+                
+                    <li>
+						<a href="https://www.activision.com/legal/privacy-policy" target="_blank">
+                        	Privacy Policy
+                    	</a>
+					</li>
+                
+                    <li>
+						<a href="https://careers.activision.com" target="_blank">
+                        	Careers
+                    	</a>
+					</li>
+                
+                    <li>
+						<a href="https://www.activision.com/legal/cookie-policy" target="_blank">
+                        	Cookie Policy
+                    	</a>
+					</li>
+                
+                    <li>
+						<a href="https://support.activision.com" target="_blank">
+                        	Support
+                    	</a>
+					</li>
+                
+                    <li>
+						<a href="https://www.callofduty.com/values" target="_blank">
+                        	Code of Conduct
+                    	</a>
+					</li>
+                </ul>
+            
+		</div>
+
+		<div class="studio-links">
+			
+                <ul>
+                    <li class="atvi-logo">
+                        <a href="https://www.activision.com" target="_blank" aria-label="Visit the Activision website">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/activision-logo.png" alt="Activision logo" loading="lazy"/>
+                        </a>
+                    </li>
+                
+                    <li class="treyarch-logo">
+                        <a href="https://www.treyarch.com" target="_blank" aria-label="Visit the Treyarch website">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/treyarch-logo.png" alt="Treyarch Logo" loading="lazy"/>
+                        </a>
+                    </li>
+                
+                    <li class="shg-logo">
+                        <a href="https://www.sledgehammergames.com" target="_blank" aria-label="Visit the Sledgehammer Games website">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/shg-logo.png" alt="Sledgehammer Games Logo" loading="lazy"/>
+                        </a>
+                    </li>
+                
+                    <li class="hms-logo">
+                        <a href="https://www.highmoonstudios.com" target="_blank" aria-label="Visit the Highmoon Studios website">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/high-moon-logo.png" alt="High Moon Studios logo" loading="lazy"/>
+                        </a>
+                    </li>
+                
+                    <li class="digital-logo">
+                        <a href="https://www.digital-legends.com" target="_blank" aria-label="Visit the Digital Legends Entertainment website">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/digital-legends-logo.png" alt="Digital Legends Entertainment logo" loading="lazy"/>
+                        </a>
+                    </li>
+                
+                    <li class="shanghai-logo">
+                        <a href="https://www.activision.com/company/locations/shanghai" target="_blank" aria-label="Visit the Activision Shanghai Studio profile page">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/atvi-shanghai-logo.png" alt="Shanghai Studio logo" loading="lazy"/>
+                        </a>
+                    </li>
+                
+                    <li class="iw-logo">
+                        <a href="https://www.infinityward.com" target="_blank" aria-label="Visit the Infinity Ward website">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/iw-logo-white.webp" alt="Infinity Ward logo" loading="lazy"/>
+                        </a>
+                    </li>
+                
+                    <li class="raven-logo">
+                        <a href="https://www.ravensoftware.com" target="_blank" aria-label="Visit the Raven Software website">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/raven-logo.png" alt="Raven logo" loading="lazy"/>
+                        </a>
+                    </li>
+                
+                    <li class="solid-state-logo">
+                        <a href="https://www.activision.com/solidstate" target="_blank" aria-label="Visit the Solid State Studios website">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/solid-state-logo.png" alt="Solid State Studios logo" loading="lazy"/>
+                        </a>
+                    </li>
+                
+                    <li class="dw-logo">
+                        <a href="https://www.demonware.net" target="_blank" aria-label="Visit the Demonware website">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/demonware-logo.png" alt="Demonware logo" loading="lazy"/>
+                        </a>
+                    </li>
+                
+                    <li class="beenox-logo">
+                        <a href="https://www.beenox.com" target="_blank" aria-label="Visit the Beenox website">
+                            <img src="/content/dam/atvi/callofduty/cod-touchui/hub/studio-logos/beenox-logo.png" alt="Beenox logo" loading="lazy"/>
+                        </a>
+                    </li>
+                </ul>
+            
+		</div>
+
+        
+		<div class="rating-links">
+			<ul>
+                <li class="na-logo">
+                	<a target="_blank" class="esrb-pc" href="https://www.esrb.org/EPCConfirm/832/" aria-label="Visit the Activision ESRB Privacy Certified Profile">
+  <!-- <img
+              src="https://imgs.callofduty.com/content/dam/atvi/global/ratings/esrb/esrb-privacy.jpg"
+              alt="ESBR Privacy Certified Logo"
+              loading="lazy"
+            /> -->
+
+            <img src="/content/dam/atvi/activision/home/footer/Privacy_Certified_Globe_color_2022.png" alt="ESBR Privacy Certified Logo" loading="lazy"/>                    </a>
+                </li>
+				<li class="na-logo">
+                    
+						<a class="rating-logo" aria-label="Visit the rating board website" href="https://www.esrb.org"><img src="https://imgs.callofduty.com/content/dam/atvi/global/ratings/esrb/cod-hub-esrb-en.png" alt="Mature 17+: Blood and Gore, Intense Violence, Strong Language, Suggestive Themes, Use of Drugs, In-game Purchases / Users Interact" loading="lazy"/></a>
+					
+                </li>
+            </ul>
+		</div>
+
+		<div class="copyright">
+
+            
+            
+            <p>©/TM/<b>®</b> 2026 Activision Publishing, Inc.</p>
+
+
+			
+		</div>
+
+		<div class="cookie-settings">
+			<button id="ot-sdk-btn" aria-label="Configure cookie settings" class="ot-sdk-show-settings">Cookie Settings</button>
+		</div>
+
+		<div class="footer-locale-selector">
+			<div>
+    
+
+
+
+
+
+
+<div class="atvi-locale-selector  open-up " data-selectedLocale="en" role="navigation" aria-label="locale-selector.ariaLabel">
+    <h2 class="visually-hidden">Choose your region</h2>
+
+    <p class="cur-locale-selector-btn">
+        <button id="locale-selector-toggle" aria-haspopup="listbox" aria-controls="locale-selector-list" aria-expanded="false" class="flag-button flag-en" aria-label="Selected region - United States">
+            <span class="visually-hidden">Selected region -
+                United States</span>
+            <span class="flag-icon" aria-hidden="true">United States</span>
+            
+        </button>
+    </p>
+
+    <div class="locale-panel" id="locale-selector-list" role="listbox">
+        <div class="locale-panel-inner-container">
+            <div class="locale-panel-header">
+                <p class="selected-region-text">
+                    <span class="label">Selected region:</span>
+                    <span class="locale-string">United States</span>
+                </p>
+                <p class="close-btn">
+                    <button type="button" aria-label="Close Menu">
+                        <span class="visually-hidden">Close Menu</span>+
+                    </button>
+                </p>
+            </div>
+
+            
+
+            
+
+            <ul>
+                <li class="active flag-en" data-lang="en" role="option" aria-selected>
+                    <a href="/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes" aria-label="United States">
+                        <div class="flag-icon" aria-hidden="true"></div>
+                        <div class="region">
+                            United States
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+</div>
+		</div>
+
+	</div>
+
+</footer>
+</div>
+
+    
+</div>
+</div>
+
+    
+</div>
+
+</section></div>
+
+
+
+</div>
+
+    
+</div>
+</div>
+
+    
+
+        
+        
+
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+	
+	
+
+    
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+        
+
+
+
+
+		
+		
+
+        <script type="text/javascript">
+            if (typeof _satellite !== 'undefined') {
+       			 _satellite.pageBottom(); // Execute if _satellite exists
+      		}
+    	</script>
+
+    </body>
+
+
+</html>

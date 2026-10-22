@@ -1,0 +1,933 @@
+{
+  "50-gs": {
+    "slug": "50-gs",
+    "url": "https://mw4.gg/weapons/50-gs/",
+    "status": 200,
+    "name": ".50 GS",
+    "class_label": "Pistol",
+    "unlock": "Lvl 23",
+    "fire_mode": "Semi-Auto",
+    "snapshots": {
+      "Beta Beta": {
+        "Damage": "65",
+        "Fire Rate": "166",
+        "Range": "40",
+        "Accuracy": "53",
+        "Mobility": "85",
+        "Handling": "77",
+        "Rounds": "7",
+        "Reserve": "14"
+      },
+      "Launch*": {
+        "Damage": "65",
+        "Fire Rate": "166",
+        "Range": "40",
+        "Accuracy": "53",
+        "Mobility": "85",
+        "Handling": "77",
+        "Rounds": "7",
+        "Reserve": "14"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "apoc-338": {
+    "slug": "apoc-338",
+    "url": "https://mw4.gg/weapons/apoc-338/",
+    "status": 200,
+    "name": "APOC 338",
+    "class_label": "LMG",
+    "unlock": "Lvl 44",
+    "fire_mode": "Full Auto",
+    "level_cap": "56",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "52",
+        "Fire Rate": "554",
+        "Range": "54",
+        "Accuracy": "34",
+        "Mobility": "33",
+        "Handling": "25",
+        "Rounds": "50",
+        "Reserve": "50"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "astaroth-57": {
+    "slug": "astaroth-57",
+    "url": "https://mw4.gg/weapons/astaroth-57/",
+    "status": 200,
+    "name": "ASTAROTH .57",
+    "class_label": "Sniper Rifle",
+    "unlock": "Lvl 25",
+    "fire_mode": "Single Fire",
+    "level_cap": "54",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "91",
+        "Fire Rate": "34",
+        "Range": "81",
+        "Accuracy": "79",
+        "Mobility": "21",
+        "Handling": "23",
+        "Rounds": "3",
+        "Reserve": "6"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "axion": {
+    "slug": "axion",
+    "url": "https://mw4.gg/weapons/axion/",
+    "status": 200,
+    "name": "AXION",
+    "class_label": "Assault Rifle",
+    "unlock": "Lvl 52",
+    "fire_mode": "Full Auto",
+    "level_cap": "69",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "35",
+        "Fire Rate": "705",
+        "Range": "43",
+        "Accuracy": "40",
+        "Mobility": "65",
+        "Handling": "62",
+        "Rounds": "30",
+        "Reserve": "60"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "combat-knife": {
+    "slug": "combat-knife",
+    "url": "https://mw4.gg/weapons/combat-knife/",
+    "status": 200,
+    "name": "FSS Carbon Edge 1095",
+    "class_label": "Melee",
+    "fire_mode": "Single Fire",
+    "level_cap": "30",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "95",
+        "Fire Rate": "â",
+        "Range": "5",
+        "Accuracy": "100",
+        "Mobility": "95",
+        "Handling": "90",
+        "Rounds": "â",
+        "Reserve": "â"
+      },
+      "Launch*": {
+        "Damage": "95",
+        "Fire Rate": "5",
+        "Range": "5",
+        "Accuracy": "100",
+        "Mobility": "5",
+        "Handling": "5",
+        "Rounds": "5",
+        "Reserve": "5"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "cronen-squall": {
+    "slug": "cronen-squall",
+    "url": "https://mw4.gg/weapons/cronen-squall/",
+    "status": 200,
+    "name": "CRONEN SQUALL",
+    "class_label": "Assault Rifle",
+    "unlock": "Lvl 55",
+    "fire_mode": "Full Auto",
+    "level_cap": "67",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "41",
+        "Fire Rate": "673",
+        "Range": "47",
+        "Accuracy": "43",
+        "Mobility": "60",
+        "Handling": "58",
+        "Rounds": "20",
+        "Reserve": "60"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "finn-lmg": {
+    "slug": "finn-lmg",
+    "url": "https://mw4.gg/weapons/finn-lmg/",
+    "status": 200,
+    "name": "FINN LMG",
+    "class_label": "LMG",
+    "unlock": "Lvl 1",
+    "fire_mode": "Full Auto",
+    "level_cap": "52",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "45",
+        "Fire Rate": "587",
+        "Range": "49",
+        "Accuracy": "37",
+        "Mobility": "48",
+        "Handling": "46",
+        "Rounds": "100",
+        "Reserve": "100"
+      },
+      "Launch*": {
+        "Damage": "45",
+        "Fire Rate": "587",
+        "Range": "49",
+        "Accuracy": "37",
+        "Mobility": "48",
+        "Handling": "46",
+        "Rounds": "100",
+        "Reserve": "100"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "han-86": {
+    "slug": "han-86",
+    "url": "https://mw4.gg/weapons/han-86/",
+    "status": 200,
+    "name": "Han 86",
+    "class_label": "Assault Rifle",
+    "unlock": "Lvl 1",
+    "fire_mode": "Full Auto, Semi-Auto",
+    "level_cap": "68",
+    "snapshots": {
+      "Beta Beta": {
+        "Damage": "33",
+        "Fire Rate": "740",
+        "Range": "45",
+        "Accuracy": "57",
+        "Mobility": "67",
+        "Handling": "64",
+        "Rounds": "30",
+        "Reserve": "60"
+      },
+      "Launch*": {
+        "Damage": "33",
+        "Fire Rate": "740",
+        "Range": "45",
+        "Accuracy": "57",
+        "Mobility": "67",
+        "Handling": "64",
+        "Rounds": "30",
+        "Reserve": "60"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "hyeon-burst": {
+    "slug": "hyeon-burst",
+    "url": "https://mw4.gg/weapons/hyeon-burst/",
+    "status": 200,
+    "name": "Hyeon Burst",
+    "class_label": "Assault Rifle",
+    "unlock": "Lvl 18",
+    "fire_mode": "Burst",
+    "level_cap": "60",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "42",
+        "Fire Rate": "375",
+        "Range": "52",
+        "Accuracy": "56",
+        "Mobility": "63",
+        "Handling": "61",
+        "Rounds": "30",
+        "Reserve": "60"
+      },
+      "Launch*": {
+        "Damage": "42",
+        "Fire Rate": "375",
+        "Range": "52",
+        "Accuracy": "56",
+        "Mobility": "63",
+        "Handling": "61",
+        "Rounds": "30",
+        "Reserve": "60"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "iso-nightshade": {
+    "slug": "iso-nightshade",
+    "url": "https://mw4.gg/weapons/iso-nightshade/",
+    "status": 200,
+    "name": "ISO Nightshade",
+    "class_label": "SMG",
+    "unlock": "Lvl 1",
+    "fire_mode": "Full Auto",
+    "level_cap": "56",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "32",
+        "Fire Rate": "923",
+        "Range": "35",
+        "Accuracy": "38",
+        "Mobility": "79",
+        "Handling": "71",
+        "Rounds": "30",
+        "Reserve": "60"
+      },
+      "Launch*": {
+        "Damage": "32",
+        "Fire Rate": "923",
+        "Range": "35",
+        "Accuracy": "38",
+        "Mobility": "79",
+        "Handling": "71",
+        "Rounds": "30",
+        "Reserve": "60"
+      }
+    },
+    "gunsmith_verified": true
+  },
+  "jokr": {
+    "slug": "jokr",
+    "url": "https://mw4.gg/weapons/jokr/",
+    "status": 200,
+    "name": "JOKR",
+    "class_label": "Launcher",
+    "unlock": "Lvl 43",
+    "fire_mode": "Single Fire",
+    "level_cap": "46",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "90",
+        "Fire Rate": "13",
+        "Range": "90",
+        "Accuracy": "100",
+        "Mobility": "27",
+        "Handling": "28",
+        "Rounds": "1",
+        "Reserve": "1"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "kastov-762": {
+    "slug": "kastov-762",
+    "url": "https://mw4.gg/weapons/kastov-762/",
+    "status": 200,
+    "name": "Kastov 762",
+    "class_label": "Assault Rifle",
+    "unlock": "Lvl 21",
+    "fire_mode": "Full Auto",
+    "level_cap": "71",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "40",
+        "Fire Rate": "600",
+        "Range": "42",
+        "Accuracy": "36",
+        "Mobility": "62",
+        "Handling": "59",
+        "Rounds": "30",
+        "Reserve": "60"
+      },
+      "Launch*": {
+        "Damage": "40",
+        "Fire Rate": "600",
+        "Range": "42",
+        "Accuracy": "36",
+        "Mobility": "62",
+        "Handling": "59",
+        "Rounds": "30",
+        "Reserve": "60"
+      }
+    },
+    "gunsmith_verified": true
+  },
+  "kg-7-vulcan": {
+    "slug": "kg-7-vulcan",
+    "url": "https://mw4.gg/weapons/kg-7-vulcan/",
+    "status": 200,
+    "name": "KG-7 VULCAN",
+    "class_label": "Sniper Rifle",
+    "unlock": "Lvl 4",
+    "fire_mode": "Single Fire",
+    "level_cap": "72",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "85",
+        "Fire Rate": "37",
+        "Range": "76",
+        "Accuracy": "74",
+        "Mobility": "30",
+        "Handling": "34",
+        "Rounds": "10",
+        "Reserve": "20"
+      },
+      "Launch*": {
+        "Damage": "85",
+        "Fire Rate": "41",
+        "Range": "76",
+        "Accuracy": "74",
+        "Mobility": "30",
+        "Handling": "34",
+        "Rounds": "10",
+        "Reserve": "20"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "krait-p68": {
+    "slug": "krait-p68",
+    "url": "https://mw4.gg/weapons/krait-p68/",
+    "status": 200,
+    "name": "KRAIT P68",
+    "class_label": "Pistol",
+    "unlock": "Lvl 1",
+    "fire_mode": "Semi-Auto",
+    "level_cap": "34",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "48",
+        "Fire Rate": "260",
+        "Range": "31",
+        "Accuracy": "58",
+        "Mobility": "88",
+        "Handling": "79",
+        "Rounds": "10",
+        "Reserve": "30"
+      },
+      "Launch*": {
+        "Damage": "48",
+        "Fire Rate": "260",
+        "Range": "31",
+        "Accuracy": "58",
+        "Mobility": "88",
+        "Handling": "79",
+        "Rounds": "10",
+        "Reserve": "30"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "m4": {
+    "slug": "m4",
+    "url": "https://mw4.gg/weapons/m4/",
+    "status": 200,
+    "name": "M4",
+    "class_label": "Assault Rifle",
+    "unlock": "Lvl 9",
+    "fire_mode": "Full Auto",
+    "level_cap": "66",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "34",
+        "Fire Rate": "810",
+        "Range": "46",
+        "Accuracy": "48",
+        "Mobility": "69",
+        "Handling": "63",
+        "Rounds": "30",
+        "Reserve": "60"
+      },
+      "Launch*": {
+        "Damage": "34",
+        "Fire Rate": "810",
+        "Range": "46",
+        "Accuracy": "48",
+        "Mobility": "69",
+        "Handling": "63",
+        "Rounds": "30",
+        "Reserve": "60"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "mar-9": {
+    "slug": "mar-9",
+    "url": "https://mw4.gg/weapons/mar-9/",
+    "status": 200,
+    "name": "MAR-9",
+    "class_label": "Marksman Rifle",
+    "unlock": "Lvl 1",
+    "fire_mode": "Semi-Auto",
+    "level_cap": "67",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "59",
+        "Fire Rate": "315",
+        "Range": "53",
+        "Accuracy": "64",
+        "Mobility": "54",
+        "Handling": "51",
+        "Rounds": "20",
+        "Reserve": "40"
+      },
+      "Launch*": {
+        "Damage": "59",
+        "Fire Rate": "315",
+        "Range": "53",
+        "Accuracy": "64",
+        "Mobility": "54",
+        "Handling": "51",
+        "Rounds": "20",
+        "Reserve": "40"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "moisin-nagant": {
+    "slug": "moisin-nagant",
+    "url": "https://mw4.gg/weapons/moisin-nagant/",
+    "status": 200,
+    "name": "MOISIN NAGANT",
+    "class_label": "Marksman Rifle",
+    "unlock": "Lvl 36",
+    "fire_mode": "Single Fire",
+    "level_cap": "69",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "79",
+        "Fire Rate": "52",
+        "Range": "56",
+        "Accuracy": "71",
+        "Mobility": "57",
+        "Handling": "49",
+        "Rounds": "5",
+        "Reserve": "10"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "mojave-357": {
+    "slug": "mojave-357",
+    "url": "https://mw4.gg/weapons/mojave-357/",
+    "status": 200,
+    "name": "MOJAVE .357",
+    "class_label": "Pistol",
+    "unlock": "Lvl 48",
+    "fire_mode": "Semi-Auto",
+    "level_cap": "50",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "62",
+        "Fire Rate": "141",
+        "Range": "38",
+        "Accuracy": "55",
+        "Mobility": "86",
+        "Handling": "78",
+        "Rounds": "8",
+        "Reserve": "24"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "oden": {
+    "slug": "oden",
+    "url": "https://mw4.gg/weapons/oden/",
+    "status": 200,
+    "name": "Oden",
+    "class_label": "Assault Rifle",
+    "unlock": "Lvl 39",
+    "level_cap": "65",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "50",
+        "Fire Rate": "413",
+        "Range": "48",
+        "Accuracy": "21",
+        "Mobility": "58",
+        "Handling": "54",
+        "Rounds": "20",
+        "Reserve": "40"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "oris-8-6": {
+    "slug": "oris-8-6",
+    "url": "https://mw4.gg/weapons/oris-8-6/",
+    "status": 200,
+    "name": "Oris 8.6",
+    "class_label": "Marksman Rifle",
+    "unlock": "Lvl 14",
+    "fire_mode": "Semi-Auto",
+    "level_cap": "68",
+    "snapshots": {
+      "Beta Beta": {
+        "Damage": "75",
+        "Fire Rate": "89",
+        "Range": "50",
+        "Accuracy": "68",
+        "Mobility": "71",
+        "Handling": "60",
+        "Rounds": "10",
+        "Reserve": "20"
+      },
+      "Launch*": {
+        "Damage": "75",
+        "Fire Rate": "89",
+        "Range": "50",
+        "Accuracy": "68",
+        "Mobility": "71",
+        "Handling": "60",
+        "Rounds": "10",
+        "Reserve": "20"
+      }
+    },
+    "gunsmith_verified": true
+  },
+  "patriot-xmr": {
+    "slug": "patriot-xmr",
+    "url": "https://mw4.gg/weapons/patriot-xmr/",
+    "status": 200,
+    "name": "Patriot XMR",
+    "class_label": "Assault Rifle",
+    "unlock": "Lvl 25",
+    "fire_mode": "Full Auto",
+    "level_cap": "60",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "43",
+        "Fire Rate": "645",
+        "Range": "44",
+        "Accuracy": "29",
+        "Mobility": "59",
+        "Handling": "56",
+        "Rounds": "25",
+        "Reserve": "75"
+      },
+      "Launch*": {
+        "Damage": "43",
+        "Fire Rate": "645",
+        "Range": "44",
+        "Accuracy": "29",
+        "Mobility": "59",
+        "Handling": "56",
+        "Rounds": "44",
+        "Reserve": "75"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "pila": {
+    "slug": "pila",
+    "url": "https://mw4.gg/weapons/pila/",
+    "status": 200,
+    "name": "PILA",
+    "class_label": "Launcher",
+    "unlock": "Lvl 4",
+    "fire_mode": "Single Fire",
+    "level_cap": "36",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "95",
+        "Fire Rate": "8",
+        "Range": "83",
+        "Accuracy": "78",
+        "Mobility": "32",
+        "Handling": "31",
+        "Rounds": "1",
+        "Reserve": "1"
+      },
+      "Launch*": {
+        "Damage": "95",
+        "Fire Rate": "8",
+        "Range": "83",
+        "Accuracy": "78",
+        "Mobility": "32",
+        "Handling": "31",
+        "Rounds": "1",
+        "Reserve": "1"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "pm-40-anvil": {
+    "slug": "pm-40-anvil",
+    "url": "https://mw4.gg/weapons/pm-40-anvil/",
+    "status": 200,
+    "name": "PM-40 ANVIL",
+    "class_label": "Launcher",
+    "unlock": "Lvl 54",
+    "fire_mode": "Single Fire",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "77",
+        "Fire Rate": "38",
+        "Range": "40",
+        "Accuracy": "42",
+        "Mobility": "52",
+        "Handling": "49",
+        "Rounds": "3",
+        "Reserve": "6"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "ppsh-41": {
+    "slug": "ppsh-41",
+    "url": "https://mw4.gg/weapons/ppsh-41/",
+    "status": 200,
+    "name": "PPSH-41",
+    "class_label": "SMG",
+    "unlock": "Lvl 11",
+    "fire_mode": "Full Auto",
+    "level_cap": "54",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "29",
+        "Fire Rate": "1100",
+        "Range": "34",
+        "Accuracy": "35",
+        "Mobility": "74",
+        "Handling": "68",
+        "Rounds": "71",
+        "Reserve": "71"
+      },
+      "Launch*": {
+        "Damage": "29",
+        "Fire Rate": "1110",
+        "Range": "34",
+        "Accuracy": "35",
+        "Mobility": "74",
+        "Handling": "68",
+        "Rounds": "70",
+        "Reserve": "71"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "rezi-12": {
+    "slug": "rezi-12",
+    "url": "https://mw4.gg/weapons/rezi-12/",
+    "status": 200,
+    "name": "Rezi 12",
+    "class_label": "Shotgun",
+    "unlock": "Lvl 1",
+    "fire_mode": "Semi-Auto",
+    "level_cap": "60",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "72",
+        "Fire Rate": "150",
+        "Range": "26",
+        "Accuracy": "28",
+        "Mobility": "76",
+        "Handling": "53",
+        "Rounds": "6",
+        "Reserve": "18"
+      },
+      "Launch*": {
+        "Damage": "72",
+        "Fire Rate": "150",
+        "Range": "26",
+        "Accuracy": "28",
+        "Mobility": "76",
+        "Handling": "53",
+        "Rounds": "6",
+        "Reserve": "18"
+      }
+    },
+    "gunsmith_verified": true
+  },
+  "rpg-8": {
+    "slug": "rpg-8",
+    "url": "https://mw4.gg/weapons/rpg-8/",
+    "status": 200,
+    "name": "RPG 8",
+    "class_label": "Launcher",
+    "unlock": "Lvl 23",
+    "fire_mode": "Single Fire",
+    "level_cap": "46",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "88",
+        "Fire Rate": "20",
+        "Range": "81",
+        "Accuracy": "73",
+        "Mobility": "40",
+        "Handling": "32",
+        "Rounds": "1",
+        "Reserve": "1"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "signal-50": {
+    "slug": "signal-50",
+    "url": "https://mw4.gg/weapons/signal-50/",
+    "status": 200,
+    "name": "SIGNAL 50",
+    "class_label": "Sniper Rifle",
+    "unlock": "Lvl 30",
+    "fire_mode": "Semi-Auto, Single Fire",
+    "level_cap": "72",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "82",
+        "Fire Rate": "111",
+        "Range": "70",
+        "Accuracy": "70",
+        "Mobility": "25",
+        "Handling": "31",
+        "Rounds": "7",
+        "Reserve": "14"
+      },
+      "Launch*": {
+        "Damage": "82",
+        "Fire Rate": "111",
+        "Range": "70",
+        "Accuracy": "70",
+        "Mobility": "25",
+        "Handling": "31",
+        "Rounds": "7",
+        "Reserve": "14"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "type-73": {
+    "slug": "type-73",
+    "url": "https://mw4.gg/weapons/type-73/",
+    "status": 200,
+    "name": "TYPE 73",
+    "class_label": "LMG",
+    "unlock": "Lvl 5",
+    "fire_mode": "Full Auto",
+    "level_cap": "57",
+    "snapshots": {
+      "Beta Beta": {
+        "Damage": "39",
+        "Fire Rate": "821",
+        "Range": "51",
+        "Accuracy": "36",
+        "Mobility": "41",
+        "Handling": "37",
+        "Rounds": "60",
+        "Reserve": "60"
+      },
+      "Launch*": {
+        "Damage": "39",
+        "Fire Rate": "821",
+        "Range": "51",
+        "Accuracy": "36",
+        "Mobility": "41",
+        "Handling": "37",
+        "Rounds": "60",
+        "Reserve": "60"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "vel-46": {
+    "slug": "vel-46",
+    "url": "https://mw4.gg/weapons/vel-46/",
+    "status": 200,
+    "name": "VEL 46",
+    "class_label": "SMG",
+    "unlock": "Lvl 5",
+    "fire_mode": "Full Auto",
+    "level_cap": "60",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "31",
+        "Fire Rate": "952",
+        "Range": "37",
+        "Accuracy": "37",
+        "Mobility": "78",
+        "Handling": "73",
+        "Rounds": "40",
+        "Reserve": "80"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "warlord": {
+    "slug": "warlord",
+    "url": "https://mw4.gg/weapons/warlord/",
+    "status": 200,
+    "name": "WARLORD",
+    "class_label": "Shotgun",
+    "unlock": "Lvl 32",
+    "fire_mode": "Semi-Auto",
+    "level_cap": "60",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "70",
+        "Fire Rate": "105",
+        "Range": "26",
+        "Accuracy": "25",
+        "Mobility": "68",
+        "Handling": "52",
+        "Rounds": "14",
+        "Reserve": "28"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "wz-55-striga": {
+    "slug": "wz-55-striga",
+    "url": "https://mw4.gg/weapons/wz-55-striga/",
+    "status": 200,
+    "name": "WZ.55 STRIGA",
+    "class_label": "SMG",
+    "unlock": "Lvl 18",
+    "fire_mode": "Full Auto",
+    "level_cap": "60",
+    "snapshots": {
+      "Launch*": {
+        "Damage": "38",
+        "Fire Rate": "651",
+        "Range": "36",
+        "Accuracy": "29",
+        "Mobility": "97",
+        "Handling": "86",
+        "Rounds": "25",
+        "Reserve": "50"
+      }
+    },
+    "gunsmith_verified": false
+  },
+  "x-58-nyx": {
+    "slug": "x-58-nyx",
+    "url": "https://mw4.gg/weapons/x-58-nyx/",
+    "status": 200,
+    "name": "X-58 NYX",
+    "class_label": "SMG",
+    "unlock": "Lvl 27",
+    "fire_mode": "Full Auto",
+    "snapshots": {
+      "Beta EA.1": {
+        "Damage": "33",
+        "Fire Rate": "800",
+        "Range": "33",
+        "Accuracy": "49",
+        "Mobility": "77",
+        "Handling": "70",
+        "Rounds": "40",
+        "Reserve": "80"
+      },
+      "Open Beta 1.0 Open Beta 1.0": {
+        "Damage": "33",
+        "Fire Rate": "800",
+        "Range": "33",
+        "Accuracy": "49",
+        "Mobility": "77",
+        "Handling": "70",
+        "Rounds": "40",
+        "Reserve": "80"
+      },
+      "Launch*": {
+        "Damage": "33",
+        "Fire Rate": "800",
+        "Range": "33",
+        "Accuracy": "49",
+        "Mobility": "77",
+        "Handling": "70",
+        "Rounds": "40",
+        "Reserve": "80"
+      }
+    },
+    "gunsmith_verified": false
+  }
+}

@@ -107,6 +107,28 @@ WEAPON_SVG_MAP: Dict[str, str] = {
         '<line x1="135" y1="28" x2="155" y2="28" stroke="#38bdf8" stroke-width="2"/>'
         '<circle cx="115" cy="27" r="2.5" fill="#38bdf8"/>'
         '</svg>'
+    ),
+
+    # PILA / RPG / JOKR: Heavy Shoulder-Fired Rocket / Missile Launcher
+    "launcher": (
+        '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
+        '<rect x="25" y="24" width="185" height="14" rx="2" fill="rgba(234, 179, 8, 0.15)" stroke="#eab308" stroke-width="1.8"/>'
+        '<rect x="15" y="22" width="15" height="18" fill="rgba(234, 179, 8, 0.3)" stroke="#eab308" stroke-width="1.5"/>'
+        '<rect x="180" y="20" width="35" height="22" rx="2" fill="rgba(234, 179, 8, 0.3)" stroke="#eab308" stroke-width="1.5"/>'
+        '<rect x="100" y="14" width="28" height="10" fill="rgba(56, 189, 248, 0.25)" stroke="#38bdf8" stroke-width="1.2"/>'
+        '<path d="M75 38 L85 52 L100 52 L90 38 Z" fill="rgba(234, 179, 8, 0.2)" stroke="#eab308" stroke-width="1.5"/>'
+        '<circle cx="114" cy="19" r="2.5" fill="#f43f5e"/>'
+        '</svg>'
+    ),
+
+    # FSS Carbon Edge: Combat Knife / Melee Blade
+    "melee": (
+        '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
+        '<path d="M40 32 L85 32 L90 35 L90 40 L85 43 L40 43 Z" fill="rgba(148, 163, 184, 0.25)" stroke="#94a3b8" stroke-width="1.5"/>'
+        '<line x1="88" y1="26" x2="88" y2="48" stroke="#f43f5e" stroke-width="2.5"/>'
+        '<path d="M90 31 L185 31 Q205 31 210 38 Q185 41 90 41 Z" fill="rgba(244, 63, 94, 0.2)" stroke="#f43f5e" stroke-width="1.8"/>'
+        '<circle cx="65" cy="37" r="2.5" fill="#38bdf8"/>'
+        '</svg>'
     )
 }
 

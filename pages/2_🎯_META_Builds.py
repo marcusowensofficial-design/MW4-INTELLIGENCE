@@ -57,7 +57,7 @@ render_field_intel_box(
 )
 
 # Fetch all weapons and available meta builds from database
-weapons_all = repo.get_weapons()
+weapons_all = [w for w in repo.get_weapons() if w.weapon_class not in ('launcher', 'melee')]
 meta_builds_all = []
 if hasattr(repo, "get_meta_builds"):
     try:

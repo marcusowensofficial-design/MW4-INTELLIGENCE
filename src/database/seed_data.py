@@ -81,10 +81,18 @@ def _seed_fallback(manager: DatabaseManager, repo: IntelligenceRepository) -> No
         version_id="v1.2.0-beta-weekend2",
         name="Beta Weekend 2 Patch",
         patch_date="2026-08-28",
-        is_active=True,
+        is_active=False,
         notes="Weekend 2 TTK overhaul, 5 new weapons, Blood Rush TacSprint rework."
     )
     repo.save_game_version(v_w2)
+    v_launch = GameVersion(
+        version_id="v1.3.0-launch",
+        name="MW4 Worldwide Launch Day Patch Notes",
+        patch_date="2026-10-22",
+        is_active=True,
+        notes="Worldwide launch baseline across all 33 weapons."
+    )
+    repo.save_game_version(v_launch)
     
     # 2. Rulesets
     repo.save_ruleset(Ruleset(ruleset_id="core", name="Core 100 HP", target_health=100.0, headshot_multiplier_global=1.0, limb_multiplier_global=1.0, is_active=True))

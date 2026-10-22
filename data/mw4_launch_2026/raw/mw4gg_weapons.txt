@@ -1,0 +1,499 @@
+MW4 Weapons & Guns â All Stats, Damage & Unlock Info | MW4.GG
+Advertisement
+Advertisement
+Weapons
+Meta
+Camos
+Operators
+Skins
+Perks
+Maps
+Home
+/
+Weapons
+Weapons
+32
+Meta board
+Class
+All
+32
+Assault Rifle
+8
+LMG
+3
+Launcher
+4
+Marksman Rifle
+3
+Melee
+1
+Pistol
+3
+SMG
+5
+Shotgun
+2
+Sniper Rifle
+3
+Layout
+Grid
+Rows
+Sort
+Name AâZ
+Highest rating
+Most votes
+Damage
+Fire rate
+Range
+Unlock level
+Class
+Advertisement
+SMG
+PPSH-41
+Damage
+29
+Fire rate
+1110
+Range
+34
+LVL 30
+UNLOCK
+4.0
+6 votes
+SMG
+VEL 46
+Damage
+31
+Fire rate
+952
+Range
+37
+LVL 5
+UNLOCK
+4.3
+4 votes
+SMG
+ISO Nightshade
+Damage
+32
+Fire rate
+923
+Range
+35
+LVL 4
+UNLOCK
+4.0
+5 votes
+LMG
+TYPE 73
+Damage
+39
+Fire rate
+821
+Range
+51
+LVL 9
+UNLOCK
+1.0
+1 vote
+Assault Rifle
+M4
+Damage
+34
+Fire rate
+810
+Range
+46
+LVL 14
+UNLOCK
+3.6
+7 votes
+SMG
+X-58 NYX
+Damage
+33
+Fire rate
+800
+Range
+33
+LVL 46
+UNLOCK
+4.6
+8 votes
+Assault Rifle
+Han 86
+Damage
+33
+Fire rate
+740
+Range
+45
+LVL 4
+UNLOCK
+4.8
+4 votes
+Assault Rifle
+AXION
+Damage
+35
+Fire rate
+705
+Range
+43
+LVL 52
+UNLOCK
+5.0
+2 votes
+Assault Rifle
+CRONEN SQUALL
+Damage
+41
+Fire rate
+673
+Range
+47
+LVL 55
+UNLOCK
+â
+No votes
+SMG
+WZ.55 STRIGA
+Damage
+38
+Fire rate
+651
+Range
+36
+LVL 18
+UNLOCK
+5.0
+1 vote
+Assault Rifle
+Patriot XMR
+Damage
+43
+Fire rate
+645
+Range
+44
+LVL 27
+UNLOCK
+4.5
+2 votes
+Assault Rifle
+Kastov 762
+Damage
+40
+Fire rate
+600
+Range
+42
+LVL 34
+UNLOCK
+4.3
+3 votes
+LMG
+FINN LMG
+Damage
+45
+Fire rate
+587
+Range
+49
+LVL 4
+UNLOCK
+4.0
+1 vote
+LMG
+APOC 338
+Damage
+52
+Fire rate
+554
+Range
+54
+LVL 44
+UNLOCK
+4.0
+1 vote
+Assault Rifle
+Oden
+Damage
+50
+Fire rate
+413
+Range
+48
+LVL 39
+UNLOCK
+3.0
+2 votes
+Assault Rifle
+Hyeon Burst
+Damage
+42
+Fire rate
+375
+Range
+52
+LVL 21
+UNLOCK
+1.0
+1 vote
+Marksman Rifle
+MAR-9
+Damage
+59
+Fire rate
+315
+Range
+53
+LVL 4
+UNLOCK
+3.7
+3 votes
+Pistol
+KRAIT P68
+Damage
+48
+Fire rate
+260
+Range
+31
+LVL 7
+UNLOCK
+5.0
+1 vote
+Pistol
+.50 GS
+Damage
+65
+Fire rate
+166
+Range
+40
+LVL 41
+UNLOCK
+3.8
+5 votes
+Shotgun
+Rezi 12
+Damage
+72
+Fire rate
+150
+Range
+26
+LVL 4
+UNLOCK
+5.0
+2 votes
+Pistol
+MOJAVE .357
+Damage
+62
+Fire rate
+141
+Range
+38
+LVL 48
+UNLOCK
+â
+No votes
+Sniper Rifle
+SIGNAL 50
+Damage
+82
+Fire rate
+111
+Range
+70
+LVL 50
+UNLOCK
+â
+No votes
+Shotgun
+WARLORD
+Damage
+70
+Fire rate
+105
+Range
+26
+LVL 32
+UNLOCK
+â
+No votes
+Marksman Rifle
+Oris 8.6
+Damage
+75
+Fire rate
+89
+Range
+50
+LVL 11
+UNLOCK
+4.3
+3 votes
+Marksman Rifle
+MOISIN NAGANT
+Damage
+79
+Fire rate
+52
+Range
+56
+LVL 36
+UNLOCK
+2.0
+1 vote
+Sniper Rifle
+KG-7 VULCAN
+Damage
+85
+Fire rate
+41
+Range
+76
+LVL 4
+UNLOCK
+4.5
+6 votes
+Launcher
+PM-40 ANVIL
+Damage
+77
+Fire rate
+38
+Range
+40
+LVL 54
+UNLOCK
+â
+No votes
+Sniper Rifle
+ASTAROTH .57
+Damage
+91
+Fire rate
+34
+Range
+81
+LVL 25
+UNLOCK
+3.0
+1 vote
+Launcher
+RPG 8
+Damage
+88
+Fire rate
+20
+Range
+81
+LVL 23
+UNLOCK
+â
+No votes
+Launcher
+JOKR
+Damage
+90
+Fire rate
+13
+Range
+90
+LVL 43
+UNLOCK
+â
+No votes
+Launcher
+PILA
+Damage
+95
+Fire rate
+8
+Range
+83
+LVL 4
+UNLOCK
+â
+No votes
+Melee
+FSS Carbon Edge 1095
+Damage
+95
+Fire rate
+5
+Range
+5
+LVL 4
+UNLOCK
+â
+No votes
+About MW4 weapons
+Every MW4 gun in Call of Duty: Modern Warfare 4, across assault rifles, SMGs, LMGs, marksman rifles, snipers, shotguns, pistols, and launchers. Each card shows damage, fire rate, range, and the level required to unlock it. Open a weapon for the full stat sheet, head-to-head compare, attachments, and its
+camo
+tracker.
+Weapons
+32
+in the database
+Classes
+9
+weapon classes
+Highest damage
+â
+Loading
+Average damage
+â
+across the roster
+Beta stats are refreshed every patch. Community rankings live on the
+weapon meta
+, split only by Beta and Launch. The score on each card combines every season. A rating counts toward Launch, the live season.
+All Weapons
+.50 GS
+APOC 338
+ASTAROTH .57
+AXION
+CRONEN SQUALL
+FINN LMG
+FSS Carbon Edge 1095
+Han 86
+Hyeon Burst
+ISO Nightshade
+JOKR
+Kastov 762
+KG-7 VULCAN
+KRAIT P68
+M4
+MAR-9
+MOISIN NAGANT
+MOJAVE .357
+Oden
+Oris 8.6
+Patriot XMR
+PILA
+PM-40 ANVIL
+PPSH-41
+Rezi 12
+RPG 8
+SIGNAL 50
+TYPE 73
+VEL 46
+WARLORD
+WZ.55 STRIGA
+X-58 NYX
+The complete Modern Warfare 4 database.
+Weapons
+Operators
+Maps
+Meta
+News
+About
+Privacy
+Terms
+Editorial
+Contact
+© 2026 MW4.GG
+Call of Duty® and Modern Warfare® are trademarks of Activision Publishing, Inc. MW4.gg is an independent database and is not affiliated with or endorsed by Activision or Activision Blizzard.

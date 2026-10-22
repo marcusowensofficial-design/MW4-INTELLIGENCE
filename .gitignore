@@ -58,3 +58,7 @@ scratch/
 scratch_*.py
 scratch_*.json
 *.log
+
+# Legacy assets & local assets cache
+assets/weapons/_legacy/
+GUNDATA/

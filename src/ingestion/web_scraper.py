@@ -49,33 +49,40 @@ class PatchNotesScraper:
         curr_year = year or now.year
         curr_month = month or now.month
 
-        candidate_urls = []
-
-        # 1. Primary target month URL
-        candidate_urls.append(
-            f"https://www.callofduty.com/patchnotes/{curr_year}/{curr_month:02d}/call-of-duty-modern-warfare-4-beta-patch-notes"
-        )
-        candidate_urls.append(
-            f"https://www.callofduty.com/blog/{curr_year}/{curr_month:02d}/call-of-duty-modern-warfare-4-beta-patch-notes"
-        )
+        candidate_urls = []        # 1. Primary target month URLs (Launch & Post-Launch + Beta)
+        for slug in [
+            "call-of-duty-modern-warfare-4-launch-patch-notes",
+            "call-of-duty-modern-warfare-4-patch-notes",
+            "call-of-duty-modern-warfare-4-beta-patch-notes",
+        ]:
+            candidate_urls.append(f"https://www.callofduty.com/patchnotes/{curr_year}/{curr_month:02d}/{slug}")
+            candidate_urls.append(f"https://www.callofduty.com/blog/{curr_year}/{curr_month:02d}/{slug}")
 
         # 2. Adjacent next month (rollover support)
         next_month = 1 if curr_month == 12 else curr_month + 1
         next_year = curr_year + 1 if curr_month == 12 else curr_year
-        candidate_urls.append(
-            f"https://www.callofduty.com/patchnotes/{next_year}/{next_month:02d}/call-of-duty-modern-warfare-4-beta-patch-notes"
-        )
+        for slug in [
+            "call-of-duty-modern-warfare-4-launch-patch-notes",
+            "call-of-duty-modern-warfare-4-patch-notes",
+            "call-of-duty-modern-warfare-4-beta-patch-notes",
+        ]:
+            candidate_urls.append(f"https://www.callofduty.com/patchnotes/{next_year}/{next_month:02d}/{slug}")
 
         # 3. Adjacent previous month
         prev_month = 12 if curr_month == 1 else curr_month - 1
         prev_year = curr_year - 1 if curr_month == 1 else curr_year
-        candidate_urls.append(
-            f"https://www.callofduty.com/patchnotes/{prev_year}/{prev_month:02d}/call-of-duty-modern-warfare-4-beta-patch-notes"
-        )
+        for slug in [
+            "call-of-duty-modern-warfare-4-launch-patch-notes",
+            "call-of-duty-modern-warfare-4-patch-notes",
+            "call-of-duty-modern-warfare-4-beta-patch-notes",
+        ]:
+            candidate_urls.append(f"https://www.callofduty.com/patchnotes/{prev_year}/{prev_month:02d}/{slug}")
 
         # 4. Evergreen Hub URLs
         candidate_urls.append("https://www.callofduty.com/patchnotes")
         candidate_urls.append("https://www.callofduty.com/patchnotes/modern-warfare-4")
+        candidate_urls.append("https://mw4.gg/weapons/")
+        candidate_urls.append("https://codmunity.gg/mw4")
 
         return candidate_urls
 

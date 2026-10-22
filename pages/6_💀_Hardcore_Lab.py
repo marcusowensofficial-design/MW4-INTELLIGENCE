@@ -39,7 +39,7 @@ if not hc_ruleset or not core_ruleset:
     st.error("Missing Core or Hardcore ruleset definitions in database.")
     st.stop()
 
-weapons = repo.get_weapons()
+weapons = [w for w in repo.get_weapons() if str(w.weapon_class.value if hasattr(w.weapon_class, "value") else w.weapon_class).lower() not in ("launcher", "melee")]
 weapon_map = {w.name: w for w in weapons}
 
 st.markdown(
@@ -104,10 +104,14 @@ st.markdown("---")
 st.markdown("### 📈 Hardcore Time-To-Kill Step Curves (0 ms = 1-Shot Kill)")
 if hc_ttk_curves:
     # Select subset for clarity
+    all_hc_options = [w.name for w in weapons]
+    default_hc = [n for n in ["Patriot XMR", "ISO Nightshade", "Hyeon Burst", "M4"] if n in all_hc_options]
+    if not default_hc and all_hc_options:
+        default_hc = all_hc_options[:4]
     selected_hc_names = st.multiselect(
         "Select Weapons to Plot",
-        options=[w.name for w in weapons],
-        default=["PATRIOT XMR", "ISO NIGHTSHADE", "HYEON BURST", "M4"],
+        options=all_hc_options,
+        default=default_hc,
         key="hc_plot_sel"
     )
     filtered_hc_curves = [c for c in hc_ttk_curves if c.weapon_name in selected_hc_names]

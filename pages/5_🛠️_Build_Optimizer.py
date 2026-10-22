@@ -41,7 +41,7 @@ render_page_header(
     active_ruleset=selected_rs_id
 )
 
-weapons = repo.get_weapons()
+weapons = [w for w in repo.get_weapons() if w.weapon_class not in ('launcher', 'melee')]
 weapon_map = {w.name: w for w in weapons}
 
 # 1. Weapon Selector

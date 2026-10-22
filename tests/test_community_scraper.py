@@ -57,5 +57,5 @@ def test_community_scraper_sync_all_platforms_execution():
     report = scraper.sync_all_platforms("v1.2.0-beta-weekend2")
     assert report["success"] is True
     assert len(report["platforms_scraped"]) == 6
-    assert report["total_weapons_audited"] == 17
+    assert report["total_weapons_audited"] == len(repo.get_weapons())
     assert "evidence_id" in report

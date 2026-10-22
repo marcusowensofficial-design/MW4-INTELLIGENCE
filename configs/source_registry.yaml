@@ -111,6 +111,18 @@ registered_sources:
     url: "https://cod.tracker.gg"
     test_method: "Global player weapon usage metrics, pick rates, and combat record distributions"
 
+  - source_id: "codmunity_mw4_database"
+    name: "CODMunity Gunsmith & Meta Loadout Database"
+    tier: "tier_3"
+    url: "https://codmunity.gg/mw4"
+    test_method: "Empirical in-game stat card extraction and high-speed video capture"
+
+  - source_id: "mw4gg_weapon_database"
+    name: "MW4.GG Weapons & Camo Database"
+    tier: "tier_3"
+    url: "https://mw4.gg"
+    test_method: "Community-driven hand-verified weapon stat snapshots and patch logs"
+
   # Tier 4: Community Leads, AI Drafts & OCR Extracts
   - source_id: "ai_review_ocr_extractor"
     name: "Automated OCR Screenshot & AI Ingestion Draft"

@@ -19,7 +19,7 @@ def get_shared_repository() -> IntelligenceRepository:
     
     # Always ensure full 17 authentic weapons and versions are populated
     weapons = repo.get_weapons()
-    if not weapons or len(weapons) < 17:
+    if not weapons or len(weapons) < 33:
         from src.database.seed_data import seed_database
         seed_database(db_manager)
         
@@ -33,11 +33,11 @@ def init_session_state() -> IntelligenceRepository:
     # Load available versions & rulesets
     if "available_versions" not in st.session_state or not st.session_state.get("available_versions"):
         versions = repo.get_game_versions()
-        st.session_state["available_versions"] = [v.version_id for v in versions] or ["v1.2.0-beta-weekend2"]
+        st.session_state["available_versions"] = [v.version_id for v in versions] or ["v1.3.0-launch"]
 
     if "selected_version" not in st.session_state:
         active = repo.get_active_game_version()
-        st.session_state["selected_version"] = active.version_id if active else "v1.2.0-beta-weekend2"
+        st.session_state["selected_version"] = active.version_id if active else "v1.3.0-launch"
 
     if "available_rulesets" not in st.session_state or not st.session_state.get("available_rulesets"):
         rulesets = repo.get_rulesets()
@@ -67,7 +67,7 @@ def render_sidebar_controls(repo: IntelligenceRepository) -> Tuple[str, str, Rul
     st.sidebar.markdown("### 🎛️ Global Intelligence Scope")
 
     versions = repo.get_game_versions()
-    version_ids = [v.version_id for v in versions] or ["v1.2.0-beta-weekend2"]
+    version_ids = [v.version_id for v in versions] or ["v1.3.0-launch"]
     curr_ver_idx = version_ids.index(st.session_state["selected_version"]) if st.session_state["selected_version"] in version_ids else 0
 
     selected_ver = st.sidebar.selectbox(
