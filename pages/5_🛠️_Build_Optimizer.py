@@ -264,7 +264,7 @@ with tab_gunsmith:
 
             # Display Gamer Mode Bottom-Line Verdict and Stat Bars
             st.markdown("---")
-            render_bottom_line_verdict(eval_build, baseline, weapon.weapon_class.value)
+            render_bottom_line_verdict(eval_build, baseline, weapon)
             render_gamer_tradeoff_pills(eval_build, baseline)
             render_gamer_stat_bars(eval_build, baseline)
 

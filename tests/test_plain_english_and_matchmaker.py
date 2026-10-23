@@ -160,3 +160,129 @@ def test_get_attachment_unlock_level():
     assert get_attachment_unlock_level("Slate Reflector") == 3
     assert get_attachment_unlock_level("Cyclone Long Barrel") == 12
     assert get_attachment_unlock_level("Unknown Prototype") == 10
+
+
+
+def test_mw4_launch_attachment_effects_and_verdict_signature():
+    """Verify MW4 launch attachments return precise gameplay benefits and bottom line verdict handles EvaluatedBuildStats."""
+    from src.ui.plain_english import get_attachment_plain_effects, render_bottom_line_verdict
+    from src.database.models import EvaluatedBuildStats, Attachment, AttachmentSlot, Weapon, WeaponClass
+
+    # MW4 2026 Launch specific attachments
+    cannonade_effs = get_attachment_plain_effects("barrel_ft_cannonade", "FT Cannonade 7\"")
+    assert any("range" in e.lower() or "velocity" in e.lower() for e in cannonade_effs)
+
+    peq_effs = get_attachment_plain_effects("laser_sz_gen6_peq", "SZ Gen.6 PEQ")
+    assert any("sprint" in e.lower() or "aim" in e.lower() for e in peq_effs)
+
+    overpressured_effs = get_attachment_plain_effects("ammo_556_overpressured", "5.56 NATO Overpressured")
+    assert any("flinch" in e.lower() for e in overpressured_effs)
+
+    mag45_effs = get_attachment_plain_effects("mag_45_round", "45 Round Mag")
+    assert any("bullets" in e.lower() for e in mag45_effs)
+
+    # Test deduplication
+    assert len(cannonade_effs) <= 2
+    assert len(peq_effs) <= 2
+    assert len(overpressured_effs) <= 2
+
+    mock_att = Attachment(
+        attachment_id="att_test_1",
+        name="FT Cannonade 7\"",
+        slot=AttachmentSlot.BARREL,
+        description="Test barrel"
+    )
+
+    eval_build = EvaluatedBuildStats(
+        weapon_id="m4_mw4",
+        weapon_name="M4",
+        build_label="Custom M4",
+        game_version_id="v1.3.0-launch",
+        ruleset_id="core",
+        attachment_ids=["att_test_1"],
+        attachments_applied=[mock_att],
+        effective_rpm=810.0,
+        effective_ads_ms=240.0,
+        effective_sprint_to_fire_ms=210.0,
+        effective_bullet_velocity_mps=880.0,
+        effective_reload_empty_s=2.2,
+        effective_reload_tactical_s=1.8,
+        effective_recoil_horizontal=12.0,
+        effective_recoil_vertical=22.0,
+        effective_hipfire_spread_deg=4.0,
+        effective_move_speed_mps=6.5,
+        effective_ads_move_speed_mps=3.2,
+        effective_mag_size=45,
+        range_multiplier=1.21,
+        recoil_index=0.78,
+        mobility_index=1.0,
+        sustainability_index=1.0,
+        close_ttk_ms=296.0,
+        mid_ttk_ms=370.0,
+        long_ttk_ms=444.0,
+        close_pet_ms=450.0,
+        mid_pet_ms=530.0,
+        long_pet_ms=620.0,
+        damage_per_mag=1400.0,
+        kills_per_mag=4.5,
+        effective_reload_add_ammo_s=1.4,
+        effective_swap_speed_raise_ms=220.0,
+        effective_swap_speed_drop_ms=180.0,
+        balance_score=85.0
+    )
+
+    baseline = EvaluatedBuildStats(
+        weapon_id="m4_mw4",
+        weapon_name="M4",
+        build_label="Naked M4",
+        game_version_id="v1.3.0-launch",
+        ruleset_id="core",
+        attachment_ids=[],
+        attachments_applied=[],
+        effective_rpm=810.0,
+        effective_ads_ms=240.0,
+        effective_sprint_to_fire_ms=210.0,
+        effective_bullet_velocity_mps=800.0,
+        effective_reload_empty_s=2.2,
+        effective_reload_tactical_s=1.8,
+        effective_recoil_horizontal=14.0,
+        effective_recoil_vertical=28.0,
+        effective_hipfire_spread_deg=4.0,
+        effective_move_speed_mps=6.5,
+        effective_ads_move_speed_mps=3.2,
+        effective_mag_size=30,
+        range_multiplier=1.0,
+        recoil_index=1.0,
+        mobility_index=1.0,
+        sustainability_index=1.0,
+        close_ttk_ms=296.0,
+        mid_ttk_ms=370.0,
+        long_ttk_ms=444.0,
+        close_pet_ms=450.0,
+        mid_pet_ms=530.0,
+        long_pet_ms=620.0,
+        damage_per_mag=900.0,
+        kills_per_mag=3.0,
+        effective_reload_add_ammo_s=1.4,
+        effective_swap_speed_raise_ms=220.0,
+        effective_swap_speed_drop_ms=180.0,
+        balance_score=80.0
+    )
+
+    weapon = Weapon(
+        weapon_id="m4_mw4",
+        name="M4",
+        weapon_class=WeaponClass.ASSAULT_RIFLE,
+        base_mag_size=30,
+        default_rpm=810.0,
+        fire_modes=["full_auto"]
+    )
+
+    # Calling with (eval_build, baseline, weapon) - must not raise len() error!
+    render_bottom_line_verdict(eval_build, baseline, weapon)
+
+    # Calling with (eval_build, baseline, weapon.weapon_class.value) - must also work!
+    render_bottom_line_verdict(eval_build, baseline, weapon.weapon_class.value)
+
+    # Calling with (weapon, attachments, eval_build, baseline) - must also work!
+    render_bottom_line_verdict(weapon, [mock_att], eval_build, baseline)

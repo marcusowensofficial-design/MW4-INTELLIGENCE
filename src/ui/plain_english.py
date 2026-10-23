@@ -418,67 +418,109 @@ def get_weapon_star_ratings(stats: Any, weapon_class: Any) -> Dict[str, Tuple[in
 # ---------------------------------------------------------------------------
 def get_attachment_plain_effects(att_id: str, att_name: str = "") -> List[str]:
     """Translates technical attachment names into instant, intuitive gameplay benefit tags."""
-    a_id = att_id.lower()
+    target = f"{att_id} {att_name}".lower()
     tags = []
 
-    # Muzzles
-    if "spiritfire" in a_id or "suppressor" in a_id:
-        tags.append("🤫 Hides you from enemy radar")
-        tags.append("🟢 Smoother bullet velocity")
-    elif "compensator" in a_id or "brake" in a_id or "billeted" in a_id:
-        tags.append("🟢 Calms down weapon kick")
-        tags.append("🎯 Keeps gun straight while firing")
-    elif "flash_hider" in a_id:
+    # 1. Ammunition
+    if "overpressured" in target or "+p" in target:
+        tags.append("💥 Inflicts heavy screen flinch on enemies")
+        tags.append("🎯 Throws opponent aim off-target in 1v1s")
+    elif "velocity" in target or "high_velocity" in target:
+        tags.append("🚀 Bullets travel +20% faster (Hitscan feel)")
+        tags.append("🎯 Flatter trajectory across mid-range lanes")
+    elif "armor" in target or "piercing" in target or "ap" in target:
+        tags.append("🛡️ Penetrates cover, doors & thin walls")
+        tags.append("💥 Nullifies enemy body armor")
+    elif "hollow" in target or "frangible" in target:
+        tags.append("⚡ Delays enemy tactical sprint & healing")
+    elif "incendiary" in target or "fire" in target:
+        tags.append("🔥 Burning tick damage blinds enemy screen")
+    elif "slug" in target:
+        tags.append("🎯 High-damage single-slug round (1-Shot Lethal)")
+
+    # 2. Muzzles
+    if "is300" in target or "reverb" in target or "suppressor" in target or "silencer" in target or "spiritfire" in target or "shadowstrike" in target or "colossus" in target:
+        tags.append("🤫 Hides gunfire from enemy radar")
+        tags.append("🟢 Calms vertical recoil & stabilizes velocity")
+    elif "compensator" in target or "brake" in target or "billeted" in target or "mil-tac" in target or "casus" in target or "purifier" in target or "crown" in target or "ported" in target:
+        tags.append("🟢 Locks down vertical recoil jump")
+        tags.append("🎯 Keeps reticle dead-center during sustained bursts")
+    elif "flash_hider" in target:
         tags.append("🟢 Eliminates muzzle flash glare")
 
-    # Barrels
-    if "long" in a_id or "cyclone" in a_id or "heavy" in a_id:
-        tags.append("🎯 More damage at longer distance")
-        tags.append("🟢 Bullets hit target faster")
-        tags.append("⚠️ Slightly slower aim speed")
-    elif "short" in a_id or "phantom" in a_id or "carbine" in a_id:
-        tags.append("⚡ Faster movement & aim speed")
-        tags.append("⚠️ Slightly less damage far away")
-
-    # Underbarrels
-    if "heavy" in a_id or "bruen" in a_id or "stabilizer" in a_id:
-        tags.append("🟢 Huge recoil reduction")
-        tags.append("🎯 Eliminates side-to-side gun shake")
-    elif "handstop" in a_id or "dr6" in a_id or "angled" in a_id:
+    # 3. Underbarrels (Evaluate before Barrels so heavy support grips are not treated as heavy barrels)
+    if "underbarrel" in target or "tac90" in target or "fireline" in target or "bruen" in target or "stabilizer" in target or ("grip" in target and "rear" not in target):
+        tags.append("🟢 Stops horizontal gun shake completely")
+        tags.append("🎯 Dead-flat recoil control")
+    elif "handstop" in target or "dr6" in target or "angled" in target or "edge" in target or "foregrip" in target:
         tags.append("⚡ Snappy sprint-to-fire speed")
         tags.append("⚡ Faster Aim Down Sights")
 
-    # Optics
-    if "reflector" in a_id or "slate" in a_id or "dot" in a_id or "holo" in a_id:
-        tags.append("🎯 Clean, clutter-free red dot sight")
-        tags.append("👁️ Makes targets 10x easier to track")
-    elif "scope" in a_id or "zoom" in a_id or "corio" in a_id:
-        tags.append("🔭 High zoom for far away targets")
+    # 4. Barrels
+    if "cannonade" in target:
+        tags.append("🎯 Extends 5-shot kill range & velocity (+21%)")
+        tags.append("🟢 Optimized for medium-to-long sightlines")
+    elif "crosswind" in target:
+        tags.append("🎯 Extends maximum damage range by +24%")
+        tags.append("🟢 Smoother recoil trajectory")
+    elif "shortline" in target or "short" in target or "phantom" in target or "carbine" in target or "cqb" in target:
+        tags.append("⚡ Faster aim-down-sights & strafe mobility")
+        tags.append("🏃 Snappier sprint-to-shoot recovery")
+    elif "barrel" in target or "long" in target or "cyclone" in target or "fluted" in target or "match" in target or "chf" in target or "reinforced" in target:
+        tags.append("🎯 Pushes damage range out further")
+        tags.append("🟢 Bullets connect on target faster")
 
-    # Magazines
-    if "40" in a_id or "45" in a_id:
+    # 5. Optics
+    if "slimline" in target or "reflex" in target or "slate" in target or "dot" in target or "holo" in target or "mk.3" in target:
+        tags.append("🎯 Ultra-clean sight picture with zero visual clutter")
+        tags.append("👁️ Makes targets 10x easier to track")
+    elif "scope" in target or "zoom" in target or "corio" in target or "eagleseye" in target:
+        tags.append("🔭 Clear magnification for holding long lanes")
+
+    # 6. Magazines
+    if "40" in target or "45" in target:
         tags.append("🔋 +10 to +15 extra bullets per mag")
         tags.append("🛡️ Win 1v2 and 1v3 fights without reloading")
-    elif "50" in a_id or "60" in a_id or "drum" in a_id:
-        tags.append("🔋 Huge ammo capacity (Endless firing)")
-        tags.append("⚠️ Slightly slower movement speed")
+    elif "50" in target or "60" in target or "71" in target or "75" in target or "100" in target or "drum" in target or "belt" in target:
+        tags.append("🔋 Massive ammo capacity for endless suppression")
+        tags.append("⚠️ Slightly slower sprint & aim speed")
 
-    # Stocks
-    if "skeleton" in a_id or "cqb" in a_id or "light" in a_id:
-        tags.append("🏃 Super fast strafing & aim speed")
-    elif "heavy" in a_id or "tac" in a_id or "precision" in a_id:
-        tags.append("🎯 Rock-solid aim stability when taking hits")
+    # 7. Stocks
+    if "dozer" in target or "brace" in target or "precision" in target or "tac" in target:
+        tags.append("🎯 Rock-solid aim stability when taking enemy fire")
+        tags.append("🟢 Cushions sustained automatic recoil")
+    elif "skeleton" in target or "cqb" in target or "light" in target or "no stock" in target:
+        tags.append("🏃 Super fast strafing & omnimovement speed")
 
-    # Rear Grips / Lasers
-    if "laser" in a_id or "grimline" in a_id:
-        tags.append("⚡ Instant sprint-to-shoot reaction")
-    elif "grip" in a_id:
+    # 8. Lasers / PEQ
+    if "peq" in target or "sz" in target or "laser" in target or "laz" in target or "ole-v" in target or "grimline" in target or "point-g3" in target:
+        tags.append("⚡ Cuts sprint-to-fire delay by 15-20%")
+        tags.append("🎯 Instant snap-to-target aiming speed")
+
+    # 9. Rear Grips
+    if "stp" in target or "phantom" in target or "rubber" in target:
+        tags.append("⚡ Faster sprint-to-shoot draw speed")
+    elif "grip" in target:
         tags.append("🟢 Extra flinch & recoil control")
 
-    if not tags:
-        tags = ["✅ Enhances weapon combat performance", "🎯 Tuned for competitive consistency"]
+    # 10. Apex Conversion Kits
+    if "conversion" in target or "apex" in target:
+        tags.append("⚡ Platform Transformation: Custom caliber & fire-rate")
 
-    return tags
+    if not tags:
+        tags = ["✅ Enhances combat handling", "🎯 Tuned for competitive consistency"]
+
+    # Deduplicate while preserving order, max 2 tags for clean UI pills
+    seen = set()
+    deduped = []
+    for t in tags:
+        if t not in seen:
+            seen.add(t)
+            deduped.append(t)
+            if len(deduped) >= 2:
+                break
+
+    return deduped
 
 
 # ---------------------------------------------------------------------------
@@ -871,8 +913,42 @@ def render_gamer_stat_bars(eval_build, baseline=None, weapon=None) -> None:
         """, unsafe_allow_html=True)
 
 
-def render_bottom_line_verdict(weapon, attachments, eval_build, baseline=None) -> None:
+def render_bottom_line_verdict(*args, **kwargs) -> None:
     """Renders a crystal-clear 1-2 sentence tactical verdict answering: What does this build do for me?"""
+    eval_build = None
+    baseline = None
+    weapon_name = "Weapon"
+    attachments = []
+
+    # Detect argument signature
+    if len(args) >= 1 and hasattr(args[0], "attachments_applied"):
+        # Format: (eval_build, baseline, weapon_label_or_obj)
+        eval_build = args[0]
+        if len(args) >= 2 and hasattr(args[1], "attachments_applied"):
+            baseline = args[1]
+        attachments = getattr(eval_build, "attachments_applied", [])
+        weapon_name = getattr(eval_build, "weapon_name", "Weapon")
+        if len(args) >= 3:
+            w_arg = args[2]
+            if hasattr(w_arg, "name"):
+                weapon_name = w_arg.name
+            elif isinstance(w_arg, str) and w_arg:
+                weapon_name = w_arg.replace("_", " ").title()
+    elif len(args) >= 3 and hasattr(args[2], "attachments_applied"):
+        # Format: (weapon, attachments, eval_build, baseline)
+        weapon_obj = args[0]
+        weapon_name = getattr(weapon_obj, "name", str(weapon_obj))
+        attachments = args[1] if isinstance(args[1], list) else []
+        eval_build = args[2]
+        if len(args) >= 4 and hasattr(args[3], "attachments_applied"):
+            baseline = args[3]
+    else:
+        # Fallback keyword extraction
+        eval_build = kwargs.get("eval_build") or (args[0] if args else None)
+        baseline = kwargs.get("baseline") or (args[1] if len(args) > 1 else None)
+        attachments = kwargs.get("attachments") or (getattr(eval_build, "attachments_applied", []) if eval_build else [])
+        weapon_name = kwargs.get("weapon_name") or (getattr(eval_build, "weapon_name", "Weapon") if eval_build else "Weapon")
+
     att_count = len(attachments)
     if att_count == 0:
         st.markdown(
@@ -885,10 +961,10 @@ def render_bottom_line_verdict(weapon, attachments, eval_build, baseline=None) -
         return
 
     # Calculate main benefits
-    recoil_improved = baseline and (eval_build.recoil_index < baseline.recoil_index * 0.90)
-    range_improved = baseline and (eval_build.range_multiplier > 1.10)
+    recoil_improved = baseline and (eval_build.recoil_index < baseline.recoil_index * 0.95)
+    range_improved = baseline and (eval_build.range_multiplier > 1.05)
     mag_improved = baseline and (eval_build.effective_mag_size > baseline.effective_mag_size)
-    ads_faster = baseline and (eval_build.effective_ads_ms < baseline.effective_ads_ms - 15)
+    ads_faster = baseline and (eval_build.effective_ads_ms < baseline.effective_ads_ms - 10)
 
     verdicts = []
     if recoil_improved:
@@ -901,7 +977,7 @@ def render_bottom_line_verdict(weapon, attachments, eval_build, baseline=None) -
         verdicts.append("snaps up to your eye with lightning speed")
 
     if not verdicts:
-        summary_str = f"a balanced, responsive setup tailored for {weapon.name} across Core 6v6 engagements."
+        summary_str = f"a balanced, responsive setup tailored for {weapon_name} across Core 6v6 engagements."
     else:
         summary_str = " and ".join(verdicts) + "."
 
@@ -909,7 +985,7 @@ def render_bottom_line_verdict(weapon, attachments, eval_build, baseline=None) -
         f'<div style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-left: 6px solid #38bdf8; border-radius: 6px; padding: 14px 18px; margin: 14px 0;">'
         f'<div style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: #38bdf8; letter-spacing: 0.5px;">👑 THE BOTTOM LINE VERDICT</div>'
         f'<div style="font-size: 14px; color: #f8fafc; font-weight: 600; margin-top: 4px;">'
-        f'This {att_count}-attachment setup for the {weapon.name} {summary_str}'
+        f'This {att_count}-attachment setup for the {weapon_name} {summary_str}'
         f'</div>'
         f'</div>',
         unsafe_allow_html=True
