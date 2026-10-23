@@ -1,7 +1,7 @@
-# Modern Warfare 4 Beta Perk System Intelligence Report
-**Source**: [timesaver.gg/blog/modern-warfare-4-perks-explained-all-beta-perks](https://timesaver.gg/blog/modern-warfare-4-perks-explained-all-beta-perks)  
-**Date**: August 26, 2026  
-**Context**: Modern Warfare 4 Multiplayer Open Beta (Weekend One: Level 20 Cap | Weekend Two: Level 30 Cap, Aug 28–Sep 1, 2026 | Full Launch: October 23, 2026)
+# Modern Warfare 4 Launch Perk System Intelligence Report
+**Source**: [timesaver.gg/blog/modern-warfare-4-perks-explained-all-launch-perks](https://timesaver.gg/blog/modern-warfare-4-perks-explained-all-launch-perks)  
+**Date**: October 23, 2026  
+**Context**: Modern Warfare 4 Multiplayer Worldwide Launch (`v1.3.0-launch`)
 
 ---
 
@@ -26,7 +26,7 @@
 | Perk Name | In-Game Effect / Tactical Behavior | Unlock Requirement | Meta Impact Tier |
 | :--- | :--- | :--- | :--- |
 | **Quick Fix** | Eliminations and objective captures/defends instantly trigger health regeneration without delay. | **Start (Level 1)** | **S-Tier** (Aggressive Rushers) |
-| **Overkill** | Allows carrying two Primary weapons (e.g. XM4 AR + ISO Nightshade SMG). | **Start (Level 1)** | **S-Tier** (Versatility) |
+| **Overkill** | Allows carrying two Primary weapons (e.g. M4 AR + ISO Nightshade SMG). | **Start (Level 1)** | **S-Tier** (Versatility) |
 | **High Alert** | Screen edges pulse with directional yellow flash when an enemy outside player FOV aims at you. | **Player Rank 16** | **A-Tier** (Situational Awareness) |
 | **Ninja** | Greatly softens footstep audio and reduces audio detection radius across all movement stances. | **Player Rank 20** | **S-Tier** (Search & Destroy / Flank) |
 | **Ghost** | Completely undetectable by enemy UAVs, Portable Radars, Heartbeat Sensors, and AI callouts. | **Player Rank 24** | **S-Tier (God-Tier)** (Weekend 2 Unlock) |
@@ -65,7 +65,7 @@
 ## 3. Meta Class Synergy Recommendations
 
 ### ⚡ Build A: The Undisputed 6v6 Aggressive Rusher (Small Maps / Skyline)
-- **Primary**: XM4 Commando or ISO Nightshade
+- **Primary**: M4 or ISO Nightshade
 - **Perk 1**: `Quick Fix` (Instant health regen on kill to survive multi-man trades)
 - **Perk 2**: `Fast Hands` (Cut weapon swap to 180ms and reloads in half)
 - **Perk 3**: `Battle Hardened` (Immunity to tactical flash spam on tight choke points)
@@ -73,7 +73,7 @@
 - **Lethal**: `Semtex` or `Molotov Cocktail` (Area denial)
 
 ### 👻 Build B: The Ghost Infiltrator (Search & Destroy / Flank Lane)
-- **Primary**: Rival-9 SpecOps or Striker 45
+- **Primary**: X-58 Nyx or PPSh-41
 - **Perk 1**: `Ghost` (Total UAV & portable radar stealth)
 - **Perk 2**: `Bomb Squad` (Survive opening grenade tosses)
 - **Perk 3**: `Ninja` / `Blood Rush` (Silent sprinting and aggressive corner slides)
@@ -81,7 +81,7 @@
 - **Field Upgrade**: `Smoke Wall` (Instant long-lane vision block)
 
 ### 🎯 Build C: The Lane Anchor / Streak Hunter (Scud / Babylon / Protocol)
-- **Primary**: Hyeon Burst or KVD Enforcer
+- **Primary**: Hyeon Burst or Patriot XMR
 - **Perk 1**: `High Alert` (Never get flanked while holding long sightlines)
 - **Perk 2**: `Hardline` (Get UAV at 3 kills, VTOL Jet at 7 kills)
 - **Perk 3**: `Cold-Blooded` (Complete thermal optic and streak immunity)
@@ -93,7 +93,7 @@
 
 ### 🎯 Total Removal of "Hipfire Bloom"
 - **Mechanic**: Unlike previous titles where hipfire spread randomly expanded with RNG bloom bullets, MW4 has **zero hipfire bloom**.
-- **Ballistic Implication**: Hipfire dispersion is a 100% fixed geometric cone dictated strictly by Gunsmith hipfire radius modifiers. Close-range hipfire laser builds on SMGs (ISO Nightshade, Rival-9) are mathematically reliable room clearers.
+- **Ballistic Implication**: Hipfire dispersion is a 100% fixed geometric cone dictated strictly by Gunsmith hipfire radius modifiers. Close-range hipfire laser builds on SMGs (ISO Nightshade, PPSh-41) are mathematically reliable room clearers.
 
 ### 🌐 Networked Trip Wire Traps
 - **Mechanic**: The new **Trip Wire** lethal item allows placing multiple anchors that link together into an explosive laser net across wide doorways and objective corridors.
