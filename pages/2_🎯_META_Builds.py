@@ -237,16 +237,13 @@ for w in target_weapons:
                         sec_att_labels.append(f"<b>[{all_attachments[said].slot.value.upper()}]</b> {all_attachments[said].name}")
                 sec_att_str = " &nbsp;•&nbsp; ".join(sec_att_labels) if sec_att_labels else "Standard Match Sidearm Setup"
 
+                sec_display = b.secondary_name.replace("_mw4", "").replace("_", " ").title() if "_mw4" in b.secondary_name else b.secondary_name
                 st.markdown(
                     f'<div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(129, 140, 248, 0.3); border-left: 4px solid #818cf8; border-radius: 8px; padding: 12px 16px; margin: 14px 0;">'
                     f'<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">'
                     f'<div>'
                     f'<span style="color: #818cf8; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">🔫 Recommended Secondary Companion</span>'
-                    sec_display = b.secondary_name.replace("_mw4", "").replace("_", " ").title() if "_mw4" in b.secondary_name else b.secondary_name
-                st.markdown(
-                    f'<div style="color: #f8fafc; font-size: 1.05rem; font-weight: 700; margin-top: 2px;">{sec_display} <span style="color: #94a3b8; font-size: 0.85rem; font-weight: normal;">— {b.secondary_role}</span></div>',
-                    unsafe_allow_html=True
-                )
+                    f'<div style="color: #f8fafc; font-size: 1.05rem; font-weight: 700; margin-top: 2px;">{sec_display} <span style="color: #94a3b8; font-size: 0.85rem; font-weight: normal;">— {b.secondary_role}</span></div>'
                     f'</div>'
                     f'<div style="color: #cbd5e1; font-size: 0.82rem;">{sec_att_str}</div>'
                     f'</div>'

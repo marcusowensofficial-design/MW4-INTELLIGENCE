@@ -95,3 +95,25 @@ def test_all_seeded_meta_builds_attachment_legality():
         is_legal, err = validate_build_legality(w, equipped_attachments, max_slots=5)
         assert is_legal is True, f"Build {b.build_id} failed legality check: {err}"
 
+
+
+
+def test_all_streamlit_pages_ast_syntax():
+    """Verify that all Streamlit pages and app.py parse cleanly with ast.parse without any SyntaxError."""
+    import ast
+    import glob
+    import os
+    import pytest
+
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    py_files = [os.path.join(root_dir, "app.py")] + glob.glob(os.path.join(root_dir, "pages", "*.py"))
+
+    assert len(py_files) >= 10, f"Expected at least 10 page files, found {len(py_files)}"
+
+    for f_path in py_files:
+        with open(f_path, "r", encoding="utf-8") as f:
+            source = f.read()
+        try:
+            ast.parse(source, filename=f_path)
+        except SyntaxError as e:
+            pytest.fail(f"SyntaxError in Streamlit page {os.path.basename(f_path)}: {e}")
