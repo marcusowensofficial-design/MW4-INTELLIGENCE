@@ -93,6 +93,56 @@ active_mode_label = "Hardcore (30 HP)" if is_hc_mode else ("Core vs Hardcore" if
 target_health_eval = 30.0 if is_hc_mode else 100.0
 eval_ruleset = hc_ruleset if is_hc_mode else core_ruleset
 
+# ---------------------------------------------------------------------------
+# Quick Answers: Zero-Confusion Cheat Sheet
+# ---------------------------------------------------------------------------
+st.markdown("#### ⚡ Quick Answers: Who Kills Fastest? (No Math Required)")
+q1, q2, q3, q4 = st.columns(4)
+with q1:
+    st.markdown(
+        """<div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(245, 158, 11, 0.4); border-top: 3px solid #f59e0b; border-radius: 8px; padding: 12px; height: 100%;">
+            <div style="color: #f59e0b; font-size: 11px; font-weight: 700; text-transform: uppercase;">🏃 Close Combat (0m - 15m)</div>
+            <div style="color: #ffffff; font-size: 15px; font-weight: 800; margin: 4px 0 2px 0;">ISO Nightshade</div>
+            <div style="color: #22c55e; font-size: 12px; font-weight: 700;">⚡ 260ms TTK • 923 RPM</div>
+            <div style="color: #94a3b8; font-size: 11px; margin-top: 4px;">Fastest full-auto CQB melter in MW4. Point-blank shotgun alternate: <b>Rezi-12</b> (0ms).</div>
+        </div>""",
+        unsafe_allow_html=True
+    )
+
+with q2:
+    st.markdown(
+        """<div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(56, 189, 248, 0.4); border-top: 3px solid #38bdf8; border-radius: 8px; padding: 12px; height: 100%;">
+            <div style="color: #38bdf8; font-size: 11px; font-weight: 700; text-transform: uppercase;">🗺️ Mid-Range Lanes (15m - 35m)</div>
+            <div style="color: #ffffff; font-size: 15px; font-weight: 800; margin: 4px 0 2px 0;">Patriot XMR</div>
+            <div style="color: #22c55e; font-size: 12px; font-weight: 700;">👑 279ms TTK • 4-Shot Kill</div>
+            <div style="color: #94a3b8; font-size: 11px; margin-top: 4px;">Undisputed meta AR with zero horizontal recoil. Burst alternative: <b>Hyeon 457</b> (1-burst).</div>
+        </div>""",
+        unsafe_allow_html=True
+    )
+
+with q3:
+    st.markdown(
+        """<div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(168, 85, 247, 0.4); border-top: 3px solid #a855f7; border-radius: 8px; padding: 12px; height: 100%;">
+            <div style="color: #a855f7; font-size: 11px; font-weight: 700; text-transform: uppercase;">🎯 Long Range (35m+)</div>
+            <div style="color: #ffffff; font-size: 15px; font-weight: 800; margin: 4px 0 2px 0;">KG-7 Vulcan & Signal 50</div>
+            <div style="color: #22c55e; font-size: 12px; font-weight: 700;">🎯 0ms 1-Shot Chest Lethality</div>
+            <div style="color: #94a3b8; font-size: 11px; margin-top: 4px;">Top precision bolt sniper. For fast semi-auto spam, use the <b>Signal 50 .50 Cal</b>.</div>
+        </div>""",
+        unsafe_allow_html=True
+    )
+
+with q4:
+    st.markdown(
+        """<div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(239, 68, 68, 0.4); border-top: 3px solid #ef4444; border-radius: 8px; padding: 12px; height: 100%;">
+            <div style="color: #ef4444; font-size: 11px; font-weight: 700; text-transform: uppercase;">💀 Hardcore (30 HP)</div>
+            <div style="color: #ffffff; font-size: 15px; font-weight: 800; margin: 4px 0 2px 0;">Krait P-68 & Hyeon 457</div>
+            <div style="color: #22c55e; font-size: 12px; font-weight: 700;">⚡ 100% 1-Shot Body Lethal</div>
+            <div style="color: #94a3b8; font-size: 11px; margin-top: 4px;">46+ dmg bullets guarantee 1-shot kills across all maps. Fastest draw speed in class.</div>
+        </div>""",
+        unsafe_allow_html=True
+    )
+
+st.markdown("---")
 st.markdown("#### 🎯 2. Weapon Class & Hitbox Filters")
 c1, c2, c3 = st.columns([1.8, 1.2, 1.2])
 

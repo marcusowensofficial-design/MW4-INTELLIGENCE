@@ -127,7 +127,7 @@ def test_tactical_matchmaker_recommendations():
         distance_choice="🗺️ Standard 6v6 Multiplayer (15m - 35m Mid-Range)",
         control_pref="🟢 Maximum Stability & Forgiving Aim (Easiest to Control)"
     )
-    assert rec_laser["weapon_id"] == "xm4"
+    assert rec_laser["weapon_id"] == "m4_mw4"
     assert len(rec_laser["attachments"]) == 5
     assert len(rec_laser["why_it_works"]) > 10
     assert len(rec_laser["combat_tip"]) > 5
@@ -138,7 +138,7 @@ def test_tactical_matchmaker_recommendations():
         distance_choice="🏃 Close Quarters / Small Maps (0m - 15m Point Blank)",
         control_pref="⚡ Super Fast Scope-In & Sprint Reaction Speed"
     )
-    assert rec_cqb["weapon_id"] == "rival_9"
+    assert rec_cqb["weapon_id"] == "iso_nightshade_mw4"
     assert len(rec_cqb["attachments"]) == 5
 
     # 3. Heavy Punch Battle Rifle
@@ -147,7 +147,7 @@ def test_tactical_matchmaker_recommendations():
         distance_choice="🗺️ Standard 6v6 Multiplayer (15m - 35m Mid-Range)",
         control_pref="🟢 Maximum Stability & Forgiving Aim (Easiest to Control)"
     )
-    assert rec_heavy["weapon_id"] == "bas_b"
+    assert rec_heavy["weapon_id"] == "kastov762_mw4"
     assert len(rec_heavy["attachments"]) == 5
 
 

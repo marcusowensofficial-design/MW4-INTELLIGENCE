@@ -42,7 +42,7 @@ render_page_header(
     subtitle="Zero-Guesswork Loadout Intelligence • Tailored 5-Slot Classes for Every Playstyle & Skill Level",
     active_version=selected_ver,
     active_ruleset=selected_rs_id,
-    tag="2026 MW4 BETA"
+    tag="2026 MW4 LAUNCH"
 )
 
 weapons = repo.get_weapons()

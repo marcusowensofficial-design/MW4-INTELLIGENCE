@@ -25,7 +25,10 @@ from src.engines.share_code import encode_loadout_share_code, decode_loadout_sha
 from src.ui.weapon_assets import get_weapon_img_tag
 from src.ui.plain_english import (
     get_attachment_plain_effects,
-    render_field_intel_box
+    render_field_intel_box,
+    render_gamer_stat_bars,
+    render_bottom_line_verdict,
+    render_gamer_tradeoff_pills
 )
 
 
@@ -66,7 +69,7 @@ if not base_stats or not damage_profiles:
 # Tab layout: Manual Gunsmith vs Pareto Optimizer vs 1v1 Duel vs Saved Builds
 tab_gunsmith, tab_pareto, tab_duel, tab_saved = st.tabs([
     "🔧 Gunsmith Customizer & 2D Recoil",
-    "🏆 Pareto-Frontier Optimizer",
+    "🏆 1-Click Smart Build Solver & Pareto",
     "⚔️ 1v1 Gunsmith Duel Arena",
     "💾 Saved Loadouts & Share Codes"
 ])
@@ -259,8 +262,14 @@ with tab_gunsmith:
                 build_label="Naked Baseline"
             )
 
-            # Display stats comparison cards
-            st.markdown("#### 📊 Modified Build Performance vs Baseline")
+            # Display Gamer Mode Bottom-Line Verdict and Stat Bars
+            st.markdown("---")
+            render_bottom_line_verdict(eval_build, baseline, weapon.weapon_class.value)
+            render_gamer_tradeoff_pills(eval_build, baseline)
+            render_gamer_stat_bars(eval_build, baseline)
+
+            # Display quick stats comparison cards
+            st.markdown("#### 📊 Build Quick Metrics vs Baseline")
 
             m1, m2, m3, m4, m5 = st.columns(5)
             with m1:
@@ -338,52 +347,64 @@ with tab_gunsmith:
                     delta=f"{eval_build.damage_per_mag:.0f} Total DMG"
                 )
 
-            # 2D Recoil Spray Pattern Simulation
-            st.markdown("---")
-            st.markdown("#### 🎯 2D Wall Recoil Spray Pattern Simulation (30 Rounds at 10m)")
-            st.caption("Visualizes the exact bullet trajectory and climb reduction achieved by your Gunsmith attachment build vs the naked baseline.")
+            # Deep Pro Lab Expander (Recoil Spray Pattern & Advanced Metrics)
+            with st.expander("🔬 Deep Pro Stats & 2D Recoil Spray Pattern (Advanced Analysts)", expanded=False):
+                st.markdown("#### 🎯 2D Wall Recoil Spray Pattern Simulation (30 Rounds at 10m)")
+                st.caption("Visualizes the exact bullet trajectory and climb reduction achieved by your Gunsmith attachment build vs the naked baseline.")
 
-            # Calculate base recoil simulation
-            base_recoil_sim = simulate_recoil_pattern(
-                weapon_id=weapon.weapon_id,
-                weapon_name=weapon.name,
-                recoil_vertical=base_stats.recoil_vertical,
-                recoil_horizontal=base_stats.recoil_horizontal,
-                rpm=base_stats.rpm,
-                magazine_size=weapon.base_mag_size,
-                vertical_modifier_pct=0.0,
-                horizontal_modifier_pct=0.0,
-                distance_m=10.0
-            )
+                # Calculate base recoil simulation
+                base_recoil_sim = simulate_recoil_pattern(
+                    weapon_id=weapon.weapon_id,
+                    weapon_name=weapon.name,
+                    recoil_vertical=base_stats.recoil_vertical,
+                    recoil_horizontal=base_stats.recoil_horizontal,
+                    rpm=base_stats.rpm,
+                    magazine_size=weapon.base_mag_size,
+                    vertical_modifier_pct=0.0,
+                    horizontal_modifier_pct=0.0,
+                    distance_m=10.0
+                )
 
-            # Calculate custom build recoil simulation
-            vert_mod_total = sum(
-                m.mod_value * (100.0 if abs(m.mod_value) <= 1.0 else 1.0)
-                for a in selected_attachments
-                for m in all_mods
-                if m.attachment_id == a.attachment_id and m.stat_key == "recoil_vertical"
-            )
-            horiz_mod_total = sum(
-                m.mod_value * (100.0 if abs(m.mod_value) <= 1.0 else 1.0)
-                for a in selected_attachments
-                for m in all_mods
-                if m.attachment_id == a.attachment_id and m.stat_key == "recoil_horizontal"
-            )
+                # Calculate custom build recoil simulation
+                vert_mod_total = sum(
+                    m.mod_value * (100.0 if abs(m.mod_value) <= 1.0 else 1.0)
+                    for a in selected_attachments
+                    for m in all_mods
+                    if m.attachment_id == a.attachment_id and m.stat_key == "recoil_vertical"
+                )
+                horiz_mod_total = sum(
+                    m.mod_value * (100.0 if abs(m.mod_value) <= 1.0 else 1.0)
+                    for a in selected_attachments
+                    for m in all_mods
+                    if m.attachment_id == a.attachment_id and m.stat_key == "recoil_horizontal"
+                )
 
-            build_recoil_sim = simulate_recoil_pattern(
-                weapon_id=weapon.weapon_id,
-                weapon_name=f"{weapon.name} Custom",
-                recoil_vertical=base_stats.recoil_vertical,
-                recoil_horizontal=base_stats.recoil_horizontal,
-                rpm=base_stats.rpm,
-                magazine_size=eval_build.effective_mag_size,
-                vertical_modifier_pct=vert_mod_total,
-                horizontal_modifier_pct=horiz_mod_total,
-                distance_m=10.0
-            )
+                build_recoil_sim = simulate_recoil_pattern(
+                    weapon_id=weapon.weapon_id,
+                    weapon_name=f"{weapon.name} Custom",
+                    recoil_vertical=base_stats.recoil_vertical,
+                    recoil_horizontal=base_stats.recoil_horizontal,
+                    rpm=base_stats.rpm,
+                    magazine_size=eval_build.effective_mag_size,
+                    vertical_modifier_pct=vert_mod_total,
+                    horizontal_modifier_pct=horiz_mod_total,
+                    distance_m=10.0
+                )
 
-            fig_recoil = create_recoil_spray_comparison_chart(base_recoil_sim, build_recoil_sim, distance_m=10.0)
-            st.plotly_chart(fig_recoil, use_container_width=True)
+                fig_recoil = create_recoil_spray_comparison_chart(base_recoil_sim, build_recoil_sim, distance_m=10.0)
+                st.plotly_chart(fig_recoil, use_container_width=True)
+
+                st.markdown("##### ⏱️ Complete Ballistic Telemetry Breakdown")
+                pro_col1, pro_col2, pro_col3 = st.columns(3)
+                with pro_col1:
+                    st.write(f"• **Close Combat Latency (PET):** `{eval_build.close_pet_ms:.1f} ms`")
+                    st.write(f"• **Mid-Range Combat Latency:** `{eval_build.mid_pet_ms:.1f} ms`")
+                with pro_col2:
+                    st.write(f"• **Aim-Down-Sights (ADS):** `{eval_build.effective_ads_ms:.1f} ms`")
+                    st.write(f"• **Sprint-To-Fire (STF):** `{eval_build.effective_sprint_to_fire_ms:.1f} ms`")
+                with pro_col3:
+                    st.write(f"• **Bullet Velocity:** `{eval_build.effective_bullet_velocity_mps:.0f} m/s`")
+                    st.write(f"• **Add-Ammo Reload:** `{eval_build.effective_reload_add_ammo_s:.2f} s`")
 
             # Compact Loadout Share Code Box
             share_code = encode_loadout_share_code(
@@ -437,16 +458,27 @@ with tab_gunsmith:
 # TAB 2: Pareto-Frontier Optimizer
 # ---------------------------------------------------------------------------
 with tab_pareto:
-    st.markdown("### 🏆 Multi-Objective Pareto-Frontier Build Optimizer")
+    st.markdown("### 🏆 1-Click Smart Build Solver & Multi-Objective Pareto Lab")
     render_field_intel_box(
-        title="What is a Pareto-Optimal Build?",
-        text="The <b>Pareto-Frontier Solver</b> tests hundreds of attachment combinations automatically. It uncovers the mathematically superior 'sweet spot' builds where you get the <b>lowest possible recoil with the fastest possible aim speed</b>.<br>"
-             "• If a build is on the green frontier curve, no other combination in the game can beat its speed without making its recoil worse.",
-        tip="If you want an objectively superior loadout without guessing, equip any build listed in the Non-Dominated Pareto Roster!"
+        title="Don't Want to Do the Math? Choose an Instant Build Goal:",
+        text="Click any of the 3 instant smart solvers below to let the algorithm find the mathematically optimal loadout for your exact playstyle in seconds, or run the full Pareto Frontier to explore all tradeoff curves.",
+        tip="Once a smart build is found, it highlights the 5 optimal attachments and real-time stats immediately!"
     )
 
-    if st.button("🚀 Run Pareto-Frontier Optimizer", type="primary"):
-        with st.spinner(f"Computing Pareto frontier for {weapon.name}..."):
+    col_s1, col_s2, col_s3 = st.columns(3)
+    solve_goal = None
+    with col_s1:
+        if st.button("🎯 Solve: Zero-Recoil Laser", use_container_width=True, type="secondary"):
+            solve_goal = "recoil"
+    with col_s2:
+        if st.button("⚡ Solve: Fast CQB Rusher", use_container_width=True, type="secondary"):
+            solve_goal = "speed"
+    with col_s3:
+        if st.button("⚖️ Solve: Balanced Pro Meta", use_container_width=True, type="secondary"):
+            solve_goal = "meta"
+
+    if solve_goal:
+        with st.spinner(f"Solving optimal {solve_goal.upper()} build for {weapon.name}..."):
             candidates = generate_candidate_builds(
                 weapon=weapon,
                 base_stats=base_stats,
@@ -456,35 +488,90 @@ with tab_pareto:
                 damage_profiles=damage_profiles,
                 max_combinations=500
             )
+            if candidates:
+                if solve_goal == "recoil":
+                    best_cand = min(candidates, key=lambda c: c.recoil_index)
+                    goal_title = "🎯 Solved: Mathematically Lowest Recoil Laser Setup"
+                elif solve_goal == "speed":
+                    best_cand = min(candidates, key=lambda c: c.effective_ads_ms + c.effective_sprint_to_fire_ms)
+                    goal_title = "⚡ Solved: Maximum Agility & Fastest ADS/STF Setup"
+                else:
+                    pareto_front, _ = compute_pareto_frontier(candidates)
+                    best_cand = min(pareto_front, key=lambda c: c.recoil_index * 0.5 + (c.effective_ads_ms / 10.0)) if pareto_front else candidates[0]
+                    goal_title = "⚖️ Solved: #1 Balanced Pro Tournament Meta Setup"
 
-            pareto_front, all_points = compute_pareto_frontier(candidates)
-            st.session_state["pareto_front"] = pareto_front
-            st.session_state["all_points"] = all_points
+                st.session_state["smart_solution"] = {
+                    "title": goal_title,
+                    "cand": best_cand,
+                    "att_names": [a.name for a in best_cand.attachments]
+                }
 
-    if "pareto_front" in st.session_state and "all_points" in st.session_state:
-        pareto_front = st.session_state["pareto_front"]
-        all_points = st.session_state["all_points"]
+    if "smart_solution" in st.session_state:
+        sol = st.session_state["smart_solution"]
+        b = sol["cand"]
+        st.success(f"#### {sol['title']}")
+        c_att_box, c_stat_box = st.columns([1.5, 1])
+        with c_att_box:
+            st.markdown("##### 🛠️ 5 Recommended Attachments:")
+            if b.attachments:
+                for a in b.attachments:
+                    st.markdown(f"• **{a.slot.value.replace('_', ' ').title()}:** `{a.name}`")
+            else:
+                st.caption("No attachments needed (Naked baseline is optimal)")
+        with c_stat_box:
+            st.markdown("##### 📊 Solved Build Performance:")
+            st.write(f"• **Gun Kick (Recoil Index):** `{b.recoil_index:.1f}`")
+            st.write(f"• **Aim Speed (ADS):** `{b.effective_ads_ms:.0f} ms`")
+            st.write(f"• **Sprint-To-Fire Speed:** `{b.effective_sprint_to_fire_ms:.0f} ms`")
+            st.write(f"• **Practical Combat Time:** `{b.close_pet_ms:.0f} ms`")
+            
+        st.markdown("---")
 
-        st.markdown(f"**Evaluated {len(all_points)} builds:** Found **{len(pareto_front)} Non-Dominated Pareto Builds** ⭐")
+    # Collapsible Pro Pareto Scatter & Matrix
+    with st.expander("🔬 Deep Pareto Frontier Scatter Plot & Roster (Advanced Analysts)", expanded=False):
+        st.markdown("#### 🏆 Multi-Objective Pareto-Frontier Optimizer")
+        st.caption("Tests hundreds of attachment combinations automatically to find non-dominated sweet-spot builds.")
 
-        # Scatter plot
-        fig_pareto = create_pareto_scatter_chart(all_points, title=f"Pareto Tradeoff: PET vs Recoil ({weapon.name})")
-        st.plotly_chart(fig_pareto, use_container_width=True)
+        if st.button("🚀 Run Full Pareto Exploration (500 Combinations)", type="primary"):
+            with st.spinner(f"Computing Pareto frontier for {weapon.name}..."):
+                candidates = generate_candidate_builds(
+                    weapon=weapon,
+                    base_stats=base_stats,
+                    available_attachments=all_attachments,
+                    all_modifiers=all_mods,
+                    ruleset=active_ruleset,
+                    damage_profiles=damage_profiles,
+                    max_combinations=500
+                )
 
-        st.markdown("#### 📋 Non-Dominated Pareto Build Roster")
-        pareto_rows = []
-        for idx, p in enumerate(pareto_front):
-            pareto_rows.append({
-                "Rank": f"⭐ Front #{idx + 1}",
-                "Build Label": p.build_label,
-                "Practical Combat Time": f"{p.practical_engagement_ms:.0f} ms",
-                "Gun Kick (Recoil)": f"{p.recoil_index:.1f}",
-                "Scope-In Speed (ADS)": f"{p.effective_ads_ms:.0f} ms",
-                "Range Bonus": f"+{((p.effective_range_multiplier - 1.0) * 100):.0f}%",
-                "Attachments Equipped": ", ".join(p.attachment_names) if p.attachment_names else "Naked (0 Attachments)"
-            })
+                pareto_front, all_points = compute_pareto_frontier(candidates)
+                st.session_state["pareto_front"] = pareto_front
+                st.session_state["all_points"] = all_points
 
-        st.dataframe(pd.DataFrame(pareto_rows), use_container_width=True, hide_index=True)
+        if "pareto_front" in st.session_state and "all_points" in st.session_state:
+            pareto_front = st.session_state["pareto_front"]
+            all_points = st.session_state["all_points"]
+
+            st.markdown(f"**Evaluated {len(all_points)} builds:** Found **{len(pareto_front)} Non-Dominated Pareto Builds** ⭐")
+
+            # Scatter plot
+            fig_pareto = create_pareto_scatter_chart(all_points, title=f"Pareto Tradeoff: PET vs Recoil ({weapon.name})")
+            st.plotly_chart(fig_pareto, use_container_width=True)
+
+            st.markdown("#### 📋 Non-Dominated Pareto Build Roster")
+            pareto_rows = []
+            for idx, p in enumerate(pareto_front):
+                pareto_rows.append({
+                    "Rank": f"⭐ Front #{idx + 1}",
+                    "Build Label": p.build_label,
+                    "Practical Combat Time": f"{p.practical_engagement_ms:.0f} ms",
+                    "Gun Kick (Recoil)": f"{p.recoil_index:.1f}",
+                    "Scope-In Speed (ADS)": f"{p.effective_ads_ms:.0f} ms",
+                    "Range Bonus": f"+{((p.effective_range_multiplier - 1.0) * 100):.0f}%",
+                    "Attachments Equipped": ", ".join(p.attachment_names) if p.attachment_names else "Naked (0 Attachments)"
+                })
+
+            st.dataframe(pd.DataFrame(pareto_rows), use_container_width=True, hide_index=True)
 
 # ---------------------------------------------------------------------------
 # TAB 3: 1v1 Gunsmith Duel Arena
