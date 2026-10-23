@@ -737,7 +737,7 @@ def get_matchmaker_recommendation(
                 "build_name": "👑 CDL Pro Zero-Recoil Beam",
                 "role_badge": "👑 #1 Best All-Rounder in MW4",
                 "ease_rating": "★★★★★ (Effortless Laser)",
-                "why_it_works": "The XM4 is the gold standard of MW4. It has a forgiving fire rate, rapid aim speed, and virtually zero kick, making it dominate both 15m and 35m gunfights.",
+                "why_it_works": "The M4 is the gold standard of MW4. It has a forgiving fire rate, rapid aim speed, and virtually zero kick, making it dominate both 15m and 35m gunfights.",
                 "attachments": [
                     ("Muzzle", "VT-7 Spiritfire Suppressor", "Hides gunfire on radar and smooths recoil"),
                     ("Barrel", "Cyclone Long Barrel", "Increases bullet velocity and effective range"),

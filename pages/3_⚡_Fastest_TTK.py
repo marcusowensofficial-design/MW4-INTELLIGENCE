@@ -35,7 +35,7 @@ selected_ver, selected_rs_id, active_ruleset = render_sidebar_controls(repo)
 
 render_page_header(
     title="⚡ Fastest Time-to-Kill (TTK) Leaderboard",
-    subtitle="Definitive Ranking of the Fastest Killing Weapons in Modern Warfare 4 Beta Across All Distances",
+    subtitle="Definitive Ranking of the Fastest Killing Weapons in Modern Warfare 4 Launch Across All Distances",
     active_version=selected_ver,
     active_ruleset=selected_rs_id
 )

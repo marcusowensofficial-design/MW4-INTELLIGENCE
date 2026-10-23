@@ -200,7 +200,7 @@ with c_arch1:
         '<div style="background: rgba(15,23,42,0.7); border: 1px solid rgba(56,189,248,0.3); border-radius: 8px; padding: 14px; text-align: center;">'
         '<div style="font-size: 24px; margin-bottom: 4px;">👑</div>'
         '<h4 style="color:#ffffff; margin:0 0 4px 0; font-size:15px;">Zero-Recoil Laser</h4>'
-        '<p style="color:#94a3b8; font-size:11.5px; margin-bottom:8px;"><b>XM4 (Assault Rifle)</b><br>Easiest gun in the game to shoot straight.</p>'
+        '<p style="color:#94a3b8; font-size:11.5px; margin-bottom:8px;"><b>M4 (Assault Rifle)</b><br>Easiest gun in the game to shoot straight.</p>'
         '<span style="color:#38bdf8; font-size:11px; font-weight:700;">⭐⭐⭐⭐⭐ Very Easy</span>'
         '</div>',
         unsafe_allow_html=True

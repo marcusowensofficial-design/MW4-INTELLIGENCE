@@ -1,7 +1,7 @@
 """
 MW4 Weapon Intelligence Lab - Verified META Builds & Pro Class Hub
 Interactive catalog of CDL Tournament Pro setups, Laboratory Pareto-Optimal classes,
-Omnimovement Rushers, and Zero-Recoil Beamers across all 24 Modern Warfare 4 weapons.
+Omnimovement Rushers, and Zero-Recoil Beamers across all 33 Modern Warfare 4 weapons.
 """
 
 import os
@@ -43,7 +43,7 @@ render_page_header(
     subtitle="Inspect, compare, and copy verified CDL Pro tournament loadouts, Laboratory Pareto classes, and community meta setups.",
     active_version=selected_ver,
     active_ruleset=selected_rs_id,
-    tag="2026 MW4 BETA"
+    tag="2026 MW4 LAUNCH"
 )
 
 # Field Intel Explainer
@@ -53,7 +53,7 @@ render_field_intel_box(
          "• <b>👑 CDL Pro Meta:</b> Tournament-legal, ultra-reliable all-round setups.<br>"
          "• <b>🎯 Zero-Recoil Beamer:</b> Built specifically for the easiest possible gun control (virtually zero kick).<br>"
          "• <b>⚡ Max Speed Rusher:</b> Maximum sprint speed and quick-aim reaction time for aggressive close-range play.",
-    tip="If you want the easiest experience in multiplayer, pick any 'Zero-Recoil Beamer' preset with a Slate Reflector red dot optic!"
+    tip="If you want the easiest experience in multiplayer, pick any 'Zero-Recoil Beamer' preset with a Slimline Elite red dot optic!"
 )
 
 # Fetch all weapons and available meta builds from database
@@ -242,7 +242,11 @@ for w in target_weapons:
                     f'<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">'
                     f'<div>'
                     f'<span style="color: #818cf8; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">🔫 Recommended Secondary Companion</span>'
-                    f'<div style="color: #f8fafc; font-size: 1.05rem; font-weight: 700; margin-top: 2px;">{b.secondary_name} <span style="color: #94a3b8; font-size: 0.85rem; font-weight: normal;">— {b.secondary_role}</span></div>'
+                    sec_display = b.secondary_name.replace("_mw4", "").replace("_", " ").title() if "_mw4" in b.secondary_name else b.secondary_name
+                st.markdown(
+                    f'<div style="color: #f8fafc; font-size: 1.05rem; font-weight: 700; margin-top: 2px;">{sec_display} <span style="color: #94a3b8; font-size: 0.85rem; font-weight: normal;">— {b.secondary_role}</span></div>',
+                    unsafe_allow_html=True
+                )
                     f'</div>'
                     f'<div style="color: #cbd5e1; font-size: 0.82rem;">{sec_att_str}</div>'
                     f'</div>'

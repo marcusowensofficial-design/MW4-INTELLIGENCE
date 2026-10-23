@@ -135,7 +135,7 @@ else:
     else:
         active_weights = DEFAULT_EMPIRICAL_WEIGHTS
 
-# Fallback 2026 MW4 Beta Industry Ratings Directory (Authentic 17 MW4 Weapons)
+# Fallback 2026 MW4 Launch Industry Ratings Directory (Authentic 17 MW4 Weapons)
 default_outlet_data = {
     "patriot_xmr_mw4": {"wzstats": "S-Tier 👑", "wzranked": "S-Tier 👑", "codmunity": "S-Tier 👑", "dexerto": "S-Tier 👑", "charlie": "S-Tier 👑", "dotesports": "S-Tier 👑", "consensus": "🔥 UNANIMOUS S-TIER META", "badge_color": "#f59e0b"},
     "iso_nightshade_mw4": {"wzstats": "S-Tier 👑", "wzranked": "S-Tier 👑", "codmunity": "S-Tier 👑", "dexerto": "S-Tier 👑", "charlie": "S-Tier 👑", "dotesports": "S-Tier 👑", "consensus": "🔥 UNANIMOUS S-TIER SMG", "badge_color": "#f59e0b"},
@@ -531,7 +531,7 @@ with tab_telemetry:
 with tab_consensus:
     c_mat_title, c_mat_btn = st.columns([3, 1])
     with c_mat_title:
-        st.markdown("### 🌐 Multi-Authority Meta Consensus Matrix (2026 MW4 Beta)")
+        st.markdown("### 🌐 Multi-Authority Meta Consensus Matrix (2026 MW4 Launch)")
         st.caption("Compare our **Mathematical Ballistic Balance Score** alongside official tier rankings from 6 leading Call of Duty competitive analytics & publication authorities (**WZStats.gg**, **WZRanked**, **CODMunity**, **Dexerto**, **CharlieIntel**, and **Dot Esports**).")
     with c_mat_btn:
         st.write("")
@@ -585,7 +585,7 @@ with tab_consensus:
             color_continuous_scale=["#38bdf8", "#818cf8", "#f59e0b", "#ef4444"],
             text=df_lead["Pick Rate %"].apply(lambda v: f"{v:.1f}% Pick"),
             hover_data={"Weapon": True, "Class": True, "Pick Rate %": ':.1f', "Player K/D": ':.2f', "Tier": True, "Consensus Tag": True, "Recommended Secondary": True},
-            title="🔥 Top 10 Community Pick-Rate & K/D Efficiency Leaderboard (2026 MW4 Beta)"
+            title="🔥 Top 10 Community Pick-Rate & K/D Efficiency Leaderboard (2026 MW4 Launch)"
         )
         fig_lead.update_layout(
             template="plotly_dark",
