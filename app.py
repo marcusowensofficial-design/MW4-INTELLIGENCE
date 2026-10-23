@@ -8,13 +8,10 @@ if ROOT_DIR not in sys.path:
 
 import streamlit as st
 import pandas as pd
-from datetime import datetime, timezone
 from src.ui.theme import inject_custom_theme, render_page_header
 from src.ui.state import init_session_state, render_sidebar_controls
 from src.engines.balance_scorer import calculate_balance_score
 from src.engines.confidence_scorer import calculate_evidence_confidence
-from src.ingestion.web_scraper import PatchNotesScraper
-from src.database.connection import db_manager
 
 
 st.set_page_config(
@@ -40,96 +37,7 @@ try:
 except Exception:
     pass
 
-# ---------------------------------------------------------------------------
-# Global 24-Hour Freshness Warning & One-Click Live Update Center
-# ---------------------------------------------------------------------------
-snapshots = repo.get_source_snapshots()
-now_utc = datetime.now(timezone.utc)
 
-is_outdated = False
-last_sync_str = "Never"
-hours_since_sync = 999.0
-
-if snapshots:
-    try:
-        latest_snap = snapshots[0]
-        # Handle ISO strings with or without timezone
-        snap_time_str = latest_snap.fetch_timestamp
-        if "+" in snap_time_str or "Z" in snap_time_str:
-            snap_dt = datetime.fromisoformat(snap_time_str.replace("Z", "+00:00"))
-        else:
-            snap_dt = datetime.fromisoformat(snap_time_str).replace(tzinfo=timezone.utc)
-        
-        diff = now_utc - snap_dt
-        hours_since_sync = diff.total_seconds() / 3600.0
-        last_sync_str = f"{hours_since_sync:.1f} hours ago"
-        if hours_since_sync >= 24.0:
-            is_outdated = True
-    except Exception:
-        is_outdated = True
-else:
-    is_outdated = True
-
-# Prominent Warning Banner if >= 24 hours outdated
-if is_outdated:
-    st.markdown(
-        f'<div style="background: rgba(239, 68, 68, 0.15); border: 2px solid #ef4444; border-left: 8px solid #ef4444; border-radius: 8px; padding: 14px 18px; margin-bottom: 18px;">'
-        f'<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">'
-        f'<div>'
-        f'<h4 style="color:#f87171; margin:0; font-size:16px;">⚠️ OUTDATED INTELLIGENCE ALERT (Last Synchronized: {last_sync_str})</h4>'
-        f'<p style="color:#fca5a5; font-size:12px; margin:4px 0 0 0;">'
-        f'Weapon stats and patch notes have not been synchronized in over 24 hours. Modern Warfare 4 launch day updates or stealth hotfixes may be missing.'
-        f'</p>'
-        f'</div>'
-        f'</div>'
-        f'</div>',
-        unsafe_allow_html=True
-    )
-else:
-    st.markdown(
-        f'<div style="background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-left: 6px solid #22c55e; border-radius: 6px; padding: 10px 16px; margin-bottom: 18px;">'
-        f'<span style="color:#4ade80; font-size:13px; font-weight:600;">🟢 Intelligence Fresh:</span>'
-        f'<span style="color:#cbd5e1; font-size:12px;"> Latest patch notes and live weapon feeds verified {last_sync_str}.</span>'
-        f'</div>',
-        unsafe_allow_html=True
-    )
-
-# One-Click Master Update Action Button
-col_btn, col_info = st.columns([1, 2])
-with col_btn:
-    update_all_clicked = st.button(
-        "🚀 UPDATE ALL GUNS AND PATCH NOTES NOW",
-        type="primary",
-        use_container_width=True,
-        help="Scrapes official Call of Duty patch notes, checks candidate month URLs (/2026/10/ and /2026/11/), updates Parquet snapshots, and triggers database verification."
-    )
-
-with col_info:
-    st.caption("⚡ **Live Sync Action:** Resolves monthly rollover paths, crawls official patch feeds, hashes raw snapshots, and runs background Parquet backup.")
-
-if update_all_clicked:
-    with st.spinner("Scraping official Call of Duty patch notes, WZStats, WZRanked telemetry, and updating database..."):
-        from src.ingestion.community_scraper import CommunityMetaScraper
-        scraper = PatchNotesScraper(repo)
-        comm_scraper = CommunityMetaScraper(repo)
-        
-        success, msg, data = scraper.scrape_and_ingest()
-        comm_res = comm_scraper.sync_all_platforms(selected_ver)
-        att_res = comm_scraper.sync_wzstats_loadouts_and_attachments()
-        
-        # Trigger Parquet snapshot export
-        import os
-        snap_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "snapshots")
-        db_manager.export_all_to_parquet(snap_dir)
-        
-        if success:
-            st.success(f"✅ {msg} Synchronized 6 community authority platforms and updated attachment popularity distributions.")
-            st.toast("Weapon stats, patch notes & community telemetry updated successfully!", icon="🎯")
-            st.rerun()
-        else:
-            st.error(msg)
-
-st.markdown("---")
 
 from src.ui.plain_english import (
     render_tactical_ballistics_codex,
@@ -232,6 +140,41 @@ with c3:
     )
     if hasattr(st, "page_link"):
         st.page_link("pages/5_🛠️_Build_Optimizer.py", label="Launch Build Optimizer", icon="🛠️")
+
+st.markdown("<div style='margin-top: 10px;'></div>", unsafe_allow_html=True)
+r2_col1, r2_col2, r2_col3, r2_col4 = st.columns(4)
+
+with r2_col1:
+    st.markdown(
+        '<div class="stat-card"><h4 style="color:#f43f5e; margin:0 0 6px 0;">💀 Hardcore Tactical Lab</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:6px;">30 HP lethality matrices, 1-shot kill range breakpoints, and Core vs Hardcore dynamics.</p></div>',
+        unsafe_allow_html=True
+    )
+    if hasattr(st, "page_link"):
+        st.page_link("pages/6_💀_Hardcore_Lab.py", label="Launch Hardcore Lab", icon="💀")
+
+with r2_col2:
+    st.markdown(
+        '<div class="stat-card"><h4 style="color:#a855f7; margin:0 0 6px 0;">📜 Patch Tracker & Lineage</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:6px;">Time-machine patch walks, cumulative stat lineage reconstructions, and version diffing.</p></div>',
+        unsafe_allow_html=True
+    )
+    if hasattr(st, "page_link"):
+        st.page_link("pages/7_📜_Patch_Tracker.py", label="Launch Patch Tracker", icon="📜")
+
+with r2_col3:
+    st.markdown(
+        '<div class="stat-card"><h4 style="color:#2dd4bf; margin:0 0 6px 0;">🔍 Evidence & Provenance</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:6px;">Searchable 4-tier audit trail tracking test methodology, confidence ratings, and source receipts.</p></div>',
+        unsafe_allow_html=True
+    )
+    if hasattr(st, "page_link"):
+        st.page_link("pages/8_🔍_Data_Provenance.py", label="Launch Provenance Explorer", icon="🔍")
+
+with r2_col4:
+    st.markdown(
+        '<div class="stat-card"><h4 style="color:#94a3b8; margin:0 0 6px 0;">⚙️ Data Admin Suite</h4><p style="font-size:12px; color:#cbd5e1; margin-bottom:6px;">Official patch notes scraping, screenshot OCR ingestion, Parquet snapshots, and database maintenance.</p></div>',
+        unsafe_allow_html=True
+    )
+    if hasattr(st, "page_link"):
+        st.page_link("pages/9_⚙️_Data_Admin.py", label="Launch Data Admin", icon="⚙️")
 
 st.markdown("---")
 

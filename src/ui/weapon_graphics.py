@@ -9,7 +9,7 @@ from typing import Dict
 
 # High-fidelity COD Gunsmith HUD Blueprint SVGs with glowing neon accents & micro-details
 WEAPON_SVG_MAP: Dict[str, str] = {
-    # XM4 / MCW / AR Class: Detailed Quad-rail M4/ACR platform with optic, stock, and STANAG magazine
+    # M4 / Patriot XMR / AR Class: Detailed Quad-rail M4/AR platform with optic, stock, and STANAG magazine
     "assault_rifle": (
         '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
         '<path d="M12 24 L45 24 L52 18 L100 18 L108 22 L160 22 L170 26 L215 26 L215 30 L170 30 L160 34 L130 34 L122 52 L106 52 L112 34 L90 34 L82 48 L70 48 L76 34 L42 34 L25 50 L12 50 Z" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="1.8" stroke-linejoin="round"/>'
@@ -25,7 +25,7 @@ WEAPON_SVG_MAP: Dict[str, str] = {
         '</svg>'
     ),
 
-    # Rival-9 / Striker / SMG Class: Compact PDW receiver with curved high-capacity stick mag & compensator
+    # ISO Nightshade / PPSh-41 / SMG Class: Compact PDW receiver with curved high-capacity stick mag & compensator
     "submachine_gun": (
         '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
         '<path d="M20 26 L55 26 L65 20 L125 20 L135 26 L175 26 L175 31 L135 31 L125 35 L108 35 L98 54 L84 54 L92 35 L72 35 L65 48 L52 48 L58 35 L32 35 L22 48 L10 48 Z" fill="rgba(251, 191, 36, 0.15)" stroke="#fbbf24" stroke-width="1.8" stroke-linejoin="round"/>'
@@ -39,7 +39,7 @@ WEAPON_SVG_MAP: Dict[str, str] = {
         '</svg>'
     ),
 
-    # BAS-B / Sidewinder: Heavy 7.62 Battle Rifle with reinforced upper receiver & high-caliber magazine
+    # Cronen Squall / Oden: Heavy Battle Rifle with reinforced upper receiver & high-caliber magazine
     "battle_rifle": (
         '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
         '<path d="M10 24 L48 24 L58 17 L110 17 L120 22 L172 22 L182 26 L225 26 L225 30 L182 30 L172 34 L140 34 L132 54 L114 54 L120 34 L95 34 L88 49 L75 49 L82 34 L45 34 L28 50 L10 50 Z" fill="rgba(192, 132, 252, 0.15)" stroke="#c084fc" stroke-width="1.8" stroke-linejoin="round"/>'
@@ -52,7 +52,7 @@ WEAPON_SVG_MAP: Dict[str, str] = {
         '</svg>'
     ),
 
-    # KVD Enforcer / Marksman: Semi-auto DMR with precision target optic & skeletonized stock
+    # MAR-9 / Oris 8.6: Semi-auto DMR with precision target optic & skeletonized stock
     "marksman_rifle": (
         '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
         '<path d="M12 25 L50 25 L60 19 L115 19 L125 23 L180 23 L190 26 L230 26 L230 29 L190 29 L180 33 L145 33 L138 49 L122 49 L128 33 L98 33 L92 46 L80 46 L86 33 L50 33 L32 47 L12 47 Z" fill="rgba(45, 212, 191, 0.15)" stroke="#2dd4bf" stroke-width="1.8" stroke-linejoin="round"/>'
@@ -64,7 +64,7 @@ WEAPON_SVG_MAP: Dict[str, str] = {
         '</svg>'
     ),
 
-    # KATT-AMR .50 / Longbow: Heavy .50 Cal Anti-Material Sniper with Thermal Scope & Heavy Muzzle Brake
+    # KG-7 Vulcan / Signal 50: Precision Heavy Sniper with Thermal Scope & Heavy Muzzle Brake
     "sniper_rifle": (
         '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
         '<path d="M8 26 L45 26 L55 20 L110 20 L120 22 L190 22 L200 24 L235 24 L235 28 L200 28 L190 32 L150 32 L142 48 L126 48 L132 32 L92 32 L85 45 L72 45 L78 32 L42 32 L25 46 L8 46 Z" fill="rgba(74, 222, 128, 0.15)" stroke="#4ade80" stroke-width="1.8" stroke-linejoin="round"/>'
@@ -75,7 +75,7 @@ WEAPON_SVG_MAP: Dict[str, str] = {
         '</svg>'
     ),
 
-    # Bruen Mk9 / Pulemyot: Heavy Squad Automatic Weapon with 100-round ammo box & heat shield
+    # Type 73 / FiNN LMG: Heavy Squad Automatic Weapon with high capacity belt & heat shield
     "light_machine_gun": (
         '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
         '<path d="M10 22 L50 22 L60 17 L115 17 L125 21 L180 21 L190 24 L225 24 L225 28 L190 28 L180 34 L140 34 L132 55 L102 55 L110 34 L92 34 L85 48 L72 48 L78 34 L48 34 L28 48 L10 48 Z" fill="rgba(249, 115, 22, 0.15)" stroke="#f97316" stroke-width="1.8" stroke-linejoin="round"/>'
@@ -88,7 +88,7 @@ WEAPON_SVG_MAP: Dict[str, str] = {
         '</svg>'
     ),
 
-    # Lockwood 680: Tactical 12-Gauge Pump Action Shotgun with extended magazine tube
+    # Rezi 12 / Warlord: Tactical 12-Gauge Pump Action Shotgun with extended magazine tube
     "shotgun": (
         '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
         '<path d="M12 26 L55 26 L65 20 L130 20 L140 23 L210 23 L210 28 L140 28 L130 33 L95 33 L88 47 L75 47 L82 33 L50 33 L32 46 L12 46 Z" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1.8" stroke-linejoin="round"/>'
@@ -98,7 +98,7 @@ WEAPON_SVG_MAP: Dict[str, str] = {
         '</svg>'
     ),
 
-    # COR-45 / Renetti: Sidearm Tactical Pistol with light rail & serrated slide
+    # Krait P68 / .50 GS: Sidearm Tactical Pistol with light rail & serrated slide
     "handgun": (
         '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
         '<path d="M65 20 L160 20 L160 28 L135 28 L128 52 L98 52 L110 33 L82 33 L65 33 Z" fill="rgba(168, 85, 247, 0.15)" stroke="#a855f7" stroke-width="1.8" stroke-linejoin="round"/>'
@@ -109,7 +109,7 @@ WEAPON_SVG_MAP: Dict[str, str] = {
         '</svg>'
     ),
 
-    # PILA / RPG / JOKR: Heavy Shoulder-Fired Rocket / Missile Launcher
+    # PILA / RPG-8 / JOKR: Heavy Shoulder-Fired Rocket / Missile Launcher
     "launcher": (
         '<svg viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 50px; display: block;">'
         '<rect x="25" y="24" width="185" height="14" rx="2" fill="rgba(234, 179, 8, 0.15)" stroke="#eab308" stroke-width="1.8"/>'

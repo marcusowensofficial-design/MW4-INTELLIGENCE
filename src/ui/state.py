@@ -95,7 +95,7 @@ def render_sidebar_controls(repo: IntelligenceRepository) -> Tuple[str, str, Rul
     active_ruleset = repo.get_ruleset(selected_rs_id) or Ruleset(ruleset_id="core", name="Core 100 HP", target_health=100.0)
 
     st.sidebar.markdown("---")
-    st.sidebar.caption("⚡ **MW4 Intel Lab v2.0-Alpha**")
+    st.sidebar.caption("⚡ **MW4 Intel Lab • Worldwide Launch (v1.3.0)**")
     st.sidebar.caption("🔒 Local-First DuckDB • No Memory Hooks")
 
     return selected_ver, selected_rs_id, active_ruleset

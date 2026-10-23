@@ -134,9 +134,10 @@ all_attachments = {a.attachment_id: a for a in repo.get_attachments()}
 all_modifiers = repo.get_attachment_modifiers(version_id=selected_ver)
 
 # Render Weapon Meta Cards
+is_all_selected = chosen_weapon_name == "All Weapons (" + str(len(filtered_weapons)) + ")"
 for w in target_weapons:
     w_builds = builds_by_weapon.get(w.weapon_id, [])
-    if not w_builds and chosen_archetype != "All Archetypes":
+    if not w_builds and is_all_selected:
         continue
 
     stats = repo.get_weapon_stats(w.weapon_id, selected_ver)
@@ -155,7 +156,7 @@ for w in target_weapons:
         )
 
         if not w_builds:
-            st.info(f"No specific '{chosen_archetype}' setup cataloged for {w.name}. Select 'All Archetypes' or choose another weapon.")
+            st.info(f"No specific '{chosen_archetype}' setup cataloged for {w.name}. You can engineer and tune custom builds in Gunsmith Lab.")
             continue
 
         # Render Archetype Tabs for this weapon

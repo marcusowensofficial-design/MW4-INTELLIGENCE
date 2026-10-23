@@ -15,13 +15,13 @@ from src.database.models import WeaponClass, WeaponVersionStats
 
 def test_get_weapon_plain_summary_known_weapons():
     """Verify curated dossiers are returned for key weapons and aliases."""
-    xm4_dossier = get_weapon_plain_summary("patriot_xmr_mw4")
-    assert "4-Shot" in xm4_dossier["role_title"]
-    assert len(xm4_dossier["summary"]) > 10
+    patriot_dossier = get_weapon_plain_summary("patriot_xmr_mw4")
+    assert "4-Shot" in patriot_dossier["role_title"]
+    assert len(patriot_dossier["summary"]) > 10
 
-    rival_dossier = get_weapon_plain_summary("iso_nightshade_mw4")
-    assert "SMG" in rival_dossier["role_title"]
-    assert "close-quarters" in rival_dossier.get("summary", "") or "close-range" in rival_dossier.get("summary", "")
+    iso_dossier = get_weapon_plain_summary("iso_nightshade_mw4")
+    assert "SMG" in iso_dossier["role_title"]
+    assert "close-quarters" in iso_dossier.get("summary", "") or "close-range" in iso_dossier.get("summary", "")
 
 
 def test_get_weapon_plain_summary_dynamic_stats():

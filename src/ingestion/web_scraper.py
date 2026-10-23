@@ -118,7 +118,7 @@ class PatchNotesScraper:
         # Heuristic extraction of weapon adjustments from lists
         for li in soup.find_all(["li", "p"]):
             text = li.get_text().strip()
-            # Match patterns like: "XM4: Increased close range damage to 32 (was 30)" or "ADS Speed decreased by 10ms"
+            # Match patterns like: "Patriot XMR: Increased close range damage to 32 (was 30)" or "ADS Speed decreased by 10ms"
             if any(k in text.lower() for k in ["damage", "ads", "sprint to fire", "recoil", "velocity", "range", "rpm"]):
                 if len(text) < 250:
                     detected_adjustments.append({
@@ -173,8 +173,8 @@ class PatchNotesScraper:
                 "adjustments_count": 3,
                 "adjustments": [
                     {"raw_text": "Patriot XMR: Bullet velocity increased from 735m/s to 750m/s."},
-                    {"raw_text": "Rival-9 SpecOps: Sprint to fire time improved by 10ms (160ms -> 150ms)."},
-                    {"raw_text": "BAS-B: Recoil vertical reduced from 41 to 38."}
+                    {"raw_text": "ISO Nightshade: Sprint to fire time improved by 10ms (160ms -> 150ms)."},
+                    {"raw_text": "Kastov 762: Recoil vertical reduced from 41 to 38."}
                 ],
                 "status": "official_capture"
             }

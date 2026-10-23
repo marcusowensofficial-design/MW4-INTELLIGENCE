@@ -51,6 +51,37 @@ render_field_intel_box(
     tip="If you want an easy time, look for weapons in S or A Tier that have low recoil (like the Patriot XMR or M4)!"
 )
 
+# ---------------------------------------------------------------------------
+# 1. Primary Health Mode & Ruleset Focus (Core 100 HP vs Hardcore 30 HP)
+# ---------------------------------------------------------------------------
+st.markdown("#### 🎮 1. Select Combat Health Ruleset Focus")
+
+ruleset_options = [
+    "🟢 Core Mode (100 HP Standard Multiplayer)",
+    "💀 Hardcore Mode (30 HP High-Lethality Tactical)"
+]
+current_rs_idx = 0 if selected_rs_id != "hardcore" else 1
+
+if hasattr(st, "segmented_control"):
+    chosen_ruleset_label = st.segmented_control(
+        "Active Combat Ruleset:",
+        options=ruleset_options,
+        default=ruleset_options[current_rs_idx],
+        help="Instantly shifts all tier rankings and calculations between 100 HP Core and 30 HP Hardcore."
+    ) or ruleset_options[current_rs_idx]
+else:
+    chosen_ruleset_label = st.radio(
+        "Active Combat Ruleset:",
+        options=ruleset_options,
+        index=current_rs_idx,
+        horizontal=True,
+        help="Instantly shifts all tier rankings and calculations between 100 HP Core and 30 HP Hardcore."
+    )
+
+is_hc_ruleset = "Hardcore" in chosen_ruleset_label
+board_ruleset_id = "hardcore" if is_hc_ruleset else "core"
+board_ruleset = repo.get_ruleset(board_ruleset_id) or active_ruleset
+
 # Ranking Mode Selector
 st.markdown("#### 🎯 Competitive Ranking Engine Mode")
 c_engine_col1, c_engine_col2 = st.columns([2, 1])
@@ -151,7 +182,7 @@ default_outlet_data = {
     "mar9_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "🎯 RAPID-FIRE DMR", "badge_color": "#38bdf8"},
     "rezi12_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "B-Tier 🔷", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "🚪 CQB BREACH SHOTGUN", "badge_color": "#38bdf8"},
     "gs50_mw4": {"wzstats": "A-Tier ⭐", "wzranked": "A-Tier ⭐", "codmunity": "A-Tier ⭐", "dexerto": "A-Tier ⭐", "charlie": "A-Tier ⭐", "dotesports": "A-Tier ⭐", "consensus": "🔫 1-SHOT HEAD CANNON", "badge_color": "#38bdf8"},
-    "m4_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "A-Tier ⭐", "codmunity": "B-Tier 🔷", "dexerto": "A-Tier ⭐", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "🛡️ 810-RPM WORKHORSE", "badge_color": "#4ade80"},
+    "m4_mw4": {"wzstats": "S-Tier 🔥", "wzranked": "S-Tier 🔥", "codmunity": "S-Tier 🔥", "dexerto": "S-Tier 🔥", "charlie": "S-Tier 🔥", "dotesports": "S-Tier 🔥", "consensus": "👑 UNANIMOUS S-TIER WORKHORSE", "badge_color": "#f43f5e"},
     "finn_lmg_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "A-Tier ⭐", "dexerto": "B-Tier 🔷", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷", "consensus": "🛡️ 100-RND SUSTAINED BELT", "badge_color": "#4ade80"},
     "han86_mw4": {"wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "B-Tier 🔷", "dexerto": "B-Tier 🔷", "charlie": "A-Tier ⭐", "dotesports": "B-Tier 🔷", "consensus": "🛡️ LONG-LANE STABILITY", "badge_color": "#4ade80"}
 }
@@ -187,6 +218,16 @@ for w in weapons:
         }
 
 # Outlet points conversion for Consensus Mode
+def resolve_outlet_pts(tier_raw: Any) -> float:
+    if not tier_raw: return 68.0
+    t = str(tier_raw).upper()
+    if "S" in t and ("TIER" in t or t.startswith("S") or "🔥" in t or "👑" in t): return 96.0
+    if "A" in t and ("TIER" in t or t.startswith("A") or "⚡" in t or "⭐" in t): return 82.0
+    if "B" in t and ("TIER" in t or t.startswith("B") or "🔷" in t): return 68.0
+    if "C" in t and ("TIER" in t or t.startswith("C") or "⚙️" in t or "🔶" in t): return 48.0
+    if "D" in t and ("TIER" in t or t.startswith("D") or "🔘" in t): return 28.0
+    return 68.0
+
 outlet_pts_map = {
     "S-Tier 👑": 95.0,
     "A-Tier ⭐": 80.0,
@@ -204,7 +245,7 @@ for w in weapons:
         continue
 
     stats = repo.get_weapon_stats(w.weapon_id, selected_ver)
-    profiles = repo.get_damage_profiles(w.weapon_id, selected_ver, selected_rs_id)
+    profiles = repo.get_damage_profiles(w.weapon_id, selected_ver, board_ruleset_id)
 
     if stats and profiles:
         ev_list = repo.get_evidence_ledger(target_entity_id=w.weapon_id)
@@ -213,7 +254,7 @@ for w in weapons:
             weapon=w,
             stats=stats,
             damage_profiles=profiles,
-            ruleset=active_ruleset,
+            ruleset=board_ruleset,
             custom_weights=active_weights,
             confidence_score=conf,
             use_class_relative_scoring=use_class_rel
@@ -224,12 +265,12 @@ for w in weapons:
             out = outlet_data.get(w.weapon_id, {
                 "wzstats": "B-Tier 🔷", "wzranked": "B-Tier 🔷", "codmunity": "B-Tier 🔷", "dexerto": "B-Tier 🔷", "charlie": "B-Tier 🔷", "dotesports": "B-Tier 🔷"
             })
-            wzs_val = outlet_pts_map.get(out.get("wzstats", "B-Tier 🔷"), 65.0)
-            wzr_val = outlet_pts_map.get(out.get("wzranked", "B-Tier 🔷"), 65.0)
-            cod_val = outlet_pts_map.get(out.get("codmunity", "B-Tier 🔷"), 65.0)
-            dex_val = outlet_pts_map.get(out.get("dexerto", "B-Tier 🔷"), 65.0)
-            cha_val = outlet_pts_map.get(out.get("charlie", "B-Tier 🔷"), 65.0)
-            dot_val = outlet_pts_map.get(out.get("dotesports", "B-Tier 🔷"), 65.0)
+            wzs_val = resolve_outlet_pts(out.get("wzstats"))
+            wzr_val = resolve_outlet_pts(out.get("wzranked"))
+            cod_val = resolve_outlet_pts(out.get("codmunity"))
+            dex_val = resolve_outlet_pts(out.get("dexerto"))
+            cha_val = resolve_outlet_pts(out.get("charlie"))
+            dot_val = resolve_outlet_pts(out.get("dotesports"))
 
             blended_score = (
                 (0.28 * score_res.composite_balance_score) +

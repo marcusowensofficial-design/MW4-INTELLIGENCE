@@ -262,7 +262,7 @@ def inject_custom_theme() -> None:
 def render_page_header(
     title: str,
     subtitle: str = "",
-    active_version: str = "v1.0.0-beta",
+    active_version: str = "v1.3.0-launch",
     active_ruleset: str = "core",
     tag: str = None,
     **kwargs

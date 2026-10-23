@@ -53,7 +53,7 @@ if not weapons:
 # Field Intel Explainer Box
 render_field_intel_box(
     title="How The Matchmaker Finds Your Perfect Weapon",
-    text="Answer 3 simple questions below about how you like to play. The Matchmaker analyzes all 24 Modern Warfare 4 weapons, "
+    text="Answer 3 simple questions below about how you like to play. The Matchmaker analyzes all 33 Modern Warfare 4 launch weapons, "
          "tournament pro presets, and ballistic recoil tensors to give you an <b>optimal weapon + ready-to-copy 5-slot loadout</b> with zero confusion.",
     tip="If you're a casual player who hates weapon kick, pick 'Zero-Kick Laser Beam' with 'Maximum Stability'!"
 )

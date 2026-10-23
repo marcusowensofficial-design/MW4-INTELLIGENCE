@@ -30,7 +30,7 @@ CONSENSUS_DATA = [
         "wzstats": "S-Tier 🔥", "wzranked": "S-Tier 🔥", "codmunity": "S-Tier 🔥",
         "dexerto": "S-Tier 🔥", "charlie": "S-Tier 🔥", "dotesports": "S-Tier 🔥",
         "tag": "👑 S-TIER CQB MELTER", "color": "#f43f5e", "pick_rate": 24.2, "kd": 1.25,
-        "secondary": "Renetti 3-Burst", "win_rate": 55.8, "trend": 3.8, "hs": 19.5, "kpm": 2.45
+        "secondary": "Sang 9mm", "win_rate": 55.8, "trend": 3.8, "hs": 19.5, "kpm": 2.45
     },
     {
         "weapon_id": "m4_mw4",

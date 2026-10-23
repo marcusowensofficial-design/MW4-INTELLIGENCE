@@ -91,12 +91,12 @@ Integrated for both **Core (100 HP)** and **Hardcore (30 HP)** rulesets, giving 
 | `pages/1_🏆_META_Board.py` | **🏆 META Board** | S/A/B/C/D tournament tier classifications, radar balance charts, and multi-authority consensus matrix. |
 | `pages/2_🎯_META_Builds.py` | **🎯 META Builds** | Curated pro tournament loadouts, attachment benefits in plain English, and QR share codes. |
 | `pages/3_⚡_Fastest_TTK.py` | **⚡ Fastest TTK** | Zero-confusion Quick Answers podium, dual 15m vs 25m dropoff matrix, Core vs Hardcore comparison. |
-| `pages/4_🔄_Version_Diff.py` | **🔄 Version Diff** | Patch-over-patch ballistic auditing, buff/nerf deltas, and automated regression detection. |
-| `pages/5_🛠️_Build_Optimizer.py` | **🛠️ Build Optimizer** | Interactive Gunsmith customizer, 1-Click Smart Solvers, 2D recoil spray patterns, and Pareto optimizer. |
-| `pages/6_⚖️_Weapon_Duel_Arena.py` | **⚖️ Duel Arena** | Millisecond-accurate 1v1 shootout duel simulator calculating aim time, trigger pull, and bullet travel. |
-| `pages/7_🔬_Shot_Distribution_Lab.py` | **🔬 Shot Distribution** | Monte Carlo hitbox dispersion simulations evaluating headshot/chest distribution on true TTK. |
-| `pages/8_📑_Evidence_Ledger.py` | **📑 Evidence Ledger** | Immutable 4-tier provenance audit trail with test methodology, confidence ratings, and source URLs. |
-| `pages/9_🛠️_Data_Admin.py` | **🛠️ Data Admin** | Administrative tools for patch ingestion, OCR screenshot scanning, and database management. |
+| `pages/4_🔫_Weapon_Lab.py` | **🔫 Weapon Lab** | Compare continuous TTK curves, human reaction times, and physical gun stats with plain-English ratings. |
+| `pages/5_🛠️_Build_Optimizer.py` | **🛠️ Build Optimizer** | Interactive Gunsmith customizer, 1-Click Smart Solvers, 2D recoil spray patterns, 1v1 duel arena, and Pareto optimizer. |
+| `pages/6_💀_Hardcore_Lab.py` | **💀 Hardcore Lab** | 30 HP lethality matrices, 1-shot kill range breakpoints, and Core vs Hardcore comparison. |
+| `pages/7_📜_Patch_Tracker.py` | **📜 Patch Tracker** | Time-machine patch walks, cumulative stat lineage reconstructions, and version vs version diffing. |
+| `pages/8_🔍_Data_Provenance.py` | **🔍 Data Provenance** | Immutable 4-tier provenance audit trail with test methodology, confidence ratings, and source receipts. |
+| `pages/9_⚙️_Data_Admin.py` | **⚙️ Data Admin** | Administrative tools for patch ingestion, OCR screenshot scanning, and Parquet database backups. |
 
 ---
 
@@ -131,12 +131,12 @@ MW4GUNBEAST/
 │   ├── 1_🏆_META_Board.py
 │   ├── 2_🎯_META_Builds.py
 │   ├── 3_⚡_Fastest_TTK.py
-│   ├── 4_🔄_Version_Diff.py
+│   ├── 4_🔫_Weapon_Lab.py
 │   ├── 5_🛠️_Build_Optimizer.py
-│   ├── 6_⚖️_Weapon_Duel_Arena.py
-│   ├── 7_🔬_Shot_Distribution_Lab.py
-│   ├── 8_📑_Evidence_Ledger.py
-│   └── 9_🛠️_Data_Admin.py
+│   ├── 6_💀_Hardcore_Lab.py
+│   ├── 7_📜_Patch_Tracker.py
+│   ├── 8_🔍_Data_Provenance.py
+│   └── 9_⚙️_Data_Admin.py
 │
 ├── src/                               # Core Python engine suite
 │   ├── database/                      # Schema, connection manager, and models

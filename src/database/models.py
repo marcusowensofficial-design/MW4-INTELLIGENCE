@@ -174,7 +174,7 @@ class Ruleset(BaseModel):
 
 class Weapon(BaseModel):
     weapon_id: str = Field(..., description="Unique weapon code, e.g. 'patriot_xmr_mw4'")
-    name: str = Field(..., description="In-game display name, e.g. 'XM4'")
+    name: str = Field(..., description="In-game display name, e.g. 'M4'")
     weapon_class: WeaponClass
     firing_mode: FiringMode = Field(default=FiringMode.FULL_AUTO)
     default_rpm: float = Field(..., gt=0, description="Rounds per minute")

@@ -13,10 +13,10 @@ from src.engines.attachment_engine import validate_build_legality
 
 def test_meta_build_preset_model_instantiation():
     preset = MetaBuildPreset(
-        build_id="mb_test_xm4",
+        build_id="mb_test_patriot",
         weapon_id="patriot_xmr_mw4",
         game_version_id="v1.0.0-beta",
-        build_name="Test XM4 Build",
+        build_name="Test Patriot XMR Build",
         archetype="cdl_pro",
         archetype_display="👑 CDL Pro Meta",
         source_outlet="CODMunity Test",
@@ -27,16 +27,16 @@ def test_meta_build_preset_model_instantiation():
         tactical_name="Shock Stick",
         lethal_name="Semtex",
         field_upgrade_name="Trophy System",
-        secondary_name="Renetti 3-Burst",
+        secondary_name="Krait P68",
         secondary_role="180ms Pocket Finisher",
         secondary_attachments=["barrel_phantom_short"],
         best_maps="Skyline, Babylon",
         playstyle_notes="Test playstyle notes",
         share_code="MW4-TEST-SHARE-CODE"
     )
-    assert preset.build_id == "mb_test_xm4"
+    assert preset.build_id == "mb_test_patriot"
     assert len(preset.attachment_ids) == 2
-    assert preset.secondary_name == "Renetti 3-Burst"
+    assert preset.secondary_name == "Krait P68"
     assert preset.is_verified_meta is True
 
 
@@ -55,9 +55,9 @@ def test_meta_builds_repository_persistence():
         assert b.secondary_role is not None
 
     # Filter by weapon
-    xm4_builds = repo.get_meta_builds(weapon_id="patriot_xmr_mw4")
-    assert len(xm4_builds) >= 1
-    arch_types = [b.archetype for b in xm4_builds]
+    m4_builds = repo.get_meta_builds(weapon_id="m4_mw4")
+    assert len(m4_builds) >= 1
+    arch_types = [b.archetype for b in m4_builds]
     assert len(arch_types) >= 1
     assert len(arch_types) >= 1
     # assert archetype check

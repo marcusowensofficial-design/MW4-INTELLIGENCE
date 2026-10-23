@@ -117,32 +117,74 @@ def calculate_balance_score(
     long_ttk = ttk_data.long_range_ttk_ms
 
     # 3. Domain normalizations with realistic competitive thresholds
-    # Shotguns & Snipers with 1-shot lethal capabilities receive true 100 CQB/Long scores
-    if weapon.weapon_class == WeaponClass.SHOTGUN:
+    is_hardcore = (ruleset.ruleset_id == "hardcore") or (ruleset.target_health <= 50.0)
+
+    if is_hardcore:
+        # Hardcore (30 HP) Dynamics: 1-shot lethality, rapid ADS draw & fire rate decide gunfights
+        cqb_score = 100.0 if close_ttk == 0.0 else normalize_metric(close_ttk, best_val=0.0, worst_val=120.0)
+        mid_score = 100.0 if mid_ttk == 0.0 else normalize_metric(mid_ttk, best_val=0.0, worst_val=160.0)
+        long_score = 100.0 if long_ttk == 0.0 else normalize_metric(long_ttk, best_val=0.0, worst_val=220.0)
+        
+        # In Hardcore, handling (ADS + STF) determines who shoots first
+        raw_hand = stats.base_ads_ms + stats.sprint_to_fire_ms
+        rpm_factor = normalize_metric(stats.rpm, best_val=950.0, worst_val=350.0)
+        handling_score = round(normalize_metric(raw_hand, best_val=200.0, worst_val=520.0) * 0.7 + rpm_factor * 0.3, 1)
+        recoil_score = normalize_metric(stats.recoil_horizontal * 1.2 + stats.recoil_vertical * 0.5, best_val=15.0, worst_val=50.0)
+        sustainability_score = normalize_metric(float(weapon.base_mag_size), best_val=60.0, worst_val=15.0)
+
+    elif weapon.weapon_class == WeaponClass.SHOTGUN:
         cqb_score = 100.0 if close_ttk == 0.0 else normalize_metric(close_ttk, 0.0, 300.0)
         mid_score = normalize_metric(mid_ttk, 150.0, 600.0)
         long_score = 0.0
+        handling_score = normalize_metric(stats.base_ads_ms + stats.sprint_to_fire_ms, best_val=220.0, worst_val=680.0)
+        recoil_score = normalize_metric(stats.recoil_horizontal + stats.recoil_vertical, best_val=20.0, worst_val=75.0)
+        sustainability_score = normalize_metric(float(weapon.base_mag_size), best_val=60.0, worst_val=15.0)
+
     elif weapon.weapon_class == WeaponClass.SNIPER_RIFLE:
         cqb_score = normalize_metric(close_ttk + stats.base_ads_ms, 300.0, 700.0)
         mid_score = 95.0 if mid_ttk == 0.0 else normalize_metric(mid_ttk, 0.0, 350.0)
         long_score = 100.0 if long_ttk == 0.0 else normalize_metric(long_ttk, 0.0, 350.0)
+        handling_score = normalize_metric(stats.base_ads_ms + stats.sprint_to_fire_ms, best_val=350.0, worst_val=750.0)
+        recoil_score = normalize_metric(stats.recoil_horizontal + stats.recoil_vertical, best_val=20.0, worst_val=75.0)
+        sustainability_score = normalize_metric(float(weapon.base_mag_size), best_val=20.0, worst_val=5.0)
+
+    elif use_class_relative_scoring and weapon.weapon_class == WeaponClass.ASSAULT_RIFLE:
+        # AR Class-Relative Benchmarks: M4, Patriot XMR, Han 86, etc.
+        cqb_score = normalize_metric(close_ttk, best_val=240.0, worst_val=340.0)
+        mid_score = normalize_metric(mid_ttk, best_val=240.0, worst_val=360.0)
+        long_score = normalize_metric(long_ttk, best_val=280.0, worst_val=420.0)
+        # AR handling: ADS + STF with RPM forgiveness bonus (M4's 811 RPM gives huge forgiveness on missed shots)
+        raw_hand = stats.base_ads_ms + stats.sprint_to_fire_ms
+        rpm_bonus = normalize_metric(stats.rpm, best_val=820.0, worst_val=450.0)
+        handling_score = round(normalize_metric(raw_hand, best_val=420.0, worst_val=550.0) * 0.65 + rpm_bonus * 0.35, 1)
+        recoil_score = normalize_metric((stats.recoil_horizontal * 1.3) + stats.recoil_vertical, best_val=45.0, worst_val=80.0)
+        sustainability_score = normalize_metric(float(weapon.base_mag_size), best_val=60.0, worst_val=20.0)
+
+    elif use_class_relative_scoring and weapon.weapon_class == WeaponClass.SUBMACHINE_GUN:
+        cqb_score = normalize_metric(close_ttk, best_val=210.0, worst_val=315.0)
+        mid_score = normalize_metric(mid_ttk, best_val=250.0, worst_val=420.0)
+        long_score = normalize_metric(long_ttk, best_val=300.0, worst_val=520.0)
+        raw_hand = stats.base_ads_ms + stats.sprint_to_fire_ms
+        rpm_bonus = normalize_metric(stats.rpm, best_val=1110.0, worst_val=650.0)
+        handling_score = round(normalize_metric(raw_hand, best_val=280.0, worst_val=440.0) * 0.7 + rpm_bonus * 0.3, 1)
+        recoil_score = normalize_metric(stats.recoil_horizontal + stats.recoil_vertical, best_val=20.0, worst_val=65.0)
+        sustainability_score = normalize_metric(float(weapon.base_mag_size), best_val=71.0, worst_val=25.0)
+
+    elif use_class_relative_scoring and weapon.weapon_class == WeaponClass.LIGHT_MACHINE_GUN:
+        cqb_score = normalize_metric(close_ttk, best_val=210.0, worst_val=340.0)
+        mid_score = normalize_metric(mid_ttk, best_val=210.0, worst_val=380.0)
+        long_score = normalize_metric(long_ttk, best_val=250.0, worst_val=420.0)
+        handling_score = normalize_metric(stats.base_ads_ms + stats.sprint_to_fire_ms, best_val=450.0, worst_val=680.0)
+        recoil_score = normalize_metric(stats.recoil_horizontal + stats.recoil_vertical, best_val=20.0, worst_val=65.0)
+        sustainability_score = normalize_metric(float(weapon.base_mag_size), best_val=100.0, worst_val=45.0)
+
     else:
-        cqb_score = normalize_metric(close_ttk, best_val=140.0, worst_val=360.0)
-        mid_score = normalize_metric(mid_ttk, best_val=190.0, worst_val=420.0)
-        long_score = normalize_metric(long_ttk, best_val=240.0, worst_val=520.0)
-
-    # 4. Handling: Combined ADS + Sprint to Fire
-    combined_handling = stats.base_ads_ms + stats.sprint_to_fire_ms
-    handling_score = normalize_metric(combined_handling, best_val=220.0, worst_val=680.0)
-
-    # 5. Recoil Stability: Horizontal + Vertical + Open Bolt Delay penalty
-    combined_recoil = stats.recoil_horizontal + stats.recoil_vertical
-    recoil_score = normalize_metric(combined_recoil, best_val=20.0, worst_val=75.0)
-
-    # 6. Sustainability: Mag Size + Reload Downtime
-    mag_norm = normalize_metric(float(weapon.base_mag_size), best_val=60.0, worst_val=15.0)
-    reload_norm = normalize_metric(stats.reload_tactical_s, best_val=1.6, worst_val=5.2)
-    sustainability_score = round((mag_norm * 0.6) + (reload_norm * 0.4), 1)
+        cqb_score = normalize_metric(close_ttk, best_val=180.0, worst_val=360.0)
+        mid_score = normalize_metric(mid_ttk, best_val=220.0, worst_val=420.0)
+        long_score = normalize_metric(long_ttk, best_val=260.0, worst_val=520.0)
+        handling_score = normalize_metric(stats.base_ads_ms + stats.sprint_to_fire_ms, best_val=240.0, worst_val=650.0)
+        recoil_score = normalize_metric(stats.recoil_horizontal + stats.recoil_vertical, best_val=20.0, worst_val=75.0)
+        sustainability_score = normalize_metric(float(weapon.base_mag_size), best_val=60.0, worst_val=15.0)
 
     # 7. Base Composite Weighted Score
     raw_composite = (
@@ -156,6 +198,7 @@ def calculate_balance_score(
 
     # 8. Nonlinear Fatal Flaw Bottleneck Penalties (Conjunctive Reality Checks)
     bottleneck_multiplier = 1.0
+    combined_recoil = stats.recoil_horizontal + stats.recoil_vertical
 
     # Fatal Recoil Flaw: If combined recoil > 58, human tracking consistency drops sharply
     if combined_recoil > 58.0 and weapon.weapon_class not in [WeaponClass.SNIPER_RIFLE, WeaponClass.SHOTGUN]:
