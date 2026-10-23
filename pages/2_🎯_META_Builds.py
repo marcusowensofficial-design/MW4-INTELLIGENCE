@@ -67,6 +67,18 @@ if hasattr(repo, "get_meta_builds"):
     except Exception:
         meta_builds_all = []
 
+# Fail-safe check: If M4 is missing from meta_builds_all, force re-sync from parquet snapshot
+if not any(b.weapon_id == 'm4_mw4' for b in meta_builds_all):
+    snap_path = os.path.join(ROOT_DIR, "data", "snapshots", "meta_build_presets.parquet")
+    if os.path.exists(snap_path):
+        conn = repo.manager.get_connection()
+        try:
+            conn.execute("DELETE FROM meta_build_presets")
+            conn.execute("INSERT OR REPLACE INTO meta_build_presets BY NAME SELECT * FROM read_parquet(?)", [snap_path])
+        finally:
+            conn.close()
+        meta_builds_all = repo.get_meta_builds(game_version_id=selected_ver) or repo.get_meta_builds()
+
 # Fetch consensus ratings for tier badges
 consensus_records = {}
 if hasattr(repo, "get_community_consensus"):
@@ -109,6 +121,26 @@ with col_arch:
     chosen_archetype = st.selectbox("Build Archetype / Playstyle", options=archetype_opts, index=0)
 
 # Filter matching builds
+def is_build_matching(b: MetaBuildPreset, chosen_arch: str) -> bool:
+    if chosen_arch == "All Archetypes":
+        return True
+    if b.archetype_display == chosen_arch:
+        return True
+    arch_lower = chosen_arch.lower()
+    b_disp = b.archetype_display.lower()
+    b_raw = b.archetype.lower()
+    if "cdl" in arch_lower and ("cdl" in b_raw or "cdl" in b_disp or "pro" in b_disp or "horizontal" in b_disp):
+        return True
+    if "recoil" in arch_lower and ("recoil" in b_raw or "beam" in b_disp or "horizontal" in b_disp):
+        return True
+    if ("rusher" in arch_lower or "speed" in arch_lower) and ("speed" in b_raw or "rusher" in b_disp or "hose" in b_disp):
+        return True
+    if "stealth" in arch_lower and ("stealth" in b_raw or "ghost" in b_disp or "infiltrator" in b_disp):
+        return True
+    if "pareto" in arch_lower and ("pareto" in b_raw or "lab" in b_disp):
+        return True
+    return False
+
 target_weapons = filtered_weapons
 if chosen_weapon_name != "All Weapons (" + str(len(filtered_weapons)) + ")":
     target_weapons = [w for w in filtered_weapons if w.name == chosen_weapon_name]
@@ -117,7 +149,7 @@ if chosen_weapon_name != "All Weapons (" + str(len(filtered_weapons)) + ")":
 builds_by_weapon: Dict[str, List[MetaBuildPreset]] = {w.weapon_id: [] for w in target_weapons}
 for b in meta_builds_all:
     if b.weapon_id in builds_by_weapon:
-        if chosen_archetype == "All Archetypes" or b.archetype_display == chosen_archetype:
+        if is_build_matching(b, chosen_archetype):
             builds_by_weapon[b.weapon_id].append(b)
 
 total_matching_builds = sum(len(b_list) for b_list in builds_by_weapon.values())

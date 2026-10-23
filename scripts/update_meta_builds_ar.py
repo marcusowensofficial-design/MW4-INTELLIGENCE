@@ -24,7 +24,7 @@ def run_update():
     conn.execute(f"DELETE FROM meta_build_presets WHERE weapon_id IN ({placeholders})", ar_ids)
     print("Deleted all existing Assault Rifle meta builds.")
 
-    # Define user's Horizontal Beam M4 build
+    # User's verified Horizontal Beam M4 build
     # Attachments:
     # 1. Barrel: 16" Highmark Barrel (16_highmark_barrel)
     # 2. Muzzle: Corvus LVL-40 (corvus_lvl_40)
@@ -33,14 +33,14 @@ def run_update():
     # 5. Laser: SZ Gen.6 PEQ (sz_gen_6_peq)
     hbeam_atts = ["16_highmark_barrel", "corvus_lvl_40", "demo_dozer_stock", "slimline_elite", "sz_gen_6_peq"]
 
-    # Insert for v1.3.0-launch
-    m4_launch = MetaBuildPreset(
+    # 1. CDL Pro Meta setup
+    m4_cdl = MetaBuildPreset(
         build_id="meta_m4_horizontal_beam_launch",
         weapon_id="m4_mw4",
         game_version_id="v1.3.0-launch",
         build_name="Horizontal Beam M4 @ Level 70",
         archetype="cdl_pro",
-        archetype_display="👑 Horizontal Beam Laser",
+        archetype_display="👑 CDL Pro Meta (Horizontal Beam)",
         source_outlet="SAIL6 Competitive Meta Lab",
         attachment_ids=hbeam_atts,
         perk_1_name="Quick Fix",
@@ -57,16 +57,42 @@ def run_update():
         share_code="MW4-M4-HBEAM-LVL70",
         is_verified_meta=True
     )
-    repo.upsert_meta_build(m4_launch)
+    repo.upsert_meta_build(m4_cdl)
 
-    # Insert for v1.2.0-beta-weekend2 for backwards-compatibility
+    # 2. Zero-Recoil Beamer setup
+    m4_zr = MetaBuildPreset(
+        build_id="meta_m4_horizontal_beam_zr_launch",
+        weapon_id="m4_mw4",
+        game_version_id="v1.3.0-launch",
+        build_name="Horizontal Beam M4 (Zero-Recoil Beamer)",
+        archetype="zero_recoil",
+        archetype_display="🎯 Zero-Recoil Beamer",
+        source_outlet="SAIL6 Competitive Meta Lab",
+        attachment_ids=hbeam_atts,
+        perk_1_name="Quick Fix",
+        perk_2_name="Fast Hands",
+        perk_3_name="Blood Rush",
+        tactical_name="Stun Grenade",
+        lethal_name="Semtex",
+        field_upgrade_name="Trophy System",
+        secondary_name="krait_p68_mw4",
+        secondary_role="Buffed CQB 46-Damage Sidearm",
+        secondary_attachments=["laser_point_g3p"],
+        best_maps="Skyline, Protocol, Lithium, Babylon",
+        playstyle_notes="Engineered at Weapon Level 70 for absolute horizontal laser stability. Zero kick, pinpoint accuracy, and clean sightlines at all ranges.",
+        share_code="MW4-M4-HBEAM-ZR",
+        is_verified_meta=True
+    )
+    repo.upsert_meta_build(m4_zr)
+
+    # Backwards compatibility for beta weekend 2
     m4_beta = MetaBuildPreset(
         build_id="meta_m4_horizontal_beam_w2",
         weapon_id="m4_mw4",
         game_version_id="v1.2.0-beta-weekend2",
         build_name="Horizontal Beam M4 @ Level 70",
         archetype="cdl_pro",
-        archetype_display="👑 Horizontal Beam Laser",
+        archetype_display="👑 CDL Pro Meta (Horizontal Beam)",
         source_outlet="SAIL6 Competitive Meta Lab",
         attachment_ids=hbeam_atts,
         perk_1_name="Quick Fix",
@@ -79,13 +105,13 @@ def run_update():
         secondary_role="Buffed CQB 46-Damage Sidearm",
         secondary_attachments=["laser_point_g3p"],
         best_maps="Skyline, Protocol, Lithium, Babylon",
-        playstyle_notes="Engineered at Weapon Level 70 for absolute horizontal laser stability. The Corvus LVL-40 muzzle brake and Demo Dozer Stock eliminate horizontal weapon shake, the 16\" Highmark Barrel extends effective 5-shot kill range with +18% bullet velocity, Slimline Optic gives an ultra-clean tournament sight picture, and SZ Gen.6 PEQ recovers aim-down-sights agility.",
+        playstyle_notes="Engineered at Weapon Level 70 for absolute horizontal laser stability.",
         share_code="MW4-M4-HBEAM-LVL70",
         is_verified_meta=True
     )
     repo.upsert_meta_build(m4_beta)
 
-    print("Inserted new Horizontal Beam M4 build into DuckDB.")
+    print("Inserted new Horizontal Beam M4 builds into DuckDB.")
 
     # Export to snapshots
     snapshots_dir = os.path.join(ROOT_DIR, "data", "snapshots")

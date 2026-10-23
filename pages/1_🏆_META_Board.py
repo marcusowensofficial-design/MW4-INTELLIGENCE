@@ -48,7 +48,7 @@ render_field_intel_box(
          "• <b>A-Tier (Top Tier):</b> Extremely competitive options that hold their own against any S-Tier weapon.<br>"
          "• <b>B-Tier (Balanced):</b> Viable and fun for casual play, but may lose 1v1 gunfights to pure meta setups.<br>"
          "• <b>C/D-Tier (Underperforming):</b> Guns with severe recoil or slow fire rates that are currently waiting for developer buffs.",
-    tip="If you want an easy time, look for weapons in S or A Tier that have low recoil (like the Patriot XMR or M4)!"
+    tip="If you want an easy time, look for weapons in S or A Tier with low recoil (like the M4 with our verified Horizontal Beam setup in 🎯 META Builds)!"
 )
 
 # ---------------------------------------------------------------------------
@@ -329,12 +329,14 @@ with tab_tier:
         for s in items:
             img_thumb = get_weapon_img_tag(s.weapon_id, max_height_px=22, max_width_px=48, extra_style="vertical-align: middle; margin-right: 6px;")
             plain_doss = get_weapon_plain_summary(s.weapon_id, s.weapon_name, s.weapon_class.value)
+            b_badge = '<a href="META_Builds" target="_self" style="color:#f59e0b; font-size:10px; margin-left:8px; text-decoration:none; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.3); padding:1px 6px; border-radius:3px; font-weight:700;">🎯 Verified Build</a>' if s.weapon_id == 'm4_mw4' else ''
             pill = (
                 f'<span style="display:inline-flex; align-items:center; background:rgba(15,23,42,0.85); border:1px solid {border_c}; '
                 f'border-radius:6px; padding:5px 10px; font-size:12.5px; font-weight:600; color:#f8fafc; margin-bottom: 4px;">'
                 f'{img_thumb}<b>{s.weapon_name}</b> '
                 f'<span style="color:{text_c}; font-size:11px; font-weight:700; margin-left:6px;">({s.composite_balance_score}/100)</span>'
                 f'<span style="color:#7dd3fc; font-size:10px; margin-left:8px; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.25); padding:1px 6px; border-radius:3px;">{plain_doss["role_title"]}</span>'
+                f'{b_badge}'
                 f'</span>'
             )
             pills_html.append(pill)

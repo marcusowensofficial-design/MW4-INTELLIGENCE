@@ -23,6 +23,19 @@ def get_shared_repository() -> IntelligenceRepository:
     if not weapons or len(weapons) < 33 or not launch_mods:
         from src.database.seed_data import seed_database
         seed_database(db_manager)
+    else:
+        # Fail-safe check: verify M4 launch preset exists in meta_build_presets
+        m4_launch = repo.get_meta_builds(weapon_id='m4_mw4', game_version_id='v1.3.0-launch')
+        if not m4_launch:
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            meta_pq = os.path.join(base_dir, 'data', 'snapshots', 'meta_build_presets.parquet')
+            if os.path.exists(meta_pq):
+                conn = db_manager.get_connection()
+                try:
+                    conn.execute('DELETE FROM meta_build_presets')
+                    conn.execute('INSERT OR REPLACE INTO meta_build_presets BY NAME SELECT * FROM read_parquet(?)', [meta_pq])
+                finally:
+                    conn.close()
         
     return repo
 
