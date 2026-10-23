@@ -17,9 +17,10 @@ def get_shared_repository() -> IntelligenceRepository:
     db_manager.init_database()
     repo = IntelligenceRepository(db_manager)
     
-    # Always ensure full 17 authentic weapons and versions are populated
+    # Always ensure full 33 authentic weapons and launch attachment modifiers are populated
     weapons = repo.get_weapons()
-    if not weapons or len(weapons) < 33:
+    launch_mods = repo.get_attachment_modifiers(version_id='v1.3.0-launch')
+    if not weapons or len(weapons) < 33 or not launch_mods:
         from src.database.seed_data import seed_database
         seed_database(db_manager)
         
