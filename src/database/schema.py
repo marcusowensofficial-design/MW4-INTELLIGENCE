@@ -224,6 +224,15 @@ CREATE TABLE IF NOT EXISTS meta_build_presets (
     created_at VARCHAR NOT NULL
 );
 
+-- 15. Weapon Attachment Compatibility Matrix (Authentic Gunsmith Platform Isolation)
+CREATE TABLE IF NOT EXISTS weapon_attachments (
+    weapon_id VARCHAR NOT NULL,
+    attachment_id VARCHAR NOT NULL,
+    slot VARCHAR NOT NULL,
+    unlock_level INTEGER DEFAULT 1,
+    PRIMARY KEY (weapon_id, attachment_id)
+);
+
 -- Backward-compatible column migrations
 ALTER TABLE weapon_version_stats ADD COLUMN IF NOT EXISTS open_bolt_delay_ms DOUBLE DEFAULT 0.0;
 ALTER TABLE weapon_version_stats ADD COLUMN IF NOT EXISTS reload_add_ammo_s DOUBLE DEFAULT 0.0;

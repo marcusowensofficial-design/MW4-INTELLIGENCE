@@ -78,7 +78,7 @@ if is_outdated:
         f'<div>'
         f'<h4 style="color:#f87171; margin:0; font-size:16px;">⚠️ OUTDATED INTELLIGENCE ALERT (Last Synchronized: {last_sync_str})</h4>'
         f'<p style="color:#fca5a5; font-size:12px; margin:4px 0 0 0;">'
-        f'Weapon stats and patch notes have not been synchronized in over 24 hours. Beta tuning updates or stealth hotfixes may be missing.'
+        f'Weapon stats and patch notes have not been synchronized in over 24 hours. Modern Warfare 4 launch day updates or stealth hotfixes may be missing.'
         f'</p>'
         f'</div>'
         f'</div>'
@@ -101,7 +101,7 @@ with col_btn:
         "🚀 UPDATE ALL GUNS AND PATCH NOTES NOW",
         type="primary",
         use_container_width=True,
-        help="Scrapes official Call of Duty patch notes, checks candidate month URLs (/2026/08/ and /2026/09/), updates Parquet snapshots, and triggers database verification."
+        help="Scrapes official Call of Duty patch notes, checks candidate month URLs (/2026/10/ and /2026/11/), updates Parquet snapshots, and triggers database verification."
     )
 
 with col_info:

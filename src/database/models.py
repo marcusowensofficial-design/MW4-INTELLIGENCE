@@ -242,6 +242,13 @@ class Attachment(BaseModel):
     is_meta_favorite: bool = Field(default=False, description="Whether this attachment is the #1 community favorite for its slot")
 
 
+class WeaponAttachmentLink(BaseModel):
+    weapon_id: str
+    attachment_id: str
+    slot: AttachmentSlot
+    unlock_level: int = Field(default=1, ge=1)
+
+
 class AttachmentModifier(BaseModel):
     mod_id: str
     attachment_id: str

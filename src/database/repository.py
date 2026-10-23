@@ -446,6 +446,39 @@ class IntelligenceRepository:
     def get_attachments(self, weapon_id: Optional[str] = None, slot: Optional[str] = None) -> List[Attachment]:
         conn = self.manager.get_connection()
         try:
+            if weapon_id:
+                check_count = conn.execute(
+                    "SELECT COUNT(*) FROM weapon_attachments WHERE weapon_id = ?", [weapon_id]
+                ).fetchone()[0]
+                if check_count > 0:
+                    query = """
+                        SELECT a.attachment_id, a.name, a.slot, wa.weapon_id, FALSE as is_universal,
+                               wa.unlock_level, a.description, a.pick_rate_pct, a.is_meta_favorite
+                        FROM attachments a
+                        JOIN weapon_attachments wa ON a.attachment_id = wa.attachment_id
+                        WHERE wa.weapon_id = ?
+                    """
+                    params: List[Any] = [weapon_id]
+                    if slot:
+                        query += " AND wa.slot = ?"
+                        params.append(slot)
+                    query += " ORDER BY a.slot ASC, a.pick_rate_pct DESC, wa.unlock_level ASC, a.name ASC"
+                    rows = conn.execute(query, params).fetchall()
+                    return [
+                        Attachment(
+                            attachment_id=r[0],
+                            name=r[1],
+                            slot=AttachmentSlot(r[2]),
+                            weapon_id_compat=r[3],
+                            is_universal=bool(r[4]),
+                            unlock_level=int(r[5]) if len(r) > 5 and r[5] is not None else 1,
+                            description=r[6],
+                            pick_rate_pct=float(r[7]) if len(r) > 7 and r[7] is not None else 0.0,
+                            is_meta_favorite=bool(r[8]) if len(r) > 8 and r[8] is not None else False
+                        )
+                        for r in rows
+                    ]
+
             query = "SELECT attachment_id, name, slot, weapon_id_compat, is_universal, unlock_level, description, pick_rate_pct, is_meta_favorite FROM attachments WHERE 1=1"
             params: List[Any] = []
             if weapon_id:
@@ -471,6 +504,30 @@ class IntelligenceRepository:
                 )
                 for r in rows
             ]
+        finally:
+            conn.close()
+
+    def get_weapon_supported_slots(self, weapon_id: str) -> List[str]:
+        conn = self.manager.get_connection()
+        try:
+            rows = conn.execute(
+                "SELECT DISTINCT slot FROM weapon_attachments WHERE weapon_id = ?",
+                [weapon_id]
+            ).fetchall()
+            return [r[0] for r in rows]
+        finally:
+            conn.close()
+
+    def upsert_weapon_attachment(self, weapon_id: str, attachment_id: str, slot: str, unlock_level: int = 1) -> None:
+        conn = self.manager.get_connection()
+        try:
+            conn.execute(
+                """
+                INSERT OR REPLACE INTO weapon_attachments (weapon_id, attachment_id, slot, unlock_level)
+                VALUES (?, ?, ?, ?)
+                """,
+                [weapon_id, attachment_id, slot, unlock_level]
+            )
         finally:
             conn.close()
 

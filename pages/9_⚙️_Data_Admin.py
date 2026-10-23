@@ -54,13 +54,13 @@ tab_scraper, tab_consensus, tab_metabuilds, tab_csv, tab_ocr, tab_parquet, tab_s
 # ---------------------------------------------------------------------------
 with tab_scraper:
     st.markdown("### 🌐 Automated Patch Notes Scraper & Aggregator")
-    st.caption("Scrapes official Activision patch notes and blog announcements with intelligent monthly rollover resolution (/2026/08/ -> /2026/09/).")
+    st.caption("Scrapes official Activision patch notes and blog announcements with intelligent monthly rollover resolution (/2026/10/ -> /2026/11/).")
 
     col_sc1, col_sc2 = st.columns([3, 1])
     with col_sc1:
         custom_url_input = st.text_input(
             "Target Patch Notes URL (or leave blank to auto-crawl candidate month URLs)",
-            value="https://www.callofduty.com/patchnotes/2026/08/call-of-duty-modern-warfare-4-beta-patch-notes"
+            value="https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes"
         )
         auto_promote_check = st.checkbox("🛡️ Auto-Validate & Apply Directly to Database (Zero Review Friction)", value=True, help="Validates incoming stats against strict physical and mathematical guardrails, applying verified changes directly to DuckDB with evidence records.")
     with col_sc2:
@@ -90,12 +90,12 @@ with tab_scraper:
     st.markdown("---")
     st.markdown("#### 🔄 Dynamic Month Rollover Resolution Table")
     scraper_preview = PatchNotesScraper(repo)
-    cand_urls = scraper_preview.generate_candidate_urls(year=2026, month=8)
+    cand_urls = scraper_preview.generate_candidate_urls(year=2026, month=10)
     cand_rows = [
-        {"Target Month / Destination": "August 2026 (Current)", "Candidate URL": cand_urls[0]},
-        {"Target Month / Destination": "August 2026 (Blog Fallback)", "Candidate URL": cand_urls[1]},
-        {"Target Month / Destination": "September 2026 (Rollover)", "Candidate URL": cand_urls[2]},
-        {"Target Month / Destination": "July 2026 (Archive)", "Candidate URL": cand_urls[3]},
+        {"Target Month / Destination": "October 2026 (Launch Baseline)", "Candidate URL": cand_urls[0]},
+        {"Target Month / Destination": "October 2026 (Blog Fallback)", "Candidate URL": cand_urls[1]},
+        {"Target Month / Destination": "November 2026 (Rollover)", "Candidate URL": cand_urls[2]},
+        {"Target Month / Destination": "September 2026 (Pre-Launch Archive)", "Candidate URL": cand_urls[3]},
         {"Target Month / Destination": "Central Patch Notes Hub", "Candidate URL": cand_urls[4]}
     ]
     st.dataframe(pd.DataFrame(cand_rows), use_container_width=True, hide_index=True)

@@ -98,6 +98,15 @@ with tab_gunsmith:
         ("Ammunition", AttachmentSlot.AMMUNITION),
         ("Rear Grip", AttachmentSlot.REAR_GRIP)
     ]
+    # Dynamically include platform-specific slots if present on this weapon
+    extra_slots = [
+        ("Trigger Action", AttachmentSlot.TRIGGER_ACTION),
+        ("Comb", AttachmentSlot.COMB),
+        ("Guard", AttachmentSlot.GUARD)
+    ]
+    for s_lbl, s_enm in extra_slots:
+        if any(a.slot == s_enm for a in all_attachments):
+            slots.append((s_lbl, s_enm))
 
     # Quick Meta Presets Selector & 1-Click Auto-Equip
     meta_presets = {
@@ -172,18 +181,21 @@ with tab_gunsmith:
         att_display_map = {}
         preset_idx = 0
         for s_idx, a in enumerate(slot_atts):
-            a_mods = [m for m in all_mods if m.attachment_id == a.attachment_id]
-            status_tag = "" if a_mods else " [⏳ Stats Coming Soon]"
             pick_tag = f" (🔥 {a.pick_rate_pct:.0f}% Pick)" if a.pick_rate_pct > 0 else ""
-            disp_label = f"{a.name}{pick_tag}{status_tag}"
+            disp_label = f"{a.name}{pick_tag}"
             att_display_map[disp_label] = a
             if a.attachment_id in preset_att_ids:
                 preset_idx = s_idx + 1 # offset by 1 for "None"
 
         if is_blocked_by_apex:
             att_options = [f"🔒 Integrated by {apex_choice_att.name} APEX"]
+            is_disabled = True
+        elif not slot_atts:
+            att_options = ["🔒 Not Supported on Platform"]
+            is_disabled = True
         else:
             att_options = ["None"] + list(att_display_map.keys())
+            is_disabled = False
             
         target_col = [c_s1, c_s2, c_s3][idx % 3]
 
@@ -191,11 +203,11 @@ with tab_gunsmith:
             choice = st.selectbox(
                 f"{slot_label} Slot",
                 options=att_options,
-                index=0 if is_blocked_by_apex else (preset_idx if preset_idx < len(att_options) else 0),
-                disabled=is_blocked_by_apex,
-                key=f"slot_{slot_enum.value}_{chosen_preset[:6]}_{'auto' if auto_meta_clicked else 'norm'}_{'apex' if apex_choice_att else 'noapex'}"
+                index=0 if is_disabled else (preset_idx if preset_idx < len(att_options) else 0),
+                disabled=is_disabled,
+                key=f"slot_{weapon.weapon_id}_{slot_enum.value}_{chosen_preset[:6]}_{'auto' if auto_meta_clicked else 'norm'}_{'apex' if apex_choice_att else 'noapex'}"
             )
-            if not is_blocked_by_apex and choice != "None":
+            if not is_disabled and choice != "None":
                 chosen_att = att_display_map[choice]
                 selected_attachments.append(chosen_att)
 

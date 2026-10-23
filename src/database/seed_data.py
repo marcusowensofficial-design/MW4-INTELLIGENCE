@@ -53,7 +53,8 @@ def seed_database(manager: DatabaseManager = db_manager) -> None:
         "custom_builds",
         "stat_delta_events",
         "community_meta_consensus",
-        "meta_build_presets"
+        "meta_build_presets",
+            "weapon_attachments"
     ]
     
     loaded_any = False
