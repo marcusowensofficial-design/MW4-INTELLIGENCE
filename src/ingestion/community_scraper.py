@@ -31,7 +31,7 @@ TARGET_PLATFORMS = {
     },
     "wzranked": {
         "name": "WZRanked",
-        "url": "https://wzranked.com/games/call-of-duty-modern-warfare-4/meta/builds",
+        "url": "https://ggranked.com/games/call-of-duty-modern-warfare-4/meta/builds",
         "description": "Pick-Rate & Win-Rate Analytics Platform"
     },
     "codmunity": {
@@ -41,7 +41,7 @@ TARGET_PLATFORMS = {
     },
     "dexerto": {
         "name": "Dexerto",
-        "url": "https://www.dexerto.com/call-of-duty/mw4-meta",
+        "url": "https://www.dexerto.com/wikis/modern-warfare-4/weapon-tier-list/",
         "description": "MW4 Beta Weapon Wiki & Tier Lists"
     },
     "charlie": {
@@ -120,7 +120,37 @@ WEAPON_NAME_TO_ID = {
     "50 gs": "gs50_mw4",
     "gs 50": "gs50_mw4",
     "gs50": "gs50_mw4",
-    "desert eagle": "gs50_mw4"
+    "desert eagle": "gs50_mw4",
+    "axion": "axion_mw4",
+    "oden": "oden_mw4",
+    "cronen squall": "cronen_squall_mw4",
+    "squall": "cronen_squall_mw4",
+    "vel 46": "vel46_mw4",
+    "vel46": "vel46_mw4",
+    "wz.55 striga": "wz55_striga_mw4",
+    "wz55 striga": "wz55_striga_mw4",
+    "striga": "wz55_striga_mw4",
+    "warlord": "warlord_mw4",
+    "apoc-338": "apoc338_mw4",
+    "apoc 338": "apoc338_mw4",
+    "apoc338": "apoc338_mw4",
+    "mosin-nagant": "mosin_nagant_mw4",
+    "mosin nagant": "mosin_nagant_mw4",
+    "mosin": "mosin_nagant_mw4",
+    "astaroth .57": "astaroth57_mw4",
+    "astaroth 57": "astaroth57_mw4",
+    "astaroth": "astaroth57_mw4",
+    "sang 9mm": "sang9mm_mw4",
+    "sang9mm": "sang9mm_mw4",
+    "mojave .357": "mojave357_mw4",
+    "mojave 357": "mojave357_mw4",
+    "mojave": "mojave357_mw4",
+    "pila": "pila_mw4",
+    "rpg-8": "rpg8_mw4",
+    "jokr": "jokr_mw4",
+    "pm-40 anvil": "pm40_anvil_mw4",
+    "fss carbon edge 1095": "fss_carbon_edge_mw4",
+    "fss carbon edge": "fss_carbon_edge_mw4"
 }
 
 
@@ -195,7 +225,7 @@ class CommunityMetaScraper:
 
         return scraped_tiers
 
-    def sync_all_platforms(self, game_version_id: str = "v1.0.0-beta") -> Dict[str, Any]:
+    def sync_all_platforms(self, game_version_id: str = "v1.3.1-patch1") -> Dict[str, Any]:
         """
         Scrapes all 6 platforms, detects delta changes against current database records,
         updates DuckDB consensus records, and generates audit evidence receipts.
@@ -362,7 +392,19 @@ class CommunityMetaScraper:
             "grip_phantom_tac": 72.0,
             "grip_heavy_ergo": 58.0,
             "grip_stippled_rubber": 50.0,
-            "grip_granulated_match": 35.0
+            "grip_granulated_match": 35.0,
+            "fss_fireline_grip": 88.5,
+            "fss_is300": 82.0,
+            "slimline_elite": 84.0,
+            "schlager_visiv_5": 79.5,
+            "zlr_type_c": 77.0,
+            "ftac_dominion": 75.5,
+            "xrk_clutch_ls": 81.0,
+            "demo_stp_1": 78.0,
+            "lm_combat_grip": 76.0,
+            "vb_46_series_11": 74.5,
+            "exp_haste_80l_14": 83.5,
+            "fjx_fury_iv_grip": 80.5
         }
 
         # Track top per slot for is_meta_favorite

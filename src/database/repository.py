@@ -271,7 +271,7 @@ class IntelligenceRepository:
                            reload_add_ammo_s, swap_speed_raise_ms, swap_speed_stow_ms, tac_sprint_speed_mps
                     FROM weapon_version_stats
                     WHERE weapon_id = ?
-                    ORDER BY CASE WHEN game_version_id = 'v1.3.0-launch' THEN 0 WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 1 ELSE 2 END
+                    ORDER BY CASE WHEN game_version_id = 'v1.3.1-patch1' THEN 0 WHEN game_version_id = 'v1.3.0-launch' THEN 1 WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 2 ELSE 3 END
                     LIMIT 1
                     """,
                     [weapon_id]
@@ -389,7 +389,7 @@ class IntelligenceRepository:
                            damage_head, damage_neck, damage_chest, damage_stomach, damage_limbs
                     FROM weapon_damage_profiles
                     WHERE weapon_id = ? AND ruleset_id = 'core'
-                    ORDER BY CASE WHEN game_version_id = 'v1.3.0-launch' THEN 0 WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 1 ELSE 2 END, range_start_m ASC
+                    ORDER BY CASE WHEN game_version_id = 'v1.3.1-patch1' THEN 0 WHEN game_version_id = 'v1.3.0-launch' THEN 1 WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 2 ELSE 3 END, range_start_m ASC
                     """,
                     [weapon_id]
                 ).fetchall()
@@ -1035,6 +1035,8 @@ class IntelligenceRepository:
             if game_version_id:
                 query += " AND game_version_id = ?"
                 params.append(game_version_id)
+            else:
+                query += " ORDER BY CASE WHEN game_version_id = 'v1.3.1-patch1' THEN 3 WHEN game_version_id = 'v1.3.0-launch' THEN 2 WHEN game_version_id = 'v1.2.0-beta-weekend2' THEN 1 ELSE 0 END ASC"
 
             rows = conn.execute(query, params).fetchall()
             result: Dict[str, CommunityMetaConsensus] = {}

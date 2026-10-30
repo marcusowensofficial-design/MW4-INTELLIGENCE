@@ -19,13 +19,13 @@ def get_shared_repository() -> IntelligenceRepository:
     
     # Always ensure full 33 authentic weapons and launch attachment modifiers are populated
     weapons = repo.get_weapons()
-    launch_mods = repo.get_attachment_modifiers(version_id='v1.3.0-launch')
+    launch_mods = repo.get_attachment_modifiers(version_id='v1.3.1-patch1')
     if not weapons or len(weapons) < 33 or not launch_mods:
         from src.database.seed_data import seed_database
         seed_database(db_manager)
     else:
         # Fail-safe check: verify M4 launch preset exists in meta_build_presets
-        m4_launch = repo.get_meta_builds(weapon_id='m4_mw4', game_version_id='v1.3.0-launch')
+        m4_launch = repo.get_meta_builds(weapon_id='m4_mw4', game_version_id='v1.3.1-patch1')
         if not m4_launch:
             base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
             meta_pq = os.path.join(base_dir, 'data', 'snapshots', 'meta_build_presets.parquet')
@@ -108,7 +108,7 @@ def render_sidebar_controls(repo: IntelligenceRepository) -> Tuple[str, str, Rul
     active_ruleset = repo.get_ruleset(selected_rs_id) or Ruleset(ruleset_id="core", name="Core 100 HP", target_health=100.0)
 
     st.sidebar.markdown("---")
-    st.sidebar.caption("⚡ **MW4 Intel Lab • Worldwide Launch (v1.3.0)**")
+    st.sidebar.caption("⚡ **MW4 Intel Lab • Patch 1 (v1.3.1 • Updated Oct 30, 2026)**")
     st.sidebar.caption("🔒 Local-First DuckDB • No Memory Hooks")
 
     return selected_ver, selected_rs_id, active_ruleset

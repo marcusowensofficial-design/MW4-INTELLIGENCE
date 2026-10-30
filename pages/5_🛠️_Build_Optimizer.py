@@ -115,6 +115,7 @@ with tab_gunsmith:
     meta_presets = {
         "Custom (Manual Slot Selection)": [],
         "👑 ISO Nightshade Apex God-Class (923 RPM)": ["zlr-mag-z-9", "ta-lightning-r3m", "schlager-visiv-5", "mire-50-tac-grip", "bruen-mod3"],
+        "💀 ISO Nightshade Hardcore Lethal (2-Shot 222ms Laser)": ["212_lc40_comp", "corio_bisect", "schlager_visiv_5", "demo_stp_1", "exp_g2_44_stock"],
         "⚡ Patriot XMR S-Tier Laser (279ms Meta)": ["zlr-reverb90", "18-le-crosswind", "fss-fireline-grip", "slimline-elite", "5.56-nato-high-velocity"],
         "🛡️ M4 810-RPM Workhorse Laser": ["zlr-reverb90", "18-le-crosswind", "fss-tac90-grip", "slimline-elite", "5.56-nato-high-velocity"],
         "⚡ Hyeon Burst 1-Burst Lethal": ["zlr-reverb90", "fss-fireline-grip", "slimline-elite", "exp-g2-44-stock", "5.56-nato-high-velocity"],
@@ -143,10 +144,10 @@ with tab_gunsmith:
             st.caption("Preset configured.")
 
     if auto_meta_clicked:
-        preset_att_ids = top_comm_ids
+        preset_att_ids = {pid.replace("-", "_").replace(".", "_").replace('"', "").lower() for pid in top_comm_ids}
         st.toast(f"Equipped top {len(top_community_atts)} community meta attachments for {weapon.name}!")
     else:
-        preset_att_ids = set(meta_presets[chosen_preset])
+        preset_att_ids = {pid.replace("-", "_").replace(".", "_").replace('"', "").lower() for pid in meta_presets[chosen_preset]}
 
     # ⚡ Dedicated APEX Attachment Slot (Free Bonus Slot)
     apex_slot_atts = [a for a in all_attachments if a.slot == AttachmentSlot.CONVERSION_KIT]
@@ -187,7 +188,8 @@ with tab_gunsmith:
             pick_tag = f" (🔥 {a.pick_rate_pct:.0f}% Pick)" if a.pick_rate_pct > 0 else ""
             disp_label = f"{a.name}{pick_tag}"
             att_display_map[disp_label] = a
-            if a.attachment_id in preset_att_ids:
+            a_norm = a.attachment_id.replace("-", "_").replace(".", "_").replace('"', "").lower()
+            if a.attachment_id in preset_att_ids or a_norm in preset_att_ids:
                 preset_idx = s_idx + 1 # offset by 1 for "None"
 
         if is_blocked_by_apex:

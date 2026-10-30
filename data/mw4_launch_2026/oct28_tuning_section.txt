@@ -1,0 +1,809 @@
+Our first broad weapon tuning pass is focused on normalizing hit location damage for a more consistent TTK and general improvements to SMG performance.
+Weapon Adjustments
+Assault Rifles
+Weapon
+Adjustments
+Weapon:
+Han 86
+Adjustments:
+Han 86
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Max Damage Range
+ㅤ
+1120
+ㅤ
+→
+ㅤ
+1200 ⇧
+ㅤ
+7% ⇧
+Neck Damage Multiplier
+ㅤ
+1.1
+ㅤ
+→
+ㅤ
+1 ⇩
+ㅤ
+-9% ⇩
+Upper Torso Damage Multiplier
+ㅤ
+1.1
+ㅤ
+→
+ㅤ
+1 ⇩
+ㅤ
+-9% ⇩
+Weapon:
+Kastov 762
+Adjustments:
+Kastov 762
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Max Damage Range
+ㅤ
+950
+ㅤ
+→
+ㅤ
+1050 ⇧
+ㅤ
+11% ⇧
+Weapon:
+M4
+Adjustments:
+M4
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Max Damage Range
+ㅤ
+990
+ㅤ
+→
+ㅤ
+1020 ⇧
+ㅤ
+3% ⇧
+Weapon:
+ODEN
+Adjustments:
+Oden
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Neck Damage Multiplier
+ㅤ
+1.2
+ㅤ
+→
+ㅤ
+1.1 ⇩
+ㅤ
+-8% ⇩
+Upper Torso Damage Multiplier
+ㅤ
+1.2
+ㅤ
+→
+ㅤ
+1.1 ⇩
+ㅤ
+-8% ⇩
+Lower Torso Damage Multiplier
+ㅤ
+1.1
+ㅤ
+→
+ㅤ
+1 ⇩
+ㅤ
+-9% ⇩
+Oden - Sentinel Apex Attachment
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Max Damage Range
+ㅤ
+870
+ㅤ
+→
+ㅤ
+820 ⇩
+ㅤ
+-6% ⇩
+Mid Damage Range 1
+ㅤ
+1810
+ㅤ
+→
+ㅤ
+1740 ⇩
+ㅤ
+-4% ⇩
+Muzzle Velocity
+ㅤ
+-
+ㅤ
+→
+ㅤ
+-0.07
+ㅤ
+-
+Weapon:
+Hyeon Burst
+Adjustments:
+Hyeon Burst - Hyperburst Apex Attachment
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Full-Auto Max Damage
+ㅤ
+37
+ㅤ
+→
+ㅤ
+34 ⇩
+ㅤ
+-8% ⇩
+Full-Auto Max Damage Range
+ㅤ
+970
+ㅤ
+→
+ㅤ
+1220 ⇧
+ㅤ
+26% ⇧
+Mid Damage Range 1
+ㅤ
+Not Specified
+ㅤ
+→
+ㅤ
+Removed
+ㅤ
+-
+Weapon:
+Patriot XMR
+Adjustments:
+Barrels
+Patriot XMR - EXP Haste 80L 14" (Light Barrel)
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Recoil Control Penalty (%)
+ㅤ
+8
+ㅤ
+→
+ㅤ
+6 ⇩
+ㅤ
+-25% ⇩
+Rear Grips
+Patriot XMR - FJX Fury IV Grip (Skeleton Grip)
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Recoil Control Penalty (%)
+ㅤ
+5
+ㅤ
+→
+ㅤ
+4 ⇩
+ㅤ
+-20% ⇩
+SMGs
+Weapon
+Adjustments
+Weapon:
+ISO Nightshade
+Adjustments:
+ISO Nightshade
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Left Lower Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Left Upper Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Left Hand Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Lower Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Upper Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Hand Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Weapon:
+PPSh-41
+Adjustments:
+PPSh-41
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+ADS In Speed (ms)
+ㅤ
+300
+ㅤ
+→
+ㅤ
+280 ⇩
+ㅤ
+-7% ⇩
+ADS Strafe Movement Speed (m/s)
+ㅤ
+2.75
+ㅤ
+→
+ㅤ
+2.78 ⇧
+ㅤ
+1% ⇧
+Crouch Speed (m/s)
+ㅤ
+2.17
+ㅤ
+→
+ㅤ
+2.19 ⇧
+ㅤ
+1% ⇧
+Hipfire Movement Speed (m/s)
+ㅤ
+4.19
+ㅤ
+→
+ㅤ
+4.2 ⇧
+ㅤ
+-
+Movement Speed (m/s)
+ㅤ
+4.66
+ㅤ
+→
+ㅤ
+4.7 ⇧
+ㅤ
+1% ⇧
+Sprint Speed (m/s)
+ㅤ
+6.18
+ㅤ
+→
+ㅤ
+6.21 ⇧
+ㅤ
+-
+Left Lower Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Left Upper Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Left Hand Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Lower Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Upper Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Hand Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Weapon:
+VEL 46
+Adjustments:
+VEL 46
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Left Lower Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Left Upper Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Left Hand Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Lower Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Upper Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Hand Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Weapon:
+Wz.55 Striga
+Adjustments:
+Wz.55 Striga
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Max Damage Range
+ㅤ
+440
+ㅤ
+→
+ㅤ
+470 ⇧
+ㅤ
+7% ⇧
+Mid Damage Range 1
+ㅤ
+825
+ㅤ
+→
+ㅤ
+840 ⇧
+ㅤ
+2% ⇧
+Left Lower Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Left Upper Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Left Hand Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Lower Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Upper Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Hand Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Weapon:
+X-58 Nyx
+Adjustments:
+X-58 Nyx
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Head Damage Multiplier
+ㅤ
+1.25
+ㅤ
+→
+ㅤ
+1.3 ⇧
+ㅤ
+4% ⇧
+Left Lower Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Left Upper Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Left Hand Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Lower Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Upper Arm Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+Right Hand Damage Multiplier
+ㅤ
+0.95
+ㅤ
+→
+ㅤ
+1 ⇧
+ㅤ
+5% ⇧
+X-58 Nyx - Void Apex Attachment
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Chagne
+Max Damage Range
+ㅤ
+437
+ㅤ
+→
+ㅤ
+460 ⇧
+ㅤ
+5% ⇧
+Mid Damage Range 1
+ㅤ
+788
+ㅤ
+→
+ㅤ
+815 ⇧
+ㅤ
+3% ⇧
+LMGs
+Weapon
+Adjustments
+Weapon:
+APOC-338
+Adjustments:
+APOC-338
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Mid Damage 1
+ㅤ
+38
+ㅤ
+→
+ㅤ
+37 ⇩
+ㅤ
+-3% ⇩
+Mid Damage Range 1
+ㅤ
+1980
+ㅤ
+→
+ㅤ
+1900 ⇩
+ㅤ
+-4% ⇩
+Min Damage
+ㅤ
+35
+ㅤ
+→
+ㅤ
+33 ⇩
+ㅤ
+-6% ⇩
+Weapon:
+FiNN LMG
+Adjustments:
+FiNN LMG
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Mid Damage Range 1
+ㅤ
+1720
+ㅤ
+→
+ㅤ
+1620 ⇩
+ㅤ
+-6% ⇩
+Left Upper Arm Damage Multiplier
+ㅤ
+1.1
+ㅤ
+→
+ㅤ
+1 ⇩
+ㅤ
+-9% ⇩
+Right Upper Arm Damage Multiplier
+ㅤ
+1.1
+ㅤ
+→
+ㅤ
+1 ⇩
+ㅤ
+-9% ⇩
+Weapon:
+Type 73
+Adjustments:
+Type 73 - Assault Apex Attachment
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Min Damage
+ㅤ
+19
+ㅤ
+→
+ㅤ
+20 ⇧
+ㅤ
+5% ⇧
+Shotguns
+Weapon
+Adjustments
+Weapon:
+Warlord
+Adjustments:
+Ammunition
+Warlord - 12G Slug Rounds
+ㅤ
+Pre
+ㅤ
+→
+ㅤ
+Post
+ㅤ
+% Change
+Mid Damage Range 2
+ㅤ
+900
+ㅤ
+→
+ㅤ
+810 ⇩
+ㅤ
+-10% ⇩

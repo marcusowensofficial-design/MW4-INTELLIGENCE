@@ -205,7 +205,7 @@ with tab_consensus:
             cur_kd = current_rec.community_kd_ratio if current_rec else 1.05
             new_kd = st.number_input("Average Player K/D", min_value=0.0, max_value=5.0, value=float(cur_kd), step=0.01)
         with col_sec:
-            cur_sec = current_rec.recommended_secondary if current_rec else "Renetti 3-Burst"
+            cur_sec = current_rec.recommended_secondary if current_rec else "Krait P68"
             new_sec = st.text_input("Recommended Secondary Companion", value=cur_sec)
 
         col_tag, col_badge = st.columns([2, 1])
@@ -330,7 +330,7 @@ with tab_metabuilds:
 
         col_sname, col_srole = st.columns(2)
         with col_sname:
-            in_sname = st.text_input("Recommended Secondary Weapon", value="Renetti 3-Burst")
+            in_sname = st.text_input("Recommended Secondary Weapon", value="Krait P68")
         with col_srole:
             in_srole = st.text_input("Secondary Tactical Role", value="180ms Fast-Swap Pocket Pistol")
 

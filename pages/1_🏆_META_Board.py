@@ -604,7 +604,7 @@ with tab_consensus:
         rec = all_consensus_records.get(s.weapon_id)
         pr = rec.community_pick_rate_pct if rec else 5.0
         kd = rec.community_kd_ratio if rec else 1.05
-        sec = rec.recommended_secondary if rec else "Renetti 3-Burst"
+        sec = rec.recommended_secondary if rec else "Krait P68"
         out = outlet_data.get(s.weapon_id, {})
         leaderboard_data.append({
             "Weapon": s.weapon_name,
@@ -649,7 +649,7 @@ with tab_consensus:
         rec = all_consensus_records.get(s.weapon_id)
         pr = rec.community_pick_rate_pct if rec else 5.0
         kd = rec.community_kd_ratio if rec else 1.05
-        sec = rec.recommended_secondary if rec else "Renetti 3-Burst"
+        sec = rec.recommended_secondary if rec else "Krait P68"
         out = outlet_data.get(s.weapon_id, {
             "wzstats": "Unranked", "wzranked": "Unranked", "codmunity": "Unranked",
             "dexerto": "Unranked", "charlie": "Unranked", "dotesports": "Unranked",

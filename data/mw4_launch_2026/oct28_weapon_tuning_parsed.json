@@ -1,0 +1,597 @@
+{
+  "Han 86": {
+    "category": "Assault Rifles",
+    "changes": [
+      {
+        "target": "Han 86",
+        "stat": "Max Damage Range",
+        "pre": "1120",
+        "post": "1200",
+        "direction": "BUFF",
+        "pct": "7%"
+      },
+      {
+        "target": "Han 86",
+        "stat": "Neck Damage Multiplier",
+        "pre": "1.1",
+        "post": "1",
+        "direction": "NERF",
+        "pct": "-9%"
+      },
+      {
+        "target": "Han 86",
+        "stat": "Upper Torso Damage Multiplier",
+        "pre": "1.1",
+        "post": "1",
+        "direction": "NERF",
+        "pct": "-9%"
+      }
+    ]
+  },
+  "Kastov 762": {
+    "category": "Assault Rifles",
+    "changes": [
+      {
+        "target": "Kastov 762",
+        "stat": "Max Damage Range",
+        "pre": "950",
+        "post": "1050",
+        "direction": "BUFF",
+        "pct": "11%"
+      }
+    ]
+  },
+  "M4": {
+    "category": "Assault Rifles",
+    "changes": [
+      {
+        "target": "M4",
+        "stat": "Max Damage Range",
+        "pre": "990",
+        "post": "1020",
+        "direction": "BUFF",
+        "pct": "3%"
+      }
+    ]
+  },
+  "ODEN": {
+    "category": "Assault Rifles",
+    "changes": [
+      {
+        "target": "ODEN",
+        "stat": "Neck Damage Multiplier",
+        "pre": "1.2",
+        "post": "1.1",
+        "direction": "NERF",
+        "pct": "-8%"
+      },
+      {
+        "target": "ODEN",
+        "stat": "Upper Torso Damage Multiplier",
+        "pre": "1.2",
+        "post": "1.1",
+        "direction": "NERF",
+        "pct": "-8%"
+      },
+      {
+        "target": "ODEN",
+        "stat": "Lower Torso Damage Multiplier",
+        "pre": "1.1",
+        "post": "1",
+        "direction": "NERF",
+        "pct": "-9%"
+      },
+      {
+        "target": "Oden - Sentinel Apex Attachment",
+        "stat": "Max Damage Range",
+        "pre": "870",
+        "post": "820",
+        "direction": "NERF",
+        "pct": "-6%"
+      },
+      {
+        "target": "Oden - Sentinel Apex Attachment",
+        "stat": "Mid Damage Range 1",
+        "pre": "1810",
+        "post": "1740",
+        "direction": "NERF",
+        "pct": "-4%"
+      },
+      {
+        "target": "Oden - Sentinel Apex Attachment",
+        "stat": "Muzzle Velocity",
+        "pre": "-",
+        "post": "-0.07",
+        "direction": "NEUTRAL",
+        "pct": "-"
+      }
+    ]
+  },
+  "Hyeon Burst": {
+    "category": "Assault Rifles",
+    "changes": [
+      {
+        "target": "Hyeon Burst - Hyperburst Apex Attachment",
+        "stat": "Full-Auto Max Damage",
+        "pre": "37",
+        "post": "34",
+        "direction": "NERF",
+        "pct": "-8%"
+      },
+      {
+        "target": "Hyeon Burst - Hyperburst Apex Attachment",
+        "stat": "Full-Auto Max Damage Range",
+        "pre": "970",
+        "post": "1220",
+        "direction": "BUFF",
+        "pct": "26%"
+      },
+      {
+        "target": "Hyeon Burst - Hyperburst Apex Attachment",
+        "stat": "Mid Damage Range 1",
+        "pre": "Not Specified",
+        "post": "Removed",
+        "direction": "NEUTRAL",
+        "pct": "-"
+      }
+    ]
+  },
+  "Patriot XMR": {
+    "category": "Assault Rifles",
+    "changes": [
+      {
+        "target": "Patriot XMR - EXP Haste 80L 14\" (Light Barrel)",
+        "stat": "Recoil Control Penalty (%)",
+        "pre": "8",
+        "post": "6",
+        "direction": "NERF",
+        "pct": "-25%"
+      },
+      {
+        "target": "Patriot XMR - FJX Fury IV Grip (Skeleton Grip)",
+        "stat": "Recoil Control Penalty (%)",
+        "pre": "5",
+        "post": "4",
+        "direction": "NERF",
+        "pct": "-20%"
+      }
+    ]
+  },
+  "ISO Nightshade": {
+    "category": "SMGs",
+    "changes": [
+      {
+        "target": "ISO Nightshade",
+        "stat": "Left Lower Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "ISO Nightshade",
+        "stat": "Left Upper Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "ISO Nightshade",
+        "stat": "Left Hand Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "ISO Nightshade",
+        "stat": "Right Lower Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "ISO Nightshade",
+        "stat": "Right Upper Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "ISO Nightshade",
+        "stat": "Right Hand Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      }
+    ]
+  },
+  "PPSh-41": {
+    "category": "SMGs",
+    "changes": [
+      {
+        "target": "PPSh-41",
+        "stat": "ADS In Speed (ms)",
+        "pre": "300",
+        "post": "280",
+        "direction": "NERF",
+        "pct": "-7%"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "ADS Strafe Movement Speed (m/s)",
+        "pre": "2.75",
+        "post": "2.78",
+        "direction": "BUFF",
+        "pct": "1%"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "Crouch Speed (m/s)",
+        "pre": "2.17",
+        "post": "2.19",
+        "direction": "BUFF",
+        "pct": "1%"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "Hipfire Movement Speed (m/s)",
+        "pre": "4.19",
+        "post": "4.2",
+        "direction": "BUFF",
+        "pct": "-"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "Movement Speed (m/s)",
+        "pre": "4.66",
+        "post": "4.7",
+        "direction": "BUFF",
+        "pct": "1%"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "Sprint Speed (m/s)",
+        "pre": "6.18",
+        "post": "6.21",
+        "direction": "BUFF",
+        "pct": "-"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "Left Lower Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "Left Upper Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "Left Hand Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "Right Lower Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "Right Upper Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "PPSh-41",
+        "stat": "Right Hand Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      }
+    ]
+  },
+  "VEL 46": {
+    "category": "SMGs",
+    "changes": [
+      {
+        "target": "VEL 46",
+        "stat": "Left Lower Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "VEL 46",
+        "stat": "Left Upper Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "VEL 46",
+        "stat": "Left Hand Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "VEL 46",
+        "stat": "Right Lower Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "VEL 46",
+        "stat": "Right Upper Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "VEL 46",
+        "stat": "Right Hand Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      }
+    ]
+  },
+  "Wz.55 Striga": {
+    "category": "SMGs",
+    "changes": [
+      {
+        "target": "Wz.55 Striga",
+        "stat": "Max Damage Range",
+        "pre": "440",
+        "post": "470",
+        "direction": "BUFF",
+        "pct": "7%"
+      },
+      {
+        "target": "Wz.55 Striga",
+        "stat": "Mid Damage Range 1",
+        "pre": "825",
+        "post": "840",
+        "direction": "BUFF",
+        "pct": "2%"
+      },
+      {
+        "target": "Wz.55 Striga",
+        "stat": "Left Lower Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "Wz.55 Striga",
+        "stat": "Left Upper Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "Wz.55 Striga",
+        "stat": "Left Hand Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "Wz.55 Striga",
+        "stat": "Right Lower Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "Wz.55 Striga",
+        "stat": "Right Upper Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "Wz.55 Striga",
+        "stat": "Right Hand Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      }
+    ]
+  },
+  "X-58 Nyx": {
+    "category": "SMGs",
+    "changes": [
+      {
+        "target": "X-58 Nyx",
+        "stat": "Head Damage Multiplier",
+        "pre": "1.25",
+        "post": "1.3",
+        "direction": "BUFF",
+        "pct": "4%"
+      },
+      {
+        "target": "X-58 Nyx",
+        "stat": "Left Lower Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "X-58 Nyx",
+        "stat": "Left Upper Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "X-58 Nyx",
+        "stat": "Left Hand Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "X-58 Nyx",
+        "stat": "Right Lower Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "X-58 Nyx",
+        "stat": "Right Upper Arm Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "X-58 Nyx",
+        "stat": "Right Hand Damage Multiplier",
+        "pre": "0.95",
+        "post": "1",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "X-58 Nyx - Void Apex Attachment",
+        "stat": "Max Damage Range",
+        "pre": "437",
+        "post": "460",
+        "direction": "BUFF",
+        "pct": "5%"
+      },
+      {
+        "target": "X-58 Nyx - Void Apex Attachment",
+        "stat": "Mid Damage Range 1",
+        "pre": "788",
+        "post": "815",
+        "direction": "BUFF",
+        "pct": "3%"
+      }
+    ]
+  },
+  "APOC-338": {
+    "category": "LMGs",
+    "changes": [
+      {
+        "target": "APOC-338",
+        "stat": "Mid Damage 1",
+        "pre": "38",
+        "post": "37",
+        "direction": "NERF",
+        "pct": "-3%"
+      },
+      {
+        "target": "APOC-338",
+        "stat": "Mid Damage Range 1",
+        "pre": "1980",
+        "post": "1900",
+        "direction": "NERF",
+        "pct": "-4%"
+      },
+      {
+        "target": "APOC-338",
+        "stat": "Min Damage",
+        "pre": "35",
+        "post": "33",
+        "direction": "NERF",
+        "pct": "-6%"
+      }
+    ]
+  },
+  "FiNN LMG": {
+    "category": "LMGs",
+    "changes": [
+      {
+        "target": "FiNN LMG",
+        "stat": "Mid Damage Range 1",
+        "pre": "1720",
+        "post": "1620",
+        "direction": "NERF",
+        "pct": "-6%"
+      },
+      {
+        "target": "FiNN LMG",
+        "stat": "Left Upper Arm Damage Multiplier",
+        "pre": "1.1",
+        "post": "1",
+        "direction": "NERF",
+        "pct": "-9%"
+      },
+      {
+        "target": "FiNN LMG",
+        "stat": "Right Upper Arm Damage Multiplier",
+        "pre": "1.1",
+        "post": "1",
+        "direction": "NERF",
+        "pct": "-9%"
+      }
+    ]
+  },
+  "Type 73": {
+    "category": "LMGs",
+    "changes": [
+      {
+        "target": "Type 73 - Assault Apex Attachment",
+        "stat": "Min Damage",
+        "pre": "19",
+        "post": "20",
+        "direction": "BUFF",
+        "pct": "5%"
+      }
+    ]
+  },
+  "Warlord": {
+    "category": "Shotguns",
+    "changes": [
+      {
+        "target": "Warlord - 12G Slug Rounds",
+        "stat": "Mid Damage Range 2",
+        "pre": "900",
+        "post": "810",
+        "direction": "NERF",
+        "pct": "-10%"
+      }
+    ]
+  }
+}

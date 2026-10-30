@@ -1,0 +1,1676 @@
+[
+  {
+    "category": null,
+    "weapon": null,
+    "target": null,
+    "stat": "Our first broad weapon tuning pass is focused on normalizing hit location damage for a more consistent TTK and general improvements to SMG performance.",
+    "pre": "Weapon Adjustments",
+    "post": "Assault Rifles",
+    "pct": "Weapon"
+  },
+  {
+    "category": null,
+    "weapon": "Han 86",
+    "target": "Han 86",
+    "stat": "Han 86",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": null,
+    "weapon": "Han 86",
+    "target": "Han 86",
+    "stat": "Max Damage Range",
+    "pre": "1120",
+    "post": "1200 \u21e7",
+    "pct": "7% \u21e7"
+  },
+  {
+    "category": null,
+    "weapon": "Han 86",
+    "target": "Han 86",
+    "stat": "Neck Damage Multiplier",
+    "pre": "1.1",
+    "post": "1 \u21e9",
+    "pct": "-9% \u21e9"
+  },
+  {
+    "category": null,
+    "weapon": "Han 86",
+    "target": "Han 86",
+    "stat": "Upper Torso Damage Multiplier",
+    "pre": "1.1",
+    "post": "1 \u21e9",
+    "pct": "-9% \u21e9"
+  },
+  {
+    "category": null,
+    "weapon": "Kastov 762",
+    "target": "Kastov 762",
+    "stat": "Kastov 762",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": null,
+    "weapon": "Kastov 762",
+    "target": "Kastov 762",
+    "stat": "Max Damage Range",
+    "pre": "950",
+    "post": "1050 \u21e7",
+    "pct": "11% \u21e7"
+  },
+  {
+    "category": null,
+    "weapon": "M4",
+    "target": "M4",
+    "stat": "M4",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": null,
+    "weapon": "M4",
+    "target": "M4",
+    "stat": "Max Damage Range",
+    "pre": "990",
+    "post": "1020 \u21e7",
+    "pct": "3% \u21e7"
+  },
+  {
+    "category": null,
+    "weapon": "ODEN",
+    "target": "ODEN",
+    "stat": "Oden",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": null,
+    "weapon": "ODEN",
+    "target": "ODEN",
+    "stat": "Neck Damage Multiplier",
+    "pre": "1.2",
+    "post": "1.1 \u21e9",
+    "pct": "-8% \u21e9"
+  },
+  {
+    "category": null,
+    "weapon": "ODEN",
+    "target": "ODEN",
+    "stat": "Upper Torso Damage Multiplier",
+    "pre": "1.2",
+    "post": "1.1 \u21e9",
+    "pct": "-8% \u21e9"
+  },
+  {
+    "category": null,
+    "weapon": "ODEN",
+    "target": "ODEN",
+    "stat": "Lower Torso Damage Multiplier",
+    "pre": "1.1",
+    "post": "1 \u21e9",
+    "pct": "-9% \u21e9"
+  },
+  {
+    "category": null,
+    "weapon": "ODEN",
+    "target": "Oden - Sentinel Apex Attachment",
+    "stat": "Max Damage Range",
+    "pre": "870",
+    "post": "820 \u21e9",
+    "pct": "-6% \u21e9"
+  },
+  {
+    "category": null,
+    "weapon": "ODEN",
+    "target": "Oden - Sentinel Apex Attachment",
+    "stat": "Mid Damage Range 1",
+    "pre": "1810",
+    "post": "1740 \u21e9",
+    "pct": "-4% \u21e9"
+  },
+  {
+    "category": null,
+    "weapon": "ODEN",
+    "target": "Oden - Sentinel Apex Attachment",
+    "stat": "Muzzle Velocity",
+    "pre": "-",
+    "post": "-0.07",
+    "pct": "-"
+  },
+  {
+    "category": null,
+    "weapon": "Hyeon Burst",
+    "target": "Hyeon Burst - Hyperburst Apex Attachment",
+    "stat": "Full-Auto Max Damage",
+    "pre": "37",
+    "post": "34 \u21e9",
+    "pct": "-8% \u21e9"
+  },
+  {
+    "category": null,
+    "weapon": "Hyeon Burst",
+    "target": "Hyeon Burst - Hyperburst Apex Attachment",
+    "stat": "Full-Auto Max Damage Range",
+    "pre": "970",
+    "post": "1220 \u21e7",
+    "pct": "26% \u21e7"
+  },
+  {
+    "category": null,
+    "weapon": "Hyeon Burst",
+    "target": "Hyeon Burst - Hyperburst Apex Attachment",
+    "stat": "Mid Damage Range 1",
+    "pre": "Not Specified",
+    "post": "Removed",
+    "pct": "-"
+  },
+  {
+    "category": null,
+    "weapon": "Patriot XMR",
+    "target": "Patriot XMR - EXP Haste 80L 14\" (Light Barrel)",
+    "stat": "Recoil Control Penalty (%)",
+    "pre": "8",
+    "post": "6 \u21e9",
+    "pct": "-25% \u21e9"
+  },
+  {
+    "category": null,
+    "weapon": "Patriot XMR",
+    "target": "Patriot XMR - FJX Fury IV Grip (Skeleton Grip)",
+    "stat": "Recoil Control Penalty (%)",
+    "pre": "5",
+    "post": "4 \u21e9",
+    "pct": "-20% \u21e9"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "ISO Nightshade",
+    "target": "ISO Nightshade",
+    "stat": "ISO Nightshade",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "ISO Nightshade",
+    "target": "ISO Nightshade",
+    "stat": "Left Lower Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "ISO Nightshade",
+    "target": "ISO Nightshade",
+    "stat": "Left Upper Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "ISO Nightshade",
+    "target": "ISO Nightshade",
+    "stat": "Left Hand Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "ISO Nightshade",
+    "target": "ISO Nightshade",
+    "stat": "Right Lower Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "ISO Nightshade",
+    "target": "ISO Nightshade",
+    "stat": "Right Upper Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "ISO Nightshade",
+    "target": "ISO Nightshade",
+    "stat": "Right Hand Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "PPSh-41",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "ADS In Speed (ms)",
+    "pre": "300",
+    "post": "280 \u21e9",
+    "pct": "-7% \u21e9"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "ADS Strafe Movement Speed (m/s)",
+    "pre": "2.75",
+    "post": "2.78 \u21e7",
+    "pct": "1% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "Crouch Speed (m/s)",
+    "pre": "2.17",
+    "post": "2.19 \u21e7",
+    "pct": "1% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "Hipfire Movement Speed (m/s)",
+    "pre": "4.19",
+    "post": "4.2 \u21e7",
+    "pct": "-"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "Movement Speed (m/s)",
+    "pre": "4.66",
+    "post": "4.7 \u21e7",
+    "pct": "1% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "Sprint Speed (m/s)",
+    "pre": "6.18",
+    "post": "6.21 \u21e7",
+    "pct": "-"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "Left Lower Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "Left Upper Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "Left Hand Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "Right Lower Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "Right Upper Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "PPSh-41",
+    "target": "PPSh-41",
+    "stat": "Right Hand Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "VEL 46",
+    "target": "VEL 46",
+    "stat": "VEL 46",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "VEL 46",
+    "target": "VEL 46",
+    "stat": "Left Lower Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "VEL 46",
+    "target": "VEL 46",
+    "stat": "Left Upper Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "VEL 46",
+    "target": "VEL 46",
+    "stat": "Left Hand Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "VEL 46",
+    "target": "VEL 46",
+    "stat": "Right Lower Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "VEL 46",
+    "target": "VEL 46",
+    "stat": "Right Upper Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "VEL 46",
+    "target": "VEL 46",
+    "stat": "Right Hand Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "Wz.55 Striga",
+    "target": "Wz.55 Striga",
+    "stat": "Wz.55 Striga",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "Wz.55 Striga",
+    "target": "Wz.55 Striga",
+    "stat": "Max Damage Range",
+    "pre": "440",
+    "post": "470 \u21e7",
+    "pct": "7% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "Wz.55 Striga",
+    "target": "Wz.55 Striga",
+    "stat": "Mid Damage Range 1",
+    "pre": "825",
+    "post": "840 \u21e7",
+    "pct": "2% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "Wz.55 Striga",
+    "target": "Wz.55 Striga",
+    "stat": "Left Lower Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "Wz.55 Striga",
+    "target": "Wz.55 Striga",
+    "stat": "Left Upper Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "Wz.55 Striga",
+    "target": "Wz.55 Striga",
+    "stat": "Left Hand Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "Wz.55 Striga",
+    "target": "Wz.55 Striga",
+    "stat": "Right Lower Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "Wz.55 Striga",
+    "target": "Wz.55 Striga",
+    "stat": "Right Upper Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "Wz.55 Striga",
+    "target": "Wz.55 Striga",
+    "stat": "Right Hand Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx",
+    "stat": "X-58 Nyx",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx",
+    "stat": "Head Damage Multiplier",
+    "pre": "1.25",
+    "post": "1.3 \u21e7",
+    "pct": "4% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx",
+    "stat": "Left Lower Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx",
+    "stat": "Left Upper Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx",
+    "stat": "Left Hand Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx",
+    "stat": "Right Lower Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx",
+    "stat": "Right Upper Arm Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx",
+    "stat": "Right Hand Damage Multiplier",
+    "pre": "0.95",
+    "post": "1 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx - Void Apex Attachment",
+    "stat": "% Chagne",
+    "pre": "Max Damage Range",
+    "post": "437",
+    "pct": "460 \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx - Void Apex Attachment",
+    "stat": "5% \u21e7",
+    "pre": "Mid Damage Range 1",
+    "post": "788",
+    "pct": "815 \u21e7"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "X-58 Nyx",
+    "target": "X-58 Nyx - Void Apex Attachment",
+    "stat": "3% \u21e7",
+    "pre": "LMGs",
+    "post": "Weapon",
+    "pct": "Adjustments"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "APOC-338",
+    "target": "APOC-338",
+    "stat": "APOC-338",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "APOC-338",
+    "target": "APOC-338",
+    "stat": "Mid Damage 1",
+    "pre": "38",
+    "post": "37 \u21e9",
+    "pct": "-3% \u21e9"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "APOC-338",
+    "target": "APOC-338",
+    "stat": "Mid Damage Range 1",
+    "pre": "1980",
+    "post": "1900 \u21e9",
+    "pct": "-4% \u21e9"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "APOC-338",
+    "target": "APOC-338",
+    "stat": "Min Damage",
+    "pre": "35",
+    "post": "33 \u21e9",
+    "pct": "-6% \u21e9"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "FiNN LMG",
+    "target": "FiNN LMG",
+    "stat": "FiNN LMG",
+    "pre": "Pre",
+    "post": "Post",
+    "pct": "% Change"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "FiNN LMG",
+    "target": "FiNN LMG",
+    "stat": "Mid Damage Range 1",
+    "pre": "1720",
+    "post": "1620 \u21e9",
+    "pct": "-6% \u21e9"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "FiNN LMG",
+    "target": "FiNN LMG",
+    "stat": "Left Upper Arm Damage Multiplier",
+    "pre": "1.1",
+    "post": "1 \u21e9",
+    "pct": "-9% \u21e9"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "FiNN LMG",
+    "target": "FiNN LMG",
+    "stat": "Right Upper Arm Damage Multiplier",
+    "pre": "1.1",
+    "post": "1 \u21e9",
+    "pct": "-9% \u21e9"
+  },
+  {
+    "category": "SMGs",
+    "weapon": "Type 73",
+    "target": "Type 73 - Assault Apex Attachment",
+    "stat": "Min Damage",
+    "pre": "19",
+    "post": "20 \u21e7",
+    "pct": "5% \u21e7"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Mid Damage Range 2",
+    "pre": "900",
+    "post": "810 \u21e9",
+    "pct": "-10% \u21e9"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "BUG FIXES",
+    "pre": "Fixed a visual issue where the Mosin-Nagant's firing pin could appear in the incorrect position after firing the final round.",
+    "post": "Fixed an issue where taking damage would not interrupt health regeneration from the Quick Fix Perk.",
+    "pct": "We noticed an issue where Quick Fix would continue to regenerate health even after taking damage. This was causing players to be more tanky than intended. Damage will now properly interrupt Quick Fix."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Addressed an exploit involving the Riot Shield entering out of bounds areas.",
+    "pre": "Improved the visibility of UAVs on Sentry.",
+    "post": "Fixed an issue where certain Melee Kills, Backstabs, and Takedowns were not tracking correctly for some Challenges.",
+    "pct": "Increased the maximum range cutoff for Point Blank Challenge tracking."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Decreased the minimum range cutoff for Longshot Challenge tracking.",
+    "pre": "Fixed an issue where players would incorrectly appear as Reece when loading into Gun Game, regardless of their selected Operator.",
+    "post": "Updated the Quick Fix Perk hitmarker icon.",
+    "pct": "DMZ"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "The intention for Possum is to give a high level operator a second chance. With the current iteration, Possum was being used as a combat mechanic instead of a survival mechanic. These tweaks are meant to prevent players from getting right back into the fight which they had just lost. We will be watching the use of Possum with this change to see if it has the desired effect.",
+    "pre": "We\u2019ve adjusted the Possum Trait so that you are now unable to activate Possum while the team that killed you is nearby or until 4 minutes have passed. This range and duration is tunable going forward.",
+    "post": "BUG FIXES",
+    "pct": "Addressed a bug where Possum could revive players who had already abandoned their Operator, which would put them in an unplayable state."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where players could encounter a black screen after their entire squad was eliminated while a teammate had the Possum Perk equipped.",
+    "pre": "Fixed an issue where using the 3D Printer to add items to the Backpack during deployment could cause players to deploy into DMZ without their Free Loadout weapons or equipment.",
+    "post": "Closed several exploits in DMZ.",
+    "pct": "Fixed an issue where weapons could unintentionally drop when moving them from the Primary Weapon slot to the Backpack."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where players were not receiving the 3-Plate Armor Vest reward upon reaching DMZ Level 37.",
+    "pre": "Fixed an issue where weapons could disappear after repeatedly swapping between weapon slots while using a Backpack with weapon storage.",
+    "post": "Fixed an issue where the Airbase Access Card could not be upgraded during a Story Mission if it was stored in the Secure Slot.",
+    "pct": "Fixed an issue where automatically marked Order mission items could lose their Ping markers after players pinged a loot container."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "KNOWN ISSUES",
+    "pre": "We're aware of an issue where the Patriot XMR Platinum Camo Challenge is not tracking correctly in the UI. The challenge can still be completed and progressed despite not displaying accurately. We are working on a fix.",
+    "post": "We're investigating some Calling Card challenges not tracking as intended.",
+    "pct": "We're aware of an issue with Best Play selection logic in Multiplayer modes."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Players who enter Classic Prestige via DMZ menus instead of MP menus are unable to make new MP classes until previously created MP classes with relocked Loadout items are deleted.",
+    "pre": "Track live issues on our official Trello board and follow CODUpdates for the latest news.",
+    "post": "October 25, 2026",
+    "pct": "We've been keeping a close eye on the issues you've been reporting and working through them as quickly as we can. Today's update addresses several of those issues, along with additional gameplay adjustments and improvements."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "There's more work ahead, and we're not slowing down. The team is also looking at potential weapon tuning changes for a future update. We'll continue rolling out fixes, making adjustments, and keeping you informed along the way.",
+    "pre": "GLOBAL",
+    "post": "Fixed an issue on XBOX and PC where players using the full Korean language setting could not launch Black Ops 7 from MW4.",
+    "pct": "UI/UX"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where weapon stats were not displayed for locked Attachments in Gunsmith.",
+    "pre": "Updated the Prestige reset process to ensure Loadouts are properly cleared when Prestiging.",
+    "post": "Fixed a visual issue in the Optic Rail Placement menu.",
+    "pct": "Fixed an issue where the Resource Management Trait description would scroll too fast to read."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where the Patriot XMR, Oden, and Cronen Squall were incorrectly classified as Battle Rifles in various places throughout the game.",
+    "pre": "Fixed an issue where DMZ Lieutenant Intel unlock requirements and the eliminated indicator could disappear when hovering over previously eliminated Lieutenants on the Boss Board.",
+    "post": "MULTIPLAYER",
+    "pct": "We\u2019ve rolled back a previous fix for \u201cbomb stretching\u201d in Search and Destroy due to a knock-on issue in which players were unable to pick up the bomb in certain positions. We will be addressing bomb stretching again in an update as soon as we are able."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "We\u2019re also looking at XP earn rates in Multiplayer modes and will be making some changes, starting with this update.",
+    "pre": "XP for 1 kill has been boosted from 100 to 300 in Search and Destroy and Collateral.",
+    "post": "Fixed an issue on Collateral where the bomb could disappear after players interacted with it.",
+    "pct": "Fixed an issue where the game could briefly freeze when editing a Loadout for the first time during a match."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where the announcer's game mode introduction would not play at the start of Frontline or Hijack matches.",
+    "pre": "DMZ",
+    "post": "Fixed an issue where players could bypass the Hospital Elevator objective during the Critical Extraction Story Mission.",
+    "pct": "Decreased Drill Charge damage against enemy Colossus."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where a Sedan could be missing from its marked location on the Tac-Map.",
+    "pre": "Fixed an issue where enemy AI could clip through the Crashed Drone.",
+    "post": "Fixed an issue where the Last Stand icon appeared oversized on the Minimap.",
+    "pct": "Fixed an issue where purchasing saved Builds from modified Blueprints could incorrectly charge players the full cost of the original Blueprint."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where players could attempt to deploy while items remained in their Overflow Stash. Note: Operators must reconcile their Overflow Stash before the next deployment.",
+    "pre": "Fixed several issues in the Breaking New Ground (onboarding) mission.",
+    "post": "KNOWN ISSUES",
+    "pct": "Track live issues on our official Trello board and follow CODUpdates for the latest news."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "RECENTLY UPDATED",
+    "pre": "Closed various DMZ exploits.",
+    "post": "We've addressed an issue where players were being AFK kicked while spectating in some Multiplayer modes.",
+    "pct": "October 24, 2026"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Another round of fixes and improvements is here for Modern Warfare 4, covering Multiplayer and DMZ.",
+    "pre": "Our teams continue to focus on improving stability, addressing bugs, resolving exploits, and making quality of life improvements across the game.",
+    "post": "We're committed to delivering consistent updates and improving the experience for everyone. There's still plenty of work ahead, and we'll continue addressing issues and sharing our progress as we move forward.",
+    "pct": "Thank you for your continued feedback and support."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Happy hunting!",
+    "pre": "GLOBAL",
+    "post": "Stability",
+    "pct": "Fixed several stability and crash issues for a better experience across all modes."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "UI/UX",
+    "pre": "Fixed an issue where DMZ Stash options could incorrectly appear in the middle of the screen.",
+    "post": "Fixed various instances where front end menus could close unexpectedly.",
+    "pct": "Fixed an issue on PC where the Split keybind would not update to reflect the player's custom Ping keybind, resulting in players thinking they were unable to split inventory stacks."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where Finishing Move effects could remain playing after returning to the Create a Class menu.",
+    "pre": "Fixed an issue where DMZ Weapon Builds could incorrectly appear as usable in Core Multiplayer.",
+    "post": "Fixed an issue where applying some weapon camos or reticles in DMZ Gunsmith could result in a deduction of DMZ cash.",
+    "pct": "Fixed an issue where editing a loadout could sometimes cause a non-Melee weapon to appear in the Melee slot of the in-game Loadout menu."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where a weapon\u2019s attachments would not automatically reset when Prestiging in Gunsmith.",
+    "pre": "Weapons",
+    "post": "Fixed an issue where an incorrect attachment could be equipped to the M4 and cause a visual bug on the weapon\u2019s muzzle.",
+    "pct": "Fixed a visual issue where bullets could appear to float inside empty or partially used magazines for the La Sombra Venenosa Blueprint."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "MULTIPLAYER",
+    "pre": "Improved spawn locations and respawn timing in Hijack.",
+    "post": "Bug Fixes",
+    "pct": "Fixed an issue where the Portable Radar Field Upgrade would not display the Minimap while active in Hardcore matches."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue in Search and Destroy where players could defuse the bomb from an unintended distance or position.",
+    "pre": "Fixed an issue on Rooftops where the Deathstalker Killstreak could travel outside the map boundaries.",
+    "post": "Fixed an issue where players' Favorite Operators were not properly equipped in Collateral.",
+    "pct": "Note: Weapon Prestiging and Player Prestiging are unavailable while actively searching for a match. We have updated the UI to clarify."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "DMZ",
+    "pre": "Fixed even more areas where players could become stuck in rocks on Hajin.",
+    "post": "Fixed an issue where Party Leaders could pull teammates out of DMZ without their consent, causing their Active Duty Operators to be marked as MIA.",
+    "pct": "Fixed an issue where objective markers could display on the wrong enemy during the Obtain Code steps of the Dark Zone Story Mission."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an out-of-bounds issue in the FOB.",
+    "pre": "Fixed some instances of incorrect data displaying on looted Dog Tags and Bounties.",
+    "post": "Fixed an issue where the Exfil helicopter could disappear while players were still inside.",
+    "pct": "Fixed an issue where AI reinforcements during the Shopping Mission were spawning too frequently."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where the Philanthropist Order on Page 19 would not track Weekly Mission Challenges completed before the Order was unlocked.",
+    "pre": "Closed various exploits.",
+    "post": "KNOWN ISSUES",
+    "pct": "The regional map animation while searching for lobbies has been temporarily disabled as part of a prospective fix for reports of hitching."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "We're investigating an issue causing some players to be kicked while spectating in Multiplayer.",
+    "pre": "Players may experience a network error when in DMZ extracting with a looted Dog Tag on PC.",
+    "post": "Track live issues on our official Trello board and follow CODUpdates for the latest news.",
+    "pct": "RECENTLY UPDATED"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Addressed an issue causing some player models to appear in static or incorrect animations. This may result in enemy players appearing in unintended states.",
+    "pre": "Various stability and crash fixes for PC.",
+    "post": "October 23, 2026",
+    "pct": "Modern Warfare 4 is here! Thank you for all the love at launch. The team is currently working on a series of updates that we\u2019ll be releasing over the coming days, including upcoming Multiplayer Patch Notes. Stay tuned for more."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "GLOBAL",
+    "pre": "Stability",
+    "post": "Fixed several stability and crash issues for a better experience across all modes.",
+    "pct": "UI/UX"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where Military Camos and Apex Attachments could appear locked again after Prestiging a weapon.",
+    "pre": "Fixed an issue where several camo unlock requirements were inaccurate.",
+    "post": "Fixed an issue where a DMZ Challenge incorrectly listed Longshot kills instead of Headshot kills.",
+    "pct": "Fixed an issue where Killstreak indicators from a previous Multiplayer match could incorrectly carry over into DMZ."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where Night Vision Goggles (NVGs) appeared twice in the Underground Chapter rewards menu.",
+    "pre": "Fixed an issue where Camo unlocks incorrectly displayed the Shared Attachment icon in the Weapon Progression menu.",
+    "post": "Fixed an issue where the Notification Panel was misaligned when using a 16:10 aspect ratio.",
+    "pct": "Fixed an issue where the World Map animation could sometimes be missing in the pre-game lobby."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Updated the Events Panel to improve usability and presentation.",
+    "pre": "Added weapon level icons to Melee and Launcher weapons.",
+    "post": "Note: Weapon Prestiging and Player Prestiging are unavailable while actively searching for a match. We have updated the UI to clarify.",
+    "pct": "Weapons"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "We\u2019re looking closely at weapon performance across Modern Warfare 4. As a reminder we have bespoke weapon tuning in both Multiplayer and DMZ. We are already looking at potential weapon tuning for next week.",
+    "pre": "Apex Attachments",
+    "post": "Where did they go? In the Beta we included a few early seasonal event Apex and weapon attachments to make sure they were fun, balanced, and performed the way we wanted.",
+    "pct": "Don\u2019t worry! They will return soon."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "MULTIPLAYER",
+    "pre": "Bug Fixes",
+    "post": "Fixed an issue where the Portable Radar Field Upgrade would not function in Free-for-All matches.",
+    "pct": "Fixed an issue where invisible collisions could interfere with calling in a Deathstalker near the Barracks area on Summit."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "DMZ",
+    "pre": "Addressed various stability issues in DMZ, including disconnect issues.",
+    "post": "Fixed an issue where purchasing certain Lieutenant intel would not update the tracked DMZ Order.",
+    "pct": "Fixed an issue where FOB Upgrades Challenges were tracking inconsistently."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed various issues with Bounty tracking.",
+    "pre": "Fixed an issue where Lieutenant Hunt progress and completion could incorrectly appear for other squads.",
+    "post": "Fixed an issue where the displayed requirement for completing a Dynamic Operation in under 8 minutes was inaccurate.",
+    "pct": "Fixed some areas where players could become stuck in rocks on Hajin."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where the Numb the Pain and Numb the Pain Pro Trait descriptions did not accurately reflect their effects.",
+    "pre": "Fixed an issue where character animations could break when climbing down a pipe while carrying a hostage.",
+    "post": "Fixed an issue where enemy AI helicopters could become stuck in midair during the \u201cFallout\u201d mission.",
+    "pct": "Fixed several issues where bullet effect audio was missing."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where Little Bird helicopter audio was missing.",
+    "pre": "Fixed an issue where eliminated Operators were sometimes dropping extra Killsteaks.",
+    "post": "Fixed an issue where Gas Masks and Parachutes had incorrect usage counts. Disposable Parachutes now have three uses, and Gas Masks, including Durable Gas Masks, no longer break immediately upon entering radiation zones.",
+    "pct": "KNOWN ISSUES"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Keep an eye on our Trello board for known issues and ongoing fixes.",
+    "pre": "We\u2019re currently investigating some issues with enemy AI cars in DMZ moving without drivers and/or becoming stuck. We have released some prospective fixes and will be actively monitoring to see if these have been addressed.",
+    "post": "RECENTLY UPDATED",
+    "pct": "Parties of up to 4 players can now queue together in Free-for-All."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "In DMZ, players can now steal back UAV Towers from enemy control.",
+    "pre": "What a week it's been!",
+    "post": "First, a huge thank you to everyone who has jumped into Campaign Early Access. The response has been incredible, and seeing the excitement, reactions, and conversations surrounding the Campaign has been something special for all of us at Infinity Ward. Our team has spent years bringing this experience to life, and finally getting to share it with you has made this week one to remember. For those who haven't played yet, jump in and experience it yourself.",
+    "pct": "And now, DMZ Early Access is underway! The excitement surrounding DMZ has been amazing to see, and we're looking forward to hearing about your first deployments into Hajin. From the discoveries you make to the stories you bring back from the Exclusion Zone, we'll be following along closely, reviewing your feedback, and continuing to make improvements as we head toward launch."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "We also want to thank everyone who participated in the Multiplayer Beta. Your feedback helped us identify areas that needed attention, and the work hasn't stopped since the Beta ended. Over the past several weeks, we've been making adjustments, addressing feedback, and refining the experience across the game.",
+    "pre": "With launch just days away, we want to walk you through the changes, improvements, and fixes we've made as we prepare to welcome everyone into Modern Warfare 4 on October 23. Our pre-launch Patch Notes cover updates to Weapons, Movement, Spawns, and more, along with additional fixes and polish across the game. There\u2019s a lot to get into, so let\u2019s dive in.",
+    "post": "MULTIPLAYER CONTENT",
+    "pct": "Modern Warfare 4 launches with a total of 20 Multiplayer maps across the full experience, including 12 Core 6v6 maps, three Ground War maps, four Gunfight maps, and Kill Block. We\u2019ve also got over a dozen Multiplayer modes, 33 weapons, 33 Operators, and a full progression journey through Level 55 and beyond, all ready for you on day one."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "PROGRESSION & PRESTIGE",
+    "pre": "MW4 is packed with content to earn throughout the journey, including two Prestige paths for the first time in Call of Duty. No matter which path you choose, you\u2019ll unlock Operator Skins, Weapon Blueprints, and more inspired by Infinity Ward\u2019s past games.",
+    "post": "All 10 of our Prestige icons pay homage to our history, and our Prestige Master and Prestige Legend icons honor those who go the extra mile. And if you\u2019re a true OG, we\u2019ve also got you covered throughout Prestige Master with the full selection of legacy Prestige icons from across the franchise, including all the classic Modern Warfare games.",
+    "pct": "Modern Warfare 4 offers a deep Weapon Camo and Attachment grind, and each Optic features multiple Reticles to unlock, including multiple color variations. There\u2019s plenty to start earning progress toward on day one, whether you\u2019re playing MP or DMZ... yes, even the elusive blue dot."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "The Weapon Camo progression journey is the deepest we\u2019ve ever built in a Modern Warfare game, with a huge collection to chase across Multiplayer, DMZ, and once Season 1 kicks off, Call of Duty: Warzone. MW4\u2019s Weapon Camo grind is shared across all of these modes, and Special Camo Challenges in particular will automatically adjust to the specific mode you\u2019re playing. Once you complete a Special Camo Challenge in any mode, that Special Camo will be available in all modes.",
+    "pre": "MW4 offers some of our favorite Mastery Camos in any game we\u2019ve made, and we hope you\u2019ll love earning them as much as we loved crafting them. Here\u2019s a sneak peek at DMZ\u2019s Mastery Camos:",
+    "post": "Your broswer doesn't support HTML video. Here is a",
+    "pct": "link to the video instead."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "For the full breakdown of everything available at launch, check out our Ready for Launch blogs covering Operators and Weapons as well as Progression and Prestige with more intel in the Call of Duty blog.",
+    "pre": "MAPS",
+    "post": "At launch, Multiplayer includes:",
+    "pct": "Core 6v6 Maps"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Cachette",
+    "pre": "Coal",
+    "post": "Lithium",
+    "pct": "Lotus"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Mumbai",
+    "pre": "Munition",
+    "post": "Nautical",
+    "pct": "Reactor U92"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Rooftops",
+    "pre": "Sentry",
+    "post": "Silkworm",
+    "pct": "Transit 213"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Ground War 32v32 Maps",
+    "pre": "Imjin Farmland",
+    "post": "Wolves Stadium",
+    "pct": "Forest"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Gunfight 2v2 Maps",
+    "pre": "Cafe",
+    "post": "Library",
+    "pct": "NYC"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Smuggler",
+    "pre": "Kill Block",
+    "post": "New dynamic Multiplayer map",
+    "pct": "Supports 3v3 and 10v10 Gunfight at launch"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "6v6 modes supported post-launch",
+    "pre": "New Slabs and configurations coming post-launch",
+    "post": "MODES",
+    "pct": "Over a dozen Multiplayer modes are available at launch, including returning favorites and several new additions (including Hardcore). Get ready to jump into these brand-new modes on day one, plus returning classics including TDM, Domination, Hardpoint, Kill Confirmed, Free-For-All, Frontline, Search & Destroy, Gunfight, and Gun Game."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "New Modes",
+    "pre": "Inflation",
+    "post": "Eliminate enemies and collect their cash. The more you carry, the bigger the target on your back. Players who reach the High Value Target threshold are revealed to both teams, creating a constant choice between hunting enemy HVTs and protecting your own.",
+    "pct": "Hijack"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fight for control of the Data Spike, then carry, throw, or pass it on the way to the enemy Comm Station. Plant it to begin scoring and defend the upload to earn the full bonus.",
+    "pre": "Collateral",
+    "post": "A round-based tactical mode combining Search & Destroy mechanics with a Buy Phase. Start each match with a Pistol and $800, earn cash through objective play and eliminations, then spend it between rounds to build your loadout.",
+    "pct": "Combat Outpost"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Ground War expands into a large-scale fight for territory. Capture Outposts to score and establish new spawn locations, then reinforce them to unlock increasingly powerful team rewards.",
+    "pre": "Infected and the new Possession mode are also dropping next week as a Halloween treat. For more intel on everything coming at launch, check out our Maps & Modes blog with all the details.",
+    "post": "PROVING GROUNDS: MOBILITY COURSE",
+    "pct": "Building on the Mobility Course available during the Beta, Proving Grounds brings together movement practice and a variety of combat training exercises in one place. Whether you\u2019re looking to improve your movement, sharpen your combat skills, or get more familiar with gameplay mechanics, Proving Grounds gives you the space to practice before jumping into a match or test your skills for a high score."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "WEAPONS",
+    "pre": "Modern Warfare 4 launches with 33 weapons across Primary, Secondary, and Melee categories. Create-a-Class unlocks at Player Level 4, with Default Loadouts available before then.",
+    "post": "PRIMARY WEAPONS",
+    "pct": "ASSAULT RIFLES"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Han 86",
+    "pre": "M4",
+    "post": "Hyeon Burst",
+    "pct": "Patriot XMR"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Kastov 762",
+    "pre": "Oden",
+    "post": "Axion",
+    "pct": "Cronen Squall"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "SUBMACHINE GUNS",
+    "pre": "ISO Nightshade",
+    "post": "VEL 46",
+    "pct": "Wz.55 Striga"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "PPSh-41",
+    "pre": "X-58 Nyx",
+    "post": "SHOTGUNS",
+    "pct": "Rezi 12"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Warlord",
+    "pre": "LIGHT MACHINE GUNS",
+    "post": "Finn LMG",
+    "pct": "Type 73"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "APOC-338",
+    "pre": "MARKSMAN RIFLES",
+    "post": "MAR-9",
+    "pct": "Oris 8.6"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Mosin-Nagant",
+    "pre": "SNIPER RIFLES",
+    "post": "KG-7 Vulcan",
+    "pct": "Astaroth .57"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Signal 50",
+    "pre": "SECONDARY WEAPONS",
+    "post": "PISTOLS",
+    "pct": "Sang 9mm"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Krait P68",
+    "pre": ".50 GS",
+    "post": "Mojave .357",
+    "pct": "LAUNCHERS"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "PILA",
+    "pre": "RPG-8",
+    "post": "JOKR",
+    "pct": "PM-40 Anvil"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "MELEE",
+    "pre": "FSS Carbon Edge 1095",
+    "post": "WEAPON TUNING",
+    "pct": "We received a lot of feedback about TTK and the pace of our game during the first weekend of Beta. We had a short window to make adjustments and collect data, so we made the choice to swing hard on changes in Weekend 2. Gunfights in the second weekend of Beta felt more meaningful; players had a little more breathing room and the pace of our game felt better across all game modes. We collected a lot of feedback and in-game data, and the TTK from Weekend 2 was strongly preferred by all skill levels."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "While there was a clear player preference for Weekend 2\u2019s TTK, we did not get the balance between weapons and classes exactly right. Since then, our team has spent countless hours and late nights playtesting and iterating to improve balance between all our weapons.",
+    "pre": "SMGs are now more efficient in close to mid-range combat, powerful one hit kill weapons are tempered with flinch and damage tuning, and all weapons have had a deep balance pass to ensure the weapon you pick is a choice, not a requirement.",
+    "post": "We have also combed through all our attachments and tuned them to make sure Gunsmith allows flexibility and balance. Advanced Weapon Stats are also available at launch, so you\u2019ll know everything you need to make the right choice for your playstyle.",
+    "pct": "Our weapon pillars are:"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Distinction \u2013 Classes and weapons have clear, unique roles on the battlefield.",
+    "pre": "Balance \u2013 Players can find success with every tool available.",
+    "post": "Feel \u2013 Weapons feel awesome, visceral, and fun.",
+    "pct": "These pillars must work together in harmony to deliver the best version of Modern Warfare 4. Our team is excited about the tuning we have arrived at for launch. We will be playing right alongside you and updating our game to hone it to perfection."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "WEAPON PROGRESSION",
+    "pre": "The MW4 weapon system provides deep weapon customization with a variety of attachments and modifications. Our weapon progression is a streamlined approach to grow your arsenal without friction, respecting your time and reducing the grind to acquire functional customization.",
+    "post": "No redundant unlocks. The speed of weapon progression increases with every shared attachment you\u2019ve earned.",
+    "pct": "Once unlocked, shared attachments are immediately available for every weapon that can use them. Every attachment is a valuable piece of equipment that makes your entire arsenal more powerful."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Since the Beta we have worked to improve how weapon progression displays weapon unlocks instead of weapons levels. We\u2019ve also improved the visualization of weapon progress after a match to more clearly represent a how progress is skipped with shared attachments.",
+    "pre": "WEAPON PRESTIGE",
+    "post": "For those of you who want an even deeper progression journey, we\u2019ve got you covered. Weapon Prestige is back for players who want a more dedicated grind to their favorite weapon. If a player chooses to Prestige their weapon, all attachment on that weapon (including shared attachments) become locked, and the weapon moves to a classic level system unlock. The shared attachments will remain unlocked on other weapons that have not been Prestiged.",
+    "pct": "OPTIC & RETICLE CUSTOMIZATION"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "We have added a new Optic Rail Placement feature in Gunsmith that allows you to tailor your weapon\u2019s ADS sight picture exactly to your preference.",
+    "pre": "This is a completely cosmetic adjustment that can have a profound effect on the feel of your weapon. We also allow tuning from the ADS perspective in Gunsmith, so there is no guesswork involved in dialing placement down to perfection. What you see in Gunsmith is what you get in game.",
+    "post": "Reticle Customization is also available on optics, with a small but significant improvement made to thermal optics. When you earn and equip custom reticle for a thermal, it comes with a completely different thermal effect. If you find a thermal optic you like but don\u2019t enjoy that specific thermal effect, we have created a variety of authentic and distinct thermal options that are available when you customize our thermal optics reticle.",
+    "pct": "PERK PLACEMENTS"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Since the Beta, we've reconfigured our Perk distribution to better balance the categories and to keep interesting player choices between speed, durability, utility and stealth.",
+    "pre": "Here\u2019s where we landed for launch:",
+    "post": "Perk 1",
+    "pct": "Quick Fix"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Overkill",
+    "pre": "High Alert",
+    "post": "Ghost",
+    "pct": "Resupply"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Kill Chain",
+    "pre": "Perk 2",
+    "post": "Hardline",
+    "pct": "Blood Rush"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Bomb Squad",
+    "pre": "Fast Hands",
+    "post": "Ninja",
+    "pct": "Birdseye"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Perk 3",
+    "pre": "Lethal Reach",
+    "post": "Combat Grid",
+    "pct": "Battle Hardened"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Scavenger",
+    "pre": "Tracker",
+    "post": "Cold-Blooded",
+    "pct": "PERK TUNING"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "We\u2019ve buffed some Perks based on Beta feedback:",
+    "pre": "Battle Hardened will now more effectively negate most of the effects from Tactical grenades like the Flash, Concussion, and Screamer Mine.",
+    "post": "Resupply has been buffed to provide your first recharge faster.",
+    "pct": "Blood Rush has been updated so that pressing the sprint key automatically triggers Tactical Sprint by default. If you prefer to manage this directly, head towards the Movement Advanced Settings to adjust it."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "PLAYER MOVEMENT",
+    "pre": "Movement in Modern Warfare 4 is about playing the way you want, whether you prefer being a tactical elite operator carefully clearing rooms, an action hero star mantling over cars and sliding under obstacles, or a heavy gunner holding down an objective. Since the Beta, we have focused hard on making sure transitions between actions are balanced, feel grounded, and allow a clear benefit at a clear cost. The results are smoother movement that feels more authentic than ever before.",
+    "post": "Another area we have focused on improving is how enemy players move. We found several bugs where the third-person and first-person experience did not match, misrepresenting the enemy\u2019s actions, creating some unrealistic looking movements, and allowing a few snaking opportunities. All the issues we identified have been fixed, and we will carefully monitor for any additional changes.",
+    "pct": "Lastly, we have kept the change from Beta to make Tactical Sprint not available by default. It lives on the Perk Blood Rush, which is now in the second tier. Since the player is using a valuable Perk slot to Tactical Sprint, we removed the additional sprint out penalty that Tac Sprint typically incurs, and for the benefit of thumbs and controllers worldwide, the default input for Tactical Sprint is now \u201csingle tap run.\u201d This means when you activate sprint with Blood Rush equipped, you will Tac Sprint as long as stamina allows. For players who want full autonomy over when they use their Tac Sprint, we still have \u201cdouble tap\u201d and \u201csingle tap sprint\u201d options available."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "We\u2019re excited for you to get your hands on our updated movement experience on the new maps we have available for launch.",
+    "pre": "MULTIPLAYER SPAWNS",
+    "post": "Spawn work has continued since the Beta, including further iteration on the changes we made to player separation, squad spawning, and Hardpoint spawn predictability. Spawns have been reoriented around consistent flow and making sure you\u2019re never far from the fight.",
+    "pct": "KILLSTREAKS"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "MW4 features 17 Killstreaks at launch, any of which can be attached to individual Multiplayer loadouts for the first time in a Modern Warfare game.",
+    "pre": "We are launching with our new Smart Streak Meter where performing objective tasks like capturing a point in Domination will contribute towards your Killstreak meter.\u202fKillstreak tuning in the second weekend of the Beta that increased the cost of all streaks will remain for launch, meaning UAVs are 5 kills (or 4 kills with the Hardline perk equipped).",
+    "post": "While the team is happy where most of these landed in the Beta, two specific changes have been made for launch:",
+    "pct": "UAV health has been increased from 100 to 150, following feedback that UAVs were too easy to shoot down after their health was reduced during the Beta."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Wheelson pathing and targeting logic have been reworked to be more aggressive and prevent confusion when targets change quickly.",
+    "pre": "EQUIPMENT",
+    "post": "At launch, Create-a-Class includes 9 Tacticals, 11 Lethals, and 12 Field Upgrades, ranging from returning equipment like the Flash Grenade, Stim, Frag Grenade, and Trophy System to options like the Screamer Mine, Zip Gun, Smoke Wall, and Seeker Drone.",
+    "pct": "Here are some of the tweaks we\u2019ve made in time for launch:"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "TACTICALS",
+    "pre": "Flash and Concussion effective range and duration have been slightly reduced.",
+    "post": "UI / UX",
+    "pct": "Improved communication around Shared Attachments (see above)"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Reduced or eliminated pre-game countdown timers that had been originally intended to give previous generation consoles time to load",
+    "pre": "Added logic to start pre-loading maps earlier to avoid slowdowns waiting for the map to finish loading",
+    "post": "Gameplay Improvements",
+    "pct": "Reduced blur size on splashes to improve gameplay visibility"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Gunny",
+    "pre": "Improved the positioning of Gunny tutorials",
+    "post": "Reduced the notifications you get about Gunny",
+    "pct": "Gunny got a facelift!"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Weapon Builds",
+    "pre": "Weapon Builds were previously automatically saved when players left the Gunsmith, flooding their Build list. Weapon Build saving in Gunsmith is now a manual process.",
+    "post": "Weapon Builds edited in-match are now automatically saved.",
+    "pct": "Various minor improvements and fixes to the front end"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "AUDIO",
+    "pre": "Added missing destruction audio for various destructible objects across Multiplayer maps.",
+    "post": "Fixed an issue where mounted vehicle turrets were missing audio.",
+    "pct": "Fixed an issue where Heartbeat Sensor pings could become muted underwater."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Added audio cues when sending and receiving text messages.",
+    "pre": "Fixed issues causing audio dropouts when using the Assault Drone and Bomb Glider.",
+    "post": "Adjusted the audio mix and audible distances for the Chopper Gunner and its weapons.",
+    "pct": "Updated Gunship audio to improve the overall Killstreak experience."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Improved the Nuke sequence audio mix and fixed issues causing audio dropouts.",
+    "pre": "BUG FIXES",
+    "post": "MULTIPLAYER",
+    "pct": "Fixed a server crash that could occur during Multiplayer matches."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed various visual issues on Cachette.",
+    "pre": "Fixed an issue where the Seeker Drone could incorrectly deploy out of bounds and be destroyed in certain areas of Multiplayer maps.",
+    "post": "Fixed an issue where the Killstreak counter could reset after using the Argonaut.",
+    "pct": "Fixed an issue where match completion events were not being properly recorded in Multiplayer and DMZ."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "DMZ",
+    "pre": "Addressed on Oct. 20:",
+    "post": "Addressed various crashes and stability issues, including a crash when breaching the door in Breaking New Ground.",
+    "pct": "Fixed an issue where the After-Action Report could incorrectly display 0 XP earned after a player's first match."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where the ISO Apex Attachment would not function as intended in DMZ.",
+    "pre": "Fixed an issue where players could get double completion credit for story missions.",
+    "post": "Fixed an issue where enemy AI could move into unintended areas when a player was downed during Breaking New Ground.",
+    "pct": "Fixed some instances where enemy AI could run over players while infilling."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where some Dynamic Operations \u201cfind the keypad codes in safes\u201d could appear in locked spaces.",
+    "pre": "Fixed an issue where only the player who dealt the final blow to a Commander received XP and progress toward the \u201cKing Slayer\u201d Calling Card when playing in a squad.",
+    "post": "Fixed an issue where the Impact Smokes Pro Trait would not activate when a player was downed.",
+    "pct": "Fixed some incorrect DMZ Orders description text."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where shadows could visibly pop in and out when moving around the FOB.",
+    "pre": "Fixed an issue where the tablet screen could fail to turn on after searching the crashed drone in Breaking New Ground.",
+    "post": "Fixed an issue on where a missing prompt could prevent players from progressing the Chemical Denial Dynamic Op at NuriGO Mall on Nintendo Switch 2.",
+    "pct": "Fixed an issue where the Gunsmith Attachment menu could remain stuck onscreen during deployment."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where players could not purchase saved Blueprint modifications on Nintendo Switch 2.",
+    "pre": "Fixed some areas where players could get stuck in the rocks in Hajin.",
+    "post": "Fixed an issue where players could not equip an Active Duty Operator in their Showcase.",
+    "pct": "Fixed an issue where selecting Untrack Recipe with no recipes tracked at the 3D Printer could kick the player out of the FOB."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed an issue where selling starting equipment or dismissing Active Duty Operators with starting equipment equipped before your first deployment could result in a soft lock.",
+    "pre": "Addressed on Oct. 21:",
+    "post": "Fixed an error that could occur when opening the Dog Tag Case.",
+    "pct": "Fixed an issue where the Toxic Intercept Op could incorrectly fail after completing the Defend the Bomb objective."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed a performance issue on PC when holding a Heartbeat Sensor with a weapon equipped.",
+    "pre": "Fixed an issue where AI enemies could run over players during infiltration in NK Wilderness.",
+    "post": "Fixed an issue where Dynamic Operations text could display incorrectly when Menu Text Size was set to Larger or Largest.",
+    "pct": "Fixed an issue where the Orders rewards section of the End Game Report could appear in low resolution."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Fixed some unintended voice lines during Breaking New Ground.",
+    "pre": "WEAPONS",
+    "post": "Fixed an issue where the Firing Range could incorrectly display a 0.00 TTK for the Rezi 12 Shotgun.",
+    "pct": "Added weapon level icons to Melee and Launcher weapons."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "CAMPAIGN",
+    "pre": "Fixed a progression blocker in the Hotel sequence of Counter Attack.",
+    "post": "UI / UX",
+    "pct": "Several hundred bugs. Killed dead."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "PRE-LOAD DETAILS",
+    "pre": "If you haven\u2019t already, remember to pre-load the latest updates and make sure you\u2019ve got the required content packs installed so you can dive straight into MW4 on the 23rd.",
+    "post": "\ud83d\udce2 Call of Duty: #MW4 | Call of Duty: #Warzone",
+    "pct": "Pre-installation for Modern Warfare 4 will begin rolling out on Wednesday, October 14 at 9 PM PT. During setup, you can choose which content to download, including whether to install Warzone alongside Modern Warfare 4."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "The new version of Warzone will not be available until the launch of Season 1. Selecting Warzone before then will install the current live version of the game.",
+    "pre": "On platforms that support automatic downloads, such as PS5, installation may begin without giving you the opportunity to choose which items to install. To review your installation options, disable automatic downloads before pre-installation begins.\u2014 Call of Duty Updates (@CODUpdates) October 13, 2026",
+    "post": "EVENTS & REWARDS",
+    "pct": "We\u2019re taking a new approach to Events in Modern Warfare 4. From launch throughout the live seasons, we\u2019re focused on providing a variety of events including some all-new formats and returning favorites. Event rewards include Apex Attachments, Weapon Camos, Calling Cards, Operator Skins, and more."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "As we focus on delivering more compelling events, Weekly Challenges will not be available in Season 1. We want each Event to feel worth your time and effort unlocking new playable content and rewards.",
+    "pre": "We\u2019re also introducing reoccurring Events so that anyone who misses the chance to complete a full track can get another chance to earn that top reward. Additionally, you can earn camo rewards for completing multiple events. Our first Event kicks off right on launch day, and we\u2019ll be keeping an eye on the feedback here for future seasons.",
+    "post": "LIVE ISSUES",
+    "pct": "We are tracking live issues on our official Modern Warfare 4 Trello Board."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Be sure to check-out @CODUpdates for game updates and critical news on known issues.",
+    "pre": "We\u2019ve recently rolled out a number of changes for DMZ including crash fixes, stability updates and more.",
+    "post": "LAUNCH DAY IS ALMOST HERE\u2026",
+    "pct": "Like we did throughout Beta, we\u2019ll continue watching gameplay, reading your feedback, and making adjustments as Modern Warfare 4 gets into everyone\u2019s hands. Follow us on socials to stay in touch: @InfinityWard, @CallofDuty."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Thank you to everyone who played, tested, posted, streamed, shared feedback, and helped us get here.",
+    "pre": "We\u2019ll see you at launch.",
+    "post": "Back to Top",
+    "pct": "Related Articles"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Legal",
+    "pre": "Terms of Use",
+    "post": "Privacy Policy",
+    "pct": "Careers"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Cookie Policy",
+    "pre": "Support",
+    "post": "Code of Conduct",
+    "pct": "\u00a9/TM/\u00ae 2026 Activision Publishing, Inc."
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "Cookie Settings",
+    "pre": "Choose your region",
+    "post": "Selected region -",
+    "pct": "United States"
+  },
+  {
+    "category": "Shotguns",
+    "weapon": "Warlord",
+    "target": "Warlord - 12G Slug Rounds",
+    "stat": "United States",
+    "pre": "Selected region:",
+    "post": "United States",
+    "pct": "Close Menu+"
+  }
+]

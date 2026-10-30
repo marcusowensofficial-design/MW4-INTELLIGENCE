@@ -1,0 +1,828 @@
+Our first broad weapon tuning pass is focused on normalizing hit location damage for a more consistent TTK and general improvements to SMG performance.
+Weapon Adjustments
+Assault Rifles
+Weapon
+Adjustments
+Weapon:
+Han 86
+Adjustments:
+Han 86
+Pre
+Post
+% Change
+Max Damage Range
+1120
+1200 ⇧
+7% ⇧
+Neck Damage Multiplier
+1.1
+1 ⇩
+-9% ⇩
+Upper Torso Damage Multiplier
+1.1
+1 ⇩
+-9% ⇩
+Weapon:
+Kastov 762
+Adjustments:
+Kastov 762
+Pre
+Post
+% Change
+Max Damage Range
+950
+1050 ⇧
+11% ⇧
+Weapon:
+M4
+Adjustments:
+M4
+Pre
+Post
+% Change
+Max Damage Range
+990
+1020 ⇧
+3% ⇧
+Weapon:
+ODEN
+Adjustments:
+Oden
+Pre
+Post
+% Change
+Neck Damage Multiplier
+1.2
+1.1 ⇩
+-8% ⇩
+Upper Torso Damage Multiplier
+1.2
+1.1 ⇩
+-8% ⇩
+Lower Torso Damage Multiplier
+1.1
+1 ⇩
+-9% ⇩
+Oden - Sentinel Apex Attachment
+Pre
+Post
+% Change
+Max Damage Range
+870
+820 ⇩
+-6% ⇩
+Mid Damage Range 1
+1810
+1740 ⇩
+-4% ⇩
+Muzzle Velocity
+-
+-0.07
+-
+Weapon:
+Hyeon Burst
+Adjustments:
+Hyeon Burst - Hyperburst Apex Attachment
+Pre
+Post
+% Change
+Full-Auto Max Damage
+37
+34 ⇩
+-8% ⇩
+Full-Auto Max Damage Range
+970
+1220 ⇧
+26% ⇧
+Mid Damage Range 1
+Not Specified
+Removed
+-
+Weapon:
+Patriot XMR
+Adjustments:
+Barrels
+Patriot XMR - EXP Haste 80L 14" (Light Barrel)
+Pre
+Post
+% Change
+Recoil Control Penalty (%)
+8
+6 ⇩
+-25% ⇩
+Rear Grips
+Patriot XMR - FJX Fury IV Grip (Skeleton Grip)
+Pre
+Post
+% Change
+Recoil Control Penalty (%)
+5
+4 ⇩
+-20% ⇩
+SMGs
+Weapon
+Adjustments
+Weapon:
+ISO Nightshade
+Adjustments:
+ISO Nightshade
+Pre
+Post
+% Change
+Left Lower Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Left Upper Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Left Hand Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Lower Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Upper Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Hand Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Weapon:
+PPSh-41
+Adjustments:
+PPSh-41
+Pre
+Post
+% Change
+ADS In Speed (ms)
+300
+280 ⇩
+-7% ⇩
+ADS Strafe Movement Speed (m/s)
+2.75
+2.78 ⇧
+1% ⇧
+Crouch Speed (m/s)
+2.17
+2.19 ⇧
+1% ⇧
+Hipfire Movement Speed (m/s)
+4.19
+4.2 ⇧
+-
+Movement Speed (m/s)
+4.66
+4.7 ⇧
+1% ⇧
+Sprint Speed (m/s)
+6.18
+6.21 ⇧
+-
+Left Lower Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Left Upper Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Left Hand Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Lower Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Upper Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Hand Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Weapon:
+VEL 46
+Adjustments:
+VEL 46
+Pre
+Post
+% Change
+Left Lower Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Left Upper Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Left Hand Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Lower Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Upper Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Hand Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Weapon:
+Wz.55 Striga
+Adjustments:
+Wz.55 Striga
+Pre
+Post
+% Change
+Max Damage Range
+440
+470 ⇧
+7% ⇧
+Mid Damage Range 1
+825
+840 ⇧
+2% ⇧
+Left Lower Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Left Upper Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Left Hand Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Lower Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Upper Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Hand Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Weapon:
+X-58 Nyx
+Adjustments:
+X-58 Nyx
+Pre
+Post
+% Change
+Head Damage Multiplier
+1.25
+1.3 ⇧
+4% ⇧
+Left Lower Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Left Upper Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Left Hand Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Lower Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Upper Arm Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+Right Hand Damage Multiplier
+0.95
+1 ⇧
+5% ⇧
+X-58 Nyx - Void Apex Attachment
+Pre
+Post
+% Chagne
+Max Damage Range
+437
+460 ⇧
+5% ⇧
+Mid Damage Range 1
+788
+815 ⇧
+3% ⇧
+LMGs
+Weapon
+Adjustments
+Weapon:
+APOC-338
+Adjustments:
+APOC-338
+Pre
+Post
+% Change
+Mid Damage 1
+38
+37 ⇩
+-3% ⇩
+Mid Damage Range 1
+1980
+1900 ⇩
+-4% ⇩
+Min Damage
+35
+33 ⇩
+-6% ⇩
+Weapon:
+FiNN LMG
+Adjustments:
+FiNN LMG
+Pre
+Post
+% Change
+Mid Damage Range 1
+1720
+1620 ⇩
+-6% ⇩
+Left Upper Arm Damage Multiplier
+1.1
+1 ⇩
+-9% ⇩
+Right Upper Arm Damage Multiplier
+1.1
+1 ⇩
+-9% ⇩
+Weapon:
+Type 73
+Adjustments:
+Type 73 - Assault Apex Attachment
+Pre
+Post
+% Change
+Min Damage
+19
+20 ⇧
+5% ⇧
+Shotguns
+Weapon
+Adjustments
+Weapon:
+Warlord
+Adjustments:
+Ammunition
+Warlord - 12G Slug Rounds
+Pre
+Post
+% Change
+Mid Damage Range 2
+900
+810 ⇩
+-10% ⇩
+BUG FIXES
+Fixed a visual issue where the Mosin-Nagant's firing pin could appear in the incorrect position after firing the final round.
+Fixed an issue where taking damage would not interrupt health regeneration from the Quick Fix Perk.
+We noticed an issue where Quick Fix would continue to regenerate health even after taking damage. This was causing players to be more tanky than intended. Damage will now properly interrupt Quick Fix.
+Addressed an exploit involving the Riot Shield entering out of bounds areas.
+Improved the visibility of UAVs on Sentry.
+Fixed an issue where certain Melee Kills, Backstabs, and Takedowns were not tracking correctly for some Challenges.
+Increased the maximum range cutoff for Point Blank Challenge tracking.
+Decreased the minimum range cutoff for Longshot Challenge tracking.
+Fixed an issue where players would incorrectly appear as Reece when loading into Gun Game, regardless of their selected Operator.
+Updated the Quick Fix Perk hitmarker icon.
+DMZ
+The intention for Possum is to give a high level operator a second chance. With the current iteration, Possum was being used as a combat mechanic instead of a survival mechanic. These tweaks are meant to prevent players from getting right back into the fight which they had just lost. We will be watching the use of Possum with this change to see if it has the desired effect.
+We’ve adjusted the Possum Trait so that you are now unable to activate Possum while the team that killed you is nearby or until 4 minutes have passed. This range and duration is tunable going forward.
+BUG FIXES
+Addressed a bug where Possum could revive players who had already abandoned their Operator, which would put them in an unplayable state.
+Fixed an issue where players could encounter a black screen after their entire squad was eliminated while a teammate had the Possum Perk equipped.
+Fixed an issue where using the 3D Printer to add items to the Backpack during deployment could cause players to deploy into DMZ without their Free Loadout weapons or equipment.
+Closed several exploits in DMZ.
+Fixed an issue where weapons could unintentionally drop when moving them from the Primary Weapon slot to the Backpack.
+Fixed an issue where players were not receiving the 3-Plate Armor Vest reward upon reaching DMZ Level 37.
+Fixed an issue where weapons could disappear after repeatedly swapping between weapon slots while using a Backpack with weapon storage.
+Fixed an issue where the Airbase Access Card could not be upgraded during a Story Mission if it was stored in the Secure Slot.
+Fixed an issue where automatically marked Order mission items could lose their Ping markers after players pinged a loot container.
+KNOWN ISSUES
+We're aware of an issue where the Patriot XMR Platinum Camo Challenge is not tracking correctly in the UI. The challenge can still be completed and progressed despite not displaying accurately. We are working on a fix.
+We're investigating some Calling Card challenges not tracking as intended.
+We're aware of an issue with Best Play selection logic in Multiplayer modes.
+Players who enter Classic Prestige via DMZ menus instead of MP menus are unable to make new MP classes until previously created MP classes with relocked Loadout items are deleted.
+Track live issues on our official Trello board and follow CODUpdates for the latest news.
+October 25, 2026
+We've been keeping a close eye on the issues you've been reporting and working through them as quickly as we can. Today's update addresses several of those issues, along with additional gameplay adjustments and improvements.
+There's more work ahead, and we're not slowing down. The team is also looking at potential weapon tuning changes for a future update. We'll continue rolling out fixes, making adjustments, and keeping you informed along the way.
+GLOBAL
+Fixed an issue on XBOX and PC where players using the full Korean language setting could not launch Black Ops 7 from MW4.
+UI/UX
+Fixed an issue where weapon stats were not displayed for locked Attachments in Gunsmith.
+Updated the Prestige reset process to ensure Loadouts are properly cleared when Prestiging.
+Fixed a visual issue in the Optic Rail Placement menu.
+Fixed an issue where the Resource Management Trait description would scroll too fast to read.
+Fixed an issue where the Patriot XMR, Oden, and Cronen Squall were incorrectly classified as Battle Rifles in various places throughout the game.
+Fixed an issue where DMZ Lieutenant Intel unlock requirements and the eliminated indicator could disappear when hovering over previously eliminated Lieutenants on the Boss Board.
+MULTIPLAYER
+We’ve rolled back a previous fix for “bomb stretching” in Search and Destroy due to a knock-on issue in which players were unable to pick up the bomb in certain positions. We will be addressing bomb stretching again in an update as soon as we are able.
+We’re also looking at XP earn rates in Multiplayer modes and will be making some changes, starting with this update.
+XP for 1 kill has been boosted from 100 to 300 in Search and Destroy and Collateral.
+Fixed an issue on Collateral where the bomb could disappear after players interacted with it.
+Fixed an issue where the game could briefly freeze when editing a Loadout for the first time during a match.
+Fixed an issue where the announcer's game mode introduction would not play at the start of Frontline or Hijack matches.
+DMZ
+Fixed an issue where players could bypass the Hospital Elevator objective during the Critical Extraction Story Mission.
+Decreased Drill Charge damage against enemy Colossus.
+Fixed an issue where a Sedan could be missing from its marked location on the Tac-Map.
+Fixed an issue where enemy AI could clip through the Crashed Drone.
+Fixed an issue where the Last Stand icon appeared oversized on the Minimap.
+Fixed an issue where purchasing saved Builds from modified Blueprints could incorrectly charge players the full cost of the original Blueprint.
+Fixed an issue where players could attempt to deploy while items remained in their Overflow Stash. Note: Operators must reconcile their Overflow Stash before the next deployment.
+Fixed several issues in the Breaking New Ground (onboarding) mission.
+KNOWN ISSUES
+Track live issues on our official Trello board and follow CODUpdates for the latest news.
+RECENTLY UPDATED
+Closed various DMZ exploits.
+We've addressed an issue where players were being AFK kicked while spectating in some Multiplayer modes.
+October 24, 2026
+Another round of fixes and improvements is here for Modern Warfare 4, covering Multiplayer and DMZ.
+Our teams continue to focus on improving stability, addressing bugs, resolving exploits, and making quality of life improvements across the game.
+We're committed to delivering consistent updates and improving the experience for everyone. There's still plenty of work ahead, and we'll continue addressing issues and sharing our progress as we move forward.
+Thank you for your continued feedback and support.
+Happy hunting!
+GLOBAL
+Stability
+Fixed several stability and crash issues for a better experience across all modes.
+UI/UX
+Fixed an issue where DMZ Stash options could incorrectly appear in the middle of the screen.
+Fixed various instances where front end menus could close unexpectedly.
+Fixed an issue on PC where the Split keybind would not update to reflect the player's custom Ping keybind, resulting in players thinking they were unable to split inventory stacks.
+Fixed an issue where Finishing Move effects could remain playing after returning to the Create a Class menu.
+Fixed an issue where DMZ Weapon Builds could incorrectly appear as usable in Core Multiplayer.
+Fixed an issue where applying some weapon camos or reticles in DMZ Gunsmith could result in a deduction of DMZ cash.
+Fixed an issue where editing a loadout could sometimes cause a non-Melee weapon to appear in the Melee slot of the in-game Loadout menu.
+Fixed an issue where a weapon’s attachments would not automatically reset when Prestiging in Gunsmith.
+Weapons
+Fixed an issue where an incorrect attachment could be equipped to the M4 and cause a visual bug on the weapon’s muzzle.
+Fixed a visual issue where bullets could appear to float inside empty or partially used magazines for the La Sombra Venenosa Blueprint.
+MULTIPLAYER
+Improved spawn locations and respawn timing in Hijack.
+Bug Fixes
+Fixed an issue where the Portable Radar Field Upgrade would not display the Minimap while active in Hardcore matches.
+Fixed an issue in Search and Destroy where players could defuse the bomb from an unintended distance or position.
+Fixed an issue on Rooftops where the Deathstalker Killstreak could travel outside the map boundaries.
+Fixed an issue where players' Favorite Operators were not properly equipped in Collateral.
+Note: Weapon Prestiging and Player Prestiging are unavailable while actively searching for a match. We have updated the UI to clarify.
+DMZ
+Fixed even more areas where players could become stuck in rocks on Hajin.
+Fixed an issue where Party Leaders could pull teammates out of DMZ without their consent, causing their Active Duty Operators to be marked as MIA.
+Fixed an issue where objective markers could display on the wrong enemy during the Obtain Code steps of the Dark Zone Story Mission.
+Fixed an out-of-bounds issue in the FOB.
+Fixed some instances of incorrect data displaying on looted Dog Tags and Bounties.
+Fixed an issue where the Exfil helicopter could disappear while players were still inside.
+Fixed an issue where AI reinforcements during the Shopping Mission were spawning too frequently.
+Fixed an issue where the Philanthropist Order on Page 19 would not track Weekly Mission Challenges completed before the Order was unlocked.
+Closed various exploits.
+KNOWN ISSUES
+The regional map animation while searching for lobbies has been temporarily disabled as part of a prospective fix for reports of hitching.
+We're investigating an issue causing some players to be kicked while spectating in Multiplayer.
+Players may experience a network error when in DMZ extracting with a looted Dog Tag on PC.
+Track live issues on our official Trello board and follow CODUpdates for the latest news.
+RECENTLY UPDATED
+Addressed an issue causing some player models to appear in static or incorrect animations. This may result in enemy players appearing in unintended states.
+Various stability and crash fixes for PC.
+October 23, 2026
+Modern Warfare 4 is here! Thank you for all the love at launch. The team is currently working on a series of updates that we’ll be releasing over the coming days, including upcoming Multiplayer Patch Notes. Stay tuned for more.
+GLOBAL
+Stability
+Fixed several stability and crash issues for a better experience across all modes.
+UI/UX
+Fixed an issue where Military Camos and Apex Attachments could appear locked again after Prestiging a weapon.
+Fixed an issue where several camo unlock requirements were inaccurate.
+Fixed an issue where a DMZ Challenge incorrectly listed Longshot kills instead of Headshot kills.
+Fixed an issue where Killstreak indicators from a previous Multiplayer match could incorrectly carry over into DMZ.
+Fixed an issue where Night Vision Goggles (NVGs) appeared twice in the Underground Chapter rewards menu.
+Fixed an issue where Camo unlocks incorrectly displayed the Shared Attachment icon in the Weapon Progression menu.
+Fixed an issue where the Notification Panel was misaligned when using a 16:10 aspect ratio.
+Fixed an issue where the World Map animation could sometimes be missing in the pre-game lobby.
+Updated the Events Panel to improve usability and presentation.
+Added weapon level icons to Melee and Launcher weapons.
+Note: Weapon Prestiging and Player Prestiging are unavailable while actively searching for a match. We have updated the UI to clarify.
+Weapons
+We’re looking closely at weapon performance across Modern Warfare 4. As a reminder we have bespoke weapon tuning in both Multiplayer and DMZ. We are already looking at potential weapon tuning for next week.
+Apex Attachments
+Where did they go? In the Beta we included a few early seasonal event Apex and weapon attachments to make sure they were fun, balanced, and performed the way we wanted.
+Don’t worry! They will return soon.
+MULTIPLAYER
+Bug Fixes
+Fixed an issue where the Portable Radar Field Upgrade would not function in Free-for-All matches.
+Fixed an issue where invisible collisions could interfere with calling in a Deathstalker near the Barracks area on Summit.
+DMZ
+Addressed various stability issues in DMZ, including disconnect issues.
+Fixed an issue where purchasing certain Lieutenant intel would not update the tracked DMZ Order.
+Fixed an issue where FOB Upgrades Challenges were tracking inconsistently.
+Fixed various issues with Bounty tracking.
+Fixed an issue where Lieutenant Hunt progress and completion could incorrectly appear for other squads.
+Fixed an issue where the displayed requirement for completing a Dynamic Operation in under 8 minutes was inaccurate.
+Fixed some areas where players could become stuck in rocks on Hajin.
+Fixed an issue where the Numb the Pain and Numb the Pain Pro Trait descriptions did not accurately reflect their effects.
+Fixed an issue where character animations could break when climbing down a pipe while carrying a hostage.
+Fixed an issue where enemy AI helicopters could become stuck in midair during the “Fallout” mission.
+Fixed several issues where bullet effect audio was missing.
+Fixed an issue where Little Bird helicopter audio was missing.
+Fixed an issue where eliminated Operators were sometimes dropping extra Killsteaks.
+Fixed an issue where Gas Masks and Parachutes had incorrect usage counts. Disposable Parachutes now have three uses, and Gas Masks, including Durable Gas Masks, no longer break immediately upon entering radiation zones.
+KNOWN ISSUES
+Keep an eye on our Trello board for known issues and ongoing fixes.
+We’re currently investigating some issues with enemy AI cars in DMZ moving without drivers and/or becoming stuck. We have released some prospective fixes and will be actively monitoring to see if these have been addressed.
+RECENTLY UPDATED
+Parties of up to 4 players can now queue together in Free-for-All.
+In DMZ, players can now steal back UAV Towers from enemy control.
+What a week it's been!
+First, a huge thank you to everyone who has jumped into Campaign Early Access. The response has been incredible, and seeing the excitement, reactions, and conversations surrounding the Campaign has been something special for all of us at Infinity Ward. Our team has spent years bringing this experience to life, and finally getting to share it with you has made this week one to remember. For those who haven't played yet, jump in and experience it yourself.
+And now, DMZ Early Access is underway! The excitement surrounding DMZ has been amazing to see, and we're looking forward to hearing about your first deployments into Hajin. From the discoveries you make to the stories you bring back from the Exclusion Zone, we'll be following along closely, reviewing your feedback, and continuing to make improvements as we head toward launch.
+We also want to thank everyone who participated in the Multiplayer Beta. Your feedback helped us identify areas that needed attention, and the work hasn't stopped since the Beta ended. Over the past several weeks, we've been making adjustments, addressing feedback, and refining the experience across the game.
+With launch just days away, we want to walk you through the changes, improvements, and fixes we've made as we prepare to welcome everyone into Modern Warfare 4 on October 23. Our pre-launch Patch Notes cover updates to Weapons, Movement, Spawns, and more, along with additional fixes and polish across the game. There’s a lot to get into, so let’s dive in.
+MULTIPLAYER CONTENT
+Modern Warfare 4 launches with a total of 20 Multiplayer maps across the full experience, including 12 Core 6v6 maps, three Ground War maps, four Gunfight maps, and Kill Block. We’ve also got over a dozen Multiplayer modes, 33 weapons, 33 Operators, and a full progression journey through Level 55 and beyond, all ready for you on day one.
+PROGRESSION & PRESTIGE
+MW4 is packed with content to earn throughout the journey, including two Prestige paths for the first time in Call of Duty. No matter which path you choose, you’ll unlock Operator Skins, Weapon Blueprints, and more inspired by Infinity Ward’s past games.
+All 10 of our Prestige icons pay homage to our history, and our Prestige Master and Prestige Legend icons honor those who go the extra mile. And if you’re a true OG, we’ve also got you covered throughout Prestige Master with the full selection of legacy Prestige icons from across the franchise, including all the classic Modern Warfare games.
+Modern Warfare 4 offers a deep Weapon Camo and Attachment grind, and each Optic features multiple Reticles to unlock, including multiple color variations. There’s plenty to start earning progress toward on day one, whether you’re playing MP or DMZ... yes, even the elusive blue dot.
+The Weapon Camo progression journey is the deepest we’ve ever built in a Modern Warfare game, with a huge collection to chase across Multiplayer, DMZ, and once Season 1 kicks off, Call of Duty: Warzone. MW4’s Weapon Camo grind is shared across all of these modes, and Special Camo Challenges in particular will automatically adjust to the specific mode you’re playing. Once you complete a Special Camo Challenge in any mode, that Special Camo will be available in all modes.
+MW4 offers some of our favorite Mastery Camos in any game we’ve made, and we hope you’ll love earning them as much as we loved crafting them. Here’s a sneak peek at DMZ’s Mastery Camos:
+Your broswer doesn't support HTML video. Here is a
+link to the video instead.
+For the full breakdown of everything available at launch, check out our Ready for Launch blogs covering Operators and Weapons as well as Progression and Prestige with more intel in the Call of Duty blog.
+MAPS
+At launch, Multiplayer includes:
+Core 6v6 Maps
+Cachette
+Coal
+Lithium
+Lotus
+Mumbai
+Munition
+Nautical
+Reactor U92
+Rooftops
+Sentry
+Silkworm
+Transit 213
+Ground War 32v32 Maps
+Imjin Farmland
+Wolves Stadium
+Forest
+Gunfight 2v2 Maps
+Cafe
+Library
+NYC
+Smuggler
+Kill Block
+New dynamic Multiplayer map
+Supports 3v3 and 10v10 Gunfight at launch
+6v6 modes supported post-launch
+New Slabs and configurations coming post-launch
+MODES
+Over a dozen Multiplayer modes are available at launch, including returning favorites and several new additions (including Hardcore). Get ready to jump into these brand-new modes on day one, plus returning classics including TDM, Domination, Hardpoint, Kill Confirmed, Free-For-All, Frontline, Search & Destroy, Gunfight, and Gun Game.
+New Modes
+Inflation
+Eliminate enemies and collect their cash. The more you carry, the bigger the target on your back. Players who reach the High Value Target threshold are revealed to both teams, creating a constant choice between hunting enemy HVTs and protecting your own.
+Hijack
+Fight for control of the Data Spike, then carry, throw, or pass it on the way to the enemy Comm Station. Plant it to begin scoring and defend the upload to earn the full bonus.
+Collateral
+A round-based tactical mode combining Search & Destroy mechanics with a Buy Phase. Start each match with a Pistol and $800, earn cash through objective play and eliminations, then spend it between rounds to build your loadout.
+Combat Outpost
+Ground War expands into a large-scale fight for territory. Capture Outposts to score and establish new spawn locations, then reinforce them to unlock increasingly powerful team rewards.
+Infected and the new Possession mode are also dropping next week as a Halloween treat. For more intel on everything coming at launch, check out our Maps & Modes blog with all the details.
+PROVING GROUNDS: MOBILITY COURSE
+Building on the Mobility Course available during the Beta, Proving Grounds brings together movement practice and a variety of combat training exercises in one place. Whether you’re looking to improve your movement, sharpen your combat skills, or get more familiar with gameplay mechanics, Proving Grounds gives you the space to practice before jumping into a match or test your skills for a high score.
+WEAPONS
+Modern Warfare 4 launches with 33 weapons across Primary, Secondary, and Melee categories. Create-a-Class unlocks at Player Level 4, with Default Loadouts available before then.
+PRIMARY WEAPONS
+ASSAULT RIFLES
+Han 86
+M4
+Hyeon Burst
+Patriot XMR
+Kastov 762
+Oden
+Axion
+Cronen Squall
+SUBMACHINE GUNS
+ISO Nightshade
+VEL 46
+Wz.55 Striga
+PPSh-41
+X-58 Nyx
+SHOTGUNS
+Rezi 12
+Warlord
+LIGHT MACHINE GUNS
+Finn LMG
+Type 73
+APOC-338
+MARKSMAN RIFLES
+MAR-9
+Oris 8.6
+Mosin-Nagant
+SNIPER RIFLES
+KG-7 Vulcan
+Astaroth .57
+Signal 50
+SECONDARY WEAPONS
+PISTOLS
+Sang 9mm
+Krait P68
+.50 GS
+Mojave .357
+LAUNCHERS
+PILA
+RPG-8
+JOKR
+PM-40 Anvil
+MELEE
+FSS Carbon Edge 1095
+WEAPON TUNING
+We received a lot of feedback about TTK and the pace of our game during the first weekend of Beta. We had a short window to make adjustments and collect data, so we made the choice to swing hard on changes in Weekend 2. Gunfights in the second weekend of Beta felt more meaningful; players had a little more breathing room and the pace of our game felt better across all game modes. We collected a lot of feedback and in-game data, and the TTK from Weekend 2 was strongly preferred by all skill levels.
+While there was a clear player preference for Weekend 2’s TTK, we did not get the balance between weapons and classes exactly right. Since then, our team has spent countless hours and late nights playtesting and iterating to improve balance between all our weapons.
+SMGs are now more efficient in close to mid-range combat, powerful one hit kill weapons are tempered with flinch and damage tuning, and all weapons have had a deep balance pass to ensure the weapon you pick is a choice, not a requirement.
+We have also combed through all our attachments and tuned them to make sure Gunsmith allows flexibility and balance. Advanced Weapon Stats are also available at launch, so you’ll know everything you need to make the right choice for your playstyle.
+Our weapon pillars are:
+Distinction – Classes and weapons have clear, unique roles on the battlefield.
+Balance – Players can find success with every tool available.
+Feel – Weapons feel awesome, visceral, and fun.
+These pillars must work together in harmony to deliver the best version of Modern Warfare 4. Our team is excited about the tuning we have arrived at for launch. We will be playing right alongside you and updating our game to hone it to perfection.
+WEAPON PROGRESSION
+The MW4 weapon system provides deep weapon customization with a variety of attachments and modifications. Our weapon progression is a streamlined approach to grow your arsenal without friction, respecting your time and reducing the grind to acquire functional customization.
+No redundant unlocks. The speed of weapon progression increases with every shared attachment you’ve earned.
+Once unlocked, shared attachments are immediately available for every weapon that can use them. Every attachment is a valuable piece of equipment that makes your entire arsenal more powerful.
+Since the Beta we have worked to improve how weapon progression displays weapon unlocks instead of weapons levels. We’ve also improved the visualization of weapon progress after a match to more clearly represent a how progress is skipped with shared attachments.
+WEAPON PRESTIGE
+For those of you who want an even deeper progression journey, we’ve got you covered. Weapon Prestige is back for players who want a more dedicated grind to their favorite weapon. If a player chooses to Prestige their weapon, all attachment on that weapon (including shared attachments) become locked, and the weapon moves to a classic level system unlock. The shared attachments will remain unlocked on other weapons that have not been Prestiged.
+OPTIC & RETICLE CUSTOMIZATION
+We have added a new Optic Rail Placement feature in Gunsmith that allows you to tailor your weapon’s ADS sight picture exactly to your preference.
+This is a completely cosmetic adjustment that can have a profound effect on the feel of your weapon. We also allow tuning from the ADS perspective in Gunsmith, so there is no guesswork involved in dialing placement down to perfection. What you see in Gunsmith is what you get in game.
+Reticle Customization is also available on optics, with a small but significant improvement made to thermal optics. When you earn and equip custom reticle for a thermal, it comes with a completely different thermal effect. If you find a thermal optic you like but don’t enjoy that specific thermal effect, we have created a variety of authentic and distinct thermal options that are available when you customize our thermal optics reticle.
+PERK PLACEMENTS
+Since the Beta, we've reconfigured our Perk distribution to better balance the categories and to keep interesting player choices between speed, durability, utility and stealth.
+Here’s where we landed for launch:
+Perk 1
+Quick Fix
+Overkill
+High Alert
+Ghost
+Resupply
+Kill Chain
+Perk 2
+Hardline
+Blood Rush
+Bomb Squad
+Fast Hands
+Ninja
+Birdseye
+Perk 3
+Lethal Reach
+Combat Grid
+Battle Hardened
+Scavenger
+Tracker
+Cold-Blooded
+PERK TUNING
+We’ve buffed some Perks based on Beta feedback:
+Battle Hardened will now more effectively negate most of the effects from Tactical grenades like the Flash, Concussion, and Screamer Mine.
+Resupply has been buffed to provide your first recharge faster.
+Blood Rush has been updated so that pressing the sprint key automatically triggers Tactical Sprint by default. If you prefer to manage this directly, head towards the Movement Advanced Settings to adjust it.
+PLAYER MOVEMENT
+Movement in Modern Warfare 4 is about playing the way you want, whether you prefer being a tactical elite operator carefully clearing rooms, an action hero star mantling over cars and sliding under obstacles, or a heavy gunner holding down an objective. Since the Beta, we have focused hard on making sure transitions between actions are balanced, feel grounded, and allow a clear benefit at a clear cost. The results are smoother movement that feels more authentic than ever before.
+Another area we have focused on improving is how enemy players move. We found several bugs where the third-person and first-person experience did not match, misrepresenting the enemy’s actions, creating some unrealistic looking movements, and allowing a few snaking opportunities. All the issues we identified have been fixed, and we will carefully monitor for any additional changes.
+Lastly, we have kept the change from Beta to make Tactical Sprint not available by default. It lives on the Perk Blood Rush, which is now in the second tier. Since the player is using a valuable Perk slot to Tactical Sprint, we removed the additional sprint out penalty that Tac Sprint typically incurs, and for the benefit of thumbs and controllers worldwide, the default input for Tactical Sprint is now “single tap run.” This means when you activate sprint with Blood Rush equipped, you will Tac Sprint as long as stamina allows. For players who want full autonomy over when they use their Tac Sprint, we still have “double tap” and “single tap sprint” options available.
+We’re excited for you to get your hands on our updated movement experience on the new maps we have available for launch.
+MULTIPLAYER SPAWNS
+Spawn work has continued since the Beta, including further iteration on the changes we made to player separation, squad spawning, and Hardpoint spawn predictability. Spawns have been reoriented around consistent flow and making sure you’re never far from the fight.
+KILLSTREAKS
+MW4 features 17 Killstreaks at launch, any of which can be attached to individual Multiplayer loadouts for the first time in a Modern Warfare game.
+We are launching with our new Smart Streak Meter where performing objective tasks like capturing a point in Domination will contribute towards your Killstreak meter. Killstreak tuning in the second weekend of the Beta that increased the cost of all streaks will remain for launch, meaning UAVs are 5 kills (or 4 kills with the Hardline perk equipped).
+While the team is happy where most of these landed in the Beta, two specific changes have been made for launch:
+UAV health has been increased from 100 to 150, following feedback that UAVs were too easy to shoot down after their health was reduced during the Beta.
+Wheelson pathing and targeting logic have been reworked to be more aggressive and prevent confusion when targets change quickly.
+EQUIPMENT
+At launch, Create-a-Class includes 9 Tacticals, 11 Lethals, and 12 Field Upgrades, ranging from returning equipment like the Flash Grenade, Stim, Frag Grenade, and Trophy System to options like the Screamer Mine, Zip Gun, Smoke Wall, and Seeker Drone.
+Here are some of the tweaks we’ve made in time for launch:
+TACTICALS
+Flash and Concussion effective range and duration have been slightly reduced.
+UI / UX
+Improved communication around Shared Attachments (see above)
+Reduced or eliminated pre-game countdown timers that had been originally intended to give previous generation consoles time to load
+Added logic to start pre-loading maps earlier to avoid slowdowns waiting for the map to finish loading
+Gameplay Improvements
+Reduced blur size on splashes to improve gameplay visibility
+Gunny
+Improved the positioning of Gunny tutorials
+Reduced the notifications you get about Gunny
+Gunny got a facelift!
+Weapon Builds
+Weapon Builds were previously automatically saved when players left the Gunsmith, flooding their Build list. Weapon Build saving in Gunsmith is now a manual process.
+Weapon Builds edited in-match are now automatically saved.
+Various minor improvements and fixes to the front end
+AUDIO
+Added missing destruction audio for various destructible objects across Multiplayer maps.
+Fixed an issue where mounted vehicle turrets were missing audio.
+Fixed an issue where Heartbeat Sensor pings could become muted underwater.
+Added audio cues when sending and receiving text messages.
+Fixed issues causing audio dropouts when using the Assault Drone and Bomb Glider.
+Adjusted the audio mix and audible distances for the Chopper Gunner and its weapons.
+Updated Gunship audio to improve the overall Killstreak experience.
+Improved the Nuke sequence audio mix and fixed issues causing audio dropouts.
+BUG FIXES
+MULTIPLAYER
+Fixed a server crash that could occur during Multiplayer matches.
+Fixed various visual issues on Cachette.
+Fixed an issue where the Seeker Drone could incorrectly deploy out of bounds and be destroyed in certain areas of Multiplayer maps.
+Fixed an issue where the Killstreak counter could reset after using the Argonaut.
+Fixed an issue where match completion events were not being properly recorded in Multiplayer and DMZ.
+DMZ
+Addressed on Oct. 20:
+Addressed various crashes and stability issues, including a crash when breaching the door in Breaking New Ground.
+Fixed an issue where the After-Action Report could incorrectly display 0 XP earned after a player's first match.
+Fixed an issue where the ISO Apex Attachment would not function as intended in DMZ.
+Fixed an issue where players could get double completion credit for story missions.
+Fixed an issue where enemy AI could move into unintended areas when a player was downed during Breaking New Ground.
+Fixed some instances where enemy AI could run over players while infilling.
+Fixed an issue where some Dynamic Operations “find the keypad codes in safes” could appear in locked spaces.
+Fixed an issue where only the player who dealt the final blow to a Commander received XP and progress toward the “King Slayer” Calling Card when playing in a squad.
+Fixed an issue where the Impact Smokes Pro Trait would not activate when a player was downed.
+Fixed some incorrect DMZ Orders description text.
+Fixed an issue where shadows could visibly pop in and out when moving around the FOB.
+Fixed an issue where the tablet screen could fail to turn on after searching the crashed drone in Breaking New Ground.
+Fixed an issue on where a missing prompt could prevent players from progressing the Chemical Denial Dynamic Op at NuriGO Mall on Nintendo Switch 2.
+Fixed an issue where the Gunsmith Attachment menu could remain stuck onscreen during deployment.
+Fixed an issue where players could not purchase saved Blueprint modifications on Nintendo Switch 2.
+Fixed some areas where players could get stuck in the rocks in Hajin.
+Fixed an issue where players could not equip an Active Duty Operator in their Showcase.
+Fixed an issue where selecting Untrack Recipe with no recipes tracked at the 3D Printer could kick the player out of the FOB.
+Fixed an issue where selling starting equipment or dismissing Active Duty Operators with starting equipment equipped before your first deployment could result in a soft lock.
+Addressed on Oct. 21:
+Fixed an error that could occur when opening the Dog Tag Case.
+Fixed an issue where the Toxic Intercept Op could incorrectly fail after completing the Defend the Bomb objective.
+Fixed a performance issue on PC when holding a Heartbeat Sensor with a weapon equipped.
+Fixed an issue where AI enemies could run over players during infiltration in NK Wilderness.
+Fixed an issue where Dynamic Operations text could display incorrectly when Menu Text Size was set to Larger or Largest.
+Fixed an issue where the Orders rewards section of the End Game Report could appear in low resolution.
+Fixed some unintended voice lines during Breaking New Ground.
+WEAPONS
+Fixed an issue where the Firing Range could incorrectly display a 0.00 TTK for the Rezi 12 Shotgun.
+Added weapon level icons to Melee and Launcher weapons.
+CAMPAIGN
+Fixed a progression blocker in the Hotel sequence of Counter Attack.
+UI / UX
+Several hundred bugs. Killed dead.
+PRE-LOAD DETAILS
+If you haven’t already, remember to pre-load the latest updates and make sure you’ve got the required content packs installed so you can dive straight into MW4 on the 23rd.
+📢 Call of Duty: #MW4 | Call of Duty: #Warzone
+Pre-installation for Modern Warfare 4 will begin rolling out on Wednesday, October 14 at 9 PM PT. During setup, you can choose which content to download, including whether to install Warzone alongside Modern Warfare 4.
+The new version of Warzone will not be available until the launch of Season 1. Selecting Warzone before then will install the current live version of the game.
+On platforms that support automatic downloads, such as PS5, installation may begin without giving you the opportunity to choose which items to install. To review your installation options, disable automatic downloads before pre-installation begins.— Call of Duty Updates (@CODUpdates) October 13, 2026
+EVENTS & REWARDS
+We’re taking a new approach to Events in Modern Warfare 4. From launch throughout the live seasons, we’re focused on providing a variety of events including some all-new formats and returning favorites. Event rewards include Apex Attachments, Weapon Camos, Calling Cards, Operator Skins, and more.
+As we focus on delivering more compelling events, Weekly Challenges will not be available in Season 1. We want each Event to feel worth your time and effort unlocking new playable content and rewards.
+We’re also introducing reoccurring Events so that anyone who misses the chance to complete a full track can get another chance to earn that top reward. Additionally, you can earn camo rewards for completing multiple events. Our first Event kicks off right on launch day, and we’ll be keeping an eye on the feedback here for future seasons.
+LIVE ISSUES
+We are tracking live issues on our official Modern Warfare 4 Trello Board.
+Be sure to check-out @CODUpdates for game updates and critical news on known issues.
+We’ve recently rolled out a number of changes for DMZ including crash fixes, stability updates and more.
+LAUNCH DAY IS ALMOST HERE…
+Like we did throughout Beta, we’ll continue watching gameplay, reading your feedback, and making adjustments as Modern Warfare 4 gets into everyone’s hands. Follow us on socials to stay in touch: @InfinityWard, @CallofDuty.
+Thank you to everyone who played, tested, posted, streamed, shared feedback, and helped us get here.
+We’ll see you at launch.
+Back to Top
+Related Articles
+Legal
+Terms of Use
+Privacy Policy
+Careers
+Cookie Policy
+Support
+Code of Conduct
+©/TM/® 2026 Activision Publishing, Inc.
+Cookie Settings
+Choose your region
+Selected region -
+United States
+United States
+Selected region:
+United States
+Close Menu+
+United States
+简体中文
